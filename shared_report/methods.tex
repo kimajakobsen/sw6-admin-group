@@ -55,30 +55,30 @@ The following list shows the characteristics that will be used to determine the 
 \end{enumerate}
 We will use a development approach similar to Scrum of Scrums.
 The reason for this is three fold.
-First of all we have a diverse target group (point \ref{targetGroup}), that may make big up front analysis and design difficult.
+First of all we have a diverse target group (point \ref{enum:targetGroup}), that may make big up front analysis and design difficult.
 This leads us to choose an agile method due to ``I know it when I see it'' (IKIWISI).
 
-Secondly we are 14 group members divided into four groups (as point \ref{groupSize} states) which is not handled very well in other agile methods such as XP, which dictates that all the developers should be in the same room. 
-This is not the case for us as point \ref{room} states.
+Secondly we are 14 group members divided into four groups (as point \ref{enum:groupSize} states) which is not handled very well in other agile methods such as XP, which dictates that all the developers should be in the same room. 
+This is not the case for us as point \ref{enum:room} states.
 
-The third reason is that we have a hard deadline (point \ref{deadline}), which means that we have to hand in our project at a specific date.
+The third reason is that we have a hard deadline (point \ref{enum:deadline}), which means that we have to hand in our project at a specific date.
 Scrum of Scrums suggests that iterations (sprints) are time-boxed, which is ideal for us since we can cut less important features instead of missing the deadline.
-This is also supported by point \ref{passed}, because the end product is a working release although some features may have been cut.
+This is also supported by point \ref{enum:passed}, because the end product is a working release although some features may have been cut.
 The features cut may then be suggested to the group which is to take up this project next year.
 
 
 \subsubsection{Refining SCRUM}
-As point \ref{manager} and \ref{onsite} states, we have neither a project manager nor an available on-site customer.
+As point \ref{enum:manager} and \ref{enum:onsite} states, we have neither a project manager nor an available on-site customer.
 We will handle the missing on-site customer by having shorter iterations and contacting the customers whenever an iteration is over.
 Scrum of Scrums dictates that there should be a Scrum master in each subgroup.
 Since none of us has used Scrum before, none of us are qualified to be Scrum master/project manager.
-We are in an educational situation (see point \ref{education}) so we will strive to allow every member to try to be Scrum master for a shorter time period.
+We are in an educational situation (see point \ref{enum:education}) so we will strive to allow every member to try to be Scrum master for a shorter time period.
 This may not be ideal, but we consider it to be more important that every member of the subgroups tries to have the responsibility of a Scrum master than having only one member trying it and learning it well.
 
 \subsection{Tools}
 A series of tools are used in creation of this project.
 These tools are briefly described in this section.
-The tools that needs to be chosen must indeed complete some task, the tasks that needs a tool are: Version control, bugtracking, code documentation, and testing harness.
+The tools that needs to be chosen must indeed complete some task, the tasks that needs a tool are: Version control, bugtracking, code documentation, and testing.
 
 \subsubsection{Version Control}
 All of us have been using subversion (SVN) in previous projects as the version controlling system.
@@ -107,9 +107,11 @@ The difference between the two tools is that PHPDocumentor focus on giving a mor
 We use both tools such that we and the group that is to take up this project next year can choose the documentation they prefer.
 
 
-\subsubsection{Testing Harness}
-phpunit/simpletest
-
+\subsubsection{Testing}
+The test tool that we want to use should be easily adapted by us, which leads us to look at tools using PHP, since that is the language we will be using to develop this project.
+We also want the tests to survive after our work on the project ends, in particular the groups that is to take up this project next year should be able to use our test cases again.
+We will be using the build in testing framework of Moodle \cite{moodletest}, which is based on SimpleTest \cite{simpletest}.
+This should ensure that the test cases can be used next year as well and perhaps be part of the final product, should it ever be realeased to the public.
 
 
 
