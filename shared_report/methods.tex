@@ -20,17 +20,18 @@ These are presented shortly in the following.
 
 \paragraph{Extreme Programming}
 Extreme Programming (XP) is an agile development method that consists of a series of 12 recommended core practices \cite[p.~137]{Larman04}.
-These include but are not limited to: Frequent refactoring, pair programming, and  whole team together.
+These include but are not limited to: Frequent refactoring, pair programming, and the whole team being together in one room.
 The core of XP is to find every practice that is considered good and taking it to the extreme, e.g. since code reviews are good, do them all the time through pair programming.
 Kent Beck, the creator of XP, states that in general all the practices of XP should be applied because they compensate and support each other \cite[p.~156-157]{Larman04}.
 
 When using XP, the development is to progress in iterations of one to three weeks each.
-An iteration should not be planned until right before the start of it, where the onsite customer should help prioritize which features should be implemented in the given iteration and the programmers estimate the time to implement them.
+An iteration should not be planned until right before the start of it.
+At the start of it the onsite customer should help prioritize which features should be implemented in the given iteration and the programmers estimate the time to implement them.
 This process is called ``Iteration planning game''.
 
 There are roles assigned to different people involved in the project \cite[p.~145]{Larman04}.
 These roles are: Customer, programmer, tester, coach, tracker, consultant.
-All these roles are important, but Larman stresses the need for an onsite customer or at least an onsite customer proxies \cite[p.~152-156]{Larman04}.
+All these roles are important, but Larman stresses the need for an onsite customer or at least an onsite customer proxy \cite[p.~152-156]{Larman04}.
 
 \paragraph{Scrum}
 Scrum is an agile development method that utilizes a number of iterations of development cycles.
@@ -40,11 +41,12 @@ A sprint backlog is created prior to the sprint.
 This backlog consists of the features, ordered by priority, that should be implemented during the sprint.
 During the sprint the sprint backlog cannot be changed.
 If all the features in the sprint backlog are not implemented during the sprint they are moved to the product backlog, which is a list of the features that should be implemented in the future.
+
 In scrum there are different roles. 
 There should be a product owner, whose task is to meet the costumer's and end users' interests. 
 These interests should be formalized and prioritized in the product backlog.
-There should also be a scrum master. 
-A scrum master should serve as a link between the development team and any external individuals.
+There is also a scrum master. 
+A scrum master serves as a link between the development team and any external individuals.
 It is the scrum master's task to ensure that the development team is not disturbed.
 The development team is usually small, and their task is to design, analysis, and implement the features from the backlogs.
 Every day the scrum team holds a short meeting where they say what they have done since the preceding meeting, what they plan on doing the present day, and any problems they are having.
@@ -76,7 +78,7 @@ The following list shows the characteristics of this project that will be used t
 We will use a development approach similar to Scrum of Scrums.
 The reason for this is three fold.
 First of all we have a diverse target group (point \ref{enum:targetGroup}), that may make a big up front analysis and design difficult.
-This leads us to choose an agile method due to ``I know it when I see it'' (IKIWISI).
+This leads us to choose an agile method due to ``I know it when I see it'' (IKIWISI), that is the customer does not know what she wants before she sees it.
 
 Secondly we are 14 group members divided into four groups (as point \ref{enum:groupSize} states) which is not handled very well in other agile methods such as XP, which dictates that all the developers should be in the same room. 
 This is not the case for us as point \ref{enum:room} states.
@@ -128,15 +130,18 @@ We need to have some way of communicating and tracking the defects or ``bugs'' t
 The must important requirement for the tool we will use is that it should be able to track the bugs and make them easily available to the team that will continue on this project next year.
 The tools that we are considering to use for bug tracking are Bugzilla \cite{bugzillaFeat} and Eventum \cite{eventumFeat}.
 These tools are very similar in their sets of features.
+When a bug is discovered a bug report must be added in the tool.
+In the tools the members of a team can see the bugs and their status, and mark them as fixed when they are handled.
 Since we have used Bugzilla as part of the course Test and Verification, it will save us the overhead of having to learn a new tool by select that over Eventum.
 Furthermore, development of Eventum seem to be discontinued since the start of 2009 \cite{eventumDiscont}, which means that any defects that may be in the system are very unlikely to be fixed.
 In conclusion we choose to use Bugzilla to track our bugs.
 
 \subsubsection{Code Documentation}
-We want our documentation of our code to be as close to the code as possible.
-In particular we do not want to go back and forth between the source code and some other program when we are writing new functionality and documenting it.
-We want to use a tool like PHPDocumentor \cite{phpdocumentor} or PHPXref \cite{phpxref} to handle our documentation, since both of these reads comments in the source code and use it as documentation.
-This gives us the ability to write code and documentation in the same file, which is what we want.
+%We want our documentation of our code to be as close to the code as possible.
+%In particular we do not want to go back and forth between the source code and some other program when we are writing new functionality and documenting it.
+We do not wish to use a tool that requires us to type in documentation externally from the code.
+Therefore we want to use a tool like PHPDocumentor \cite{phpdocumentor} or PHPXref \cite{phpxref} to handle our documentation, since both of these reads comments in the source code and use it as documentation.
+This gives us the ability to write code and documentation in the same file.
 The syntax that both of these tools use is the same, which means that as long as we adhere to this syntax we can use either tool to generate documentation.
 
 The difference between the two tools is that PHPDocumentor focus on giving a more diverse set of final documents (different HTML and PDF templates), where PHPXref focus more on the reference between classes, function, etc.
