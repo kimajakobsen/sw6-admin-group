@@ -1,0 +1,48 @@
+\input{preamble}
+
+\begin{document}
+	%\listoffixmes
+	%Frontpage
+	\begin{titlepage}
+	\begin{textblock*}{297mm}(0mm,0mm)
+		 \hspace{-6.5mm}
+		 %\includegraphics{images/forside.pdf}
+
+		
+
+	\end{textblock*}
+	\thispagestyle{empty}
+	\pagenumbering{Roman}
+
+\ \pagebreak{} 
+	\end{titlepage}
+\ \thispagestyle{empty} \ \pagebreak{}
+
+\input{input/titelblad.tex}
+
+%Table of Content
+\tableofcontents
+%\listoffigures
+%\lstlistoflistings
+\cleardoublepage
+	\input{input/preface}
+\newpage
+\thispagestyle{empty}
+\begin{titlepage}
+\pagenumbering{arabic}
+\end{titlepage}
+	
+	\input{../shared_report/introduction.tex}
+	
+	
+	%Bibliography
+	\cleardoublepage
+\addcontentsline{toc}{chapter}{\numberline{}Bibliography}
+\label{chap:bib}
+\bibliography{bib,../shared_report/bib}
+\listoffigures
+\lstlistoflistings
+
+\appendix	
+	%\input{input/appendix.tex}
+\end{document}
