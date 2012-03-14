@@ -1,6 +1,6 @@
 \section{Methods}
 In this section we describe the development methods and the tools which are considered to be used in this project.
-A choice is given in both of these areas along with a reasoning for the choice.
+A choice is given in both of these areas along with a reasoning for the choices.
 
 \subsection{Development Method}
 In this project we are four groups working together.
@@ -24,14 +24,14 @@ These include but are not limited to: Frequent refactoring, pair programming, an
 The core of XP is to find every practice that is considered good and taking it to the extreme, e.g. since code reviews are good, do them all the time through pair programming.
 Kent Beck, the creator of XP, states that in general all the practices of XP should be applied because they compensate and support each other \cite[p.~156-157]{Larman04}.
 
+There are roles assigned to different people involved in the project \cite[p.~145]{Larman04}.
+These roles are: Customer, programmer, tester, coach, tracker, consultant.
+All these roles are important, but Larman stresses the need for an onsite customer or at least an onsite customer proxy \cite[p.~152-156]{Larman04}.
+
 When using XP, the development is to progress in iterations of one to three weeks each.
 An iteration should not be planned until right before the start of it.
 At the start of it the onsite customer should help prioritize which features should be implemented in the given iteration and the programmers estimate the time to implement them.
 This process is called ``Iteration planning game''.
-
-There are roles assigned to different people involved in the project \cite[p.~145]{Larman04}.
-These roles are: Customer, programmer, tester, coach, tracker, consultant.
-All these roles are important, but Larman stresses the need for an onsite customer or at least an onsite customer proxy \cite[p.~152-156]{Larman04}.
 
 \paragraph{Scrum}
 Scrum is an agile development method that utilizes a number of iterations of development cycles.
@@ -51,21 +51,27 @@ It is the scrum master's task to ensure that the development team is not disturb
 The development team is usually small, and their task is to design, analysis, and implement the features from the backlogs.
 Every day the scrum team holds a short meeting where they say what they have done since the preceding meeting, what they plan on doing the present day, and any problems they are having.
 
-A variant of Scrum for more teams is called Scrum of Scrums or Large Scrum, where there are one complete team consisting of several smaller sub-teams, that will hold Scrum of Scrum meetings during each sprint to synchronize their work.
+A variant of Scrum for more teams is called Scrum of Scrums or Large Scrum.
+In such a project there is one complete team consisting of several smaller sub-teams, that will hold Scrum of Scrum meetings during each sprint to synchronize their work.
+The Scrum of Scrum meeting is similar to the daily Scrum meeting with a representative from each sub-team, except that they talk about what the sub-teams has done and should do instead of what individuals have done or should do.
 
 \paragraph{Waterfall}
 A project following the Waterfall method is divided into a number of phases.
 The number of phases in a Waterfall development process is not exact.
-Depending on the person asked more or less phases may be suggested e.g. Marry Poppendieck is refering to six phases \cite{Poppendieck00}.
+Depending on the person asked more or less phases may be suggested e.g. Marry Poppendieck is refering to six phases; software concept, requirements analysis, architectural design, detailed design, coding and debugging, and system test \cite{Poppendieck00}.
 Waterfall is strictly traditional, since it in its pure form does not allow to move ``backwards'' in the life cycle.
 Where backwards refer to moving back into a phase once the phase has been completed.
 This suggests a big and heavy up front design plan that is to be followed when finished.
+
+Waterfall is by the method requiring the most documentation, of the methods presented here.
+To complete a phase some document must be created to be used in the following phases.
+These document can vary from an architectural design document to actual working code.
 
 \subsection{Choosing a Development Method}
 The following list shows the characteristics of this project that will be used to determine the development method which should be used.
 \begin{enumerate}
 	\item 14 persons in four groups \label{enum:groupSize}
-	\item Diverse target group \label{enum:targetGroup}
+	\item Diverse target group (students, supervisors, and secretaries/administrative personnel) \label{enum:targetGroup}
 	\item No onsite costumer \label{enum:onsite}
 	\item Hard deadline \label{enum:deadline}
 	\item Pass on project \label{enum:passed}
@@ -122,7 +128,7 @@ This project does, however, differ from previous project with respect to the org
 This has lead us to choose a distributed solution rather than a centralized one.
 
 The solutions considered are the distributed systems Git and Mercurial (Hg).
-These systems are quite similar and the essential difference is that Hg is simpler than Git.
+These systems are quite similar and the essential difference is that Hg is simpler than Git and Git is more flexible than Hg \cite{gitVsHg}.
 A few of us have been using Hg and none of us have used Git, which leads us to choose Hg, such that we a little knowledge of the chosen system.
 
 \subsubsection{Bug Tracking}
@@ -132,6 +138,7 @@ The tools that we are considering to use for bug tracking are Bugzilla \cite{bug
 These tools are very similar in their sets of features.
 When a bug is discovered a bug report must be added in the tool.
 In the tools the members of a team can see the bugs and their status, and mark them as fixed when they are handled.
+
 Since we have used Bugzilla as part of the course Test and Verification, it will save us the overhead of having to learn a new tool by select that over Eventum.
 Furthermore, development of Eventum seem to be discontinued since the start of 2009 \cite{eventumDiscont}, which means that any defects that may be in the system are very unlikely to be fixed.
 In conclusion we choose to use Bugzilla to track our bugs.
