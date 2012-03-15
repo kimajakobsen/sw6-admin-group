@@ -1,0 +1,88 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[danish,english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\begin{document}
+    \newpage
+
+\section{Related work}
+We are not the first to undertake the task of implementing support for PBL and group-oriented work in a \textit{LMS} (Learning management system). 
+As Moodle is not the only LMS, it is relevant to examine other LMSs to gain an understanding of how they typically are structured. 
+Similarly they might provide some inspiration for developing a new system.
+The software that students from last year worked on, was of the same topic, and it is equally relevant to examine their results and extract keypoints.
+
+\subsection{Learning Management Systems}
+The systems that will be examined are SharePoint LMS, Litmos LMS, and the e-portfolio system Mahara.
+We will examine how they handle students, courses, and the concept of groups independent of courses, if it is supported.
+The objective is to gain an understanding of how an extension to Moodle could be structured in a logical way, and which tools might be relevant to include in the system.
+
+\subsubsection{SharePoint LMS} (Reference to \url{http://help.sharepointlms.com/v2/index.html?page=140} ; \url{http://www.elearningforce.com/products/Pages/SharePointLMS_Features.aspx})
+Sharepoint is a LMS based on the Microsoft SharePoint platform. 
+It includes the basic elements of a LMS such as courses and the possibility to group them into semesters, assessment tools such as quizzes and assignment hand-in, as well as a variety of options for customizing course pages.
+In short it has all the basic functionalities and options for customization one would expect a LMS to have.
+
+The interesting aspect of SharePoint is how it accommodates group- and problem based learning. 
+SharePoint has a feature known as group sub sites, which can be created on a course page.
+Within the sub group several functionalities can be enabled, such as a chat, an internal mail, a calendar, and an online conference tool for meetings.
+If Sharepoint were to be used for group-based PBL, it would be using these group sub-sites.
+The group sub-sites has a lot of the functionality one would expect to use when working in a group-based PBL environment.
+The issue is that projects and groups do not exist as a separate entity in the system, and have to be created as courses, which is a problem on the organizational level.
+
+In conclusion SharePoint supports a lot of the functionalities desired for problem based group work, but does not contain groups as an independent entity.
+
+\subsubsection{Litmos LMS} (Reference to \url{http://elearninfo247.com/product-reviews/litmos-lms-top-5-pick/})
+Litmos LMS is a Lite LMS.
+A Lite LMS is a lightweight version of a LMS, meaning it contains less functionality and features than a ``standard'' LMS, and lesser, if any, support for add-ons.
+The consequence of Litmos being a Lite LMS is that besides courses and the normally associated features the system does not provide much else in terms teaching.
+
+What makes Litmos LMS interesting is that it supports groups as an independent entity.
+It is possible to create teams, as they are called, and even within teams to create sub-groups of the teams.
+As it is possible to assign teams to courses, this makes administration of the students in a PBL environment easy, as the students on a semester would be grouped into a team which is then assigned to the appropriate courses.
+The team would then be divided into sub-groups representing the individual project, and as there is an integrated mailing system and Skype is integrated the students within a group can easily use Litmos LMS as a communication tool. 
+
+Litmos LMS therefore provides a logical structure of students in a PBL environment, however as the system is not designed specifically for PBL it still lacks some features you would normally desire, such as a shared calendar in the teams, and as it is a Lite LMS it lacks some of the organizational tools that might be desirable.
+
+\subsubsection{Mahara}
+Mahara is not a LMS, however it is represented as a possible tool for project management to some students at AAU.
+It can be networked together with Moodle, and from Moodle 1.9 and onward single sign-on can be implemented between the two system.
+That means a user who signs onto Moodle can access his portfolio on Mahara through Moodle without additional login information being required.
+
+Mahara provides functionality to upload and store both finished and unfinished items, and the finished items can be put into a virtual portfolio, which can then be shared with others.
+The aspect of Mahara relevant for PBL is its social networking feature, which allows users to maintain a list of friends, and create groups.
+Within the groups a private forum can be set up. 
+It is also possible to share files within a group.
+Mahara aims to be an online portal where students can share their work and be a member of communities within their area of interest.
+It does not, however, come with a built-in calendar, which makes planning of projects an issue when just using Mahara.
+
+Overall while Mahara does provide a good platform for communication within project groups, but it lacks support for planning and coordinating the projects.
+
+\subsection{Previous work}
+The work done on last yearss 6th semester will be examined with a focus on the method used and the requirements for developed the system. 
+The examined reports are: AAU E-Learning, E-LMS (1), E-Learning Management System - Implementing Customisable Schedules, and E-LMS (2).
+
+\subsubsection{Developement Method}
+The development method used by the groups were decided within each individual project group -- therefore no common method was employed in the multi-project.
+The groups' collaboration was a meeting at least every second week with a representative from each group present, during which each group presented their progress since the last meeting.
+Every month there would	e.g. be a meeting where all the students and the supervisors were present and the current status of the system was presented.
+Their experience with this approach was that it was very difficult to coordinate the implementation of the system, as every group used their own development method. 
+One group used a traditional approach, while others used a more agile approach.
+This caused problems as the agile groups would want to do an integration, but since the traditional group had only just finished their complete design they were unable to.
+
+Based on their experience with this development approach, it would be a better approach to agree on one development method between the groups, and where groups wishing to test a particular part of their system can request another group to implement it as quickly as possible.
+The idea of having at least bi-weekly meetings seems good, but the development method should be modified so the meetings are not just status meeting, but are used for e.g. coordinating the implementation.
+Having more frequents meetings is also a good idea, as having a common development method will make coordination more possible and relevant.
+
+%\subsubsection{System analysis}
+%The system developed last semester was an E-Learning system build from scratch. Therefore a lot of the focus was on administration and teaching in general. The system developed in %this project is an extension to Moodle which already has this functionality. Therefore most of the analysis part of these reports in irrelevant to this project. 
+
+\subsection{Summary}
+None of the examined LMSs provide complete support for group oriented work.
+However they do provide a variety of functionalities, that if combined would provide the functionalities one would expect a PBL E-Learning system would support.
+The group structure found in Litmos could easily be combined with the features found in SharePoint to create a portal where students could organize their group work.
+The functionalities typically provided in LMSs appear to be mostly forums, internal communication, and planning tools such as: An internal mail client, a shared calendar, and integrating tools such as Skype into the system.
+None of the examined systems consider the aspect of a supervisor a project group would have to communicate with.
+
+The reports from previous semesters clearly recommend the use of a shared development method, as otherwise coordination between the groups becomes too complicated. Similarly the different groups should actively try to coordinate and use each other instead of just working on their own and then communicate what they've achieved. 
+This could be achieved by asking other groups for specific features at meetings and not assume they will be done eventually.
+
+\end{document}
