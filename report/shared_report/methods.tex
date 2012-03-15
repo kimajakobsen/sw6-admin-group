@@ -80,11 +80,29 @@ The following list shows the characteristics of this project that will be used t
 	\item Not full-time development \label{enum:halftime}
 	\item No manager/Project owner \label{enum:manager}
 	\item No shared working room \label{enum:room}
+	\item Low criticality \label{enum:criticality}
 \end{enumerate}
+Barry Boehm and Richard Turn has identified five factors that can be used to determine whether to use a traditional or agile development method \cite{boehmTurner}.
+These factors are: Personnel, dynamism, size, culture, and criticality.
+In short, the personnel factor covers the composition of personnel based on the on the \textit{extended Cockburn method skill rating scale}, where people are diveded into five categories based on the methodological skills, namely levels -1, 1b, 1a, 2, and 3.
+Dynamism is the anticipated percentage of changes in requirements that will occur during the project.
+The size is simply the number of people in the development team.
+The culture factor is a scale of how much the team prefers chaos over order.
+Criticality is a scale of how much a system failure will influence the real world.
+This is based on the Cockburn Scale used to differentiate between Crystal methods.
+\input{shared_report/polarChart}
+
+A polar chart showing the factors for our project is seen in Figure~\ref{fig:developmentFactors}.
+As seen, must of the points are closer to the center than the periphery, this indicates that an agile method is preferred over a traditional one.
+
+The personnel score is positioned in the middle because we consider ourselves above level 1b, but none or very few of us qualify as level 2 or three.
+
+
 We will use a development approach similar to Scrum of Scrums.
 The reason for this is three fold.
 First of all we have a diverse target group (point \ref{enum:targetGroup}), that may make a big up front analysis and design difficult.
 This leads us to choose an agile method due to ``I know it when I see it'' (IKIWISI), that is the customer does not know what she wants before she sees it.
+This is also supported by the polar chart showing the development factors in Figure~\ref{fig:developmentFactors}
 
 Secondly we are 14 group members divided into four groups (as point \ref{enum:groupSize} states) which is not handled very well in other agile methods such as XP, which dictates that all the developers should be in the same room. 
 This is not the case for us as point \ref{enum:room} states.
