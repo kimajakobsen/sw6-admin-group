@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_1.dtd'><nta><declaration>// Place global declarations here.
+
+chan adultOn;
+chan childOn;
+broadcast chan allDisembark;
+broadcast chan offBoat[7];
+broadcast chan onBoat[7];
+int[0,1] boatL;
+//clock time;
+typedef int[0,6] personType;
+//{not a person, boy,dad,girl,mom,thief,police}
+const personType NOT_A_PERSON = 6;
+const personType BOY  = 0;
+const personType DAD  = 1;
+const personType GIRL  = 2;
+const personType MOM  = 3;
+const personType THIEF  = 4;
+const personType POLICE  = 5;
+
+const int SAIL_TIME = 1;
+
+personType left[8] = {0,0,1,2,2,3,4,5};
+personType right[8] = {NOT_A_PERSON,NOT_A_PERSON,NOT_A_PERSON,NOT_A_PERSON,NOT_A_PERSON,NOT_A_PERSON,NOT_A_PERSON,NOT_A_PERSON};
+personType boat[8] = {NOT_A_PERSON,NOT_A_PERSON,NOT_A_PERSON,NOT_A_PERSON,NOT_A_PERSON,NOT_A_PERSON,NOT_A_PERSON,NOT_A_PERSON};
+
+
+int size(personType people[8])
+{
+	int count = 8;
+	int i;
+	for(i = 0 ; i &lt; 8 ; i++)
+	{
+		if(people[i] == NOT_A_PERSON)
+		{
+			count--;
+		}
+	}
+	return count;
+}
+
+int contains(personType people[8], personType value)
+{
+	int count = 0;
+	int i;
+	for(i = 0 ; i &lt; 8 ; i++)
+	{
+		if(people[i] == value)
+		{
+			count++;
+		}
+	}
+	
+	return count;
+}
+
+bool parentConstraintViolated(personType people[8], personType parent, personType child)
+{
+	int size = size(people);
+	if(size &gt; 3 || size == 1)
+	{
+		return false;
+	}
+
+	if(contains(people,parent)) 
+	{
+		int children = contains(people,child);
+		if(children + 1 == size)
+		{
+			return true;
+		}
+	}
+
+	return false;
+}
+
+bool momConstraintViolated(personType people[8])
+{
+	return parentConstraintViolated(people,MOM,BOY);
+}
+
+bool dadConstraintViolated(personType people[8])
+{
+	return parentConstraintViolated(people,DAD,GIRL);
+}
+
+bool thiefConstraintViolated(personType people[8])
+{
+	int size = size(people);
+	if(size == 1)
+	{
+		return false;
+	}
+	
+	if(contains(people,THIEF)) 
+	{
+		if(not contains(people,POLICE)) 
+		{
+			return true;
+		}
+	}
+	return false;
+}
+
+bool verifyGroup(personType people[8])
+{
+	//Mom constraint
+ 	if(momConstraintViolated(people))
+	{
+		return false;
+	}
+ 	if(dadConstraintViolated(people))
+	{
+		return false;
+	}
+ 	if(thiefConstraintViolated(people))
+	{
+		return false;
+	}
+	return true;
+}
+
+bool verify()
+{
+	return verifyGroup(left) &amp;&amp; verifyGroup(right) &amp;&amp; verifyGroup(boat);
+}
+
+
+
+
+
+
+
+</declaration><template><name x="5" y="5">Boat</name><declaration>// Place local declarations here.
+
+clock x;
+</declaration><location id="id0" x="-208" y="112"><urgent/></location><location id="id1" x="-208" y="-88"><name x="-218" y="-118">still</name></location><location id="id2" x="128" y="112"><name x="152" y="104">sailing</name><label kind="invariant" x="118" y="127">x &lt;= SAIL_TIME</label></location><location id="id3" x="312" y="8"><urgent/></location><location id="id4" x="128" y="-96"><urgent/></location><init ref="id1"/><transition><source ref="id0"/><target ref="id1"/><label kind="guard" x="-264" y="40">verify()</label></transition><transition><source ref="id1"/><target ref="id4"/><label kind="synchronisation" x="-80" y="-80">adultOn?</label></transition><transition><source ref="id2"/><target ref="id0"/><label kind="guard" x="-24" y="120">x == SAIL_TIME</label><label kind="synchronisation" x="-80" y="80">allDisembark!</label><label kind="assignment" x="-184" y="120">boatL := 1-boatL,
+x = 0</label></transition><transition><source ref="id3"/><target ref="id2"/><label kind="guard" x="272" y="40">verify()</label><label kind="assignment" x="208" y="64">x = 0</label></transition><transition><source ref="id4"/><target ref="id2"/><label kind="guard" x="72" y="-48">verify()</label><label kind="assignment" x="88" y="-8">x = 0</label></transition><transition><source ref="id4"/><target ref="id3"/><label kind="synchronisation" x="296" y="-120">adultOn?</label><nail x="312" y="-96"/></transition><transition><source ref="id4"/><target ref="id3"/><label kind="synchronisation" x="208" y="-72">childOn?</label></transition></template><template><name>Person</name><parameter>chan &amp;on, personType type</parameter><declaration>int[0,1] L;</declaration><location id="id5" x="-544" y="32"><committed/></location><location id="id6" x="-536" y="-168"><committed/></location><location id="id7" x="-432" y="-80"><name x="-442" y="-110">onboat</name></location><location id="id8" x="-656" y="-80"><name x="-696" y="-96">still</name></location><init ref="id8"/><transition><source ref="id5"/><target ref="id8"/><label kind="synchronisation" x="-680" y="-16">offBoat[type]!</label></transition><transition><source ref="id8"/><target ref="id6"/><label kind="guard" x="-680" y="-136">L == boatL</label><label kind="synchronisation" x="-600" y="-160">on!</label></transition><transition><source ref="id6"/><target ref="id7"/><label kind="synchronisation" x="-488" y="-152">onBoat[type]!</label></transition><transition><source ref="id7"/><target ref="id5"/><label kind="synchronisation" x="-456" y="-40">allDisembark?</label><label kind="assignment" x="-496" y="0">L:= 1- L</label></transition></template><template><name>Observer</name><declaration>
+
+void add(personType &amp;people[8], personType elem)
+{
+	int i;
+	for(i = 0 ; i &lt; 8 ; i++)
+	{
+		if(people[i] == NOT_A_PERSON)
+		{
+			people[i] = elem;
+			return;
+		}
+	}
+	return;
+}
+
+void remove(personType &amp;people[8], personType elem)
+{
+	int i;
+	for(i = 0 ; i &lt; 8 ; i++)
+	{
+		if(people[i] == elem)
+		{
+			people[i] = NOT_A_PERSON;
+			return;
+		}
+	}
+	return;
+}
+
+void updateOn(personType person)
+{
+	if(boatL == 0) // Left side
+	{
+		remove(left,person);
+		add(boat,person);
+	}
+	else // Right
+	{
+		remove(right,person);
+		add(boat,person);
+	}
+}
+
+void updateOff(personType person)
+{
+	if(boatL == 0) // Left side
+	{
+		remove(boat,person);
+		add(left,person);
+	}
+	else // Right
+	{
+		remove(boat,person);
+		add(left,person);
+	}
+}</declaration><location id="id9" x="-288" y="0"></location><init ref="id9"/><transition><source ref="id9"/><target ref="id9"/><label kind="select" x="-232" y="64">e : personType</label><label kind="synchronisation" x="-176" y="-8">offBoat[e]?</label><label kind="assignment" x="-248" y="-88">updateOff(e)</label><nail x="-184" y="48"/><nail x="-184" y="-64"/></transition><transition><source ref="id9"/><target ref="id9"/><label kind="select" x="-448" y="-88">e : personType</label><label kind="synchronisation" x="-464" y="-16">onBoat[e]?</label><label kind="assignment" x="-424" y="56">updateOn(e)</label><nail x="-392" y="-64"/><nail x="-392" y="48"/></transition></template><system>// Place template instantiations here.
+
+Dad = Person(adultOn,1);
+Mom = Person(adultOn,3);
+Police = Person(adultOn,5);
+
+Boy1 = Person(childOn,0);
+Boy2 = Person(childOn,0);
+Girl1 = Person(childOn,2);
+Girl2 = Person(childOn,2);
+Thief = Person(childOn,4);
+
+// List one or more processes to be composed into a system.
+
+
+system Boat,Dad,Mom,Police,Boy1,Boy2,Girl1,Girl2,Thief,Observer;</system></nta>
