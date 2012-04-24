@@ -1,4 +1,9 @@
-//This file was generated from (Academic) UPPAAL 4.0.13 (rev. 4577), September 2010
+//This file was generated from (Academic) UPPAAL 4.1.9 (rev. 5027), March 2012
+
+/*
+
+*/
+Pr[ <= 300](<> right[0] == BOY and right[1] == NOT_A_PERSON)
 
 /*
 
