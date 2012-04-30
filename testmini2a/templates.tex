@@ -100,7 +100,7 @@ The purpose of the observer is to keep track of where the different persons are 
 \end{itemize}
 
 On figure \ref{fig:observer} the model of the observer is displayed. There exist one instant of observer, when a person broadcasts onBoat or offBoat the observer listen and relatively run the function updateOn or updateOff. 
-The updateOn and updateOff functions recives a personType as input. updateOn removes the personType from the relevant array.
+The updateOn and updateOff functions receives a personType as input. updateOn removes the personType from the relevant array.
 updateOff adds the given personType from the relevant array.
 This implies that we do not distinguish between the different person but only requirer that they are of a given type.
 The implementation of this gives rise to state space explosion, e.g. a boy and the man is located on the left shore, the array containing this information can either be \{boy,man\} or \{man,boy\} which of course is equivalent but UPPAAL regards this as two different states.
