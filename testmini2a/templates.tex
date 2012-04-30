@@ -44,12 +44,7 @@ After the disembarkment the sail time is reset to the maximum sailtime and the p
 
 
 
-\section{Person}
-\begin{figure}%
-\includegraphics[width=\columnwidth]{pictures/person.png}%
-\caption{The timed automata for a person}%
-\label{fig:person}%
-\end{figure}
+\subsection{Person}
 The person model encapsulate a single person.
 When instantiated it takes three arguments.
 These arguments determines which type of person is being instantiated and how it should interact with the rest of the system.
@@ -58,13 +53,25 @@ The channel argument is used to signal that the given instance gets on the boat.
 The person type indicates what kind of person is being instantiated, e.g. a boy.
 The sail time is only applicable to the mom, dad, and police officer.
 It is part of the 2nd task, which is to add temporal constraints and have each of the adults cross the river with different speeds.
+\begin{figure}%
+\includegraphics[width=\columnwidth]{pictures/person.png}%
+\caption{The timed automata for a person}%
+\label{fig:person}%
+\end{figure}
 
 The timed automata of a person seen in Figure \ref{fig:person} shows four circular connected locations.
 The two locations OnBoat and OnLand indicate the current position of the person.
 These names should be self-explanatory.
+The local variable L is used to indicate which side of the river the person is on.
+0 is left and 1 is right.
+This variable is used to check that a person instance can only embark when it is on the same side as the boat.
+L is update when a person as crossed the river and enters the location OnLand again.
+
 The locations ToBoat and ToLand are intermediate states.
 These are needed because there is a handshake with the boat and a broadcast to the observer whenever a person embarks or disembarks.
-When a person 
+When a person embarks the reader can think of it as the person first jumps on the boat (taking the edge from OnLand to ToBoat) and immediately afterward reports to the observer (taking the edge from ToBoat to OnBoat).
+Similarly when a person instance disembark it starts out by leaving the boat (or rather being forced to leave, since it is the boat that does the output on the allDisembark channel) and then reports to the observer.
+
 
 
 
