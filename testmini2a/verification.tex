@@ -1,0 +1,14 @@
+\section{Verification}
+To verify that there is a trace leading to a state where all persons are on the right side we use the following statement:
+
+E$<>$ Boy1.L == 1 \&\& Boy2.L == 1 \&\& Girl1.L == 1 \&\& Girl2.L == 1 \&\& Dad.L == 1 \&\& Mom.L == 1 \&\& Police.L == 1 \&\& Thief.L == 1
+
+The statement says that there exist a path where the property holds at some point, which is exactly what we want. 
+To find the shortest trace we use breadth-first search and with the diagnostic trace set to shortest. 
+
+If more people are added to system the statement simply has to be expanded with more conjunctions. 
+
+To verify that the system never deadlocks we use the statement:
+$A[] !deadlock$ which fails. 
+One known place of a deadlock is if verify fails in some edges the system cannot go anywhere else and there it is said to be deadlocked. 
+This does not matter since it is not a requirement that the system must be deadlock free. 
