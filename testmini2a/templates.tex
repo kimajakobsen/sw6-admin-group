@@ -20,7 +20,7 @@ Two edges to the TwoPerson location where either a child or an adult embarks.
 The adultOn edge is similar to the first edge described. 
 The childOn edge does not need to synchronize a sail time since the children does not handle the boat. 
 From both the TowPerson and the OnePerson location an edge to the Sailing location is possible. 
-Here a guard calls the function verify, which is described in \ref{}. 
+Here a guard calls the function verify, which is described in figure\ref{fig:boat}. 
 The Sailing location has an invariant that makes sure it stays in the location for at least the time it takes for the person to sail across. 
 The only possible edge from the Sailing location is to the Arrived location. 
 This edge has a guard to make sure that the boat arrives when it has stayed in the Sailing location in a period equivalent to the sail\_time. 
@@ -30,7 +30,7 @@ After the disembarkment the sail\_time is reset to the maximum sail time and the
 \begin{figure}%
 \includegraphics[width=\columnwidth]{pictures/boat.png}%
 \caption{The boat template}%
-\label{}%
+\label{fig:boat}%
 \end{figure}
 
 
