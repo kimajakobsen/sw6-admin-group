@@ -236,7 +236,6 @@ void updateOff(personType person)
 		add(right,person);
 	}
 }</declaration><location id="id9" x="-288" y="0"><name x="-312" y="-40">Ready</name></location><init ref="id9"/><transition><source ref="id9"/><target ref="id9"/><label kind="select" x="-232" y="64">e : personType</label><label kind="synchronisation" x="-176" y="-8">offBoat[e]?</label><label kind="assignment" x="-248" y="-88">updateOff(e)</label><nail x="-184" y="48"/><nail x="-184" y="-64"/></transition><transition><source ref="id9"/><target ref="id9"/><label kind="select" x="-448" y="-88">e : personType</label><label kind="synchronisation" x="-464" y="-16">onBoat[e]?</label><label kind="assignment" x="-424" y="56">updateOn(e)</label><nail x="-392" y="-64"/><nail x="-392" y="48"/></transition></template><system>// Place template instantiations here.
-int i;
 
 Dad = Person(adultOn,1,10);
 Mom = Person(adultOn,3,20);
