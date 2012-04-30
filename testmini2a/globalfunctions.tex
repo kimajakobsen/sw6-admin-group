@@ -1,0 +1,22 @@
+\section{Global Functions}
+This section describes the important global functions that we have created and used in the verification of the system.
+
+\subsection{parentConstraintViolated}
+This function checks if the parent constraint is violated. 
+The parent constraint is that the father cannot be alone with the girls, and that the mother cannot be alone with the boys.
+It takes a group of people and a person type for a parent and a child.
+If the constraint is violated the function returns true, if not it returns false.
+
+\subsection{thiefConstraintViolated}
+As the above function this one returns true if the constraint is violated and false if it is not.
+The constraint states that the thief cannot be alone with the family.
+This constraint can be specified as that there may not be anyone with the thief if there is not a police officer with the thief.
+
+\subsection{verifyGroup}
+verifyGroups checks if a group of people adheres to the constraints defined in the two above functions, namely the parent constraint for both the mother and the father and the thief constraint.
+If any of these constraints are violated the function returns false.
+If none of the constraints are violated the function returns true.
+
+\subsection{verify}
+verify uses the function verifyGroup on three groups of people; the group of people on the left and right sides of the river as well as the group of people on the boat.
+If all these groups are verified, the function returns true -- otherwise it returns false.
