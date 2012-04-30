@@ -23,7 +23,7 @@ The Sailing location has an invariant that makes sure it stays in the location f
 The only possible edge from the Sailing location is to the Arrived location. 
 This edge has a guard to make sure that the boat arrives when it has stayed in the Sailing location in a period equivalent to the sail\_time. 
 The edge broadcasts on allDisembark, which makes all persons on the boat disembark. 
-The local variable boatL is fliped to note that the boat has changed site. 
+The local variable boatL changes boolean value to note that the boat has changed side. 
 After the disembarkment the sail\_time is reset to the maximum sail time and the position of the persons is verified using the verify function. 
 \begin{figure}%
 \includegraphics[width=\columnwidth]{pictures/boat.png}%
