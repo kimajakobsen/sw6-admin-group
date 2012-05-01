@@ -1,7 +1,7 @@
 
 \section{The Moodle Platform}
 \label{sec:moodleplatform}
-	General about the platform
+	General about the platform. Tjek the initial analysis
 
 
 
@@ -17,17 +17,20 @@
 
 
 \subsection{Groups}
-Moodle has a concept of groups and groupings. Groups can contain users and groupings can contain groups. The database scheme of groups and grouping can be seen on~\figref{fig:moodlegroupsandgroupings}
+Moodle has an inbuilt concept of groups and groupings. 
+Groups can contain users and groupings can contain groups. 
+The database scheme of groups and grouping can be seen on~\figref{fig:moodlegroupsandgroupings}.
 
 \begin{figure}
 	\centering
 		\includegraphics[width=\textwidth]{images/moodlegroups}
 	\label{fig:moodlegroupsandgroupings}
-	\morscaption{The database scheme for groups and groupings. Non primary key and non foreign keys data fields is omitted for brevity  
+	\morscaption{The database scheme for groups and groupings. Non primary key and non foreign keys data fields is omitted for brevity}  
 \end{figure}
 
-
-
+This structure supports that users can be in groups and that more groups can be grouped together in one grouping. 
+One group can be a part of several groupings and an user can be a member of several groups. 
+The foreign key from groups to course and the foreign key from grouping to course indicates a tight connection between groups and courses. 
 
 \subsection{Plugin}
 	General about plugins: there are lots o them 
