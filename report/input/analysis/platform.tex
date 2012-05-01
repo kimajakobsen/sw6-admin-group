@@ -53,14 +53,20 @@
 
 
 \subsection{Framework}
-	Something about forms, pages, filtering and possible more.
+
+  Moodle includes various APIs \cite{moodlecoreapis}, which aids the developer in the process of creating application. Some of the APIs are:
 	
-	
-	
+	\begin{itemize}
+		\item Data Manipulation API \cite{moodledml}. Used for all data access and is described further in \secref{sec:moodleoplatformdbml}
+		\item Form API \cite{moodleformapi} for rendering HTML form objects and handle the validation of the data send through the form. 
+		\item Output API \cite{moodleoutputapi} for general HTML rendering.
+		\item Page API \cite{moodlepageapi} for setup of a standalone page including methods for adding javascript and configuring display options. 
+		\item Access API \cite{moodleaccessapi} for controlling access leves of users throughout the Moodle. 
+	\end{itemize}
 	
 	
 	\subsubsection{Database Layer}
-	
+	\label{sec:moodleoplatformdbml}
 	
 	
 	
@@ -77,14 +83,14 @@ The context systems hierarchical layout can be seen in figure \ref{fig:moodle-co
  
  \begin{figure}
 	 \centering
-		 %\includegraphics[width=\textwidth]{images/moodle-contexts.png}
+		 \includegraphics[width=\textwidth]{images/moodle-contexts.png}
 	 \label{fig:moodle-contexts}
 	\morscaption{The hierarchical context structure in moodle}
  \end{figure}
 
 The highest level of context is the system context which all inherit from. 
 
-Every page in moodle which is loaded directly through HTTP(S) must set the page context. 
+Every page in Moodle which is loaded directly through HTTP(S) must set the page context. 
 An example of how to set the context can be seen in code snippet \ref{courseviewcontextsnippet} from \moodlefile{/course/view.php}, which loads the default page of a Moodle course.
 
 \begin{lstlisting}[style=phpCode, caption=\myCaption{A snippet from \moodlefile{/course/view.php}}, label=courseviewcontextsnippet]
