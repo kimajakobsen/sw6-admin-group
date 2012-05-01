@@ -1,10 +1,9 @@
 
 \section{The Moodle Platform}
 \label{sec:moodleplatform}
-	General about the platform
-
-
-
+	General about the platform. Tjek the initial analysis
+Moodle uses innodb and mysql (in our case atleast) 
+PHP.
 
 
 
@@ -17,10 +16,20 @@
 
 
 \subsection{Groups}
-	What is groups and groupings and how is it related to courses. Can we use it?
+Moodle has an inbuilt concept of groups and groupings. 
+Groups can contain users and groupings can contain groups. 
+The database scheme of groups and grouping can be seen on~\figref{fig:moodlegroupsandgroupings}.
 
+\begin{figure}
+	\centering
+		\includegraphics[width=\textwidth]{images/moodlegroups}
+	\label{fig:moodlegroupsandgroupings}
+	\morscaption{The database scheme for groups and groupings. Non primary key and non foreign keys data fields is omitted for brevity}  
+\end{figure}
 
-
+This structure supports that users can be in groups and that more groups can be grouped together in one grouping. 
+One group can be a part of several groupings and an user can be a member of several groups. 
+The foreign key from groups to course and the foreign key from grouping to course indicates a tight connection between groups and courses. 
 
 \subsection{Plugin}
 	General about plugins: there are lots o them 
@@ -76,7 +85,7 @@
 	\subsubsection{Database Layer}
 	\label{sec:moodleoplatformdbml}
 	To access and manipulate data in Moodle the DML API is used.  The API is accessed through a global variable named \$DB. It has several method for update, insert, delete, and select. 
-	The basic method for select, insert, and update, namely get_record, update_record, and insert_record, take or retrieves an object of type StdClass\todo{Hvor  skal StdClass forklares?). This gives a unified procedure for manipulation data. A simple update procedure is seen in \coderef{moodlecodeupdate}.
+	The basic method for select, insert, and update, namely get\_record, update\_record, and insert\_record, take or retrieves an object of type StdClass\todo{Hvor  skal StdClass forklares?}. This gives a unified procedure for manipulation data. A simple update procedure is seen in \coderef{moodlecodeupdate}.
 	\begin{lstlisting}[style=phpCode, caption=\myCaption{Example of how to change the name of an user}, label=moodlecodeupdate]
 	function change_name($id, $new_name){
 		global $DB;
