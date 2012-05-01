@@ -5,10 +5,15 @@ E$<>$ Boy1.L == 1 \&\& Boy2.L == 1 \&\& Girl1.L == 1 \&\& Girl2.L == 1 \&\& Dad.
 
 The statement says that there exist a path where the property holds at some point, which is exactly what we want. 
 To find the shortest trace we use breadth-first search and with the diagnostic trace set to shortest. 
+The second task lead us to try to modify the system to have the adults (mom, dad, and police officer) to sail across the river at different speeds.
+The speeds that we have set are: Dad crosses in 10 time units, mom in 20, and the police officer in 5 time units.
 
 If more people are added to system the statement simply has to be expanded with more conjunctions. 
+When we add more children it takes (as expected) more time to cross the river.
+When an extra thief and police officer is added the time is dramatically reduced.
+This is due to the fact that a single police office can guard the thieves while the other crosses with everybody else and that police officers crosses the river much faster than the other adults.
 
 To verify that the system never deadlocks we use the statement:
 $A[] !deadlock$ which fails. 
-One known place of a deadlock is if verify fails in some edges the system cannot go anywhere else and there it is said to be deadlocked. 
+One known place of a deadlock is if the verify function fails in some edges the system cannot go anywhere else and there it is said to be deadlocked. 
 This does not matter since it is not a requirement that the system must be deadlock free. 
