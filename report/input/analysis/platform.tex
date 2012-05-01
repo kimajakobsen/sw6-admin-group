@@ -76,7 +76,7 @@
 	\subsubsection{Database Layer}
 	\label{sec:moodleoplatformdbml}
 	To access and manipulate data in Moodle the DML API is used.  The API is accessed through a global variable named \$DB. It has several method for update, insert, delete, and select. 
-	The basic method for select, insert, and update, namely get_record, update_record, and insert_record, take or retrieves an object of type StdClass\todo{Hvor  skal StdClass forklares?). This gives a unified procedure for manipulation data. A simple update procedure is seen in \coderef{moodlecodeupdate}.
+	The basic method for select, insert, and update, namely get\_record, update\_record, and insert\_record, take or retrieves an object of type StdClass\todo{Hvor  skal StdClass forklares?}. This gives a unified procedure for manipulation data. A simple update procedure is seen in \coderef{moodlecodeupdate}.
 	\begin{lstlisting}[style=phpCode, caption=\myCaption{Example of how to change the name of an user}, label=moodlecodeupdate]
 	function change_name($id, $new_name){
 		global $DB;
