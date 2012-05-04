@@ -105,7 +105,7 @@ We will explain four of the most common:
 	
 	
 	\subsubsection{Context System}
-
+\label{sub:contextsystem}
 The context system in Moodle is used to set the context of a given page to determine the users capabilities and which blocks to present~\cite{moodlerolesandmodules}.
  
 When a user is logged in to a Moodle system he can have various roles in various contexts. 
@@ -136,6 +136,7 @@ if ($switchrole > 0 && confirm_sesskey() &&
 ...	
 \end{lstlisting}
 The function \fu{get\_context\_instance} requires a constant and in this case a course id. 
+the constant used for the function is a constant telling which context level that needs to be loaded. This is a numeric value. 
 In this example an error is outputted if the context fails to load. 
 To determine whether or not an user has the capability to do certain actions the function \fu{has\_capability} is used~\cite{moodlerolesandmodules}. It requires a string specifying which capability and the context for the current page. 
 It i required to set the context for each page. 
