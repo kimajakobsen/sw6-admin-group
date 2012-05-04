@@ -105,7 +105,7 @@ Moodle includes various APIs~\cite{moodlecoreapis}, which aids the developer in 
 	\item Output API~\cite{moodleoutputapi} for general HTML rendering.
 	\item Page API~\cite{moodlepageapi} for setup of a standalone page including methods for adding javascript and configuring display options. 
 	\item Access API~\cite{moodleaccessapi} for controlling access levels of users throughout the Moodle. 
-	\item Unit test API~\cite{moodleunittestapi} for testing components in Moodle. 
+	\item Unit test API~\cite{moodleunittestapi} for testing components in Moodle. \todo{ref evt til test(ven til test planlagt)}
 \end{itemize}
 Moodle APIs are used in different ways. The DML, page, and output APIs are used through global variables, whilst others are used through class extensions. In~\coderef{moodleapiusage} the page and form APIs usage is shown.
 \begin{lstlisting}[style=phpCode, caption=\myCaption{Example of the Page and form APIs in Moodle}, label=moodleapiusage]
@@ -131,11 +131,13 @@ function change_name($id, $new_name){
 \end{lstlisting}
 For simple operations no SQL is needed, but for more complex queries such as queries using joins SQL most be written directly. 
 
+\subsubsection{capabilities}
+\label{sub:capabilities}
 
 
 \subsubsection{Context System}
 \label{sub:contextsystem}
-The context system in Moodle is used to set the context of a given page to determine the users capabilities and which blocks to present~\cite{moodlerolesandmodules}.
+The context system in Moodle is used to set the context of a given page to determine the users capabilities and which blocks and activity modules to present~\cite{moodlerolesandmodules}.
  
 When a user is logged in to a Moodle system he can have various roles in various contexts. 
 One person might be a student in one course and a teacher in others. 
@@ -165,7 +167,7 @@ if ($switchrole > 0 && confirm_sesskey() &&
 ...	
 \end{lstlisting}
 The function \fu{get\_context\_instance} requires a constant and in this case a course id. 
-the constant used for the function is a constant telling which context level that needs to be loaded. This is a numeric value. 
+The constant used for the function is a constant telling which context level that needs to be loaded. This is a numeric value. 
 In this example an error is outputted if the context fails to load. 
 To determine whether or not an user has the capability to do certain actions the function \fu{has\_capability} is used~\cite{moodlerolesandmodules}. It requires a string specifying which capability and the context for the current page. 
 It i required to set the context for each page. 
