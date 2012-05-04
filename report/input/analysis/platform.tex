@@ -47,13 +47,14 @@ We will explain four of the most common:
 %http://docs.moodle.org/dev/Blocks
 Moodle use the term block to refer to a box that can contain a wide spectrum of information and functionality.
 A block can as default be placed in the left or right side of a page. 
-The navigation block is a very common block which as default is displayed on all pages. 
+The navigation block~\cite{navigationblock} is a very common block which as default is displayed on all pages. 
 It contain links such as: My Profile and Courses. 
 Blocks are not limited to navigational purposes but can also display data from the database.
 
 Each block have settings regulating on which pages it can displayed. Block can be places in number of different regions if the theme allows it. 
 
-``Small information-displays or tools that can be moved around pages''
+Blocks are intended to display information or be used as a small tool.
+%``Small information-displays or tools that can be moved around pages''
 %Hvornår er det godt at lave en block
 %http://phpdocs.moodle.org/HEAD/core/lib/moodle_page.html
 %http://phpdocs.moodle.org/HEAD/moodlecore/moodle_page.html
@@ -65,29 +66,31 @@ Each block have settings regulating on which pages it can displayed. Block can b
 %http://docs.moodle.org/22/en/Activity_modules
 %http://docs.moodle.org/22/en/Activity_modules_administration
 ``An activity is a general name for a group of features in a Moodle course.''~\cite{activity} 
-Activity modules are the main way to create new features in a course. 
-It is common that a course page contains a activity block~\cite{}
-show table 
-hvornår skal man lave et am
+Activity modules are the main way to create new features in a course, and a new feature is called a activity. 
+It is common that a course page contains a activity block~\cite{activityblock}, it contains available activities for the course. 
 
-``Activity modules are the most important type of plugins. They provide activities in courses. For example: Forum, Quiz and Assignment.''
-\paragraph{Admin Tools}
+Activity modules often contain a new page where an activity is available. An example of this could be a forum, on the course page there is a link, when it is pressed the forum page is displayed. 
+An activity is saved with the course, this means that several individual forums can exist on different courses.
+
+Activity modules are intended to be used when making a feature that interact with several users.  
+%show table; mdl_modules -> mdl_activities 
+%hvornår skal man lave et am
+
+%``Activity modules are the most important type of plugins. They provide activities in courses. For example: Forum, Quiz and Assignment.''
+\paragraph{Admin tools}
 %http://docs.moodle.org/dev/Admin_tools
+Admin tools are, as the name implies, tools used for administrative purposes. 
+The Moodle developer wiki define an Admin tool as the following: 
+``Provides utility scripts useful for admins to examine and modify a Moodle site''.~\cite{plugin} 
+The only users that can access the Admin tools are administrators. 
 
-hvad er det
-hvem har rettigehder
+Admin tools are intended to be used when making tools for the administrative personal.
 
-hvornår skal man lave et admin tool
-
-``Provides utility scripts useful for admins to examine and modify a Moodle site''
-\paragraph{Local Plugins}
+\paragraph{Local plugins}
 %http://docs.moodle.org/dev/Local_plugins
-hvad er det
-properties
+Local plugins are the most general type of plugins. If the wanted feature does not fit the other types of plugins, it is recommended to use the local plugin. An example of this could be communication with an external system. 
 
-``Generic plugins for local customisations''
-
-
+Local plugins are intended to be used when making new functionality in Moodle. 
 
 \subsection{Framework}
 Moodle includes various APIs~\cite{moodlecoreapis}, which aids the developer in the process of creating application. Some of the APIs are:
