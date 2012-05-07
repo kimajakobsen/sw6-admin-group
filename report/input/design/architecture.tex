@@ -1,1 +1,49 @@
-\section{Archiecture}
+\section{Architecture}
+
+To implment MyMoodle a lot of different moodle plugins are needed. 
+MyMoodle can be seen as a plugin of plugins. 
+
+(Argumentation for an architecture)
+
+
+The architecture does not specify how exactly which plugins should be created but specify a general structuring of the parts of the system. 
+
+
+The complete architecture can be seen in figure JADAJADA
+The box surrounding the parts illustrates a common dependency of the moodle platform. 
+Every part, except for the database, is dependent on Moodle to work. 
+The system consist of a total of five layers. 
+The three uppermost is implemented in this project while the lowest two are existing prior to the project. 
+The database is extended but otherwise are theese two layers unchanged.
+The upper most layer is the projectgroup view and the administration tool.
+The project group view is used for presenting the projectgroup room described in JADA JADA and the administration tool is a tool used by managing personal for creating, editing, and deleting groups. 
+Directly below the upper most layer is the ``middle'' layer which consist of the four parts: THE FOUR PARTS. 
+EXPLAIN THF FOUR PARTS
+Below the middle layer is the project group library which contain common functionality and can be used by everyone.  
+
+
+
+There are two primary factors for creating an layered architecture. One is that we are four groups working together, which creates the need for a structured way of dependency amoung the groups. Two is that the project should be passed on and a with a good architecture the comprehensibility of the project is increased. 
+It is not possible to make a strict layered architecture due to the moodle dependency and the admin which does not have a intermediate layer, but depends directly on the project group library
+
+
+
+
+
+
+
+
+
+
+
+
+disp: 
+
+Why, what, why
+
+
+
+
+
+
+
