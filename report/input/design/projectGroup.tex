@@ -1,0 +1,43 @@
+\section{Project Group}
+\label{sec:projectgroup}
+In this section the different aspects of the concept of the project groups will be described.
+\subsection{Project Group Room}
+A project group room is a page that serves as a virtual group room. 
+It should have some of the same functionality as a physical group room.
+We as the \groupname{} implement the page, and other three groups implement the blocks (see \secref{subsec:blocks}) that serve as different functionality.
+A good aspect of using blocks is that it is easy to manage which blocks should be shown and where they should be shown on the page.
+The project group room is a place where students can exchange information among themselves and with their supervisor.
+
+\todo{Nogen der kan komme i tanke om noget mere at skrive her?}
+
+\subsection{Navigation}
+There is currently a problem in Moodle when it comes to navigation. 
+When a user is enrolled in a large number of courses their entire front page is filled with links to those courses.
+There is no built-in functionality to move or sort the links.
+ELSA mentioned this problem during the meeting that we conducted with them described in \secref{sub:elsaInterview}.
+%ref Lene
+\todo{insert refs to interview with Lene}
+
+We want to avoid this problem when we design the navigation for project groups.
+Moodle has a navigation block with a list of important links.
+We want to add an item to this list that, when expanded, shows the project groups the user is a member of.
+Since a supervisor or an administrator might be a member of a many project groups, we want to limit the size of the list of project groups.
+We do this by showing at max a set value, and if the user is a member of more groups we show a link to a page that has a list of all the users's group.
+
+\subsection{Managing Project Groups}
+\label{sec:s}
+Administrators need to be able to add, remove, and edit project groups.
+Per default Moodle has a block called Settings. 
+If a user is an administrator there is a list in this block called Site administration. 
+This list contains a lot of tools administrators use, and it is only natural to add an item to this list, where administrators can access project group functionality.
+
+We want a page where administrators can add a new project group that also adheres to Moodle standards.
+It should be able to name a group, add the desired members, and choose who the supervisor(s) of the group is/are.
+
+Additionally there needs to be a list of all project groups.
+This list can potentiality grow very large, so there needs to a way to find a specific group or a specific set of groups. \todo{lene interview ref}
+From this list it should be possible to add, edit, and delete groups. 
+
+All in all this functionality should be implemented to be as efficient as possible, while still being user friendly.
+Usability is not the biggest concern since we expect administrators to be expert users.
+This means that they will be using the system often and once functionality is learned by a user it is unlikely that they will forget again.
