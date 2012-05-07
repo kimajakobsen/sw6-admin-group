@@ -8,22 +8,24 @@ Finally the design decisions regarding management of project groups are describe
 The members of a project group should have a place where they can meet and engage in project related activities.
 Recall from \secref{sec:subSysDef} that our responsibility is to construct a place where this can happen, not construct the actual activities -- That is the responsibility of our peer-groups.
 We have to decide the scope of the virtual meeting place.
+For example who should be able to see the work in progress of a project and who should be able to modify it.
+One idea is to have every project share everything with other projects.
+This corresponds to having every project group working in the same room in the real world.
+Another idea is to give a virtual group room to every project group and ensuring that only the members of the project group and the supervisors can contribute to the work on the project.
+The corresponding situation in the real world is that every project group has there own group room where only they (and there supervisors) can do work on the project.
+The first idea is easier than the second to implement since no permissions need to be considered.
+However, the second idea is closer to the way that Aalborg PBL is performed -- with a team working together on the project as described in \secref{sec:aaupbl}.
 
+We choose the second idea.
+It is simply too infeasible to have every project group share everything.
+A project group member could be forced to look through many functionalities to find the one relevant to the given project group.
+Furthermore, by allowing each project group to have there own virtual group room, the members can customize the place as they see fit by removing irrelevant functionalities and possibly adding new relevant functionalities.
+For the rest of the report we refer to the virtual group room simply as the ``project group room''.
 
-
-
-
-
-
-
-\subsection{Project Group Room}
-A project group room is a page that serves as a virtual group room. 
-It should have some of the same functionality as a physical group room.
-We as the \groupname{} implement the page, and the other three groups implement the blocks (see \secref{subsec:blocks}) that serve as different functionality.
+The project group room should have some of the same functionality as a physical group room.
+We as the \groupname{} implement the page, and the other three peer-groups implement the blocks (see \secref{subsec:blocks}) that serve as different functionality.
 A good aspect of using blocks is that it is easy to manage which blocks should be shown and where they should be shown on the page.
 The project group room is a place where students can exchange information among themselves and with their supervisor.
-
-\todo{Nogen der kan komme i tanke om noget mere at skrive her?}
 
 \subsection{Navigation}
 There is currently a problem in Moodle when it comes to navigation. 
