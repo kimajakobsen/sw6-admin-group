@@ -8,9 +8,12 @@ PHP.
 
 
 \subsection{Courses}
-Courses are in Moodle a fundamental concept. The fact that Moodle is called a course management system clearly supports this claim. 
-Every course in Moodle is called a 
-
+Courses are a fundamental concept in Moodle and Moodle is called a course management.
+Every course in Moodle is part of a course category. 
+Courses can use activity modules, which are described further in \secref{}, and are often split into sections depending on the selected course format.
+One example is the weekly format which splits the course into a section for each week. 
+ 
+\todo {Find på mere om courses, im out}
 
 
 \subsection{Groups}
@@ -129,8 +132,6 @@ function change_name($id, $new_name){
 \end{lstlisting}
 For simple operations no SQL is needed, but for more complex queries such as queries using joins SQL most be written directly. 
 
-\subsubsection{capabilities}
-\label{sub:capabilities}
 
 
 \subsubsection{Context System}
@@ -140,6 +141,7 @@ The context system in Moodle is used to set the context of a given page to deter
 When a user is logged in to a Moodle system he can have various roles in various contexts. 
 One person might be a student in one course and a teacher in others. 
 Moodle use a hierarchical context system to manage users roles and their capabilities. 
+Capabilities are further described in \secref{sub:capabilities}. 
 The context systems hierarchical layout can be seen in \figref{fig:moodle-contexts}~\cite{moodlefilemoodlecontext}.
  
  \begin{figure}
@@ -165,7 +167,8 @@ if ($switchrole > 0 && confirm_sesskey() &&
 ...	
 \end{lstlisting}
 The function \fu{get\_context\_instance} requires a constant and in this case a course id. 
-The constant used for the function is a constant telling which context level that needs to be loaded. This is a numeric value. 
+The constant used for the function is a constant telling which context level that needs to be loaded. 
+This is a numeric value. 
 In this example an error is outputted if the context fails to load. 
 To determine whether or not an user has the capability to do certain actions the function \fu{has\_capability} is used~\cite{moodlerolesandmodules}. It requires a string specifying which capability and the context for the current page. 
 It i required to set the context for each page. 
@@ -174,5 +177,15 @@ In some pages Moodle sets the context itself~\cite{moodlepageapi}.
 Beside being responsible for capabilities contexts are used to determine the presented blocks on a page. If an user with the capability to edit a course page adds a block and the instance is set to the system context the block will be showed on all course pages. If the context is set to the course context the block will only be presented on that courses page. 
 
 	
-	
+\subsubsection{Capabilities}
+\label{sub:capabilities}
+Moodle integrates a capability system too manage permissions throughout the site \cite{moodlerolesandmodules}. 
+Every capability is connected to the system context, which is global for the entire site. 
+Capabilities can be changed in inherited contexts. 
+For example can a user who does not have a permission in the system context to create courses have the permission to do so in a certain course category. 
+
+Creating new capabilities is possible when creating a new plugin. 
+To check capabilities the function \fu{has\_capability}, which takes a capability, given as a string, a context instance and extra parameters depending on the capability and the context. 
+
+
 	
