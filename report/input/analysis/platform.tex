@@ -8,13 +8,14 @@ PHP.
 
 
 \subsection{Courses}
-Courses are a fundamental concept in Moodle and Moodle is called a course management.
-Every course in Moodle is part of a course category. 
-Courses can use activity modules, which are described further in \secref{}, and are often split into sections depending on the selected course format.
-One example is the weekly format which splits the course into a section for each week. 
- 
-\todo {Find på mere om courses, im out}
+\label{sub:courses}
+Courses are a fundamental concept in Moodle, since Moodle is a course management system.
+Every course in Moodle is part of a course category~\cite{moodlecoursecategories}. 
+Course categories can be hidden such that students and lectures are not able to see the courses in these categories on the Moodle page.
+Administrators are always able to find courses even if they are hidden.
 
+Courses can use activity modules, which are described further in \secref{sub:plugins}, and are often split into sections depending on the selected course format.
+One example of a course format is the weekly format which splits the course into a section for each week~\cite{moodlecourseformat}.
 
 \subsection{Groups}
 Moodle has an inbuilt concept of groups and groupings. 
@@ -33,7 +34,7 @@ One group can be a part of several groupings and an user can be a member of seve
 The foreign key from groups to course and the foreign key from grouping to course indicates a tight connection between groups and courses. 
 
 \subsection{Plugins}
-
+\label{sub:plugins}
 As mentioned in \secref{sub:lms} the M in Moodle stands for modular. 
 Moodle currently supports 34~\cite{plugin} types of plugins.
 The four most common is explained in the following:
