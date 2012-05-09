@@ -32,25 +32,26 @@ Courses can use activity modules, which are described further in \secref{sub:plu
 One example of a course format is the weekly format which splits the course into a section for each week~\cite{moodlecourseformat}.
 
 \subsection{Groups}
-Moodle has an inbuilt concept of groups and groupings. 
+Moodle has a built-in concept of groups and groupings. 
 Groups can contain users and groupings can contain groups. 
 The database scheme of groups and grouping can be seen on \figref{fig:moodlegroupsandgroupings}.
 
 \begin{figure}
 	\centering
 		\includegraphics[width=\textwidth]{images/moodlegroups}
+	\morscaption{The database scheme for groups and groupings. Non-primary key and non-foreign keys data fields are omitted for brevity~\cite{moodleerdiagram}}
 	\label{fig:moodlegroupsandgroupings}
-	\morscaption{The database scheme for groups and groupings. Non primary key and non foreign keys data fields are omitted for brevity}  
 \end{figure}
 
 This structure supports that users can be in groups and that more groups can be grouped together in one grouping. 
-One group can be a part of several groupings and an user can be a member of several groups. 
-The foreign key from groups to course and the foreign key from grouping to course indicates a tight connection between groups and courses. 
+One group can be a part of several groupings and a user can be a member of several groups. 
+The foreign key from groups to course and the foreign key from grouping to course indicates a tight connection between groups and courses.
+In fact every group and grouping must refer to a course, to which the group or grouping is said to belong.
 
 \subsection{Plugins}
 \label{sub:plugins}
 As mentioned in \secref{sub:lms} the M in Moodle stands for modular. 
-Moodle currently supports 34~\cite{plugin} types of plugins.
+Moodle currently supports 34 types of plugins~\cite{plugin}.
 The four most common is explained in the following:
 
 
@@ -104,6 +105,7 @@ The Moodle developer wiki define an admin tool as the following:
 The only users that can access the admin tools are administrators. 
 
 Admin tools are intended to be used when making tools for the administrative personal.
+These are made available through the Site administration menu point in the Settings block.
 
 \paragraph{Local plugins}
 %http://docs.moodle.org/dev/Local_plugins
