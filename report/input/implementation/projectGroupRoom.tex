@@ -1,0 +1,120 @@
+In the implementation of the project group we are faced with several choices. 
+Project groups can be implemented as courses by creating a new view for the course page.  
+This will make it possible to use activity modules, described in \ref{par:activitymodules}, in the project group. 
+Another approach is to make a local plugin, which gives us basic functionality, such as database installation. 
+With a local plugin we cannot use activity modules since they are too related to courses. 
+Instead we can use blocks for the functionality. 
+The later approach is chosen. 
+
+\section{Project Group Room}
+In this section the actual implementation of the project group room, its custom blocks, how the context system is used to implement our own context to allow better administration of blocks and capabilities, and the navigation to the users project groups is described.
+The section presents how the project groups work from the perspective of the user. 
+
+
+\subsection{The page}
+The project group page is the virtual meeting place described in \secref{sec:projectgroup}.
+We decided to implement the room merely as a container for blocks. 
+Alternatively the functionality could be an integrated part of the page, but using blocks gives more flexibility to the users allowing them manage the layout of their own project group room. 
+A screenshot of a project group room can be seen in \figref{fig:projectgroupnoedit}. 
+In this project group room the blocks are layouted as they are per default. 
+\begin{figure}[h]
+	\centering
+		\includegraphics[width=\textwidth]{images/projectgroupnoedit.png}
+	\morscaption{The project group room}
+	\label{fig:projectgroupnoedit}
+\end{figure}
+
+The project group room consist of three columns. 
+The left column is the standard navigation menu in Moodle. 
+The Center and right columns both contain blocks.
+The various blocks presented on the project groups page is described in \secref{sec:implprojectgroupblocks}. 
+If an user wants to edit the block layout for the project group room he can press the ``Turn editing on'' button. 
+This will add edit and move buttons to each block. 
+A new block is added in editing mode to allow for adding new blocks. 
+If an user edits the page the change can be seen by all group members. 
+The page in edit mode can be seen in figure \figref{fig:projectgroupwithedit}.
+
+\begin{figure}[h]
+	\centering
+		\includegraphics[width=\textwidth]{images/projectgroupwithedit.png}
+	\morscaption{The project group room with editing turned on}
+	\label{fig:projectgroupwithedit}
+\end{figure}
+
+
+The task of securing that only members of the project group can edit and view are maintained by the project group room and is described in \secref{sec:projectgrouproommanagerights}. 
+
+
+
+
+\subsection{Ensuring Permissions}
+\label{sec:projectgrouproommanagerights}
+Permissions can generally be divided in two types; read and write. 
+Read permissions gives you the ability to view the content of the project group room while write lets you change the content. 
+If a user has write permission he must also have read permissions. 
+Otherwise he cannot see the page he attempts to edit. 
+To ensure the user attempting to enter a project group room has permission to enter the function \fu{has\_projectgroup\_read\_permission} is used. 
+It checks if the user is an administrator or is a member of the group. 
+The administrator check is necessary since administrators should be able to see the group even if they are not members of the group. 
+
+The function  \fu{has\_projectgroup\_write\_permission} which checks that the user has write permissions uses the read permissions function too check that the user can read.
+If he cannot read he should not be able to edit. 
+In the current implementation the write permissions function does not make extra checks to permissions since the permission level for read and write is equivalent.
+Making both function gives the ability to later change this.
+An example could be if the potential users requires that their supervisor should only have read permissions. 
+Then the change will be in one place only. 
+
+\subsection{Blocks}
+\label{sec:implprojectgroupblocks}
+When a new project group is created the default blocks are added to the page. 
+The default blocks are specified in the a config file and the content can be seen in \coderef{moodledaultblock}
+
+
+\begin{lstlisting}[style=phpCode, caption=\myCaption{The default block configuration}, label=moodledaultblock]
+<?php
+	/**
+	* Example usage:
+	* "left1,left2:center1:right1"
+	* Will add two items to the left, one in the middle, and one to the right
+	*/
+	$format['defaultprojectgroupblocks'] = ':projectgroup_members,timeline,groupwall,blackboard:upload,tasks';
+\end{lstlisting}\begin{comment}$\end{comment}
+The syntax for the format is $left:middle:right$. 
+Left, middle, and right represent the three columns in the project group room. 
+The blocks: Timeline, groupwall, blackboard, upload, and tasks is created by our peer-groups while the block named projectgroup\_members is created by us. 
+The projectgroup\_members block shows the name and pictures of the project group members. 
+
+	
+	
+
+
+\input{input/implementation/overwriteContext.tex}
+
+
+
+\subsection{Navigation}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

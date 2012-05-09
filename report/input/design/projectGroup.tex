@@ -1,0 +1,61 @@
+\section{Project Group}
+\label{sec:projectgroup}
+In this section the different aspects of the concept of the project groups will be described.
+First we want to introduce the concept of a virtual meeting places for project groups.
+How to navigate through the project groups is described afterwards.
+Finally the design decisions regarding management of project groups is described.
+\todo{Tjek igennem når analysen om dette emne er lavet }
+
+\subsection{The Virtual Meeting Place}
+The members of a project group should have a place where they can meet and engage in project related activities.
+Recall from \secref{sec:subSysDef} that our responsibility is to construct a place where this can happen, not construct the actual activities -- that is the responsibility of our peer-groups.
+We have to decide the scope of the virtual meeting place.
+For example who should be able to see the work in progress of a project and who should be able to modify it.
+One idea is to have every project share everything with other projects.
+This corresponds to having every project group working in the same room in the real world.
+Another idea is to give a virtual group room to every project group and ensuring that only the members of the project group and the supervisors can contribute to the work on the project.
+The corresponding situation in the real world is that every project group has their own group room where only they (and there supervisors) can do work on the project.
+The first idea is easier than the second to implement since no permissions need to be considered.
+However, the second idea is closer to the way that Aalborg PBL is implemented -- with a team working together on the project as described in \secref{sub:aaupbl}.
+
+We choose the second idea.
+It is simply too infeasible to have every project group share everything.
+A project group member could be forced to look through many functionalities to find the one relevant to the given project group.
+Furthermore, by allowing each project group to have there own virtual group room, the members can customize the place as they see fit by removing irrelevant functionalities and possibly adding new relevant functionalities.
+For the rest of the report we refer to the virtual group room simply as the ``project group room''.
+
+The project group room should have some of the same functionality as a physical group room.
+We as the \groupname{} implement the page, and the other three peer-groups implement the blocks (see \secref{subsec:blocks}) that serve as different functionality.
+A good aspect of using blocks is that it is easy to manage which blocks should be shown and where they should be shown on the page.
+The project group room is a place where students can exchange information among themselves and with their supervisor.
+
+\subsection{Navigation}
+There is currently a problem in Moodle when it comes to navigation. 
+When a user is enrolled in a large number of courses their entire front page is filled with links to those courses.
+There is no built-in functionality to move or sort the links.
+ELSA mentioned this problem during the meeting that we conducted with them described in \secref{sub:elsaInterview}.
+%ref Lene
+\todo{insert refs to interview with Lene. Hvorfor til Lene når det er ELSA der omtales?}
+
+We want to avoid this problem when we design the navigation for project groups.
+Moodle has a navigation block with a list of important links.
+We want to add an item to this list that, when expanded, shows the project groups the user is a member of.
+Since a supervisor or an administrator might be a member of a many project groups, we want to limit the size of the list of project groups.
+We do this by showing at max a preset value, and if the user is a member of more groups we show a link to a page that has a list of all the users's group.
+
+\subsection{Managing Project Groups}
+\label{sec:s}
+Administrators need to be able to add, remove, and edit project groups.
+Per default Moodle has a block called Settings. 
+If a user is an administrator there is a list in this block called site administration. 
+This list contains a lot of tools administrators use, and it is only natural to add project group administration to this list. 
+
+We want a page where administrators can add a new project group that also adheres to Moodle standards.
+It should be possible to name a group, add the desired members, and choose who the supervisor(s) of the group is/are.
+
+Additionally there needs to be a list of all project groups.
+This list can potentiality grow very large, so there needs a way of finding a specific group or a specific set of groups. \todo{lene interview ref}
+From this list it should be possible to add, edit, and delete groups. 
+
+The project group administration should be implemented in such a way that it does not decrease the efficiency for the administrative personal compared to the old system. 
+This measure can only be used in placed where an existing project group administration system is used.

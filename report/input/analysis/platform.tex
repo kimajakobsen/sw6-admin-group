@@ -1,0 +1,192 @@
+
+\section{The Moodle Platform}
+\label{sec:moodleplatform}
+	General about the platform. Tjek the initial analysis
+Moodle uses innodb and mysql (in our case atleast) 
+PHP.
+
+
+
+\subsection{Courses}
+Courses are a fundamental concept in Moodle and Moodle is called a course management.
+Every course in Moodle is part of a course category. 
+Courses can use activity modules, which are described further in \secref{}, and are often split into sections depending on the selected course format.
+One example is the weekly format which splits the course into a section for each week. 
+ 
+\todo {Find på mere om courses, im out}
+
+
+\subsection{Groups}
+Moodle has an inbuilt concept of groups and groupings. 
+Groups can contain users and groupings can contain groups. 
+The database scheme of groups and grouping can be seen on~\figref{fig:moodlegroupsandgroupings}.
+
+\begin{figure}
+	\centering
+		\includegraphics[width=\textwidth]{images/moodlegroups}
+	\label{fig:moodlegroupsandgroupings}
+	\morscaption{The database scheme for groups and groupings. Non primary key and non foreign keys data fields is omitted for brevity}  
+\end{figure}
+
+This structure supports that users can be in groups and that more groups can be grouped together in one grouping. 
+One group can be a part of several groupings and an user can be a member of several groups. 
+The foreign key from groups to course and the foreign key from grouping to course indicates a tight connection between groups and courses. 
+
+\subsection{Plugins}
+
+As mentioned in \secref{sub:lms} the M in Moodle stands for modular. 
+Moodle currently supports 34~\cite{plugin} types of plugins.
+The four most common is explained in the following:
+
+
+%http://docs.moodle.org/dev/Plugins
+
+
+\paragraph{Blocks}
+\label{subsec:blocks}
+%http://docs.moodle.org/dev/Blocks
+Moodle use the term block to refer to a box that can contain a wide spectrum of information and functionality.
+A block can as default be placed in the left or right side of a page. 
+Pages can allow placement of blocks in the center of a page.
+The navigation block~\cite{navigationblock} is a very common block which as default is displayed on all pages. 
+It contain links such as: My Profile and Courses. 
+Blocks are not limited to navigational purposes, but can also display data from the database.
+
+Each block have settings regulating on which pages it can displayed. %Blocks can be places in number of different regions if the theme allows it. 
+
+%Blocks are intended to display information or be used as a small tool.
+%``Small information-displays or tools that can be moved around pages''
+%Hvornår er det godt at lave en block
+%http://phpdocs.moodle.org/HEAD/core/lib/moodle_page.html
+%http://phpdocs.moodle.org/HEAD/moodlecore/moodle_page.html
+
+
+
+\paragraph{Activity modules}
+\label{par:activitymodules}
+%http://docs.moodle.org/dev/Activity_modules
+%http://docs.moodle.org/22/en/Activity_modules
+%http://docs.moodle.org/22/en/Activity_modules_administration
+``An activity is a general name for a group of features in a Moodle course.''~\cite{activity} 
+Activity modules are the main way to create new features in a course, and a new feature is called an activity. 
+It is common that a course page contains an activity block~\cite{activityblock}, that contains available activities for the course. 
+
+Activity modules often contains a new page where an activity is available. 
+An example of this could be a forum. 
+On the course page there is a link, when it is pressed the forum page is displayed. 
+An activity is saved with the course, this means that several individual forums can exist on different courses.
+
+Activity modules are intended to be used when making a feature that interact with several users in the context of a course.  
+%show table; mdl_modules -> mdl_activities 
+%hvornår skal man lave et am
+
+%``Activity modules are the most important type of plugins. They provide activities in courses. For example: Forum, Quiz and Assignment.''
+\paragraph{Admin tools}
+%http://docs.moodle.org/dev/Admin_tools
+Admin tools are, as the name implies, tools used for administrative purposes. 
+The Moodle developer wiki define an admin tool as the following: 
+``Provides utility scripts useful for admins to examine and modify a Moodle site''.~\cite{plugin} 
+The only users that can access the admin tools are administrators. 
+
+Admin tools are intended to be used when making tools for the administrative personal.
+
+\paragraph{Local plugins}
+%http://docs.moodle.org/dev/Local_plugins
+Local plugins are the most general type of plugins. If the wanted feature does not fit the other types of plugins, it is recommended to use the local plugin. An example of this could be communication with an external system or for extending the navigation block. 
+
+%Local plugins are intended to be used when making new functionality in Moodle. 
+
+
+
+\subsection{Framework}
+Moodle includes various APIs~\cite{moodlecoreapis}, which aids the developer in the process of creating application. Some of the APIs are:
+
+\begin{itemize}
+	\item Data Manipulation (DML) API~\cite{moodledml}. Used for all data access and is described further in \secref{sec:moodleoplatformdbml}
+	\item Form API~\cite{moodleformapi} for rendering HTML form objects and handle the validation of the data send through the form. 
+	\item Output API~\cite{moodleoutputapi} for general HTML rendering.
+	\item Page API~\cite{moodlepageapi} for setup of a standalone page including methods for adding javascript and configuring display options. 
+	\item Access API~\cite{moodleaccessapi} for controlling access levels of users throughout the Moodle. 
+	\item Unit test API~\cite{moodleunittestapi} for testing components in Moodle. \todo{ref evt til test(ven til test planlagt)}
+\end{itemize}
+Moodle APIs are used in different ways. The DML, page, and output APIs are used through global variables, whilst others are used through class extensions. In~\coderef{moodleapiusage} the page and form APIs usage is shown.
+\begin{lstlisting}[style=phpCode, caption=\myCaption{Example of the Page and form APIs in Moodle}, label=moodleapiusage]
+$PAGE->set_context($somecontext);
+
+class some_form extends moodleform {
+	...
+}
+\end{lstlisting}
+
+
+\subsubsection{Database Layer}
+\label{sec:moodleoplatformdbml}
+To access and manipulate data in Moodle the DML API is used.  The API is accessed through a global variable named \$DB. It has several method for update, insert, delete, and select. 
+The basic method for select, insert, and update, namely get\_record, update\_record, and insert\_record, take or retrieves an object of type StdClass\todo{Hvor  skal StdClass forklares?}. This gives a unified procedure for manipulation data. A simple update procedure is seen in \coderef{moodlecodeupdate}.
+\begin{lstlisting}[style=phpCode, caption=\myCaption{Example of how to change the name of an user}, label=moodlecodeupdate]
+function change_name($id, $new_name){
+	global $DB;
+	$user = $DB->get_record('user', array('id'=>$id));
+	$user->name = $new_name;
+	$DB->update_record('user', $user);
+}
+\end{lstlisting}
+For simple operations no SQL is needed, but for more complex queries such as queries using joins SQL most be written directly. 
+
+
+
+\subsubsection{Context System}
+\label{sub:contextsystem}
+The context system in Moodle is used to set the context of a given page to determine the users capabilities and which blocks and activity modules to present~\cite{moodlerolesandmodules}.
+ 
+When a user is logged in to a Moodle system he can have various roles in various contexts. 
+One person might be a student in one course and a teacher in others. 
+Moodle use a hierarchical context system to manage users roles and their capabilities. 
+Capabilities are further described in \secref{sub:capabilities}. 
+The context systems hierarchical layout can be seen in \figref{fig:moodle-contexts}~\cite{moodlefilemoodlecontext}.
+ 
+ \begin{figure}
+	 \centering
+		 \includegraphics[width=\textwidth]{images/moodle-contexts.png}
+	 \label{fig:moodle-contexts}
+	\morscaption{The hierarchical context structure in moodle}
+ \end{figure}
+
+The highest level of context is the system context which all inherit from. 
+
+Every page in Moodle which is loaded directly through HTTP(S) must set the page context. 
+An example of how to set the context can be seen in code snippet \ref{courseviewcontextsnippet} from \moodlefile{/course/view.php}, which loads the default page of a Moodle course.
+
+\begin{lstlisting}[style=phpCode, caption=\myCaption{A snippet from \moodlefile{/course/view.php}}, label=courseviewcontextsnippet]
+...
+if (!$context = get_context_instance(CONTEXT_COURSE, $course->id)) {
+  print_error('nocontext');
+}
+...
+if ($switchrole > 0 && confirm_sesskey() &&
+  has_capability('moodle/role:switchroles', $context)) {
+...	
+\end{lstlisting}
+The function \fu{get\_context\_instance} requires a constant and in this case a course id. 
+The constant used for the function is a constant telling which context level that needs to be loaded. 
+This is a numeric value. 
+In this example an error is outputted if the context fails to load. 
+To determine whether or not an user has the capability to do certain actions the function \fu{has\_capability} is used~\cite{moodlerolesandmodules}. It requires a string specifying which capability and the context for the current page. 
+It i required to set the context for each page. 
+In some pages Moodle sets the context itself~\cite{moodlepageapi}. 
+
+Beside being responsible for capabilities contexts are used to determine the presented blocks on a page. If an user with the capability to edit a course page adds a block and the instance is set to the system context the block will be showed on all course pages. If the context is set to the course context the block will only be presented on that courses page. 
+
+	
+\subsubsection{Capabilities}
+\label{sub:capabilities}
+Moodle integrates a capability system too manage permissions throughout the site \cite{moodlerolesandmodules}. 
+Every capability is connected to the system context, which is global for the entire site. 
+Capabilities can be changed in inherited contexts. 
+For example can a user who does not have a permission in the system context to create courses have the permission to do so in a certain course category. 
+
+Creating new capabilities is possible when creating a new plugin. 
+To check capabilities the function \fu{has\_capability}, which takes a capability, given as a string, a context instance and extra parameters depending on the capability and the context. 
+
+
+	
