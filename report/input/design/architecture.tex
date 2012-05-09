@@ -1,17 +1,17 @@
 \section{Architecture}
-MyMoodle is a large extension of Moodle and can be seen as a plugin of plugins. 
-The architecture does not specify how exactly which plugins should be created but specify a general structuring of the parts of the system. 
-The complete architecture can be seen in \figref{fig:architecture}
+MyMoodle is an extension of Moodle and can be seen as a package of plugins. 
+The architecture does not specify how each plugins should be created but specify a general structuring of the parts of the system. 
+The complete architecture can be seen in \figref{fig:architecture}.
 \begin{figure}
 	\centering
 		\includegraphics{images/architecture.pdf}
 	\morscaption{The overall architecture of MyMoodle}
 	\label{fig:architecture}
 \end{figure}
-The box surrounding the parts illustrates a common dependency of the Moodle platform. 
+The surrounding box illustrates a common dependency on the Moodle platform. 
 Every part, except for the database, is dependent on Moodle to work. 
-The system consist of a total of five layers. 
-The three uppermost is implemented in this project while the lowest two are existing prior to the project. 
+The system consists of a total of five layers. 
+The three uppermost is what we implement in this project while the lowest two existed prior to the project. 
 The database is extended but otherwise are these two layers unchanged.
 The upper most layer is the project group view and the administration tool.
 The project group view is used for presenting the project group room, described in \secref{sec:projectgroup}, and the administration tool, described in \secref{sec:projectgroupadministration}, is a tool used by managing personal for creating, editing, and deleting groups. 
