@@ -1,6 +1,4 @@
-\label{sec:moodleplatform}
-In this section we present the constraints that \moodle{} set's for \system{}, the core concepts of \moodle{}, and the framework in which \system{} is integrated.
-The concepts that are presented here are: Courses, Groups, and Plugins.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%% Comment %%%%%%%%%
@@ -23,12 +21,11 @@ Since \moodle{} uses an SQL database we choose to restrict us to use that as wel
 \section{Courses}
 \label{sub:courses}
 Courses are a fundamental concept in Moodle, since Moodle is a course management system.
-Every course in Moodle is part of a course category~\cite{moodlecoursecategories}. 
-Course categories can be hidden such that students and lectures are not able to see the courses in these categories on the Moodle page.
-Administrators are always able to find courses even if they are hidden.
-
 Courses can use activity modules, which are described further in \secref{sub:plugins}, and are often split into sections depending on the selected course format.
 One example of a course format is the weekly format which splits the course into a section for each week~\cite{moodlecourseformat}.
+Every course in Moodle is part of a course category~\cite{moodlecoursecategories}. 
+Course categories can be hidden such that students and lectures are not able to see the courses in these categories on the Moodle page, though administrators are always able to find courses even if they are hidden.
+
 
 \section{Groups}
 Moodle has a built-in concept of groups and groupings. 
@@ -139,7 +136,7 @@ class some_form extends moodleform {
 \subsection{Database Layer}
 \label{sec:moodleoplatformdbml}
 To access and manipulate data in Moodle the DML API is used.  The API is accessed through a global variable named \$DB. It has several method for update, insert, delete, and select. 
-The basic method for select, insert, and update, namely get\_record, update\_record, and insert\_record, take or retrieves an object of type StdClass\todo{Hvor  skal StdClass forklares?}. This gives a unified procedure for manipulation data. A simple update procedure is seen in \coderef{moodlecodeupdate}.
+The basic method for select, insert, and update, namely get\_record, update\_record, and insert\_record, take or retrieves an object of type stdClass. StdClass is a standard PHP class which is empty, but allows for arbitrary addition of properties at runtime. This gives a unified procedure for manipulation data. A simple update procedure is seen in \coderef{moodlecodeupdate}.
 \begin{lstlisting}[style=phpCode, caption=\myCaption{Example of how to change the name of an user}, label=moodlecodeupdate]
 function change_name($id, $new_name){
 	global $DB;
