@@ -31,3 +31,15 @@ testmini2a/main.tps
 report/sandbox.tcp
 report/sandbox.tex
 testmini2a/Crossing the River.smc.xml
+report/input/analysis.aux
+report/input/analysis.tex.aux
+report/input/design.aux
+report/input/design.tex.aux
+report/input/test.tex.aux
+report/input/test.aux
+report/input/intro.tex.aux
+report/input/intro.aux
+report/input/implementation.tex.aux
+report/input/implementation.aux
+report/input/evaluation.tex.aux
+report/input/evaluation.aux
