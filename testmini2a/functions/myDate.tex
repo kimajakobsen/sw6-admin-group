@@ -1,0 +1,29 @@
+\newcommand{\myMonth}{Some}
+\newcommand{\myDate}[3]{%
+\ifthenelse{\equal{#2}{1}}%
+{\renewcommand{\myMonth}{January}}{}%
+\ifthenelse{\equal{#2}{2}}%
+{\renewcommand{\myMonth}{February}}{}%
+\ifthenelse{\equal{#2}{3}}%
+{\renewcommand{\myMonth}{Marts}}{}%
+\ifthenelse{\equal{#2}{4}}%
+{\renewcommand{\myMonth}{April}}{}%
+\ifthenelse{\equal{#2}{5}}%
+{\renewcommand{\myMonth}{May}}{}%
+\ifthenelse{\equal{#2}{6}}%
+{\renewcommand{\myMonth}{June}}{}%
+\ifthenelse{\equal{#2}{7}}%
+{\renewcommand{\myMonth}{July}}{}%
+\ifthenelse{\equal{#2}{8}}%
+{\renewcommand{\myMonth}{August}}{}%
+\ifthenelse{\equal{#2}{9}}%
+{\renewcommand{\myMonth}{September}}{}%
+\ifthenelse{\equal{#2}{10}}%    
+{\renewcommand{\myMonth}{October}}{}%
+\ifthenelse{\equal{#2}{11}}%
+{\renewcommand{\myMonth}{November}}{}%
+\ifthenelse{\equal{#2}{12}}%
+{\renewcommand{\myMonth}{December}}{}%
+\ifthenelse{\isempty{#1}}%
+{\myMonth{} #3}%
+{\myMonth{} #1, #3}}%
