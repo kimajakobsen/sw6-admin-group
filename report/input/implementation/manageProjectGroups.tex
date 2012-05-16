@@ -23,7 +23,7 @@ In the Actions column there are links to delete and edit the project group.
 The edit page has the same source files as the add page.
 The only difference between editing a group and adding a group is that when editing a group a http parameter, $id$, is set.
 When $id$ is set the form fields are filled with the relevant information from the database.
-Once the submit button is pressed the function \fu{save_or_update_projectgroup} is called with a group object as input.
+Once the submit button is pressed the function \fu{save\_or\_update\_projectgroup} is called with a group object as input.
 That function checks if the $id$ of the group is set. 
 If it is we know that a project group is being edited, and we can update a row in the database.
 If not we know that a new project group is being created and we insert a row in the database.
