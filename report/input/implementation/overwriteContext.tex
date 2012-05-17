@@ -20,7 +20,7 @@ class context_projectgroup extends context {
 When a context is loaded in a Moodle page it is instantiated by \fu{get\_context\_instance}, which takes a context level and an instance id. 
 The instance id can be a course id or similar dependent on the context. 
 This function calls a static method in the \cl{context\_helper} class which uses a private array to translate the context level into a class name.
-The overall system definition in chapter \label{sec:systemDef} retain us from changing the core code of Moodle. 
+The overall system definition in \chapref{chap:systemDef} retain us from changing the core code of Moodle. 
 If this constraint were not enforced the array could simply be extended directly in the code.  
 Since the array used is private we can not extend the context system by overriding the \cl{context\_helper} class. 
 The newly created context is only used in pages created in this project and we can therefore create our own version of \fu{get\_context\_instance}. 
