@@ -15,9 +15,15 @@ This is especially important in our case since a new group of people will contin
 
 A metric for determining how well some software is tested is code coverage. \todo{naar test results er skrevet saa skriv det her.}
 The specific type of coverage we measure our code with is XXX coverage. 
-Determining the percentage of coverage we strive for is a a cost/benefit situation.
+Determining the percentage of coverage we strive for is a cost/benefit situation.
 On one hand we want a stable system that is working as intended, but on the other hand we do not want to spend all our time writing test cases.
 The importance of testing is based on the criticality of the system.
 The radar chart in \secref{subsec:choosingmethod} shows that if our system fails it will only affect the comfort of the users.
 Low criticality calls for a relatively low code coverage.
 An evaluation of our testing can be seen in \secref{sec:results}.
+
+To cover more code with fewer test cases we choose to perform equivalence partition~\cite{testbogen_or_slidesfromsecondlecture} and boundary value analysis~\cite{testbogen_or_slidesfromsecondlecture}.
+Without going into too great details of these concepts, equivalence partitioning means that for every function we test, we partition input values into partitions in which the out come of each element is expected to be the same.
+Within these partitions we have to test at least one element.
+The outcome of the test should be the same for any other element of the given partition.
+Boundary value analysis 
