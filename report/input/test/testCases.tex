@@ -1,0 +1,38 @@
+\section{Test Implementation}
+\label{sec:testimplementation}
+
+Implementing the testing is done by writing a number of test cases that use the functions and check if they behave as they should.
+There is built-in functionality to see how many of the SimpleTest test cases pass.
+This tool is used every time a function is implemented, to see if the function corresponds to its expectation.
+
+\begin{lstlisting}[style=phpCode, caption=\myCaption{A test case for the function createTestGroup. The test case tests if the function handles editing of the short and full name correctly.}, label=testcaseedit]
+function testEditGroupChangeShortFullName() {
+		global $DB;
+	  
+		//The data
+		$projectgroup = new stdClass();
+		$projectgroup ->shortname = "EditGroupChangeMembers";
+		$projectgroup ->fullname = "EditGroupChangeMembers";
+		
+		//Create a group
+		$groupID1 = $this->createTestGroup($projectgroup);
+		
+		//Loads the created table from db
+		$projectgroupToBeEdited = $DB->get_record($this->groupTableName,array('id'=>$groupID1));
+		
+		$projectgroupToBeEdited->shortname = "dope is the dope";
+		$projectgroupToBeEdited->fullname = "dope is the mope";
+    
+		//$projectgroupToBeEdited now contains an id property and new members
+		$groupID2 = $this->createTestGroup($projectgroupToBeEdited);
+		
+		$result = $DB->get_record($this->groupTableName,array('id'=>$groupID1));
+    
+		//It is the ID the same?
+		$this->assertEqual($groupID1,$groupID2);
+		$this->assertEqual($result->shortname,"dope is the dope");
+		$this->assertEqual($result->fullname,"dope is the mope");
+}
+\end{lstlisting}
+
+In \coderef{testcaseedit} a test case for the function 
