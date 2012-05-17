@@ -7,7 +7,7 @@ Recall that we are designing to comply with a relational database, more specific
 \subsection{Project Group}
 \label{sub:dbProjectGroup}
 A project group is an entity that consists of different elements.
-How these elements are represented in the database is presented here.
+How these elements are represented in the database is described here.
 One core element is the project group members, this is described in \secref{sub:dbProjectGroupMembers}.
 The other elements will be represented as fields in the \rel{projectgroup} relation.
 %The reason for this is that a project group is an entity that has some attributes which we want to save persistent.
@@ -17,10 +17,11 @@ To make a project group identifiable by humans we give it a short name that must
 The field that holds the short name in the project group relation is called \field{shortname}.
 Initially it may seem that the short name could be used as a general identifier (both for humans and computers) since a short name is unique.
 However, this name might be changed during the lifespan of a project group.
-We would much rather prefer an identifier that is constant for a project group, to a avoid race conditions. 
+We much rather prefer an identifier that is constant for a project group to a avoid race conditions. 
 %and violations of referential integrity
 An example of a race condition in this system could be a user trying to access a project group with an identifier (the short name in this case) while another user is changing the short name of the group.
-Should the short name be changed before the first user is trying to access the project group, the request will fail because the identifier that he is holding is deprecated.
+Should the short name be changed before the first user is trying to access the project group.
+The request will fail because the identifier that he is holding is deprecated.
 
 We choose to have a numeric auto-incrementing \field{id} field to identify the project groups.
 This cannot be set or changed by the users of the system.
@@ -34,9 +35,9 @@ In summary a project group has two identifiers; the numeric \field{id} and the a
 The former being the primary key of the relation.
 
 To give a better description of a project group, we have an optional field called \field{longname}.
-This field does not need to be unique, but only serve as a description for a project group.
+This field does not need to be unique, but only serves as a description for a project group.
 
-To allow project groups to be ordered or filtered based on which semester, or similar, they belong to we choose to have a timestamp field called \field{created}.
+To allow project groups to be ordered or filtered based on which semester (or another time-based constraint) they belong to we choose to have a timestamp field called \field{created}.
 The value of this field is the Unix-timestamp at the time of the creation of the project group.
 
 The four fields of \rel{projectgroup} are as follows.
@@ -67,7 +68,7 @@ If there is a maximum number of members that will ever be in a project group and
 The number of users in the system could be a candidate for a maximum value.
 This number may, however, change as more users are added to the system.
 Furthermore, this number is likely to be larger than the actual maximum number of members in any group, assuming that no or few projects are conducted by every user of a \moodle{} system.
-Another option might be to choose a value that we believe is high enough for most purposes.
+Another option is to choose a value that we believe is high enough for most purposes.
 This would result in a many-to-$n$ link between project groups and users, in that a project group can have $n$ members and a user can be a member of any number of project groups.
 If this $n$ value is chosen to high, space will be wasted, e.g. if $n$ is set to $20$ and no project group ever has more than 10 members, at least 10 fields in each \rel{projectrgoup} tuple will be wasted.
 If $n$ is too low the system will be unacceptable because some desired project groups cannot be created.
@@ -89,7 +90,7 @@ For \rel{projectgroup\_members} to link \rel{user} and \rel{projectgroup} it wil
 The fields that hold these foreign keys are called \field{user} and \field{projectgroup} respectively.
 The combination of \field{user} and \field{projectgroup} is a candidate key for \rel{projectgroup\_members}.
 However, as with \rel{projectgroup} we choose to have a numeric auto-incrementing single field called \field{id} to comply with \moodle{} guidelines~\cite{moodledb}.
-We still make the combination of \field{user} and \field{projectgroup} unique, to ensure that no person is a member of the same group twice or more.
+We still make the combination of \field{user} and \field{projectgroup} unique, to ensure that no person is a member of the same group more than once.
 
 Whenever a user is a member of a project group we want to have a role associated to that member.
 We can choose to give every user a role and whenever that user is a member of a project group he can act and have privileges as fit for the role.
@@ -100,7 +101,7 @@ Secondly we would have to make a new relation to contain only this information a
 We will not alter the core relations such as \rel{user}, as described in \secref{sub:dbProjectGroup}.
 
 To allow for extensibility we save the creation and update time of each tuple in \rel{projectgroup\_members} in \field{created} and \field{updated} respectively.
-It may be useful to have these times for administrative personnel, e.g. to see whether or not a user has joined a project group later than the other members. \todo{Jeg har ingen anelse om hvorfor vi har disse med}
+It may be useful to have these timestamps for administrative personnel, e.g. to see whether or not a user has joined a project group later than the other members. \todo{Jeg har ingen anelse om hvorfor vi har disse med}
 
 The final set of fields in \rel{projectgroup\_members} are:
 \begin{itemize}
@@ -113,7 +114,7 @@ The final set of fields in \rel{projectgroup\_members} are:
 \end{itemize}
 
 The database scheme can be seen in~\figref{fig:projectgroupsdb}. 
-The user entity is a build-in part of Moodle and is not modeled by us. 
+The user entity is a built-in part of Moodle and is not modeled by us. 
 \begin{figure}
 	\centering
 		\includegraphics{images/projectgroupsdb.pdf}
