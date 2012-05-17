@@ -11,19 +11,19 @@ During the meetings with ELSA,  see \secref{sub:elsaInterview}, and the administ
 %% Automatic Creation(Proposed by ELSA) (Michael)
 In this section a proposed group management approach is explored.  
 
-ELSA propose that project groups should be created automatic through an external system. 
-This technique is already used at the Aalborg University to create courses. 
-The courses are not populated automatic, but it still eases the work load for the administrative personnel.  
-A similar approach can be used to create project groups from an external database containing the student groups. 
+ELSA proposes that groups should be created automatically through an external system. 
+This technique is already used at Aalborg University to create courses. 
+The courses are not populated automatically, but it still eases the work load for the administrative personnel.  
+A similar approach can be used to create groups from an external database containing the student groups. 
 
 With automatic management through an external system it is necessary to synchronize Moodle with the external system in the case that the groups are changed. 
 If the data is inputted only in the external system a one-directional synchronization is needed, but if groups can be created, added, and deleted in Moodle a bidirectional synchronization service must be created. 
 This service must be able to handle conflicts if the conflicting changes are done a the external application and Moodle at the same time.
 
-After an interview with Michael SOMETHING from IST(REF TIL MORTEN) we discovered that AAU does not have a single system containing the groups at the University.
-There exists several and some of the systems are not even online.
-Furthermore, some departments does not keep official records of the project groups (From interview with Morten Mathiasen Andersen, see \appref{sec:morten}).
-He explained that the systems does not have an API from which the groups can be extracted and he himself is working on an API for one of the systems.
+After an interview with Michael Møller Hansen of IST(see \appref{sec:mikael}) we discovered that AAU does not have a single system containing the groups at the University.
+Several systems exist and some of the systems are not online.
+Furthermore, some departments does not keep official records of the groups (see \appref{sec:mikael}).
+Morten Mathiasen Andersen explained in an interview that the systems do not have an API from which the groups can be extracted and he himself is working on an API for one of the systems.
 %Without an API from which to extract the groups this approac. 
 
  
@@ -32,21 +32,19 @@ He explained that the systems does not have an API from which the groups can be 
 
 \subsubsection{Student management}
 %% User- self-Creation  (Else talks about maintanance should be done by students)
-In this section an approach which lets students create, edit, and delete groups themselves is discussed. 
+In this section an approach which lets students create, edit, and delete groups is discussed. 
 
-In some cases the administrative personnel is not aware of which student groups are created (REF MORTEN) and it is not guaranteed that all students want an online project group in Moodle. 
-Therefore, can the administration of the project groups be given to the students themselves, allowing the students to create and edit their project groups as needed without adding extra workload to the administrative personnel.
+In some cases the administrative personnel do not know which student groups are created (see \appref{sec:mikael}), and it is not guaranteed that all students want an online project group in Moodle. 
+Therefore, a solution is to allow students to administrate, allowing the students to create and edit their project groups as needed without adding extra workload to the administrative personnel.
 
 The problem of this approach is that students might create badly named groups or misuse the system by e.g. destroying groups for other students. 
 This approach must include various security constraints to ensure proper use. 
 Students should not be able to delete groups they are not members of or to delete groups by mistake. 
-A mistaken deletion of a group late in the semester could lead to large amount of missed information and lost work. 
-The creator of the project group must be able to govern who can be member or the members of the group must accept new members.
-Alternatively they should not be able to add or remove members from a group after creation since a student should not be able to join a group they do not belong with. 
+A mistaken deletion of a group late in the semester could lead to a large amount of lost information and work. 
+The creator of the project group must be able to govern who can be a member or the members of the group must accept new members.
+Alternatively they should not be able to add or remove members from a group after creation since a student should not be able to join a group they do not belong to. 
 
-
-
-
+%%%Mikael rettet hertil
 
 \subsubsection{Administrative personnel management}
 %% Administration personel creation (Lene creates courses and notes who is in the groups)
