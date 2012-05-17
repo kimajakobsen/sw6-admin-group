@@ -1,0 +1,65 @@
+\section{Test Implementation}
+\label{sec:testimplementation}
+
+Implementing the testing is done by writing a number of test cases that use the functions and check if they behave as they should.
+There is built-in functionality to see how many of the SimpleTest test cases pass.
+This tool is used every time a function is implemented, to see if the function corresponds to its expectation.
+
+\begin{lstlisting}[style=phpCode, caption=\myCaption{A test case for the function remove\_projectgroup\_members. The test case tests if the function correctly removes all the members of the project group when instructed to.}, label=testcasedelall]
+function testRemoveMembersFromGroupEveryone(){
+    global $DB;
+    
+    $groupmembers = 6;
+    
+    //The data
+    $projectgroup = new stdClass(); 
+    $projectgroup ->shortname = "grp4";
+    $projectgroup ->fullname = "group";
+    
+    //Get valid users (we dont want guest users or admins)
+    //The numbers of users are limeted to $groupsmembers
+    $users = $DB->get_records_sql('SELECT id FROM mdl_user WHERE username != "guest" AND username != "admin" LIMIT 0 ,'.$groupmembers);
+    $memberArray = array();
+    foreach ($users as $key => $value) {
+        $memberArray[] = $value->id;
+    }
+    $projectgroup ->members = $memberArray;
+    
+    //create the test group with members
+    $groupId = $this->createTestGroup($projectgroup); (*\label{testcasedelall:create}*)
+    
+    //load the members from the group, (used to make sure that they where added in the first place)
+    $members = $DB->get_records($this->groupMemTableName, array("projectgroup"=>$groupId));
+    
+    //get the id of all the members in the group $groupID
+    $membersID = array();
+    foreach ($members as $key => $usrStd) {
+        $membersID[] = $usrStd ->user;
+    } 
+    
+    //makes sure that we have the wanted number of members in the group
+    $memberCount = sizeof($membersID);
+    $this->assertEqual($memberCount , $groupmembers);
+    
+    remove_projectgroup_members($groupId, $membersID); (*\label{testcasedelall:delete}*)
+    
+    //array with the std with the members in the group. Should be empty.
+    $delMembers = $DB->get_records($this->groupMemTableName, array("projectgroup"=>$groupId));
+    
+    $this->assertTrue(empty($delMembers)); (*\label{testcasedelall:assert}*)
+}
+\end{lstlisting}
+
+%stupid tex
+\begin{comment}
+
+\end{comment}
+In \coderef{testcasedelall} a test case for the function \fu{remove\_projectgroup\_members} is shown.
+The test case in question checks if the function can correctly remove all members of a group. 
+In line \ref{testcasedelall:create} a group of $6$ users is created.
+The function \fu{createTestGroup} utilizes the function that is used to create project groups in the Moodle application, but it does also remove the project group after the tests are run, so the database does not get filled with test project groups.
+In line \ref{testcasedelall:delete} the function \fu{remove\_projectgroup\_members} is used to remove all $6$ members of the project group.
+Finally in line \ref{testcasedelall:create} we assert that the project group at hand is empty.
+If it is empty the test succeeds, if not it fails.
+
+
