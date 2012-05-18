@@ -1,0 +1,81 @@
+\input{preamble}
+%\input{../../sw6-mymoodle-group/shared_report/preamble}
+\begin{document}
+	%\listoffixmes
+	Frontpage
+	\listoftodos
+	\begin{titlepage}
+	\begin{textblock*}{297mm}(0mm,0mm)
+		 \hspace{-6.5mm}
+		 %\includegraphics{images/forside.pdf}
+
+		
+
+	\end{textblock*}
+	\thispagestyle{empty}
+	\pagenumbering{Roman}
+
+\ \pagebreak{} 
+	\end{titlepage}
+\ \thispagestyle{empty} \ \pagebreak{}
+
+\input{input/titelblad.tex}
+
+%Table of Content
+\tableofcontents
+%\listoffigures
+%\lstlistoflistings
+\cleardoublepage
+	\input{input/preface}
+\newpage
+\thispagestyle{empty}
+\begin{titlepage}
+\pagenumbering{arabic}
+\end{titlepage}
+	
+  %\input{../../sw6-mymoodle-group/shared_report/introduction}
+	
+	\part{Inter Group Work}
+	
+	\include{input/inter_group}
+ 
+\part{Development}
+
+	\include{input/intro}
+	\include{input/defineproblem}
+	\include{input/platform}
+	
+	\include{input/developmentPractice}
+	
+	\include{input/analysis}
+	
+	\include{input/design}
+	
+	\include{input/implementation}
+	
+	\include{input/test}
+	
+	
+\part{Evaluation}
+\label{part:evaluation}
+	
+	\include{input/evaluation}
+	
+		
+		%\subsection{Moodle Context System}
+		%A major part of moodle is the context system which is in charge of bo
+		
+		
+		
+
+	%Bibliography
+	\cleardoublepage
+\addcontentsline{toc}{chapter}{\numberline{}Bibliography}
+\label{chap:bib}
+\bibliography{bib,\sharedReport bib}
+\listoffigures
+\lstlistoflistings
+
+\appendix	
+	\input{input/appendix.tex}
+\end{document}
