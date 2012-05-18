@@ -20,6 +20,9 @@ We deem that every invalid input value belongs to the same equivalence partition
 This yields three test cases for this function.
 In each of these the other input is a valid value.
 
+The partitioning of project groups is not as straight forward.
+Here we have cases where the ids to be remove can be either all, partly, or not at all valid, depending on whether or not the given id belongs to a user that is a part of the project group being tested.
+We choose to partition it coarsely; either all the ids of the set to be removed belongs to valid members or at least some id does not belong to a member.
 
 
 \subsection{Test Case Examples}
