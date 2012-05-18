@@ -10,16 +10,24 @@ We will draw our examples from the tests of the function \fu{remove\_projectgrou
 The documentation of \fu{remove\_projectgroup\_members} states that the input is a project group id and a non-empty set of user ids, belonging to users who are members of the group initially.
 We create partitions and perform boundary value analysis on both these inputs.
 
-The partitions of the project group id are ids that belong to an existing project group and ids not belonging to an existing project group.
+The two partitions of the project group id are ids that belong to an existing project group and ids not belonging to an existing project group.
 %The boundary value analysis on the change from one partition is not an option since it is not a continuous range of ids that are belonging to project groups followed by a continuous range of ids not belonging to project group.
 If project groups could not be removed it would be that case that an unbroken range of ids belonging to project groups would be followed by an unbroken range of ids not belonging to project groups since the ids of project groups are auto-incremented (see \secref{sec:dbdesign}).
 However, this is not the case.
 As a consequence we choose to test the removal of project group members with an id value belonging to a project group and an id value not belonging to a project group.
 As part of the boundary value analysis of this input we deem that we should try to use something that is not and integer as input, we choose to use a string.
 We deem that every invalid input value belongs to the same equivalence partition, therefore we do not test for inputs of objects, null values, arrays etc.
+This yields three test cases for this function.
+In each of these the other input is a valid value.
 
+The partitioning of project groups is not as straight forward.
+Here we have cases where the ids to be remove can be either all, partly, or not at all valid, depending on whether or not the given id belongs to a user that is a part of the project group being tested.
+We choose to partition it coarsely; either all the ids of the set to be removed belongs to valid members or at least some id does not belong to a member.
+
+
+\subsection{Test Case Examples}
 \begin{lstlisting}[style=phpCode, caption=\myCaption{A test case for the function remove\_projectgroup\_members. The test case tests if the function correctly removes all the members of the project group when instructed to.}, label=src:testcasedelall]
-function testRemoveMembersFromGroupEveryone(){
+function testRemoveMembersFromGroupEveryone() {
     global $DB;
     
     $groupmembers = 6;
