@@ -4,6 +4,20 @@ Implementing the testing is done by writing a number of test cases that use the 
 There is built-in functionality in \moodle{} to see how many of the SimpleTest test cases pass.
 This tool is used every time a function is implemented, to see if the functions behavior corresponds to its expectation.
 
+In this section we will show some examples of our test cases.
+The entire set of test cases can be found in our source code folder.
+We will draw our examples from the tests of the function \fu{remove\_projectgroup\_members}, which is responsible for removing a set of members from a project group.
+The documentation of \fu{remove\_projectgroup\_members} states that the input is a project group id and a non-empty set of user ids, belonging to users who are members of the group initially.
+We create partitions and perform boundary value analysis on both these inputs.
+
+The partitions of the project group id are ids that belong to an existing project group and ids not belonging to an existing project group.
+%The boundary value analysis on the change from one partition is not an option since it is not a continuous range of ids that are belonging to project groups followed by a continuous range of ids not belonging to project group.
+If project groups could not be removed it would be that case that an unbroken range of ids belonging to project groups would be followed by an unbroken range of ids not belonging to project groups since the ids of project groups are auto-incremented (see \secref{sec:dbdesign}).
+However, this is not the case.
+As a consequence we choose to test the removal of project group members with an id value belonging to a project group and an id value not belonging to a project group.
+As part of the boundary value analysis of this input we deem that we should try to use something that is not and integer as input, we choose to use a string.
+We deem that every invalid input value belongs to the same equivalence partition, therefore we do not test for inputs of objects, null values, arrays etc.
+
 \begin{lstlisting}[style=phpCode, caption=\myCaption{A test case for the function remove\_projectgroup\_members. The test case tests if the function correctly removes all the members of the project group when instructed to.}, label=src:testcasedelall]
 function testRemoveMembersFromGroupEveryone(){
     global $DB;
@@ -60,8 +74,8 @@ The function \fu{createTestGroup} utilizes the function that is used to create p
 In line \ref{src:testcasedelall:delete} the function \fu{remove\_projectgroup\_members} is used to remove all $6$ members of the project group.
 Finally in line \ref{src:testcasedelall:assert} we assert that the project group at hand is empty.
 If it is empty the test succeeds, if not it fails.
-This test case is an integration test between the function \fu{remove\_projectgroup\_members} in \admlib{}, since we use an actual database for data storage during the test.
-This means that an error in \moodle{} data manipulation API could cause an error 
+This test case is an integration test between the function \fu{remove\_projectgroup\_members} in \admlib{} and \moodle{} DML, since we use an actual database for data storage during the test.
+%This means that an error in \moodle{} data manipulation API could cause an error 
 
 Some of our test cases are unit tests.
 To make these tests run we have to to mock up the database in many situations.
