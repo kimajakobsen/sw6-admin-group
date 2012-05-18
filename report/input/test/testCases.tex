@@ -61,5 +61,8 @@ In line \ref{src:testcasedelall:delete} the function \fu{remove\_projectgroup\_m
 Finally in line \ref{src:testcasedelall:assert} we assert that the project group at hand is empty.
 If it is empty the test succeeds, if not it fails.
 This test case is an integration test between the function \fu{remove\_projectgroup\_members} in \admlib{}, since we use an actual database for data storage during the test.
+This means that an error in \moodle{} data manipulation API could cause an error 
 
+Some of our test cases are unit tests.
+To make these tests run we have to to mock up the database in many situations.
 
