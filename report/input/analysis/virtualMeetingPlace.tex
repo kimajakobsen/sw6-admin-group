@@ -2,15 +2,19 @@
 \label{sec:virtualMeetingPlace}
 
 %%Skriv om hvad vi vil gøre nu . først fide information så finde besluitnings mligheder
-We will now account for the different possible manners in which we can design the virtual meeting place. We will do this by first listing the criteria that the different options are based on. First we consider if and how the the virtual group room should be design on a high level. We will then go through the levels listing the different options. The final design will be decided upon in the \nameref{chap:design} chapter. 
+We will now account for the different possible manners in which we can design the virtual meeting place. 
+We will do this by first listing the criteria that the different options are based on. 
+First we consider if and how the the virtual meeting place should be design on a high level. 
+We will then go through the levels listing the different options. 
+The final design will be decided upon in the \nameref{chap:design} chapter. 
 
-Our problems statement states, we are to develop a virtual meeting place. 
+Our problems statement states that we are to develop a virtual meeting place. 
 The notion of a virtual meeting place originates from two sources.
 
 \paragraph{Aalborg PBL} 
-At Aalborg University project groups are often assigned to group rooms. This relation exists in one of three ways:
+At Aalborg University project groups are often assigned to group rooms. This relation exists in one of the three ways:
 \begin{itemize}
-	\item \textbf{No Group Rooms} There are no group available because the field of study dose not follow the Aalborg PBL model.
+	\item \textbf{No Group Rooms} There are no group rooms available because the field of study dose not follow the Aalborg PBL model.
 	\item \textbf{Daily} The students have reserve the group rooms on a daily basis.
 	\item \textbf{Half-yearly} Group rooms are assigned to each project group at the start of a semester.
 \end{itemize} 
@@ -20,10 +24,14 @@ The concept of a group room can be extended to a virtual meeting place.  \todo{M
 \paragraph{MPBL nearness}
 In the interview with MPBL described in \secref{}, they suggested that to create a feeling of nearness, a virtual meeting place could be created. This should to serve as a gathering point where cooperation tools should be available. \\
 
-We now know why we need a virtual meeting place. Next we will take into account how other systems handles groups. We do this by summarizing.
+The virtual meeting place should be a hub where all central tools are available. It should be similar to the Aalborg group room concept and be available on a half-yearly basis.  
 
-We know that other LMS exist beside from Moodle from \secref{}. 
-SharePoint have course groups that allow for cooperation in regards to a course. Litmos introduce groups with a recursive tree structure. SharePoint and Litmos represents two different wasy to design virtual project groups. \todo{skriv også hvordan moodle gør. skriv det her}\\
+We know that other LMS exist beside from Moodle from \secref{sec:LMS}. 
+SharePoint have course groups that allow for cooperation in regards to a course. 
+Litmos introduce groups with a recursive tree structure. 
+SharePoint and Litmos represents two different ways to design project groups. 
+Moodles native group concept, described in \secref{sec:groups}, have its groups linked to courses just like SharePoint.   
+\todo{skriv også hvordan moodle gør. skriv det her}\\
 
 
 \todo{Maaske skriv noget om nogle flere criterias}
@@ -66,23 +74,34 @@ We as the \groupname{} implement the project group room, and the other three pee
 Now that the fundamental design is decided, are we able to consider the different types of project group rooms and their properties.
 
 \subsection{Project Group Room}
+In the Aalborg PBL model project and teams exits as two different entities. The question arises if project groups should be design as groups that have a relation to a project or as an single entities where the group and project are one. We will now list the properties of the two different variants. 
 
-%%what are our possibilities
-%Groups and Projects
-%Project groups
+\paragraph{Groups and Projects divided} We now consider the properties of Groups and Projects as two different entities:
+\begin{itemize}
+	\item Projects and Groups have a many-to-many relationship.
+	\item Directly reflects the objects of Aalborg PBL model.
+	\item Complex to implement.
+\end{itemize}
+
+
+\paragraph{Groups and Projects as one} We now consider the properties of Groups and Projects as one single entity:
+\begin{itemize}
+	\item A group have a project, they are inseparable.
+	\item Simple to implement.
+\end{itemize}
 
 
 We will now examine related design options.
 
-\subsection{Derivations of Project Group Rooms}
-%%group mutations
-%Recursive tree structure
-
-%Project Group templates
-
-
+\subsection{Recursive tree structure}
+Regardless of the group and project relation the structure of project group room rather simple. 
+Litmos's groups have a recursive tree structure. 
+Project groups can be extended such that a project group can consist of other groups. 
+An example of this is at the Software Engineering 6\ths{} semester. 
+The students are divided into two main projects. Each of these contains project groups. 
 
 
 %%%design
 
 %What attribtes should it have
+%Aalborg university does not distinguesh between project and groups \ref{sec:lene}
