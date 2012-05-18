@@ -1,0 +1,34 @@
+\section{Strategy}
+\label{sec:strategy}
+\newcommand{\idealCC}{\todo{make this correct}XXX}
+Our development is to some extent test driven.
+This means that we are creating unit tests for our functionalities and integration tests to test whether or not our \subsystem{} as a whole work as expected and work together with \moodle{}.
+As mentioned in \secref{sub:testing} we are using SimpleTest to test our PHP code.
+When we know what a function is supposed to do prior to its implementation we write test cases for the function.
+If we do not write test cases prior to its implementation we write test cases for the function after its implementation.
+Even though it is likely that the person who made the function is the same person as the one who writes the test cases, there are still bugs to be found by this method.
+Since working with Moodle is new to us we do not have a full understanding of the Moodle core API, which means that in some cases we will expect a function to return something other than what it actually returns.
+Many bugs related to this are discovered by writing test cases.
+
+The test cases we write do not catch all bugs in the system, but that does not mean that they do not serve a purpose.
+Apart from the bugs they actually catch, they also improve the robustness of the system.
+If someone decides that a function should be altered the test cases for the function ensure that it still behaves as it should.
+This is especially important in our case since a new group of people will continue our work later.
+
+A metric for determining how well some software is tested is code coverage. 
+The specific type of coverage we measure our code with is line coverage. 
+Determining the percentage of coverage we strive for is a cost/benefit situation.
+On one hand we want a stable system that is working as intended, but on the other hand we do not want to spend all our time writing test cases.
+The importance of testing is based on the criticality of the system.
+The radar chart in \secref{subsec:choosingmethod} shows that if our system fails it will only affect the comfort of the users.
+Low criticality calls for a relatively low code coverage.
+An evaluation of our testing can be seen in \secref{sec:results}.
+
+In addition to considering code coverage we choose to perform equivalence partition~\cite[pp.~67-69]{Patton05} and boundary value analysis~\cite[pp.~70-79]{Patton05} in the creation of test cases.
+Without going into too great details of these concepts, equivalence partitioning means that for every function we test, we partition input values into partitions.
+Within these partitions the outcome of each element is expected to be the same.
+Consequently we have to test at least one element in each partition, but necessarily every element.
+A boundary value analysis is performed by identifying boundary values and selecting values around each boundary value for testing, e.g. if 0 is a boundary value for some integer input, -1, 0, and 1 is chosen for test values.
+Boundary values are identified as values that delimit a boundary, described by \citeauthor{Patton05} to be ``like the edge of a cliff''~\cite[p.~71]{Patton05}.
+These can be the value where elements change from being in one partition to being in another.
+Alternatively it can be special objects of the certain input type, such as null, empty string, or empty array.
