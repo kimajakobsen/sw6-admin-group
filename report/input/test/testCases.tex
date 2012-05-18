@@ -4,7 +4,7 @@ Implementing the testing is done by writing a number of test cases that use the 
 There is built-in functionality in \moodle{} to see how many of the SimpleTest test cases pass.
 This tool is used every time a function is implemented, to see if the functions behavior corresponds to its expectation.
 
-In this section we will show some examples of our test cases.
+In \secref{sub:testCaseEg} we will show some examples of our test cases.
 The entire set of test cases can be found in our source code folder.
 We will draw our examples from the tests of the function \fu{remove\_projectgroup\_members}, which is responsible for removing a set of members from a project group.
 The documentation of \fu{remove\_projectgroup\_members} states that the input is a project group id and a non-empty set of user ids, belonging to users who are members of the group initially.
@@ -23,9 +23,19 @@ In each of these the other input is a valid value.
 The partitioning of project groups is not as straight forward.
 Here we have cases where the ids to be remove can be either all, partly, or not at all valid, depending on whether or not the given id belongs to a user that is a part of the project group being tested.
 We choose to partition it coarsely; either all the ids of the set to be removed belongs to valid members or at least some id does not belong to a member.
-
+The boundary values for these partitions we are considering are as follows: 
+\begin{itemize}
+	\item Removing a single member from a project group
+	\item Removing every member from a project group
+	\item Removing a user that is not a member of the project group.
+\end{itemize}
+Additionally we test the case where the set of ids to be removed is empty and is an illegal type.
+For the illegal type we choose two cases; one where the input is an array but one of the elements is a string instead of an integer and a case where the input is an object instead of an array.
+The final test case regarding the members to remove of \fu{remove\_projectgroup\_members} is where the call to the database indicating the actual deletion of data fails.
+This test case is inserted to test how the function handles unexpected situation regarding function calls to trusted API or sudden database failure (though the database is responsible for complete recovery itself).
 
 \subsection{Test Case Examples}
+\label{sub:testCaseEg}
 \begin{lstlisting}[style=phpCode, caption=\myCaption{A test case for the function remove\_projectgroup\_members. The test case tests if the function correctly removes all the members of the project group when instructed to.}, label=src:testcasedelall]
 function testRemoveMembersFromGroupEveryone() {
     global $DB;
