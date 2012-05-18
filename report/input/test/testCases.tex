@@ -1,0 +1,87 @@
+\section{Test Implementation}
+\label{sec:testimplementation}
+Implementing the testing is done by writing a number of test cases that use the functions in our \subsystem{} and check if they behave as they should.
+There is built-in functionality in \moodle{} to see how many of the SimpleTest test cases pass.
+This tool is used every time a function is implemented, to see if the functions behavior corresponds to its expectation.
+
+In this section we will show some examples of our test cases.
+The entire set of test cases can be found in our source code folder.
+We will draw our examples from the tests of the function \fu{remove\_projectgroup\_members}, which is responsible for removing a set of members from a project group.
+The documentation of \fu{remove\_projectgroup\_members} states that the input is a project group id and a non-empty set of user ids, belonging to users who are members of the group initially.
+We create partitions and perform boundary value analysis on both these inputs.
+
+The two partitions of the project group id are ids that belong to an existing project group and ids not belonging to an existing project group.
+%The boundary value analysis on the change from one partition is not an option since it is not a continuous range of ids that are belonging to project groups followed by a continuous range of ids not belonging to project group.
+If project groups could not be removed it would be that case that an unbroken range of ids belonging to project groups would be followed by an unbroken range of ids not belonging to project groups since the ids of project groups are auto-incremented (see \secref{sec:dbdesign}).
+However, this is not the case.
+As a consequence we choose to test the removal of project group members with an id value belonging to a project group and an id value not belonging to a project group.
+As part of the boundary value analysis of this input we deem that we should try to use something that is not and integer as input, we choose to use a string.
+We deem that every invalid input value belongs to the same equivalence partition, therefore we do not test for inputs of objects, null values, arrays etc.
+This yields three test cases for this function.
+In each of these the other input is a valid value.
+
+
+
+\subsection{Test Case Examples}
+\begin{lstlisting}[style=phpCode, caption=\myCaption{A test case for the function remove\_projectgroup\_members. The test case tests if the function correctly removes all the members of the project group when instructed to.}, label=src:testcasedelall]
+function testRemoveMembersFromGroupEveryone() {
+    global $DB;
+    
+    $groupmembers = 6;
+    
+    //The data
+    $projectgroup = new stdClass(); 
+    $projectgroup ->shortname = "grp4";
+    $projectgroup ->fullname = "group";
+    
+    //Get valid users (we dont want guest users or admins)
+    //The numbers of users are limeted to $groupsmembers
+    $users = $DB->get_records_sql('SELECT id FROM mdl_user WHERE username != "guest" AND username != "admin" LIMIT 0 ,'.$groupmembers);
+    $memberArray = array();
+    foreach ($users as $key => $value) {
+        $memberArray[] = $value->id;
+    }
+    $projectgroup ->members = $memberArray;
+    
+    //create the test group with members
+    $groupId = $this->createTestGroup($projectgroup); (*\label{src:testcasedelall:create}*)
+    
+    //load the members from the group, (used to make sure that they where added in the first place)
+    $members = $DB->get_records($this->groupMemTableName, array("projectgroup"=>$groupId));
+    
+    //get the id of all the members in the group $groupID
+    $membersID = array();
+    foreach ($members as $key => $usrStd) {
+        $membersID[] = $usrStd ->user;
+    } 
+    
+    //makes sure that we have the wanted number of members in the group
+    $memberCount = sizeof($membersID);
+    $this->assertEqual($memberCount , $groupmembers);
+    
+    remove_projectgroup_members($groupId, $membersID); (*\label{src:testcasedelall:delete}*)
+    
+    //array with the std with the members in the group. Should be empty.
+    $delMembers = $DB->get_records($this->groupMemTableName, array("projectgroup"=>$groupId));
+    
+    $this->assertTrue(empty($delMembers)); (*\label{src:testcasedelall:assert}*)
+}
+\end{lstlisting}
+
+%stupid tex
+\begin{comment}
+
+\end{comment}
+In \coderef{src:testcasedelall} a test case for the function \fu{remove\_projectgroup\_members} is shown.
+The test case in question checks if the function can correctly remove all members of a group. 
+In line \ref{src:testcasedelall:create} a group of $6$ users is created.
+The function \fu{createTestGroup} utilizes the function that is used to create project groups in the Moodle application, but it also ensures removal the project group after the tests are run, so the database does not get filled with test project groups.
+In line \ref{src:testcasedelall:delete} the function \fu{remove\_projectgroup\_members} is used to remove all $6$ members of the project group.
+Finally in line \ref{src:testcasedelall:assert} we assert that the project group at hand is empty.
+If it is empty the test succeeds, if not it fails.
+This test case is an integration test between the function \fu{remove\_projectgroup\_members} in \admlib{} and \moodle{} DML, since we use an actual database for data storage during the test.
+%This means that an error in \moodle{} data manipulation API could cause an error 
+
+Some of our test cases are unit tests.
+To make these tests run we have to to mock up the database in many situations.
+
