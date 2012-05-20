@@ -1,0 +1,97 @@
+%% This is where we define words. 
+%% The last parameter should be blank as standard, but you can add i,b,u. 
+
+%% WORD LIST
+%% This is where we define words. 
+%% The last parameter should be blank as standard, but you can add i,b,u. 
+
+
+\newcommand{\admpers}[1][]{\caseControl{a}{dministrative personnel}{#1}{}}%
+
+\newcommand{\moodle}{Moodle}
+\newcommand{\groupname}{Project Group Team}
+\newcommand{\systemname}[1][]{\caseControl{M}{yMoodle}{#1}{}}%
+\newcommand{\admlib}[1][]{\caseControl{a}{dmin tool library}{#1}{}}%
+\newcommand{\subsystem}[1][]{\caseControl{s}{ub-system}{#1}{}}%
+\newcommand{\subgroup}[1][]{\caseControl{s}{ub-group}{#1}{}}%
+\newcommand{\sn}[1][]{\systemname[]}
+\newcommand{\systemmode}[1][]{\caseControl{``F}{ollow mode''}{#1}{}}%
+\newcommand{\sm}[1][]{\systemmode[]}
+
+%car names
+\newcommand{\leader}[1][]{\caseControl{S}{pinky}{#1}{}}%
+\newcommand{\follower}[1][]{\caseControl{T}{he Dutch Rammer}{#1}{}}%
+
+
+\newcommand{\rdesc}[1][]{\caseControl{r}{ecursive-descent}{#1}{}}%
+\newcommand{\mas}[1][]{\caseControl{m}{ulti agent system}{#1}{}}%
+\newcommand{\idt}[1][]{\caseControl{i}{dentification table}{#1}{}}%
+\newcommand{\agd}[1][]{\caseControl{A}{rongadongk}{#1}{}}%
+\newcommand{\abst}[1][]{\caseControl{a}{bstract syntax tree}{#1}{}}%
+
+\newcommand{\ooad}[1][]{OOAD}%
+\newcommand{\ainterface}[1][]{\caseControl{A}{dmin Interface}{#1}{}}%
+\newcommand{\cinterface}[1][]{\caseControl{C}{lient Interface}{#1}{}}%
+\newcommand{\sinterface}[1][]{\caseControl{S}{taff Interface}{#1}{}}%
+\newcommand{\helpdesk}[1][]{\caseControl{H}{opla Helpdesk}{#1}{}}%
+\newcommand{\hdesk}[1][]{\caseControl{H}{opla Helpdesk}{#1}{}}
+%\newcommand{\wmon}[1][]{\caseControl{w}{orkload monitor}{#1}{}}
+\newcommand{\staff}[1][]{\caseControl{s}{taff}{#1}{}}
+\newcommand{\client}[1][]{\caseControl{c}{lient}{#1}{}{}}%
+\newcommand{\astaff}[1][]{\caseControl{s}{taff}{#1}{}}
+\newcommand{\aclient}[1][]{\caseControl{c}{lient}{#1}{}{}}%
+\newcommand{\sadmin}[1][]{\caseControl{a}{dmin}{#1}{}}
+\newcommand{\admin}[1][]{\caseControl{a}{dmin}{#1}{}}
+\newcommand{\ucsproblem}[1][]{\caseControl{s}{ubmit problem}{#1}{}}
+\newcommand{\ucsolproblem}[1][]{\caseControl{s}{olve problem}{#1}{}}
+\newcommand{\closed}[1][]{\caseControl{c}{losed}{#1}{}}
+\newcommand{\open}[1][]{\caseControl{u}{nsolved}{#1}{}}
+\newcommand{\solved}[1][]{\caseControl{s}{olved}{#1}{}}
+\newcommand{\unsolved}[1][]{\caseControl{a}{ctive}{#1}{}}
+\newcommand{\pinactive}[1][]{\caseControl{c}{losed}{#1}{}}
+\newcommand{\pactive}[1][]{\caseControl{a}{ctive}{#1}{}}
+\newcommand{\gstat}[1][]{\caseControl{s}{tatistics}{#1}{}}
+\newcommand{\bloadwork}[1][]{\caseControl{b}{alance loadwork}{#1}{}}
+\newcommand{\worklist}[1][]{\caseControl{w}{orklist}{#1}{}}
+\newcommand{\todolist}[1][]{\caseControl{w}{orklist}{#1}{}}
+\newcommand{\problem}[1][]{\caseControl{p}{roblem}{#1}{}}
+\newcommand{\tucadmin}[1][]{\caseControl{a}{dministrate}{#1}{}}
+\newcommand{\sql}[1][]{SQL} % just in case...
+\newcommand{\aspnet}[1][]{ASP.NET} % just in case...
+\newcommand{\posgresql}[1][]{PostgreSQL}
+\newcommand{\iis}[1][]{IIS}
+\newcommand{\wholeiis}[1][]{Microsoft Internet Information Services}
+\newcommand{\spinterface}[1]{\caseControl{s}{olve admin interface}{#1}{}}
+\newcommand{\viewmodel}[1]{\caseControl{v}{iew model}{#1}{}}
+
+
+\newcommand{\Hdesk}[1][]{\hdesk[c]}
+\newcommand{\Wmon}[1][]{\wmon[c]}
+\newcommand{\Staff}[1][]{\staff[c]}
+\newcommand{\Client}[1][]{\client[c]}
+\newcommand{\Astaff}[1][]{\astaff[c]}
+\newcommand{\Aclient}[1][]{\aclient[c]}
+\newcommand{\Helpdesk}[1][]{\helpdesk[c]}
+\newcommand{\Sadmin}[1][]{\sadmin[c]}
+\newcommand{\Admin}[1][]{\admin[c]}
+
+\newcommand{\john}[1][]{\caseControl{j}{ohn}{#1}{}}
+\newcommand{\michael}[1][]{\caseControl{M}{ikael}{#1}{}}
+\newcommand{\rubik}[1][]{\caseControl{R}{ubik's Cube}{#1}{}}
+\newcommand{\facet}[1][]{\caseControl{f}{acelet}{#1}{}}
+\newcommand{\facelet}[1][]{\caseControl{f}{acelet}{#1}{}}
+\newcommand{\cube}[1][]{\caseControl{R}{ubik's Cube}{#1}{}}
+\newcommand{\cuber}[1][]{\caseControl{c}{uber}{#1}{}}
+\newcommand{\face}[1][]{\caseControl{f}{ace}{#1}{}}
+\newcommand{\cpiece}[1][]{\caseControl{c}{ubie}{#1}{}}% Not that the one below are the same as this one
+\newcommand{\cubie}[1][]{\caseControl{c}{ubie}{#1}{}}%
+\newcommand{\cubicle}[1][]{\caseControl{c}{ubicle}{#1}{}}
+\newcommand{\twist}[1][]{\caseControl{t}{wist}{#1}{}}
+%\newcommand{\turn}[1][]{\caseControl{t}{urn}{#1}{}}
+%\newcommand{\rotate}[1][]{\caseControl{r}{otate}{#1}{}}
+\newcommand{\erno}[1][]{\caseControl{E}{rn\"{o} Rubik}{#1}{}}
+\newcommand{\mpuzzle}[1][]{\caseControl{M}{agic Puzzle}{#1}{}}
+\newcommand{\msquare}[1][]{\caseControl{M}{agic Square}{#1}{}}
+\newcommand{\mcube}[1][]{\caseControl{M}{agic Cube}{#1}{}}
+
+ 
