@@ -1,77 +1,76 @@
 \section{Test Implementation}
 \label{sec:testimplementation}
+\newcommand{\vargroupid}{\vari{group\_id}}
+\newcommand{\varuserids}{\vari{users}}
 Implementing the testing is done by writing a number of test cases that use the functions in our \subsystem{} and check if they behave as they should.
 There is built-in functionality in \moodle{} to see how many of the SimpleTest test cases pass.
-This tool is used every time a function is implemented, to see if the functions behavior corresponds to its expectation.
+This tool is used every time a function is implemented, to see if the functions behavior corresponds to our expectation of it.
 
-In this section we will show some examples of our test cases.
+In \secref{sub:testCaseEg} we will show some examples of our test cases.
 The entire set of test cases can be found in our source code folder.
 We will draw our examples from the tests of the function \fu{remove\_projectgroup\_members}, which is responsible for removing a set of members from a project group.
-The documentation of \fu{remove\_projectgroup\_members} states that the input is a project group id and a non-empty set of user ids, belonging to users who are members of the group initially.
+The documentation of \fu{remove\_projectgroup\_members} states that the inputs are a project group id, \vargroupid{}, and a non-empty set of user ids, \varuserids{}, belonging to users who are members of the group initially.
 We create partitions and perform boundary value analysis on both these inputs.
 
-The two partitions of the project group id are ids that belong to an existing project group and ids not belonging to an existing project group.
+\vargroupid{} is partitioned into two partitions.
+The two partitions of \vargroupid{} are; ids that belong to an existing project group, and ids not belonging to an existing project group.
 %The boundary value analysis on the change from one partition is not an option since it is not a continuous range of ids that are belonging to project groups followed by a continuous range of ids not belonging to project group.
-If project groups could not be removed it would be that case that an unbroken range of ids belonging to project groups would be followed by an unbroken range of ids not belonging to project groups since the ids of project groups are auto-incremented (see \secref{sec:dbdesign}).
-However, this is not the case.
-As a consequence we choose to test the removal of project group members with an id value belonging to a project group and an id value not belonging to a project group.
+%If project groups could not be removed it would be that case that an unbroken range of ids belonging to project groups would be followed by an unbroken range of ids not belonging to project groups since the ids of project groups are auto-incremented (see \secref{sec:dbdesign}).
+%However, this is not the case.
+%We choose to test the removal of project group members with an id value belonging to a project group and an id value not belonging to a project group.
+These two partitions might be adjacent to each other on the range of integer values since the ids of project groups are auto-incremented (see \secref{sec:dbdesign}).
+However, project groups can be deleted, which means that the range of ids belonging to project groups might be broken by one or more ids belonging to a deleted project group -- hence not belonging to an existing project group.
+This yields two tests for \vargroupid{}.
+As part of the boundary value analysis we decide that these must be at a boundary.
+The test case for an id belonging to an existing project group is tested with a value $n$ where the id $n+1$ is not belonging to a project group, i.e. the id $n$ is the newest project group.
+The test case for an id not belonging to an existing project group, we test it with value $m$ where both ids $m-1$ and $m+1$ belongs to project groups and id $m$ does not.
 As part of the boundary value analysis of this input we deem that we should try to use something that is not and integer as input, we choose to use a string.
-We deem that every invalid input value belongs to the same equivalence partition, therefore we do not test for inputs of objects, null values, arrays etc.
+We deem that every invalid input value belongs to the same equivalence partition, therefore we do not test for input of objects, null values, arrays etc.
 This yields three test cases for this function.
-In each of these the other input is a valid value.
+In each of these \varuserids{} is a valid value.
 
-
+The partitioning of \varuserids{} is not as straight forward.
+Here we have cases where the ids to be remove can be either be all, partly, or not at all valid, depending on whether or not the given id belongs to a user that is a part of the project group being tested.
+We choose to partition it coarsely; either all the ids of the set to be removed belongs to valid members or at least some id does not belong to a member.
+The reason being that if the function can handle a single invalid user id it is likely that it can handle some and all invalid user ids.
+The boundary values for these partitions we are considering are as follows: 
+\begin{itemize}
+	\item Removing a single member from a project group
+	\item Removing every member from a project group
+	\item Removing a user that is not a member of the project group, where the project group in question has members.
+\end{itemize}
+Additionally we test the case where the set of ids to be removed is empty and is an illegal type.
+For the illegal type we choose two cases; one where the input is an array but one of the elements is a string instead of an integer and a case where the input is an object instead of an array.
+The final test case regarding \varuserids{} is where the call to the database API indicating the actual deletion of data fails.
+This test case is inserted to test how the function handles unexpected situation regarding function calls to trusted API or sudden database failure (though the database is responsible for recovery itself).
 
 \subsection{Test Case Examples}
+\label{sub:testCaseEg}
 \begin{lstlisting}[style=phpCode, caption=\myCaption{A test case for the function remove\_projectgroup\_members. The test case tests if the function correctly removes all the members of the project group when instructed to.}, label=src:testcasedelall]
 function testRemoveMembersFromGroupEveryone() {
-    global $DB;
-    
-    $groupmembers = 6;
-    
-    //The data
-    $projectgroup = new stdClass(); 
-    $projectgroup ->shortname = "grp4";
-    $projectgroup ->fullname = "group";
-    
-    //Get valid users (we dont want guest users or admins)
-    //The numbers of users are limeted to $groupsmembers
-    $users = $DB->get_records_sql('SELECT id FROM mdl_user WHERE username != "guest" AND username != "admin" LIMIT 0 ,'.$groupmembers);
-    $memberArray = array();
-    foreach ($users as $key => $value) {
-        $memberArray[] = $value->id;
-    }
-    $projectgroup ->members = $memberArray;
-    
-    //create the test group with members
-    $groupId = $this->createTestGroup($projectgroup); (*\label{src:testcasedelall:create}*)
-    
-    //load the members from the group, (used to make sure that they where added in the first place)
-    $members = $DB->get_records($this->groupMemTableName, array("projectgroup"=>$groupId));
-    
-    //get the id of all the members in the group $groupID
-    $membersID = array();
-    foreach ($members as $key => $usrStd) {
-        $membersID[] = $usrStd ->user;
-    } 
-    
-    //makes sure that we have the wanted number of members in the group
-    $memberCount = sizeof($membersID);
-    $this->assertEqual($memberCount , $groupmembers);
-    
-    remove_projectgroup_members($groupId, $membersID); (*\label{src:testcasedelall:delete}*)
-    
-    //array with the std with the members in the group. Should be empty.
-    $delMembers = $DB->get_records($this->groupMemTableName, array("projectgroup"=>$groupId));
-    
-    $this->assertTrue(empty($delMembers)); (*\label{src:testcasedelall:assert}*)
+	global $DB;
+	
+	$groupmembers = 6;
+	
+	//The data
+	$projectgroup = new stdClass(); 
+	//Set data - shortname, fullname, and members
+	...
+	
+	//create the test group with members
+	$groupId = $this->createTestGroup($projectgroup); (*\label{src:testcasedelall:create}*)
+		//Read back users and ensure that the project group contains 6 members
+	...
+	
+	remove_projectgroup_members($groupId, $membersID); (*\label{src:testcasedelall:delete}*)
+	
+	//array with the members in the group. Should be empty.
+	$delMembers = $DB->get_records($this->groupMemTableName, array("projectgroup"=>$groupId));
+	
+	$this->assertTrue(empty($delMembers)); (*\label{src:testcasedelall:assert}*)
 }
 \end{lstlisting}
 
-%stupid tex
-\begin{comment}
-
-\end{comment}
 In \coderef{src:testcasedelall} a test case for the function \fu{remove\_projectgroup\_members} is shown.
 The test case in question checks if the function can correctly remove all members of a group. 
 In line \ref{src:testcasedelall:create} a group of $6$ users is created.
@@ -82,6 +81,53 @@ If it is empty the test succeeds, if not it fails.
 This test case is an integration test between the function \fu{remove\_projectgroup\_members} in \admlib{} and \moodle{} DML, since we use an actual database for data storage during the test.
 %This means that an error in \moodle{} data manipulation API could cause an error 
 
-Some of our test cases are unit tests.
-To make these tests run we have to to mock up the database in many situations.
 
+\begin{lstlisting}[style=phpCode, caption=\myCaption{A test case for the function \fu{remove\_projectgroup\_members}. The test case tests if the function correctly handles the erronous input of an empty set of users}, label=src:testcasedelnone]
+function testRemoveNoUserFromGroup()
+{
+	global $DB;
+	//Setup
+	$groupId = 1;
+	$data = array(); (*\label{src:testcasedelnone:data}*)
+	
+	//Mocking up database
+	$DB = $this->DBMock; (*\label{src:testcasedelnone:mock}*)
+	
+	//Set expectations
+	$DB->expectNever('start_delegated_transaction'); (*\label{src:testcasedelnone:notrans}*)
+	$DB->expectNever('delete_records_select'); (*\label{src:testcasedelnone:nodel}*)
+	$this->expectException('coding_exception'); (*\label{src:testcasedelnone:noexcept}*)
+	
+	//Run
+	remove_projectgroup_members($groupId,$data); (*\label{src:testcasedelnone:call}*)
+}
+\end{lstlisting}
+Many of our test cases are unit tests.
+To make most of these tests run we have to to mock up the database API.
+An example of this is the test case with an empty set of user ids as the argument \varuserids{} to \fu{remove\_projectgroup\_members}.
+This is seen in \coderef{src:testcasedelnone}.
+%The empty input is set on \lineref{src:testcasedelnone:data} and used for the call to \fu{remove\_projectgroup\_members}.
+%The default database API is set to a mock object in \lineref{src:testcasedelnone:mock}.
+%This default value is used in \fu{remove\_projectgroup\_members}.
+In \linesref{src:testcasedelnone:notrans}{src:testcasedelnone:noexcept} the expectations for the call is set up prior to the call in \lineref{src:testcasedelnone:call}.
+The expectations are that there should be no transaction started, no deletion should occur and an exception is thrown.
+This test case only pass if these expectations are met.
+
+
+
+
+
+
+
+
+\todo{Jeg ved ikke om det her skal flyttes til eval, men nu er det i hvert fald skrevet}
+The choice between mocking the database API up and using the actual database API as several factors.
+Firstly the time it takes to run the tests is an important factor.
+If every test case connects to the database and performs reads and/or writes on the data the test suite will run slower than if some or all are using a mocked up database API.
+The time that tests take to run is crucial when using test driven development because a test suite will be run many times and the developer running the test suite needs the respond to continue his development.
+Secondly some integration testing is needed.
+We cannot simply choose to use a mocked up database in every test case because we may have misunderstood some of the specification of the \moodle{} DML.
+This could lead to calls with invalid input, that would not be caught by the tests because the developer writing the function using the API invalidly is possibly mocking the database API to accept the invalid input.
+Thirdly the database that is used for integration testing is also used to store data used for demo meetings.
+A test case that tests that a function behaves correctly on errors is better suited for a mocked up database API to avoid loosing data that may be lost if the error is not handled or handled incorrectly.
+\FloatBarrier
