@@ -1,0 +1,40 @@
+\subsection{Overwrite Context}
+In \secref{sub:contextsystem}  the context system of Moodle is described.
+In this section the creation of a custom context is described. 
+
+To be able to define capabilities for the project groups and have different blocks for different project group we need our own context.
+We will create our own context level and class.
+We call the context \cl{context\_projectgroup}. 
+
+Moodle does not support extension of contexts through one of the more than 30 different plugin types available \cite{plugin}. 
+There two parts of the problem, the first is to create a new context and the second is to load it properly. 
+We create a new context by making a new class which is very similar to \cl{context\_course} class and by defining the context level of project groups as a constant. 
+The class header and the constant definition can be seen in \coderef{codeprojectgroupcontext}. 
+The constant is set to 55 and is chosen because that context level is unused and it is close to the course context level. 
+We regard the project group contexts to be at the same level as course contexts. 
+However, project groups does not have categories like courses does.
+
+\begin{lstlisting}[style=phpCode, caption=\myCaption{The context\_projectgroup class header and constant definition}, label=codeprojectgroupcontext]
+define ('CONTEXT_PROJECTGROUP',55);
+class context_projectgroup extends context {
+...
+\end{lstlisting}
+
+When a context is loaded in a Moodle page it is instantiated by \fu{get\_context\_instance}, which takes a context level and an instance id. 
+The instance id can be a course id or similar depending on the context level -- in our case it is a project group id. 
+This function calls a static method in the \cl{context\_helper} class which uses a private array to translate the context level into a class name.
+The overall system definition in \chapref{chap:systemDef} retain us from changing the core code of Moodle. 
+If this constraint were not enforced the array could simply be extended directly in the code.  
+Since the array used is private we can not extend the context system by overriding the \cl{context\_helper} class. 
+The newly created context is only used in pages created in this project and we can therefore create our own version of \fu{get\_context\_instance}. 
+The new function can be seen in \coderef{codeprojectgroupcontextinstance}.
+\begin{lstlisting}[style=phpCode, caption=\myCaption{The function to get projectgroup context}, label=codeprojectgroupcontextinstance]
+function get_projectgroup_context_instance( $instance = 0, $strictness = IGNORE_MISSING) 
+{ 
+    return context_projectgroup::instance($instance, $strictness);
+}
+\end{lstlisting}
+The \vari{instance} variable denotes a project group id.
+The \vari{strictness} variable 
+
+With the new context and the function to instantiate it we can now make per project group permissions and add blocks to specific project group pages. 
