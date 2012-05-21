@@ -46,7 +46,7 @@ This test case is inserted to test how the function handles unexpected situation
 
 \subsection{Test Case Examples}
 \label{sub:testCaseEg}
-\begin{lstlisting}[style=phpCode, caption=\myCaption{A test case for the function remove\_projectgroup\_members. The test case tests if the function correctly removes all the members of the project group when instructed to.}, label=src:testcasedelall]
+\begin{lstlisting}[style=phpCode, caption=\myCaption{A test case for the function \fu{remove\_projectgroup\_members}. The test case tests if the function correctly removes all the members of the project group when instructed to.}, label=src:testcasedelall]
 function testRemoveMembersFromGroupEveryone() {
 	global $DB;
 	
@@ -59,7 +59,7 @@ function testRemoveMembersFromGroupEveryone() {
 	
 	//create the test group with members
 	$groupId = $this->createTestGroup($projectgroup); (*\label{src:testcasedelall:create}*)
-		//Read back users and ensure that the project group contains 6 members
+	//Read back users and ensure that the project group contains 6 members
 	...
 	
 	remove_projectgroup_members($groupId, $membersID); (*\label{src:testcasedelall:delete}*)
