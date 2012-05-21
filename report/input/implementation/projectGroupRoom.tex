@@ -1,12 +1,5 @@
-In the implementation of the project group we are faced with several choices. 
-Project groups can be implemented as courses, see \secref{sub:courses}, by creating a new view for the course page.  
-This will make it possible to use activity modules, described in \ref{par:activitymodules}, in the project group. 
-Another approach is to make a local plugin, which gives us basic functionality, such as database installation. 
-With a local plugin we cannot use activity modules since they are too related to courses. 
-Instead we can use blocks for the functionality. 
-The later approach is chosen. 
-
 \section{Project Group Room}
+\label{sec:projGroupRoomImpl}
 In this section the actual implementation of the project group room, its custom blocks, how the context system is used to implement our own context to allow better administration of blocks and capabilities, and the navigation to the users project groups is described.
 The section presents how the project groups work from the perspective of the user. 
 
@@ -17,7 +10,7 @@ The project group page is the virtual meeting place described in \secref{sec:pro
 We decided to implement the room merely as a container for blocks. 
 Alternatively the functionality could be an integrated part of the page, but using blocks gives more flexibility to the users allowing them manage the layout of their own project group room. 
 A screenshot of a project group room can be seen in \figref{fig:projectgroupnoedit}. 
-In this project group room the blocks are layouted as they are per default. 
+In this project group room the blocks of the standard layout are seen.
 \begin{figure}[h]
 	\centering
 		\includegraphics[width=\textwidth]{images/projectgroupnoedit.png}
@@ -27,12 +20,13 @@ In this project group room the blocks are layouted as they are per default.
 
 The project group room consist of three columns. 
 The left column is the standard navigation menu in Moodle. 
-The Center and right columns both contain blocks.
-The various blocks presented on the project groups page is described in \secref{sec:implprojectgroupblocks}. 
-If an user wants to edit the block layout for the project group room he can press the ``Turn editing on'' button. 
+We do not want anything to be added to this column to ensure that the page seem familiar to the user.
+The center and right columns both contain blocks.
+The various blocks presented on the project groups page are described in \secref{sec:implprojectgroupblocks}. 
+If a user wants to edit the block layout for the project group room he can press the ``Turn editing on'' button. 
 This will add edit and move buttons to each block. 
 A new block is added in editing mode to allow for adding new blocks. 
-If an user edits the page the change can be seen by all group members. 
+If a user edits the page, the change can be seen by all group members. 
 The page in edit mode can be seen in figure \figref{fig:projectgroupwithedit}.
 
 \begin{figure}[h]
@@ -47,7 +41,7 @@ The task of securing that only members of the project group can edit and view ar
 
 
 
-
+\FloatBarrier
 \subsection{Ensuring Permissions}
 \label{sec:projectgrouproommanagerights}
 Permissions can generally be divided in two types; read and write. 
@@ -58,9 +52,9 @@ To ensure the user attempting to enter a project group room has permission to en
 It checks if the user is an administrator or is a member of the group. 
 The administrator check is necessary since administrators should be able to see the group even if they are not members of the group. 
 
-The function  \fu{has\_projectgroup\_write\_permission} which checks that the user has write permissions uses the read permissions function too check that the user can read.
+The function  \fu{has\_projectgroup\_write\_permission} which checks that the user has write permissions uses the read permissions function to check that the user can read.
 If he cannot read he should not be able to edit. 
-In the current implementation the write permissions function does not make extra checks to permissions since the permission level for read and write is equivalent.
+In the current implementation the write permissions function does not make extra checks to permissions since the permission levels for read and write are equivalent.
 Making both function gives the ability to later change this.
 An example could be if the potential users requires that their supervisor should only have read permissions. 
 Then the change will be in one place only. 
