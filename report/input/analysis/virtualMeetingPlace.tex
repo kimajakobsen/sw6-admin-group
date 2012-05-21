@@ -111,6 +111,21 @@ Project groups can be extended such that a project group can consist of other gr
 An example of this is at the Software Engineering 6\ths{} semester. 
 The students are divided into two main projects. Each of these contains project groups. 
 
+\subsection{Navigation}
+\label{sub:designprojectgroupnavigation}
+There is currently a problem in Moodle when it comes to navigation. 
+When a user is enrolled in a large number of courses their entire front page is filled with links to those courses.
+There is no built-in functionality to move or sort the links.
+ELSA mentioned this problem during the meeting that we conducted with them described in \secref{sub:elsaInterview}.
+%ref Lene
+\todo{insert refs to interview with Lene. Hvorfor til Lene når det er ELSA der omtales?}
+
+We want to avoid this problem when we design the navigation for project groups.
+Moodle has a navigation block with a list of important links.
+We want to add an item to this list that, when expanded, shows the project groups the user is a member of.
+Since a supervisor or an administrator might be a member of a many project groups, we want to limit the size of the list of project groups.
+We do this by showing at max a preset value, and if the user is a member of more groups we show a link to a page that has a list of all the users's group.
+
 
 %%%design
 

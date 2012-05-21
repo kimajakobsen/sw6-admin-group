@@ -6,13 +6,17 @@ This means that we are creating unit tests for our functionalities and integrati
 As mentioned in \secref{sub:testing} we are using SimpleTest to test our PHP code.
 When we know what a function is supposed to do prior to its implementation we write test cases for the function.
 If we do not write test cases prior to its implementation we write test cases for the function after its implementation. 
-There are code in project which is not included in functions and are not included in any unit tests, but will be tested using UI testing. 
-UI testing is conducted by the developer too ensure that the functionality is as expected, and through the demo meetings where the system is tried out. 
 %Even though it is likely that the person who made the function is the same person as the one who writes the test cases, there are still bugs to be found by this method.
 Since working with Moodle is new to us we do not have a full understanding of the Moodle core API.
 % which means that in some cases we will expect a function to return something other than what it actually returns.
 This means that even with the documentation of the \moodle{} core API we may misinterpret the behavior, input, or output of a function.
 Many bugs related to this are discovered by writing test cases.
+
+There is code in this project which is not included in functions and are not included in any unit tests.
+This include code belonging to our user interfaces.
+%, referred to as views.
+These UIs are testes using UI testing. 
+UI testing is conducted by the developer to ensure that the functionality is as expected, and through the demo meetings where the system is tried out. 
 
 The test cases we write do not catch all bugs in the system, but that does not mean that they do not serve a purpose.
 Apart from the bugs they actually catch, they also improve the robustness of the system.
