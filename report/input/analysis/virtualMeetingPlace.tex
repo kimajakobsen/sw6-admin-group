@@ -23,8 +23,8 @@ We assume that the optimal relation half-yearly assignment of group rooms.
 The concept of a group room can be extended to a virtual meeting place.  \todo{Mangler kilde}
 
 \paragraph{MPBL nearness}
-In the interview with MPBL described in \secref{}, they suggested that to create a feeling of nearness, a virtual meeting place could be created. 
-This should to serve as a gathering point where cooperation tools should be available. \\
+In the interview with MPBL described in \secref{sub:mpblInterview}, they suggested that to create a feeling of nearness, a virtual meeting place could be created. 
+This should serve as a gathering point where cooperation tools should be available. \\
 
 The virtual meeting place should be a hub where all central tools are available. 
 It should be similar to the Aalborg group room concept and be available on a half-yearly basis.  
@@ -58,7 +58,7 @@ We have to decide the scope of the virtual meeting place.
 This corresponds to having every project group working in the same room in the real world.
 
 \paragraph{Team Group} Another idea is to give a virtual group room to every project group and ensuring that only the members of the project group and the supervisors can contribute to the work on the project.
-The corresponding situation in the real world is that every project group has their own group room where only they (and there supervisors) can do work on the project. \\
+The corresponding situation in the real world is that every project group has their own group room where only they (and their supervisors) can do work on the project. \\
 
 The Shared Group idea is easier than Team Group to implement since no permissions need to be considered.
 However, the Team Group is closer to the way that Aalborg PBL is implemented -- with a team working together on the project as described in \secref{sub:aaupbl}.
@@ -70,14 +70,45 @@ Furthermore, by allowing each project group to have their own virtual group room
 For the rest of the report we refer to the virtual group room as the ``project group room''.
 
 The project group room should have some of the same functionality as a physical group room.
-We as the \groupname{} implement the project group room, and the other three peer-groups implement the blocks (see \secref{subsec:blocks}) that provide different functionality.
+We as the \groupname{} implement the project group room, and the other three peer-groups implement the different functionalities.
+%We as the \groupname{} implement the project group room, and the other three peer-groups implement the blocks (see \secref{subsec:blocks}) that provide different functionality.
 %wrapper for the three other groups
 %Joining of tools
 
-Based on an interview with Lene w. Even (seen in \ref{sec:lene}) we decide to design project groups and project group rooms in a one-to-one relationship.
+
+\subsection{Division of Project and Group}
+\label{sub:divProjGroup}
+In the Aalborg PBL model projects and teams exists as two different entities. 
+The question arises if project groups should be designed as groups that have a relation to a project or as an single entities where the group and project are one. 
+
+We will now list the properties of the two different variants. 
+
+\paragraph{Groups and Projects Divided} We now consider the properties of groups and projects as two different entities:
+\begin{itemize}
+	\item Projects and groups have a many-to-many relationship.
+%	\item Directly reflects the objects of Aalborg PBL model. %Når jeg læser PBL Aalborg haløj ser jeg ikke hvorfor denne her passer bedst, der tager man jo udgangs punkt i et project/problem og dertil hører ét team, ikke flere teams.
+	\item Flexibility between projects and groups.
+	\item Complex to implement.
+\end{itemize}
 
 
+\paragraph{Groups and Projects as One} We now consider the properties of groups and projects as one single entity:
+\begin{itemize}
+	\item A group is linked to a single project, they are inseparable.
+	\item Simple to implement.
+\end{itemize}
+%We will now examine related design options.
 
+\begin{figure}%
+\missingfigure[]{Kim ville du lave et billede her? Du snakkede om at du havde et nice tegneprogram.}
+\morscaption{The difference between the two approaches to the division of project and group. Both illustrations use the following example: Students 1-4 collaborate on project P2, students 1-2 are working on a mini project P1, students 3-4 are working on a mini project P3, and P4 is discontinued}%
+\label{fig:divProjGroup}%
+\end{figure}
+
+The differences between these variants are illustrated in \figref{fig:divProjGroup}.
+Intuitively the option to divide groups and projects might 
+To select which of these divisions to choose we have contacted Lene W. Even and conducted an interview (seen in \appref{sec:lene}).
+ we decide to design project groups and project group rooms in a one-to-one relationship.
 
 
 
@@ -90,28 +121,6 @@ Based on an interview with Lene w. Even (seen in \ref{sec:lene}) we decide to de
 
 \begin{comment}
 
-\subsection{Project Group Room}
-In the Aalborg PBL model project and teams exits as two different entities. 
-The question arises if project groups should be designed as groups that have a relation to a project or as an single entities where the group and project are one. 
-
-We will now list the properties of the two different variants. 
-
-\paragraph{Groups and Projects divided} We now consider the properties of Groups and Projects as two different entities:
-\begin{itemize}
-	\item Projects and Groups have a many-to-many relationship.
-	\item Directly reflects the objects of Aalborg PBL model.
-	\item Complex to implement.
-\end{itemize}
-
-
-\paragraph{Groups and Projects as one} We now consider the properties of Groups and Projects as one single entity:
-\begin{itemize}
-	\item A group have a project, they are inseparable.
-	\item Simple to implement.
-\end{itemize}
-
-
-We will now examine related design options.
 
 \subsection{Recursive tree structure}
 Regardless of the group and project relation the structure of project group room rather simple. 
