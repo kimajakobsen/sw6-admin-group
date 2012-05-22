@@ -1,0 +1,83 @@
+\section{Requirements}
+\label{sec:requirements}
+During this project we have had several meetings with personnel that we consider to be our end users.
+Some of them before coding the system and some of them during coding.
+In this section we present our the final requirements.
+The continues change in our requirements is evaluated in \secref{sec:intergroup} in \partref{part:evaluation}.
+The interviews that have been conducted to gather these requirements are found in \appref{app:interview}.
+
+Since we use scrum as our main development practice we use a product backlog to capture our requirements~\cite[p.~114]{Larman04}.
+Different sources suggest different notations for what is in a backlog~\cite[p.~17]{scrumchecklist}\cite[pp.~123-124]{Larman04}.
+Our backlog items can be a use cases, features, or fixes.
+Since this project is to be proceeded by a new group of students next year, we allow our product backlog to be larger than we are able to complete in this project.
+We will now focus on the items that are part of this semester project.
+These are said to be part of our release backlog.
+The backlog items that makes up our product backlog for our \subsystem{} are defined in \figref{fig:productbacklog}.
+%The process' behind creation of the most central backlog items are also presented here.
+We will now present three different examples of how we derived our backlog items.
+
+\paragraph{Virtual Meeting Place}
+The concept of a virtual meeting place comes from the meeting with ELSA described in \secref{sub:elsaInterview}. 
+From the interview with Lene in \appref{sec:lene} we know that she manually types a list of groups and their members into Moodle.
+Moodle is not able to interpret this. 
+In the interview with Jette and Pia (\appref{sec:jettepia}) we learn that a member of the \admpers{} is resposible for the formed groups. 
+This implies that there exist records of the composition of the groups.   
+In contrast to the these two interviews then Morten explains that on the MPBL education the \admpers{} do not manage the project groups.
+Based on this information we decide that we will make a virtual meeting place that should reflect the project groups that exist on Aalborg university. 
+We decide this knowing that it will cause additional work for the \admpers{} on the MPBL education. 
+We will elaborate on the virtual meeting place in \chapref{chap:analdesign}.
+
+
+\paragraph{Find Project Groups}
+
+\paragraph{Manage Project Groups}
+
+
+
+\begin{comment}
+%skriv flere cases af hvordan b-items er opstået 
+In the interview described in \appref{sec:lene} we learned that there is a need for having a concept of project groups in \moodle{}.  to enhance communication by sending messages from the \admpers{} to project groups through \moodle{}.
+This evolves into two backlog items; integrate the concept of project groups into \moodle{} and allow the administrative personnel to post messages to the project group.
+The former is represented as a backlog item which can be seen in \figref{fig:productbacklog}.
+The latter is implemented by the \supervisorgroup{}.
+\end{comment}
+
+
+\begin{figure}%
+\begin{tabular}{|p{0.2\textwidth}|p{0.1\textwidth}|p{0.7\textwidth}|}
+	\hline
+	
+	\textbf{Name} & \textbf{Priority} & \textbf{Description} \\
+	\hline
+	Manage Project Groups & Priority & A subset of our target group should be able to manage the project groups, this include create, edit, and delete project groups.  \\
+	\hline
+	Virtual Meeting Place & Priority & Create a virtual space that are compliant with the principals of the Aalborg PBL model and create a feeling of nearness.  \\
+	\hline
+	\textit{Recursive Project Groups} & Priority & \textit{Allow project groups to contain groups of persons. This also include the administrative tools to manage the groups and sub-groups.} \\
+	\hline
+	Introduce Roles & Priority & Add the possibility to assign roles to the members of a project group, roles such as supervisor and student.   \\
+	\hline
+	\textit{Manage Roles} & Priority & \textit{Create Functionality to define and manages roles. An example of a new role  could be secondary supervisor} \\
+	\hline
+	Find Project Groups & Priority & Produce functionality to find a given project group. This involves creating a list of project groups and making features to allow search or filtering. \\
+	\hline
+	Navigate to Project Groups & Priority & The members of the project group should have a way to navigate to it. \\
+	\hline
+	Project Group Members & Priority & It should be possible to see who the members of the group is, to create the feeling of nearness. \\
+	\hline
+	\textit{Project Group Synchronization} & Priority & \textit{Project groups should reflect the physical project groups at the university. Thus when a student joins an existing group, the student should automatically be added to the virtual group room.}  \\
+	\hline 
+	\textit{Virtual Meeting Place Template} & Priority & \textit{To account for the user groups diversity and different needs, a set of templates, that defines the visual appearance of the virtual meeting place, could be applied when creating a new virtual meeting space }  \\
+	\hline 
+
+
+	
+	
+	
+\end{tabular}
+\morscaption{A list showing features from our product backlog. The italic items are not part of our release backlog}
+\label{fig:productbacklog}
+\end{figure}
+
+%Få skrevet noget og hvem der skal gøre hvad.
+\FloatBarrier
