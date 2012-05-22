@@ -62,14 +62,18 @@ pdfborder=0 0 0
 
 %%% something? useful? hopefully!
 %\usepackage[]{graphicx} %dvips
+\usepackage{graphicx}
+%\usepackage{caption}
+\usepackage{subcaption}
 \usepackage{emp}
+\usepackage{sidecap}
 %\ifx\pdftexversion\undefined
 %\usepackage[dvips]{graphicx}
 %\else
 %\usepackage[pdftex]{graphicx}
 %\DeclareGraphicsRule{*}{mps}{*}{}
 %\fi
-\usepackage[]{subfig}% Need to make several pictures in one float
+%\usepackage[]{subfig}% Need to make several pictures in one float
 \usepackage{wrapfig}% Enables us to wrap text around a figure
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -221,6 +225,8 @@ pdfborder=0 0 0
 \newcommand{\field}[1]{\mbox{\textbf{#1}}}						%%Do change
 \newcommand{\relation}[1]{\mbox{\texttt{#1}}}						%%Do change
 \newcommand{\rel}[1]{\relation{#1}}						%%Don't change
+\newcommand{\requirement}[1]{#1}						%%Do change
+\newcommand{\req}[1]{\requirement{#1}}						%%Don't change
 
 \newcommand{\figref}[1]{Figure~\ref{#1}}			%%Do change
 \newcommand{\coderef}[1]{Code Snippet~\ref{#1}}	%%Do change
