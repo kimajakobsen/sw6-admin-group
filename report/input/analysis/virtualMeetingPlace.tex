@@ -86,21 +86,21 @@ We will now list the properties of the two different variants.
 
 \paragraph{Groups and Projects Divided} We now consider the properties of groups and projects as two different entities:
 \begin{itemize}
-	\item Projects and groups have a many-to-many relationship.
+	%\item Projects and groups have a many-to-many relationship.
 %	\item Directly reflects the objects of Aalborg PBL model. %Når jeg læser PBL Aalborg haløj ser jeg ikke hvorfor denne her passer bedst, der tager man jo udgangs punkt i et project/problem og dertil hører ét team, ikke flere teams.
-	\item Flexibility between projects and groups.
-	\item Complex to implement.
+	\item Flexibility between projects and groups, allowing many-yo-many relationship.
+	\item Complex to implement, by comparison.
 \end{itemize}
 
 
 \paragraph{Groups and Projects United} We now consider the properties of groups and projects as one single entity:
 \begin{itemize}
 	\item A group is linked to a single project, they are inseparable.
-	\item Simple to implement.
+	\item Simple to implement, by comparison.
 \end{itemize}
 %We will now examine related design options.
 
-\begin{figure}%
+\begin{figure}[p]%
 \centering
         \begin{subfigure}[b]{0.8\textwidth}
                 \centering
@@ -108,23 +108,30 @@ We will now list the properties of the two different variants.
                 \morscaption{Divided}
                 \label{fig:divProjGroup:div}
         \end{subfigure}%
-				\hspace{5mm}
+				\vspace{10mm}
         \begin{subfigure}[b]{0.8\textwidth}
                 \centering
                 \includegraphics[width=\textwidth]{images/groupprojectunited.pdf}
                 \morscaption{United}
                 \label{fig:divProjGroup:united}
         \end{subfigure}%
-\morscaption{The difference between the two approaches to the division of project and group. Both illustrations use the following example: Students A, B, C, and D collaborate on a semester project, students A and B are working on a mini project, students C and D are working on another mini project, and there exists an abandoned}%
+\morscaption{The difference between the two approaches to the division of project and group illustrated by an example}%
 \label{fig:divProjGroup}%
 \end{figure}
 
-The differences between these variants are illustrated in \figref{fig:divProjGroup}.
-Intuitively the option to divide groups and projects might seem more appropriate since it introduces another level of indirection.
+The differences between these variants are illustrated with an example in \figref{fig:divProjGroup}.
+The example is as follows:
+There are four students identified by the letter A to D, and four projects; two mini projects, one semester project, and a single abandoned project.
+Students A, B, C, and D collaborate on a semester project.
+Students A and B are working on a mini project.
+Students C and D are working on the other mini project.
+Finally no one is working on the abandoned project.
+
+Intuitively the option to divide groups and projects (seen in \figref{fig:divProjGroup:div}) might seem more appropriate since it introduces a level of indirection.
 However our interview with Lene W. Even (seen in \appref{sec:lene}) shows that the administrative personnel does not see any benefit from having any extra levels of indirection between students and projects.
 %To select which of these divisions to choose we have contacted Lene W. Even and conducted an interview (seen in \appref{sec:lene}).
-Since we are working agile we prefer to take the simplest approach, assuming it is viable, and allow for extension of the system later.
-We choose to implement groups and projects as one in accordance with our end users' needs and to simplify our system.
+Since we are working agile we prefer to take the simplest viable approach and allow for extension of the system later.
+We choose to implement groups and projects as one (seen in \figref{fig:divProjGroup:united}) in accordance with our end users' needs and to simplify our system.
 % -- note that we have not been in contacts with students for this decision.
 
 
@@ -167,3 +174,4 @@ We do this by showing at max a preset value, and if the user is a member of more
 %Aalborg university does not distinguesh between project and groups \ref{sec:lene}
 
 \end{comment}
+%\FloatBarrier
