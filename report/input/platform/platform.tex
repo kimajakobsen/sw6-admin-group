@@ -158,12 +158,12 @@ When a user is logged in to a Moodle system he can have various roles in various
 One person might be a student in one course and a teacher in others. 
 Moodle use a hierarchical context system to manage users roles and their capabilities. 
 Capabilities are further described in \secref{sub:capabilities}. 
-The context systems hierarchical layout can be seen in \figref{fig:moodle-contexts}~\cite{moodlefilemoodlecontext}.
+The context systems hierarchical layout can be seen in \figref{fig:moodlecontexts}~\cite{moodlefilemoodlecontext}.
  
  \begin{figure}
 	 \centering
 		 \includegraphics[width=\textwidth]{images/moodle-contexts.png}
-	 \label{fig:moodle-contexts}
+	 \label{fig:moodlecontexts}
 	\morscaption{The hierarchical context structure in Moodle}
  \end{figure}
 
@@ -186,11 +186,14 @@ The function \fu{get\_context\_instance} requires a constant and in this case a 
 The constant used for the function is a constant telling which context level that needs to be loaded. 
 This is a numeric value. 
 In this example an error is outputted if the context fails to load. 
-To determine whether or not an user has the capability to do certain actions the function \fu{has\_capability} is used~\cite{moodlerolesandmodules}. It requires a string specifying which capability and the context for the current page. 
-It i required to set the context for each page. 
+To determine whether or not a user has the capability to do certain actions the function \fu{has\_capability} is used~\cite{moodlerolesandmodules}.
+It requires a string specifying which capability and the context for the current page. 
+It is required to set the context for each page. 
 In some pages Moodle sets the context itself~\cite{moodlepageapi}. 
 
-Beside being responsible for capabilities contexts are used to determine the presented blocks on a page. If an user with the capability to edit a course page adds a block and the instance is set to the system context the block will be showed on all course pages. If the context is set to the course context the block will only be presented on that courses page. 
+Beside being responsible for capabilities contexts are used to determine the presented blocks on a page.
+If a user with the capability to edit a course page adds a block and the instance is set to the system context the block will be showed on all course pages.
+If the context is set to the course context the block will only be presented on that courses page. 
 
 	
 \subsection{Capabilities}
@@ -198,7 +201,7 @@ Beside being responsible for capabilities contexts are used to determine the pre
 Moodle integrates a capability system too manage permissions throughout the site \cite{moodlerolesandmodules}. 
 Every capability is connected to the system context, which is global for the entire site. 
 Capabilities can be changed in inherited contexts. 
-For example can a user who does not have a permission in the system context to create courses have the permission to do so in a certain course category. 
+For example a user who does not have a permission in the system context to create courses can have the permission to do so in a certain course category. 
 
 Creating new capabilities is possible when creating a new plugin. 
 To check capabilities the function \fu{has\_capability}, which takes a capability, given as a string, a context instance and extra parameters depending on the capability and the context. 
