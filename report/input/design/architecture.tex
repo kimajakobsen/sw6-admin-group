@@ -2,7 +2,7 @@
 \system{} is an extension of \moodle{} and can be seen as a package of plugins. 
 The architecture does not specify how each plugins should be created, but specify a general structuring of the components of the system. 
 The complete architecture can be seen in \figref{fig:architecture}.
-\begin{figure}
+\begin{figure}[h!t]
 	\centering
 		\includegraphics{images/architecture.pdf}
 	\morscaption{The overall architecture of MyMoodle}
@@ -37,7 +37,7 @@ Second, the project should be passed on, which require an architecture that incr
 It is not possible to make a strict layered architecture due to the Moodle dependency and the administrative tool which does not have to use the intermediate layer, but depends directly on the project group library.
 We do, however, prohibit ourselves from accessing the database directly, by using the Moodle Database Layer (note that it is not a layer in our architecture) described in \secref{sec:moodleoplatformdbml}.
 In \figref{fig:architecture} the dependency from the box encircling \system{} indicates that every component in \system{} depends on the \moodle{} component.
-The \moolde{} component consists of the Database Layer as well as the Context System, Capabilities, etc.
+The \moodle{} component consists of the Database Layer as well as the Context System, Capabilities, etc.
 
 These considerations leads us to design the illustrated architecture in \figref{fig:architecture}.
 Note that the components relative size does not imply anything, e.g. the Moodle component is much larger, code wise, than any of the components in \system{}, but is illustrated with a rectangle the same size as any of the Content Layer components.
