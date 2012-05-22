@@ -51,7 +51,13 @@ With student management the authority of the system is removed and will only be 
 
 
 %Database
-The database schema used in this project is fairly simple, hence it only consist of two tables, namely \
+The database schema used in this project is fairly simple, hence it only consist of two tables, namely  \rel{preojectgroup} and \rel{projectgroup\_members}. 
+These two represents the entity project group and the relation that exists between project groups and users in Moodle. 
+
+The \field{longname} field in \rel{projectgroup} is by Lene W. Even considered useless, see app XXX. 
+The field is optional, but it should be removed if no body will use it. 
+In the \rel{projectgroup\_members} there are two time fields named, \field{created} and \field{updated}
+
 % Testing
 
 
