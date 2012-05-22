@@ -89,15 +89,18 @@ The projectgroup\_members block shows the name and pictures of the project group
 
 \subsection{Navigation}
 In \secref{sub:designprojectgroupnavigation} the navigation to project groups is described and in this section the actual implantation of the navigation described. 
-Since we implement the project group room as a local plugin we can use a inbuilt functionality of Moodle to extend the navigation block~\cite{moodleextendnavigationblock}.
+Since we implement the project group room as a local plugin we can use a build-in functionality of Moodle to extend the navigation block~\cite{moodleextendnavigationblock}.
 The navigation menu can be seen in \figref{fig:moodlenavigationblock}. The extended part is highlighted by the rectangle. 
 
 \begin{figure}
 	\centering
 		\includegraphics[scale=0.7]{images/moodlenavigationblock.png}
+		\morscaption{\moodle{} navigation bar. The framed box shows our extension with a list of project groups, which the currently logged in user is a member of}
 	\label{fig:moodlenavigationblock}
 \end{figure}
-The code to add project groups to the navigation can be seen in \figref{moodlecodeextendingnavigation}. The code checks if something should be displayed at all and then run a foreach loop to print out the link to each group. 
+
+The code to add project groups to the navigation can be seen in \coderef{moodlecodeextendingnavigation}.
+The code checks if something should be displayed at all and then run a loop to print out the link to each group. 
 If more than four is outputted a link to show more is added. \todo{Should we include the the code snippet, and how deep should we go?}
 
 
