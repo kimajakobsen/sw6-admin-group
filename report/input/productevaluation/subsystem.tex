@@ -1,43 +1,42 @@
-\section{subsystem}
+\section{Subsystem}
 In this section the subsystem implemented by our group is evaluated. 
 %The subsystem created can be split into two parts, the management part and the project group room and are implemented differently.
 
 % Project group
-We decided to implement the concept of project groups in Moodle to achieve the goal of our \system{} system definition. 
-We did not make a distinction between projects and groups but combined the two into one unit, which made the system more simple. 
+We decided to implement the concept of project groups in Moodle to satisfy the system definition of our \system{}.
+We did not make a distinction between projects and groups but combined the two into one entity, which made the system more simple. 
 If the distinction should be made the concept of projects can be added to the system and a link between project groups and projects must be created based on the appropriate quantity relation. 
-A project is as described in section XXX an entity which is per semester based an can contain several groups. 
+A project is as described in section XXX\todo{ref} an entity which is per semester based an can contain several groups. 
 A project can have a page in the same way a project group has a page, which will allow for collaboration and communication between groups in a semester. 
 
-An alternative approach to consider is to make project groups nestable, that is to make a project group have a parent.
-This will allow for large groups of students to be split into several subgroups making the students automatic a member of both. 
+An alternative approach to consider is to make project groups nestable; that is to allow a project group to have a parent.
+This will allow for large groups of students to be split into several subgroups making the students automatic a member of both. %Jeg er ikke helt med på hvad der menes her ~♥
 It can be implemented using a recursive tree structure.
-
 
 
 
 \subsection{Project Group Room}
 %% Team vs. Shared
-In section XXX we decide to implement the project group room on a peer-group basis, which gives a group its own room for collaboration. 
-The shared room is infeasible, as argued in that section.
+In section XXX\todo{ref} we decide to implement the project group room on a peer-group basis, which gives a group its own room for collaboration. %wat
+The shared room is infeasible, as argued in that section. 
 
-The project group room is implemented as a container for blocks, which  made the intergroup integration implementation less time consuming by specifying how the different groups could add their work to the project group room. 
+The project group room is implemented as a container for blocks, which made the inter-group integration less time consuming by specifying how the different groups could add their work to the project group room. 
 At the same time it gives a great flexibility since the individual group can organize the blocks themselves and add arbritary blocks.
 
 %%% Context
-In the implementation of the project group room we created our own context,  which gives a better solution compared to linking project groups to courses. 
-such a link would create an unnatural relation, which does not reflect the problem domain. \todo{check at det står i implementationen}  
+In the implementation of the project group room we created our own context, which gives a better solution compared to linking project groups to courses. 
+Such a link would create an unnatural relation, which does not reflect the problem domain. \todo{check at det står i implementationen}  
 
 
 
 \subsection{Administration}
 We decided that management of project groups should only be done by administrative personnel. 
-This is not a final decision and we recon that allowing users to create their own project groups is not a bad idea. 
-With student management of project groups there are several constraints which must be considered, they are discussed in section XXX. 
-The resulting system and its usage thereof will be slightly different. 
-When the administrative personnel manages project groups the system has a possibility to become authority. 
+This is not a final decision and we reckon that allowing users to create their own project groups is not necessarily a bad idea. 
+With student management of project groups there are several constraints, which must be considered; they are discussed in section XXX. 
+The resulting system and its usage thereof will be slightly different.
+When the administrative personnel manages project groups the system has a possibility to become authoritative.
 That is, the system can be used as primary project group database. 
-To become authoritative project group database the structure of the project groups and projects which are discussed in section XXX must be changed to be more general to support all structeres at the university(MIKAEL) and the number of Moodle installations at AAU must be reduced to one. 
+To become authoritative project group database the structure of the project groups and projects, which are discussed in section XXX, must be changed to be more general to support all structures at the university(MIKAEL) and the number of Moodle installations at AAU must be reduced to one. 
 With student management the authority of the system is removed and will only be a tool for students and their supervisors.
 
 %In section \secref{sec:groupManagement} we decided to implement the project group management as an admin tool in Moodle and thereby only allowing people with administrative privileges to manage project groups. 
@@ -79,13 +78,3 @@ The system is not a critical system and attempting to achieve a more thoroughly 
 A worst-case scenario is that a bug in \system{} causes a dataloss. 
 Hopefully this will never occour, but cannot be ruled out since it is impossible to declare a program bug free using testing.
 To overcome this potential loss the database and user files must be backed up.
-
-
-
-
-
-
-
-
-
-
