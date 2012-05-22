@@ -1,17 +1,18 @@
 \section{Results}
 \label{sec:results}
-In this section we evaluate the test cases code coverage. 
+In this section we evaluate the code coverage of the test cases. 
 Moodle has a built-in functionality for line coverage of unit tests, which we use to measure the code coverage.
 
 %We have to unit test files, one for the project group library and one for the admin tool library. 
 The core functionalities that we are testing are project group library and \admlib{}.
 Reports are generated for these and can be seen in \appref{app:localcc} and \appref{app:admincc} respectively.
+We have created $53$ test cases for the project group library, and $105$ test cases for the \admlib{}.
 The line coverage for the project group library is $68.09\%$ and $78.24\%$ for the \admlib{}.
 
 %As stated in \secref{sec:strategy} a good line coverage for a production sites code coverage is \idealCC{}.
 As stated in \secref{sec:strategy} the line coverage that we are striving for is \idealCC{}.
-Our line coverage is above this and considered acceptable for the kind of system we are building. 
-Striving to achieve more will not give a cost/beneficial result \todo{cite til testing her}.
+Our line coverage is above this and we consider it acceptable for the kind of system we are building. 
+%Striving to achieve more will not give a cost/beneficial result \todo{cite til testing her}.
 Our tests are combined with several UI tests which helps find bugs and ensure better quality of the product.
 
 In addition to our test cases presented in \secref{sec:testimplementation} we have conducted demo meetings.

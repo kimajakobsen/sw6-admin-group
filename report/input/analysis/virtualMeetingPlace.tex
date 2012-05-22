@@ -1,5 +1,6 @@
 \section{Virtual Meeting Place}
 \label{sec:virtualMeetingPlace}
+\label{sec:projectgroup}
 
 %%Skriv om hvad vi vil gøre nu . først finde information så finde besluitnings muligheder
 We will now account for the different possible manners in which we can design the virtual meeting place. 
@@ -92,7 +93,7 @@ We will now list the properties of the two different variants.
 \end{itemize}
 
 
-\paragraph{Groups and Projects as One} We now consider the properties of groups and projects as one single entity:
+\paragraph{Groups and Projects United} We now consider the properties of groups and projects as one single entity:
 \begin{itemize}
 	\item A group is linked to a single project, they are inseparable.
 	\item Simple to implement.
@@ -100,8 +101,21 @@ We will now list the properties of the two different variants.
 %We will now examine related design options.
 
 \begin{figure}%
-\missingfigure[]{Kim ville du lave et billede her? Du snakkede om at du havde et nice tegneprogram.}
-\morscaption{The difference between the two approaches to the division of project and group. Both illustrations use the following example: Students 1-4 collaborate on project P2, students 1-2 are working on a mini project P1, students 3-4 are working on a mini project P3, and P4 is discontinued}%
+\centering
+        \begin{subfigure}[b]{0.8\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{images/groupprojectdivision.pdf}
+                \morscaption{Divided}
+                \label{fig:divProjGroup:div}
+        \end{subfigure}%
+				\hspace{5mm}
+        \begin{subfigure}[b]{0.8\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{images/groupprojectunited.pdf}
+                \morscaption{United}
+                \label{fig:divProjGroup:united}
+        \end{subfigure}%
+\morscaption{The difference between the two approaches to the division of project and group. Both illustrations use the following example: Students A, B, C, and D collaborate on a semester project, students A and B are working on a mini project, students C and D are working on another mini project, and there exists an abandoned}%
 \label{fig:divProjGroup}%
 \end{figure}
 
