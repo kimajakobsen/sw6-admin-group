@@ -88,49 +88,55 @@ The projectgroup\_members block shows the name and pictures of the project group
 
 
 \subsection{Navigation}
-In \secref{sub:designprojectgroupnavigation} the navigation to project groups is described and in this section the actual implantation of the navigation described. 
-Since we implement the project group room as a local plugin we can use a build-in functionality of Moodle to extend the navigation block~\cite{moodleextendnavigationblock}.
-The navigation menu can be seen in \figref{fig:moodlenavigationblock}. The extended part is highlighted by the rectangle. 
+%In \secref{sub:designprojectgroupnavigation} the navigation to project groups is described and in this section the actual implantation of the navigation described. 
+In \secref{sec:requirements} we have a requirement called \req{Navigate to Project Groups} which states that a user should be able to find the project group(s) that he is a member of.
+This implementation that satisfies this requirement is presented here.
+Since we implement the project group room as a local plugin we can use a build-in functionality of \moodle{} to extend the navigation block~\cite{moodleextendnavigationblock}.
+The navigation menu can be seen in \figref{fig:moodlenavigationblock}.
+The extended part is highlighted by the rectangle. 
 
 \begin{figure}
 	\centering
 		\includegraphics[scale=0.7]{images/moodlenavigationblock.png}
-		\morscaption{\moodle{} navigation bar. The framed box shows our extension with a list of project groups, which the currently logged in user is a member of}
+		\morscaption{\moodle{} navigation bar. The highlighted box shows our extension with a list of project groups, which the currently logged in user is a member of}
 	\label{fig:moodlenavigationblock}
 \end{figure}
 
-The code to add project groups to the navigation can be seen in \coderef{moodlecodeextendingnavigation}.
+The code to add project groups to the navigation can be seen in \coderef{src:moodlecodeextendingnavigation}.
+The currently logged in user is accessed to get the project groups that he is a member of.
 The code checks if something should be displayed at all and then run a loop to print out the link to each group. 
-If more than four is outputted a link to show more is added. \todo{Should we include the the code snippet, and how deep should we go?}
+If more than four project groups is associate with the given user a link to show more is added and no more links are generated.
 
 
-\begin{lstlisting}[style=phpCode, caption=\myCaption{The code for extending the navigation}, label=moodlecodeextendingnavigation]
+\begin{lstlisting}[style=phpCode, caption=\myCaption{The code for extending the navigation}, label=src:moodlecodeextendingnavigation]
 function projectgroup_extends_navigation(global_navigation $navigation) 
 {
-    global $USER;
-    $number_of_groups = 4;
-    
+	global $USER;
+	$number_of_groups = 4;
+	
 		...
-    
-    $groups = get_groups_of_user($USER->id);
-    $type = navigation_node::TYPE_CUSTOM;
-    $my_projectgroup_navigation = $navigation->add(get_string('myprojectgroup','local_projectgroup'),null,$type,null,'myprojectgroup');
-    if(sizeof($groups) > 0)
-    {
-        $count = 0;
-        foreach ($groups as $group_id) 
-        {
-            $count++;
-            if($count > $number_of_groups ){
-                $my_projectgroup_navigation->add('Show More...', 
-                        new moodle_url('/local/projectgroup/usergroups.php', array('id'=>$USER->id, 'sesskey'=>sesskey())),$type,null,'show_more');
-                break;
-            }
-            $group = get_projectgroup($group_id);
-            $my_projectgroup_navigation->add($group->shortname, new moodle_url('/local/projectgroup/index.php', array('id'=>$group_id, 'sesskey'=>sesskey())),$type,null,$group->id);
-            
-        }
-    }
+	
+	$groups = get_groups_of_user($USER->id);
+	if(sizeof($groups) > 0)
+	{
+		$type = navigation_node::TYPE_CUSTOM;
+		$my_projectgroup_navigation = $navigation->add(get_string('myprojectgroup','local_projectgroup'),null,$type,null,'myprojectgroup');
+		$count = 0;
+		foreach ($groups as $group_id) 
+		{
+			$count++;
+			if($count > $number_of_groups ){
+				$my_projectgroup_navigation->add('Show More...', 
+					new moodle_url('/local/projectgroup/usergroups.php',
+					array('id'=>$USER->id, 'sesskey'=>sesskey())),
+					$type,null,'show_more');
+				break;
+			}
+			$group = get_projectgroup($group_id);
+			$my_projectgroup_navigation->add($group->shortname, new moodle_url('/local/projectgroup/index.php', array('id'=>$group_id, 'sesskey'=>sesskey())),$type,null,$group->id);
+			
+		}
+	}
 }
 \end{lstlisting}
 
