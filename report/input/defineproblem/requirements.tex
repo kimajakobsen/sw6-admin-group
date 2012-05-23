@@ -27,6 +27,41 @@ Based on this information we decide that we will make a virtual meeting place th
 We decide this knowing that it will cause additional work for the \admpers{} on the MPBL education. 
 We will elaborate on the virtual meeting place in \chapref{chap:analdesign}.
 
+\begin{figure}%
+\begin{tabular}{|p{0.2\textwidth}|p{0.1\textwidth}|p{0.7\textwidth}|}
+	\hline
+	
+	\textbf{Name} & \textbf{Priority} & \textbf{Description} \\
+	\hline
+	Manage Project Groups & Priority & A subset of our target group should be able to manage the project groups, this include create, edit, and delete project groups.  \\
+	\hline
+	Virtual Meeting Place & Priority & Create a virtual space that are compliant with the principals of the Aalborg PBL model and create a feeling of nearness.  \\
+	\hline
+	\textit{Recursive Project Groups} & Priority & \textit{Allow project groups to contain groups of persons. This also include the administrative tools to manage the groups and sub-groups.} \\
+	\hline
+	Introduce Roles & Priority & Add the possibility to assign roles to the members of a project group, roles such as supervisor and student.   \\
+	\hline
+	\textit{Manage Roles} & Priority & \textit{Create Functionality to define and manages roles. An example of a new role  could be secondary supervisor.} \\
+	\hline
+	Find Project Groups & Priority & Produce functionality to find a given project group. This involves creating a list of project groups and making features to allow search or filtering. \\
+	\hline
+	Navigate to Project Groups & Priority & The members of the project group should have a way to navigate to it. \\
+	\hline
+	Project Group Members & Priority & It should be possible to see who the members of the group is, to create the feeling of nearness. \\
+	\hline
+	\textit{Project Group Synchronization} & Priority & \textit{Project groups should reflect the physical project groups at the university. Thus when a student joins an existing group, the student should automatically be added to the virtual group room.}  \\
+	\hline 
+	\textit{Virtual Meeting Place Template} & Priority & \textit{To account for the user groups diversity and different needs, a set of templates, that defines the visual appearance of the virtual meeting place, could be applied when creating a new virtual meeting space.}  \\
+	\hline 
+\end{tabular}
+\morscaption{A list showing features from our product backlog. The italic items are not part of our release backlog}
+\label{fig:productbacklog}
+\end{figure}
+
+\todo{Skriv evt noget om hvorfor vi har valgt at lave dem vi har lavet.}
+\FloatBarrier
+
+
 \paragraph{Find Project Groups}
 We deem that it is necessary to create a list with all the project groups that exist.
 This should be available to the part of our target group that manage the project groups.
@@ -44,13 +79,39 @@ ELSA creates the courses based on a general templates.
 The \admpers{} and lectures then populates the courses with data. 
 Information about this process can be read from \appref{sec:lene}, \secref{sub:elsaInterview},  \appref{sec:jettePia}, and \appref{sec:thomas}.
 Similar to the creation of courses should it be possible to create and in other ways to manage project groups. 
-The design of project groups will be explained in \secref{}. \\
+The design of project groups will be explained in \chapref{chap:analdesign}. \\
 
 We will not explain all the backlog items because we reckon that the derivation of them are of similar nature.
 Now we will account for the choice of the release backlog.
 
 \subsection{Release Backlog}
+Recall the table seen in \figref{fig:productbacklog}. 
+The release backlog is based on our product backlog.
+To explain the selection of backlog items we will focus on the items that we did not choose.
+These items are marked with italic on the figure.
+We will now explain the four items.
 
+\paragraph{Recursive Project Groups}
+In an interview with Lene, see \appref{sec:lenedemoone}, we discussed the possibility of having a recursive group structure.
+Lene could not imagine any concrete cases where such a structure would be beneficial. 
+An example of a place where there exist groups in groups is this semester.
+The 6\ths~semester project of the Software Engineering education anno 2012 is a multi-project, this means that the student are divided into two groups each with its own subject, the multi-groups are split into project groups of fitting size.
+Despite this fact we choose to prioritize other features that will bring more value to the project according to our target group, we will not implement this feature. 
+We will argument further for this in \secref{} \todo{hvis det er beskrevet i analdesign så indsæt ref. ellers så slet denne  sætning.}
+
+\paragraph{Manage Roles}   
+We choose not to prioritize this item due to the fact that none of our end users have requested this feature. 
+This feature will not be implemented. \todo{Jeg ved ikke om dette er lidt tyndt. Skal vi bare slette dette item? }
+
+\paragraph{Project Group Synchronization}
+
+
+\paragraph{Virtual Meeting Place Template}
+
+fdfg\\
+
+The items in the release backlog are the following: Manage Project Groups, Virtual Meeting Place, Introduce Roles, Find Project Groups, Navigate to Project Groups, and Project Group Members. 
+Based on our requirements we will now present our \nameref{sec:subSysDef}.
  %use these requirements to make our system statement.
 
 
@@ -66,41 +127,3 @@ The latter is implemented by the \supervisorgroup{}.
 \end{comment}
 
 
-\begin{figure}%
-\begin{tabular}{|p{0.2\textwidth}|p{0.1\textwidth}|p{0.7\textwidth}|}
-	\hline
-	
-	\textbf{Name} & \textbf{Priority} & \textbf{Description} \\
-	\hline
-	Manage Project Groups & Priority & A subset of our target group should be able to manage the project groups, this include create, edit, and delete project groups.  \\
-	\hline
-	Virtual Meeting Place & Priority & Create a virtual space that are compliant with the principals of the Aalborg PBL model and create a feeling of nearness.  \\
-	\hline
-	\textit{Recursive Project Groups} & Priority & \textit{Allow project groups to contain groups of persons. This also include the administrative tools to manage the groups and sub-groups.} \\
-	\hline
-	Introduce Roles & Priority & Add the possibility to assign roles to the members of a project group, roles such as supervisor and student.   \\
-	\hline
-	\textit{Manage Roles} & Priority & \textit{Create Functionality to define and manages roles. An example of a new role  could be secondary supervisor} \\
-	\hline
-	Find Project Groups & Priority & Produce functionality to find a given project group. This involves creating a list of project groups and making features to allow search or filtering. \\
-	\hline
-	Navigate to Project Groups & Priority & The members of the project group should have a way to navigate to it. \\
-	\hline
-	Project Group Members & Priority & It should be possible to see who the members of the group is, to create the feeling of nearness. \\
-	\hline
-	\textit{Project Group Synchronization} & Priority & \textit{Project groups should reflect the physical project groups at the university. Thus when a student joins an existing group, the student should automatically be added to the virtual group room.}  \\
-	\hline 
-	\textit{Virtual Meeting Place Template} & Priority & \textit{To account for the user groups diversity and different needs, a set of templates, that defines the visual appearance of the virtual meeting place, could be applied when creating a new virtual meeting space }  \\
-	\hline 
-
-
-	
-	
-	
-\end{tabular}
-\morscaption{A list showing features from our product backlog. The italic items are not part of our release backlog}
-\label{fig:productbacklog}
-\end{figure}
-
-\todo{Skriv evt noget om hvorfor vi har valgt at lave dem vi har lavet.}
-\FloatBarrier
