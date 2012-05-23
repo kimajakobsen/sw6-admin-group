@@ -42,7 +42,7 @@ These attributes could be the year the students started their education, their g
 \subsection{Administration}
 We decided that management of project groups should only be done by administrative personnel. 
 This is not a final decision and we reckon that allowing users to create their own project groups is not necessarily a bad idea. 
-With student management of project groups there are several constraints, which must be considered; they are discussed in section XXX. 
+With student management of project groups there are several constraints, which must be considered; they are discussed in section XXX\todo{ref}. 
 The resulting system and its usage thereof will be slightly different.
 When the administrative personnel manages project groups the system has a possibility to become authoritative.
 That is, the system can be used as primary project group database. 
@@ -55,22 +55,23 @@ With student management the authority of the system is removed and will only be 
 
 \subsection{Architecture}
 % Architecture
-The chosen architecture used in the implementation of \system{} works as intended and the different sub groups managed to implement their part so thay comply to the architecture. 
-The architecture helps illustrate the relations between the different parts of the system, which is helpful for the groups who should continue the work. 
+The chosen architecture used in the implementation of \system{} works as intended and the different sub-groups managed to implement their part so they comply to the architecture. 
+The architecture helps illustrate the relations between the different parts of the system, which is helpful for the groups who are to continue the work. 
 
 
 
 
 \subsection{Database}
 %Database
-The database schema used in this project is fairly simple, hence it only consist of two tables, namely  \rel{preojectgroup} and \rel{projectgroup\_members}. 
-These two represents the entity project group and the relation that exists between project groups and users in Moodle. 
+The database schema used in this project is fairly simple, hence it only consists of two tables, namely  \rel{preojectgroup} and \rel{projectgroup\_members}. 
+These two tables represent the entity project group and the relation that exists between project groups and users in Moodle. 
 
-The \field{longname} field in \rel{projectgroup} is by Lene W. Even considered useless, see app XXX. 
-The field is optional, but it should be removed if no body will use it. 
-In the \rel{projectgroup\_members} there are two time fields named, \field{created} and \field{updated}. 
+The \field{longname} field in \rel{projectgroup} is by Lene W. Even considered useless, see app XXX\todo{ref}. 
+The field is optional, but it should be removed if it is never removed. 
+In the \rel{projectgroup\_members} there are two time field -- \field{created} and \field{updated}. 
 These fields are unused. 
-The field \field{created} can be useful if the knowledge membership inception is important, while \field{updated} is not used since the application never updates a row, but removes and inserts it again if changes is applied. 
+
+The field \field{created} can be useful if at some point it is necessary to know when a user becomes a member of a group, while \field{updated} is not used since the application never updates a row, but removes and inserts it again if changes is applied. 
 \todo{Sørg for at det bliver forklaret i implementation}
 
 
