@@ -10,7 +10,7 @@ A project is as described in section XXX\todo{ref} an entity which is per semest
 A project can have a page in the same way a project group has a page, which will allow for collaboration and communication between groups in a semester. 
 
 An alternative approach to consider is to make project groups nestable; that is to allow a project group to have a parent.
-This will allow for large groups of students to be split into several subgroups making the students automatic a member of both. %Jeg er ikke helt med på hvad der menes her ~♥
+This will allow for large groups of students to be split into several subgroups, which would make a student part of his subgroup and its parent group.
 It can be implemented using a recursive tree structure.
 
 
@@ -21,13 +21,23 @@ In section XXX\todo{ref} we decide to implement the project group room on a peer
 The shared room is infeasible, as argued in that section. 
 
 The project group room is implemented as a container for blocks, which made the inter-group integration less time consuming by specifying how the different groups could add their work to the project group room. 
-At the same time it gives a great flexibility since the individual group can organize the blocks themselves and add arbritary blocks.
+At the same time it gives a great flexibility since the individual group can organize the blocks themselves and add arbitrary blocks.
 
 %%% Context
 In the implementation of the project group room we created our own context, which gives a better solution compared to linking project groups to courses. 
 Such a link would create an unnatural relation, which does not reflect the problem domain. \todo{check at det står i implementationen}  
 
+\subsection{User Interface}
+In the last demo meeting with Lene W. Even (\appref{sec:lemedemoone}) she expressed some dissatisfaction with how the filtering functionality of the project groups work.
+It would be easier for some users to use the filtering of project groups as a search query instead.
+Specifically this means that filters should as default be discarded when adding a new filter.
+It should still, however, be possible to have more than one filter.
 
+Additionally, it should be possible to filter the project groups on more attributes.
+It should be possible to filter project groups by attributes the members of the project group.
+These attributes could be the year the students started their education, their group room (if they have one), their email, and the city in which they study.
+
+%Kun skrevet om 
 
 \subsection{Administration}
 We decided that management of project groups should only be done by administrative personnel. 
@@ -67,7 +77,7 @@ The field \field{created} can be useful if the knowledge membership inception is
 
 \subsection{Testing}
 % Testing
-In the process of creationg our subsystem of \system{} we used TTD, which worked well for us during the implementation of the core functionality. 
+In the process of creating our subsystem of \system{} we used TTD, which worked well for us during the implementation of the core functionality. 
 It was less useful in the creation of the views. 
 
 Testing of the developed system is done using the SimpleTest framework. 
