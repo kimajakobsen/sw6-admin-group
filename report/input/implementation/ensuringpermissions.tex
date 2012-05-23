@@ -4,7 +4,7 @@ Permissions can generally be divided in two types; read and write.
 Read permissions gives you the ability to view the content of the project group room while write lets you change the content. 
 If a user has write permission he must also have read permissions. 
 Otherwise he cannot see the page he attempts to edit. 
-To ensure the user attempting to enter a project group room has permission to enter the function \fu{has\_projectgroup\_read\_permission} is used. 
+To ensure the user attempting to enter a project group \viewroom[] has permission to enter the function \fu{has\_projectgroup\_read\_permission} is used. 
 It checks if the user is an administrator or is a member of the group. 
 The administrator check is necessary since administrators should be able to see the group even if they are not members of the group. 
 
@@ -14,3 +14,5 @@ In the current implementation the write permissions function does not make extra
 Making both function gives the ability to later change this.
 An example could be if the potential users requires that their supervisor should only have read permissions. 
 Then the change will be in one place only. 
+
+Both functions can be found in the project group library.
