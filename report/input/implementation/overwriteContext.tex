@@ -5,6 +5,7 @@ In this section the creation of a custom context is described.
 To be able to define capabilities for the project groups and have different blocks for different project group we need our own context.
 We will create our own context level and class.
 We call the context \cl{context\_projectgroup}. 
+The class is located in \moodlefile{/local/projectgroup/context.php} and is included by the project group library. 
 
 Moodle does not support extension of contexts through any of the more than 30 different plugin types available \cite{plugin}. 
 This fact poses a problem for us.
