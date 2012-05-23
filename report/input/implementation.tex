@@ -1,0 +1,45 @@
+\chapter{Implementation}
+
+\myTop{In this chapter we describe how we implement the concepts described in \secref{chap:design}.
+%This chapter is divided into three sections where the two main parts of our system are described, namely \nameref{sec:projGroupRoomImpl} and \nameref{sec:manProjGrpImpl}.
+
+The implementation details presented here are paramount for \chapref{chap:test} and \chapref{chap:evalProduct}.}
+From section \secref{sec:architecture} we know there is three part which must be implemented by us. 
+The administration tool to manage project group, the project group, and the project group \viewroom. 
+The administration tool is implemented as an admin tool, which as described in \section{platform} is a special moodle plugin type. 
+Project groups can be implemented as courses (see \secref{sub:courses}) by creating a new view for the course page. 
+Hereby solving the problem of both implementing project groups and the aforementioned project group \viewroom.
+This will make it possible to use activity modules, described in \ref{par:activitymodules}, in the project group. 
+Another approach is to make a local plugin, which gives us basic functionality, such as database installation. 
+With a local plugin we cannot use activity modules since they are too strongly connected to courses. 
+Instead we can use blocks for the functionality. 
+The later approach is chosen. 
+The local plugin includes both the project group library and the project group  \viewroom. 
+The view is implemented in the file \moodlefile{/local/projectgroup/view.php} and  the library is in the file \moodlefile{/local/projectgroup/lib.php}. 
+The library includes several other files. 
+One for each sub group and several helper files. 
+
+\section{Project group library}
+The project group library is build up by several files and consist of several functions and classes.
+It is shared between all subgroups. 
+This section only explains the functionality implemented by our subgroup. 
+%% Lines of codes
+%% How many functions
+
+In the following sections is how we put our project group into a moodle context and how we ensure permissions.
+
+\input{input/implementation/overwriteContext.tex}
+\input{input/implementation/ensuringpermissions}
+
+\FloatBarrier
+
+\input{input/implementation/projectGroupRoom.tex}
+
+\input{input/implementation/manageProjectGroups.tex}
+
+
+
+
+
+
+
