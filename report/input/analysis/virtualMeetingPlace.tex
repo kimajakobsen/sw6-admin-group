@@ -11,7 +11,7 @@ A virtual meeting place can take many forms.
 As our requirement for a virtual meeting place states, we want it to comply with the Aalborg PBL model.
 We will analyze our requirements based on our own experience, and the interviews and demo meetings conducted.
 
-The aspects of the requirement Virtual Meeting Place that we have discovered and are presenting here are: Structure of virtual meeting place, assignment of virtual meeting place, and division of projects and groups.
+The aspects of the requirement Virtual Meeting Place that we have discovered and are presenting here are: Structure of virtual meeting place, assignment of virtual meeting place, division of projects and groups, and interface of activities.
 This are presented below.
 
 
@@ -118,8 +118,43 @@ We choose to design groups and projects as one (seen in \figref{fig:divProjGroup
 The database design for keeping project groups and members of the project group is found in \secref{sec:dbdesign}.
 % -- note that we have not been in contacts with students for this decision.
 
-\subsection{Structure of Activities}
-\label{sub:structActivities}
+\subsection{Interface of Activities}
+\label{sub:interActivities}
+As mentioned previously we are developing a virtual group room where different activities can take place.
+The activities are primarily developed by our peer-groups.
+For the activities to be available to the users through the virtual group room we have to have a common interface over which the virtual group room and the activities can communicate.
+A typical communication message from the virtual group room to the activity could be a request to make the activity render itself.
+Alternatively we could integrate every activity directly into the virtual group room.
+This, however, is neither flexible nor modular enough.
+Recall that we are four peer-groups of three to four students working together, which means that we would likely ``step on each others toes'' if we all were to work on the same component at the same time.
+Furthermore, there is a group of students next year that must take over this project.
+They might want to change the functionality or disable an activity.
+This should be much easier if each activity is encapsulated in a component with a common interface than if every activity was mingled together into a single component.
+
+Now that we have established that a there is a need for an interface between activities and the virtual group room, we want to examine the possibilities that we have for doing so.
+The two broad categories that the final choice can fall in are: Use an existing interface or develop a new interface.
+These are not mutually exclusive.
+E.g. we may take an existing interface and modify it to fit our needs.
+Since we are making a plugin to a well established LMS, we examine the possibilities in it to find an existing interface.
+There are two plugin types in \moodle{} that we consider to be used as interface.
+The systems are: \block{}s and activity modules.
+Both of these are described in \secref{sub:plugins}.
+By choosing any of these as the interface, we restrict our peer-groups to make some or all of their \subsystem{} as the given plugin type, hence this has been a joint decision.
+
+Intuitively the activity module might seem like the right choice, after all the name is \emph{activity} modules.
+However, activity modules are not for general activities, but only for course activities.
+In fact an activity module is required to have a database relation containing the instances of the activity module, each of which must have a link to a course~\cite{moodleactivitymodule}.
+We abandon this idea because we do not want to have links between our project groups and courses -- a project group is an entity in its own right.,
+
+We now consider whether to use \block{}s or develop a new interface.
+Developing a new interface would give us more flexibility because we may choose exactly how it is defined.
+On the other hand a \block{} ensures that \system{} will have a similar look and feel as the rest of \moodle{}.
+Additionally, the students that take over next year (and possibly third parties later) will have accessible documentation by through \moodle{}-dev to modify activities or add new ones.
+The advantages of \block{}s outweighs the additional flexibility that we may gain from defining our own interface.
+This leads us to choose to use \block{}s plugin type that every activity must be implemented as.
+For the virtual group room to communicate with activities it can use calls to members methods of \block{}s.
+E.g. to render a \block{} a call to \me{get\_content} is used~\cite{moodleblockapp}.
+\moodle{c}, however, provides functionality to render all blocks associated with a given page.
 
 
 \subsection{Navigate to Project Groups}
@@ -148,7 +183,7 @@ To fulfill this requirement students conducting group work from remote sites sho
 We choose to design this feature to accommodate the requirement for project group members.
 A part of the project group room should show all the members of the project group belonging to the room.
 There should be a picture of the members to help identify them.
-There is to be a functionality to hide or remove the members since students working in a physical group room might not need this and therefore prefer to focus on the other activities available in the virtual group room.
+There is to be a functionality to hide or remove the members since students working in a physical group room might not need this and therefore prefer to focus on the other activities available in the virtual group room.\todo{Kim nævnte vist at der var en studerende der havde klaget over dette}
 
 
 \subsection{Combining the Aspects}
@@ -161,7 +196,14 @@ An exception to this is the administrative personnel, who have privileges to acc
 Users are linked directly to project groups.
 This reduces the complexity of the system at the cost of flexibility.
 
+Each activity related to a virtual group room is implemented as \block{}.
+This allows for a well defined interface which a virtual group room can use to communicate with the activities related to it.
 
+To ensure familiar navigation for a user to his project groups, we extend the existing navigation bar of \moodle{}.
+To avoid expanding the navigation bar out of proportions we limit the number of project groups that will be shown and provide an additional page where every project group belonging to a user can be found.
+
+To provide a sense of nearness and to help supervisors recognize project groups, a simply activity is added to every virtual group room.
+It can be hidden by users, if they do not need it.
 
 
 
