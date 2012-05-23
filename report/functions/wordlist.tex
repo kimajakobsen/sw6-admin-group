@@ -17,7 +17,8 @@
 \newcommand{\subgroup}[1][]{\caseControl{s}{ub-group}{#1}{}}%
 \newcommand{\sn}[1][]{\systemname[]}
 \newcommand{\systemmode}[1][]{\caseControl{``F}{ollow mode''}{#1}{}}%
-\newcommand{\sm}[1][]{\systemmode[]}
+\newcommand{\sm}[1][]{\systemmode[#1]}%
+\newcommand{\viewroom}[1][]{\caseControl{v}{iew}{#1}{}}%
 
 %car names
 \newcommand{\leader}[1][]{\caseControl{S}{pinky}{#1}{}}%
