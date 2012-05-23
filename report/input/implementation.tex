@@ -1,11 +1,12 @@
 \chapter{Implementation}
+\label{chap:implementation}
 \myTop{In this chapter we describe how we implement the concepts described in \secref{chap:design}.
-%This chapter is divided into three sections where the two main parts of our system are described, namely \nameref{sec:projGroupRoomImpl} and \nameref{sec:manProjGrpImpl}.
+This chapter is divided into three sections where the three main parts of our system are described, namely \nameref{sec:pglib},  \nameref{sec:projGroupRoomImpl}, and \nameref{sec:manProjGrpImpl}.
 The implementation details presented here are paramount for something.
 }
 From section \secref{sec:architecture} we know there is three part which must be implemented by us. 
 The administration tool to manage project group, the project group, and the project group \viewroom. 
-The administration tool is implemented as an admin tool, which as described in \section{platform} is a special moodle plugin type. 
+The administration tool is implemented as an admin tool, which, as described in \secref{sec:platform}, is a special Moodle plugin type. 
 Project groups can be implemented as courses (see \secref{sub:courses}) by creating a new view for the course page. 
 Hereby solving the problem of both implementing project groups and the aforementioned project group \viewroom.
 This will make it possible to use activity modules, described in \ref{par:activitymodules}, in the project group. 
@@ -15,19 +16,23 @@ Instead we can use blocks for the functionality.
 The later approach is chosen. 
 The local plugin includes both the project group library and the project group  \viewroom. 
 The view is implemented in the file \moodlefile{/local/projectgroup/view.php} and  the library is in the file \moodlefile{/local/projectgroup/lib.php}. 
-The library includes several other files. 
-One for each sub group and several helper files. 
+The library includes several other files.% such as various helper files and one for each of the other three peer-groups. 
+One for each sub group, excluding ours, and several helper files. 
+
 
 \section{Project group library}
+\label{sec:pglib}
 The project group library is build up by several files and consist of several functions and classes.
-It is shared between all subgroups. 
+The library itself is created by our peer group, but it includes a file from each of the other groups. 
 This section only explains the functionality implemented by our subgroup. 
-%% Lines of codes
-%% How many functions
+The library consist of $~300$ lines of code, including comments. 
+All the functionality in the library is helping functionality for both the admin tool and the view. 
 
+In the later sections we refer to several functions, which are all located in the library. 
 In the following sections is how we put our project group into a moodle context and how we ensure permissions.
 
 \input{input/implementation/overwriteContext.tex}
+\FloatBarrier
 \input{input/implementation/ensuringpermissions}
 
 \FloatBarrier
