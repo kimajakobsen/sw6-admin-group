@@ -2,14 +2,21 @@
 \label{sec:virtualMeetingPlace}
 \label{sec:projectgroup}
 
+In this section we analyze the requirements related to the part of our \subsystem{} called Virtual Meeting Place.
+The primary requirement that is analyzed is Virtual Meeting Place.
+Related requirements also analyzed here are: Navigate to Project Groups and Project Group Members.
 %%Skriv om hvad vi vil gøre nu . først finde information så finde besluitnings muligheder
-We will now account for the different possible manners in which we can design the virtual meeting place. 
-We will do this by first listing the criteria that the different options are based on. 
-First we consider if and how the the virtual meeting place should be designed.
-We will then go through the levels listing the different options. 
-In the end of this section we will decide which options we choose to implement.
+%We will now account for the different possible manners in which we can design the virtual meeting place. 
+%We will do this by listing the criteria that the different options are based on. 
+%First we consider if and how the the virtual meeting place should be designed.
+%We will then go through the levels listing the different options. 
+%In the end of this section we will decide which options we choose to implement.
+%Our problems statement states that we are to develop a virtual meeting place. 
 
-Our problems statement states that we are to develop a virtual meeting place. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%% More comment %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{comment}
 The notion of a virtual meeting place originates from two sources.
 
 \paragraph{Aalborg PBL} 
@@ -26,8 +33,24 @@ The concept of a group room can be extended to a virtual meeting place.  \todo{M
 \paragraph{MPBL}
 In the interview with MPBL described in \secref{sub:mpblInterview}, they suggested to create a feeling of nearness, a virtual meeting place could be created. 
 This should serve as a gathering point where cooperation tools should be available. \\
+\end{comment}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-The virtual meeting place should be a hub where all central tools are available. 
+A virtual meeting place can take many forms.
+As our requirement for a virtual meeting place states, we want it to comply with the Aalborg PBL model.
+We will analyze our requirements based on our own experience, and the interviews and demo meetings conducted.
+
+At Aalborg University group rooms are assigned to project groups periodically.
+The period at which assignment of group rooms occur can differ.
+Some of the most common periods are presented here:
+\begin{itemize}
+	\item \textbf{No Group Rooms} There are no group rooms available because the field of study does not follow the Aalborg PBL model or the students are studying from remote locations.
+	\item \textbf{Daily} The students have to reserve the group rooms on a daily basis (described in \appref{sec:jettePia}).
+	\item \textbf{Half-yearly} Group rooms are assigned to each project group at the start of a semester.
+\end{itemize} 
+
+The virtual meeting place should be a hub where tools central to group work are available.
 It should be similar to the Aalborg group room concept and be available on a half-yearly basis.  
 
 We know that other LMSs exist aside from Moodle from \secref{sec:LMS}. 
@@ -50,7 +73,7 @@ The native group concept of Moodle, described in \secref{sec:groups}, has its gr
 
 We will now consider the different options for designing the virtual group room.
 
-\subsection{Virtual group room}
+\subsection{Virtual Group Room}
 The members of a project group should have a place where they can meet and engage in project related activities.
 Recall from \secref{sec:subSysDef} that our responsibility is to construct a place where this can happen, not construct the actual activities -- that is the responsibility of our peer-groups.
 We have to decide the scope of the virtual meeting place.
