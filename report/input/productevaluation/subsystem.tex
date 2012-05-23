@@ -78,14 +78,15 @@ The field \field{created} can be useful if at some point it is necessary to know
 
 \subsection{Testing}
 % Testing
-In the process of creating our subsystem of \system{} we used TTD, which worked well for us during the implementation of the core functionality. 
-It was less useful in the creation of the views. 
+In the process of creating our subsystem of \system{} we used TTD.
+It worked well for us during the implementation of the core functionality, because it made any misconceptions we had of the Moodle core functions clear.
+We did not use TDD for the creation of views.
 
 Testing of the developed system is done using the SimpleTest framework. 
 A framework already included in Moodle and hence we did not have to spend time integrating a testing framework.
 
-The result of the tests showed a good code coverage percentage and a large amount of test cases which combined with the demo meetings makes the subsystem stable. 
-The system is not a critical system and attempting to achieve a more thoroughly test suite is not feasible. 
-A worst-case scenario is that a bug in \system{} causes a dataloss. 
-Hopefully this will never occour, but cannot be ruled out since it is impossible to declare a program bug free using testing.
+The result of the tests showed a good code coverage percentage and a large amount of test cases which combined with the demo meetings shows that the subsystem is stable. 
+The system does not have a high criticality and attempting to achieve a more thoroughly test suite is not necessary. 
+A worst-case scenario is that a bug in \system{} causes a data loss. 
+Hopefully this will never occur, but cannot be ruled out since it is impossible to declare a program bug free using testing.
 To overcome this potential loss the database and user files must be backed up.
