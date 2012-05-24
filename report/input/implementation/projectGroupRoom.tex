@@ -26,10 +26,11 @@ The default blocks are specified in a configuration file, \moodlefile{/local/pro
 The syntax for the format is $left:middle:right$. 
 Left, middle, and right represent the three columns in the project group room. 
 The blocks: Timeline, groupwall, blackboard, upload, and tasks is created by our peer-groups while the block named projectgroup\_members is created by us. 
-The projectgroup\_members block shows the name and pictures of the project group members. 
-The layout of a project group \viewroom[] can be seen on \figref{fig:projectgroupnoedit} in \chapref{sub:page}.
+The projectgroup\_members block shows the names and pictures of the project group members. 
+It is implemented as a normal \block{} in the same manner as the \block{}s created by our peer groups is, though our \block{} is less complicated. 
+All it does is fetching the members of the project group using the function \fu{get\_projectgroup\_members} and presenting these along with a picture for each member, which is fetched through a Moodle API call. 
 
-	
+The layout of a project group \viewroom[] can be seen on \figref{fig:projectgroupnoedit} in \chapref{sub:page}.
 
 
 
@@ -87,14 +88,6 @@ function projectgroup_extends_navigation(global_navigation $navigation)
 	}
 }
 \end{lstlisting}
-
-
-\subsection{Show members(working title)}
-\label{sub:membersblock}
-\todo{beskriv den block vi har lavet med show members. ref til analdesign}
-
-
-
 
 
 
