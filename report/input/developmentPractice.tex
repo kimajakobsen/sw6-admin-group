@@ -6,7 +6,7 @@ There is some repetition from \secref{sec:devMethod}, to recall the decisions ma
 
 %As described in section \ref{subsec:choosingmethod} we have chosen to use Scrum of Scrums with some changes.
 
-
+\begin{comment}
 \section{Adapting the Development Method}
 %\section{Choosing a Development Method}
 %because many people -> agile. our version of scrum
@@ -19,30 +19,36 @@ There is some repetition from \secref{sec:devMethod}, to recall the decisions ma
 Recall what we learned in \secref{par:scrum} and \secref{sub:rescrum}.
 Scrum requires an on-site costumer and a product owner.
 We have neither, so we have to make some modifications to the development method.
-Instead we have acquired some customers from which we get requirements and feedback for the system we are developing.
-As the \groupname{} we are responsible for creating the administrative part of the system as well as creating the virtual meeting place, as described in \secref{sec:admgroupdecom}.
-Therefore we are in contact with administrative personnel at Aalborg University, which serve as costumers.
+%Instead we have acquired some customers from which we get requirements and feedback for the system we are developing.
+As the \administrationgroup{} we are responsible for creating the virtual meeting place and a way to manage project groups, as described in \secref{sec:admgroupdecom}.
+%Therefore we are in contact with administrative personnel at Aalborg University, which serve as costumers.
 
-The costumers for the functionality of the group page are the three other groups in this multi-project.
-How we work together with our costumers will be described later in this chapter.
-
+ 
+%The costumers for the functionality of the virtual meeting place are the peer-groups in this multi-project.
+%How we work together with our costumers will be described later in this chapter.
+\end{comment}
 \section{Utilizing the Development Method} %TDD MANGLER STADIG ET STED I DENNE section SKAL DEN VÆRE HER?
 %utilizing agile methods -> we don't know shit so its good
 Since we are not familiar with Moodle, from the beginning of the project we do not have a full understanding of how the entirety of the system should be structured and created.
-We solve this problem by dividing the development process into a number of sprints.
+We solve this problem by using the development \scrum{} and further dividing the development process into a number of sprints.
 Ideally after each sprint we should have a fully functional system, which is in such a state that it can be shipped.
-This is not entirely the case, since we need a lot of information before we can start programming.
+%This is not entirely the case, since we need a lot of information before we can start programming.
+We do not aim to have a functional system after each sprint, due to the fact that we are developing a new system based on an unfamiliar platform and we have short sprints. 
 
 %sprints
-To handle this our first sprint will consist of information gathering; we study the Moodle platform as well as interview our costumers in order to get requirements.
+
+Our first sprint will consist of information gathering; we study the Moodle platform as well as interview our costumers in order to get requirements. 
+We plan this non-programming sprit to learn and experience the \scrum{} development method before we start on a real sprint.
+%in spite of  \scrum{} being intended for development. 
 %product backlog
-These requirements are used to create feature descriptions, which are used to fill the product backlog.
+The requirements we gather are used to create feature descriptions, which are used to fill the product backlog.
 %sprint backlog
-At the beginning of each succeeding sprints in our group we choose items from the product backlog and move them to the sprint backlog, which is a list of features we expect to implement in the particular sprint.
+At the beginning of each succeeding sprints we choose items from the product backlog and move them to the sprint backlog, which is a list of features we expect to implement in the particular sprint.
 
 %planning poker
-In order to choose which items to move to the sprint backlog we assign each item currently in the product backlog a number of story points.
+In order to choose which items to move to the sprint backlog we assign each item, currently in the product backlog, a number of story points.
 We do this by playing planning poker, which is a card game where we all give our estimates of the items on the backlog simultaneously, and then discuss the estimates if there is a significant difference between us.
+Based on the estimate we choose which items we are able to implement in this sprint.
 
 %burndown chart
 As we progress in the sprint the number of remaining number story points starts to dwindle. 
@@ -50,25 +56,29 @@ We keep track of this by a burn-down chart, which is a physical chart with a lin
 The total number of remaining story points are plotted into the graph each day, so we can see if we are progressing at a satisfactory rate.
 
 %daily scrum
-In our group we start each day with a scrum meeting.
+In our sub-group we start each day with a \scrum{} meeting.
 In this short meeting we all stand up and each tell three things: What we did since last scrum meeting, what we are going to do today, and which -- if any -- impediments we have.
 This gives the entire group and idea of what is being worked on, and by doing this everybody always have a task they have chosen themselves.
 
 \section{The Development Method Across Groups} %change this title if you are so fucking clever that you think you can do better
-Since we are dependent on each other across the groups in the multi-project, we need to organize what each group is doing.
-We do this in two ways: in between sprints and during sprints.
+Since all sub-groups are dependent on each other in the multi-project, we need to organize what each sub-group is doing.
+%We do this in two ways: in between sprints and during sprints.
 
 %sprint planning meetings
-At the beginning of each sprint all the groups present their plan for what they are going to produce in the coming sprint.
-If other groups have any dependencies, they communicate these and the groups collaboratively decide the overall tasks each group should accomplish in the given sprint.
+At the beginning of each sprint all the sub-groups present their plan for what they are going to produce in the coming sprint.
+If other sub-groups have any dependencies, they communicate these and the sub-groups collaboratively decide the overall tasks each group should accomplish in the given sprint.
 
 %demo meetings
 At the end of each sprint the groups meet and present what they have created during the sprint.
-Depending on the state of the system costumers can be invited to these meetings.
-Otherwise costumers can be invited to try or be showcased specific aspects of the system by individual groups.
+%Depending on the state of the system end-users can be invited to these meetings.
+End-users can be invited to try or be showcased specific aspects of the system by individual sub-groups in order to acquirer feedback between sprint.
 
 %weekly casual scrum og scrum meetings
-During sprints the groups still work together to some extent.
-Since we all work close to each other we can always go to another group room to ask for help or request that some specific work should be done.
-Additionally we hold Scrum of Scrums meetings at an approximately weekly rate.
-In these meetings the Scrum masters of all the groups meet and discuss the direction of the project and share information regarding how the system should be integrated with the different components that the groups are developing.
+During sprints the sub-groups work together to some extent.
+Since we all work close to each other we can always go to each others project group room to ask for help or request that some specific work should be done.
+Additionally we hold \sos{} meetings at an approximately weekly rate.
+In these meetings the \scrum{} masters of all the sub-groups meet and discuss the direction of the project and share information regarding how the sub-systems should be integrated with the different components that the sub-groups are developing.\\
+
+In the next chapter we will present our requirements.
+
+
