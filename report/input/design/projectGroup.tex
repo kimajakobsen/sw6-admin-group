@@ -1,0 +1,42 @@
+%\section{Project Group}
+%\label{sec:projectgroup}
+%In this section the different aspects of the concept of the project groups will be described.
+%First we want to introduce the concept of a virtual meeting places for project groups.
+%How to navigate through the project groups is described afterwards.
+%Finally the design decisions regarding management of project groups is described.
+%\todo{Tjek igennem når analysen om dette emne er lavet }
+
+
+
+
+%\subsection{Managing Project Groups}
+%In \secref{sec:groupManagement} three different approaches for project group management is discussed; Automatic management through an external system, management by students, and administration by administrative personnel. 
+
+%The automatic approach using an external system can be ruled out due to the fact that there does not exist a central student group database at AAU and the decentralized systems do not have an API from which to extract the information.
+%If a centralized system with an API to extract group information existed this would be the chosen approach.
+%It will not add workload to the administrative personnel and all groups will be able to have a project group in Moodle. 
+
+%From the two remaining approaches we choose to have the administrative personnel administrate the project groups. 
+%We choose this because the student administration approach has several constraints which must be overcome. \todo{Argumentationen for denne approach kan nok forbedres lidt}
+%With the student approach the administrative personnel must be able to clean up the groups and therefore the administrative panel is necessary. 
+%Without having to spend time figuring out how to constrain the system to prevent misuse we can implement a working system.
+%The two approaches do not eliminate each other and the functionality used in the chosen approach can be reused if the other approach is implemented later.
+
+%With the chosen approach administrators need to be able to add, remove, and edit project groups.%
+%Per default Moodle has a block called Settings. 
+%If a user is an administrator there is a list in this block called site administration. 
+%This list contains a lot of tools administrators use, and it is only natural to add project group administration to this list. 
+
+%We want a page where administrators can add a new project group that also adheres to Moodle standards.
+%It should be possible to name a group, add the desired members, and choose who the supervisors of the groups are.
+
+%Additionally there needs to be a list of all project groups.
+%This list can potentiality grow very large, so there needs a way of finding a specific group or a specific set of groups. \todo{lene interview ref}
+%From this list it should be possible to add, edit, and delete groups. 
+
+%\subsubsection{Archiving}
+%In \secref{sub:analysarchiving} archiving of project groups is discussed.
+%We believe that the archiving of project groups is a very beneficial feature for students, supervisors, and administrative personnel.
+%However, since we have limited development time we suggest that future student projects could look into this feature.
+%A further discussion on archiving can be found in FUTURE WORK REFERENCE. \todo{Make future work ref}
+%We believe this feature is valuable to both the students and the supervisors, but there is no point in a archive system if the project groups cannot be created and it is not possible in the given time frame to implement both features. 
