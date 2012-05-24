@@ -1,7 +1,8 @@
 \section{Project Group Management}
 \label{sec:groupManagement}
 \label{sec:projectgroupadministration}
-From \secref{sec:virtualMeetingPlace} we know that we need notion of projects or project groups. In either case the projects or project groups must be created in some way. 
+From \secref{sec:virtualMeetingPlace} we know that we need a notion of projects or project groups.
+In either case instances projects or project groups must be created in the system in some way, as the requirement Manage Project Groups states. 
 \todo{I det her kapitel er der anvendt project group når der tales om Moodle og groups eller student groups når der tales IRL, Sørg for det giver mening når du læser det igennem ellers så ret det.}
 %\subsection{The Approaches} %% Very much working title
 % Creation % Editing (Change of name and similar, add members) % Deletion
@@ -13,7 +14,7 @@ During the meetings with ELSA,  see \secref{sub:elsaInterview}, and the \admpers
 \subsection{Automatic Management}
 \label{sub:automanagement}
 %% Automatic Creation(Proposed by ELSA) (Michael)
-In this section a proposed group management approach is explored.  
+In this section an automatic group management approach is explored.  
 
 ELSA proposes that groups should be created automatically through an external system. 
 This technique is already used at Aalborg University to create courses. 
@@ -22,10 +23,11 @@ A similar approach can be used to create groups from an external database contai
 
 With automatic management through an external system it is necessary to synchronize Moodle with the external system in the case that the groups are changed. 
 If the data is inputted only in the external system a one-directional synchronization is needed, but if groups can be created, added, and deleted in Moodle a bidirectional synchronization service must be created. 
-This service must be able to handle conflicts if the conflicting changes are done a the external application and Moodle at the same time.
+This service must be able to handle conflicts if changes are done at the external application and Moodle at the same time.
 
-After an interview with Michael Møller Hansen of IST(see \appref{sec:mikael}) we discovered that AAU does not have a single system containing the groups at the University.
+After an interview with Michael Møller Hansen of IST (see \appref{sec:mikael}) we discovered that AAU does not have a single system containing the groups at the University.
 Several systems exist and some of the systems are not online.
+Each of these systems contain a fragment of the entire set of project groups.
 Furthermore, some departments does not keep official records of the groups (see \appref{sec:mikael}).
 Morten Mathiasen Andersen explained in an interview that the systems do not have an API from which the groups can be extracted and he himself is working on an API for one of the systems.
 %Without an API from which to extract the groups this approac. 
@@ -35,7 +37,7 @@ Morten Mathiasen Andersen explained in an interview that the systems do not have
 %%% Maintanance 
 
 
-\subsection{Student management}
+\subsection{Student Management}
 %% User- self-Creation  (Else talks about maintanance should be done by students)
 In this section an approach which lets students create, edit, and delete groups is discussed. 
 
@@ -50,7 +52,7 @@ The creator of the project group must be able to govern who can be a member or t
 Alternatively they should not be able to add or remove members from a group after creation since a student should not be able to join a group they do not belong to. 
 
 
-\subsection{Administrative personnel management}
+\subsection{Administrative Personnel Management}
 %% Administration personel creation (Lene creates courses and notes who is in the groups)
 In this section the approach of having the administrative personnel administrate project groups is discussed. 
 
@@ -62,25 +64,30 @@ A drawback of this approach is that it adds more work to the administrative pers
 %\ \\ 
 
 %----------------------------------------------------7\subsection{Design}
-The automatic management approach using an external system can be ruled out due to the fact that there does not exist a central student group database at AAU and the decentralized systems does not have an API from which to extract the information.
+\subsection{Choosing an Approach}
+The automatic management approach using an external system can be ruled out due to the fact that there does not exist a central student group database at AAU and the decentralized system, AdmDB, does not have an API from which to extract the information.
 If a centralized system with an API to extract group information existed this would be an the ideal approach, since it will not add workload to the administrative personnel and all groups will be able to have a project group in Moodle. 
 From the two remaining approaches we choose to have the administrative personnel administrate the project groups. 
 We choose this because the student administration approach has several constraints which must be overcome. \todo{Argumentationen for denne approach kan nok forbedres lidt}
-With the student approach the administrative personnel must be able to clean up the groups and therefore the administrative panel is necessary. 
-Without having to spend time figuring out how to constrain the system to prevent misuse we can implement a working system.
-The two approaches do not eliminate each other and the functionality used in the chosen approach can be reused if the other approach is implemented later.
+With the student approach the administrative personnel must be able to clean up the project groups and therefore the administrative panel is necessary.
+Without having to spend time figuring out how to constrain the system to prevent misuse we can implement a working system by choosing the administrative personnel management approach.
+The two approaches do not exclude each other and the functionality used in the chosen approach can be reused if the other approach is implemented later.
 
 With the chosen approach administrators need to be able to add, remove, and edit project groups.
-Per default Moodle has a block called Settings. 
+Per default Moodle has a \block{} called Settings. 
 If a user is an administrator there is a list in this block called site administration. 
-This list contains a lot of tools administrators use, and it is only natural to add project group administration to this list. 
+This list contains a lot of tools administrators use, and we choose to add project group administration to this list. 
 
 We want a page where administrators can add a new project group that also adheres to Moodle standards.
-It should be possible to name a group, add the desired members, and choose who the supervisors of the groups are.
+It should be possible to name a group, add the desired members, and choose who the supervisors of the project groups are.
 
 Additionally there needs to be a list of all project groups.
-This list can potentiality grow very large, so there needs a way of finding a specific group or a specific set of groups. \todo{lene interview ref}
 From this list it should be possible to add, edit, and delete groups. 
+This list can potentiality grow very large, so there needs a way of finding a specific group or a specific set of groups as specified by requirement Find Project Group.
+This requirement is fulfilled by developing a filter system where an administrative user can add filters on attributes to find a specific project group or a set of related project groups.
+The filter attributes should be those that administrative users are likely to use.
+During the demo meeting described in \appref{sec:lenedemoone} we experienced that our end user need to find project group that the knew the name.
+This has lead us to decide that the project group name should be a filter attribute.
 
 
 
