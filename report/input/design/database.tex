@@ -28,7 +28,7 @@ We choose to have a numeric auto-incrementing \field{id} field to identify the p
 This cannot be set or changed by the users of the system.
 %Ultimately a databse administrator could change it directly in the database, but we cannot guard gainst this assuming the database administrator has super user privelges.
 It is a Moodle guideline to have an auto-incrementing field as primary key~\cite{moodledb}.
-We clearly obey this guideline by making \field{id} the primary key of \rel{preojectgroup}.
+We clearly obey this guideline by making \field{id} the primary key of \rel{projectgroup}.
 
 One could argue that the numeric id field could be used as human identifier as well.
 However, it is much easier for a humans to remember and associate an alphanumeric name with a particular project group than an arbitrary number.
@@ -45,7 +45,7 @@ The four fields of \rel{projectgroup} are as follows.
 \begin{itemize}
 	\item \field{id} to identify the group.
 	\item \field{shortname} to easily identify the group for humans.
-	\item \field{longname} of the group.
+	\item \field{longname} of the group, for a more descriptive name.
 	\item \field{created} timestamp for a given project group.
 \end{itemize}
 
@@ -122,7 +122,7 @@ Secondly we would have to make a new relation to contain only this information a
 We will not alter the core relations such as \rel{user}, as described in \secref{sub:dbProjectGroup}.
 
 To allow for extensibility we save the creation and update time of each tuple in \rel{projectgroup\_members} in \field{created} and \field{updated} respectively.
-It may be useful to have these timestamps for administrative personnel, e.g. to see whether or not a user has joined a project group later than the other members. \todo{Jeg har ingen anelse om hvorfor vi har disse med}
+It may be useful to have these timestamps for administrative personnel, e.g. to see whether or not a user has joined a project group later than the other members.
 
 The final set of fields in \rel{projectgroup\_members} are:
 \begin{itemize}
@@ -164,8 +164,10 @@ The database scheme can be seen in~\figref{fig:projectgroupsdb}.
 The user entity is a built-in part of Moodle and is not modeled by us. 
 \begin{figure}
 	\centering
-		\includegraphics{images/projectgroupsdb.pdf}
-	\morscaption{The database scheme of project groups and memberships. The data fields of the user table is omitted for brevity}
+		\includegraphics[width=\textwidth]{images/projectgroupsdb.pdf}
+	\morscaption{The database scheme of project groups and memberships.
+	Most of the data fields of the user table are omitted for brevity.
+	The user table consist of more than 50 fields}
 	\label{fig:projectgroupsdb}
 \end{figure}
 
