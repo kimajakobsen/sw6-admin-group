@@ -1,0 +1,92 @@
+\section{Subsystem}
+In this section the subsystem implemented by our group is evaluated. 
+%The subsystem created can be split into two parts, the management part and the project group room and are implemented differently.
+
+% Project group
+We decided to implement the concept of project groups in Moodle to satisfy the system definition of our \system{}.
+We did not make a distinction between projects and groups but combined the two into one entity, which made the system more simple. 
+If the distinction should be made the concept of projects can be added to the system and a link between project groups and projects must be created based on the appropriate quantity relation. 
+A project is as described in section XXX\todo{ref} an entity which is per semester based an can contain several groups. 
+A project can have a page in the same way a project group has a page, which will allow for collaboration and communication between groups in a semester. 
+
+An alternative approach to consider is to make project groups nestable; that is to allow a project group to have a parent.
+This will allow for large groups of students to be split into several subgroups, which would make a student part of his subgroup and its parent group.
+It can be implemented using a recursive tree structure.
+
+
+
+\subsection{Project Group Room}
+%% Team vs. Shared
+In section XXX\todo{ref} we decide to implement the project group room on a peer-group basis, which gives a group its own room for collaboration. %wat
+The shared room is infeasible, as argued in that section. 
+
+The project group room is implemented as a container for blocks, which made the inter-group integration less time consuming by specifying how the different groups could add their work to the project group room. 
+At the same time it gives a great flexibility since the individual group can organize the blocks themselves and add arbitrary blocks.
+
+%%% Context
+In the implementation of the project group room we created our own context, which gives a better solution compared to linking project groups to courses. 
+Such a link would create an unnatural relation, which does not reflect the problem domain. \todo{check at det står i implementationen}  
+
+\subsection{User Interface}
+In the last demo meeting with Lene W. Even (\appref{sec:lemedemoone}) she expressed some dissatisfaction with how the filtering functionality of the project groups work.
+It would be easier for some users to use the filtering of project groups as a search query instead.
+Specifically this means that filters should as default be discarded when adding a new filter.
+It should still, however, be possible to have more than one filter.
+
+Additionally, it should be possible to filter the project groups on more attributes.
+It should be possible to filter project groups by attributes the members of the project group.
+These attributes could be the year the students started their education, their group room (if they have one), their email, and the city in which they study.
+
+%Kun skrevet om 
+
+\subsection{Administration}
+We decided that management of project groups should only be done by administrative personnel. 
+This is not a final decision and we reckon that allowing users to create their own project groups is not necessarily a bad idea. 
+With student management of project groups there are several constraints, which must be considered; they are discussed in section XXX\todo{ref}. 
+The resulting system and its usage thereof will be slightly different.
+When the administrative personnel manages project groups the system has a possibility to become authoritative.
+That is, the system can be used as primary project group database. 
+To become authoritative project group database the structure of the project groups and projects, which are discussed in section XXX, must be changed to be more general to support all structures at the university(MIKAEL) and the number of Moodle installations at AAU must be reduced to one. 
+With student management the authority of the system is removed and will only be a tool for students and their supervisors.
+
+%In section \secref{sec:groupManagement} we decided to implement the project group management as an admin tool in Moodle and thereby only allowing people with administrative privileges to manage project groups. 
+
+
+
+\subsection{Architecture}
+% Architecture
+The chosen architecture used in the implementation of \system{} works as intended and the different sub-groups managed to implement their part so they comply to the architecture. 
+The architecture helps illustrate the relations between the different parts of the system, which is helpful for the groups who are to continue the work. 
+
+
+
+
+\subsection{Database}
+%Database
+The database schema used in this project is fairly simple, hence it only consists of two tables, namely  \rel{preojectgroup} and \rel{projectgroup\_members}. 
+These two tables represent the entity project group and the relation that exists between project groups and users in Moodle. 
+
+The \field{longname} field in \rel{projectgroup} is by Lene W. Even considered useless, see app XXX\todo{ref}. 
+The field is optional, but it should be removed if it is never removed. 
+In the \rel{projectgroup\_members} there are two time field -- \field{created} and \field{updated}. 
+These fields are unused. 
+
+The field \field{created} can be useful if at some point it is necessary to know when a user becomes a member of a group, while \field{updated} is not used since the application never updates a row, but removes and inserts it again if changes is applied. 
+\todo{Sørg for at det bliver forklaret i implementation}
+
+
+
+\subsection{Testing}
+% Testing
+In the process of creating our subsystem of \system{} we used TTD.
+It worked well for us during the implementation of the core functionality, because it made any misconceptions we had of the Moodle core functions clear.
+We did not use TDD for the creation of views.
+
+Testing of the developed system is done using the SimpleTest framework. 
+A framework already included in Moodle and hence we did not have to spend time integrating a testing framework.
+
+The result of the tests showed a good code coverage percentage and a large amount of test cases which combined with the demo meetings shows that the subsystem is stable. 
+The system does not have a high criticality and attempting to achieve a more thoroughly test suite is not necessary. 
+A worst-case scenario is that a bug in \system{} causes a data loss. 
+Hopefully this will never occur, but cannot be ruled out since it is impossible to declare a program bug free using testing.
+To overcome this potential loss the database and user files must be backed up.
