@@ -2,13 +2,13 @@
 \label{sec:virtualMeetingPlace}
 \label{sec:projectgroup}
 In this section we analyze the requirements related to the part of our \subsystem{} called Virtual Meeting Place.
-The primary requirement analyzed is the one named the same as this part; Virtual Meeting Place.
+The primary requirement analyzed is the one named the same as this section; Virtual Meeting Place.
 Related requirements are: Navigate to Project Groups and Project Group Members.
 These are analyzed in \secref{sub:designprojectgroupnavigation} and \secref{sub:projGrpMembers}.
 %The following is an analysis of the requirement Virtual Meeting Place.
 
 A virtual meeting place can take many forms.
-As our requirement for a virtual meeting place states, we want it to comply with the Aalborg PBL model.
+As our requirement of a virtual meeting place states, we want it to comply with the Aalborg PBL model.
 We will analyze our requirements based on our own experience, and the interviews and demo meetings conducted.
 
 The aspects of the requirement Virtual Meeting Place that we have discovered and are presenting here are: Structure of virtual meeting place, assignment of virtual meeting place, division of projects and groups, and interface of activities.
@@ -28,7 +28,7 @@ This corresponds to having every project group working in the same room in the r
 The corresponding situation in the real world is that every project group has their own group room where only they (and their supervisors) can do work on the project. \\
 
 The Shared Group idea require less effort than Team Group to implement since no permissions need to be considered.
-However, the Team Group is closer to the way that Aalborg PBL is implemented -- with a team working together on the project as described in \secref{sub:aaupbl}.
+However, the Team Group is closer to the way that Aalborg PBL is implemented.
 
 We choose the Team Group structure. 
 It is infeasible to have every project group share everything.
@@ -39,7 +39,7 @@ A virtual meeting place for a project group thereby consists of the project grou
 %For the rest of the report we refer to the virtual meeting place as the ``project group room''.
 
 The project group room should have some of the same functionality as a physical group room.
-We as the \groupname{} implement the project group room, and the other three peer-groups implement the different functionalities.
+We as the \administrationgroup{} implement the virtual group room, and the other three peer-groups implement the different functionalities.
 %We as the \groupname{} implement the project group room, and the other three peer-groups implement the blocks (see \secref{subsec:blocks}) that provide different functionality.
 %wrapper for the three other groups
 %Joining of tools
@@ -61,7 +61,8 @@ It should be similar to the Aalborg group room concept and be available on a hal
 
 \subsection{Division of Projects and Groups}
 \label{sub:divProjGroup}
-In the Aalborg PBL model projects and teams exists as two different entities. 
+Project and Groups can be regarded as two different entities.
+%In the Aalborg PBL model projects and teams exists as two different entities. 
 The question arises if project groups should be designed as groups that have a relation to a project or as an single entities where the group and project are one.
 Below is the properties of the two variantes presented.
 
@@ -71,7 +72,7 @@ Below is the properties of the two variantes presented.
 \begin{itemize}
 	%\item Projects and groups have a many-to-many relationship.
 %	\item Directly reflects the objects of Aalborg PBL model. %Når jeg læser PBL Aalborg haløj ser jeg ikke hvorfor denne her passer bedst, der tager man jo udgangs punkt i et project/problem og dertil hører ét team, ikke flere teams.
-	\item Flexibility between projects and groups, allowing many-yo-many relationship.
+	\item Flexibility between projects and groups, allowing many-to-many relationship.
 	\item Complex to implement, by comparison.
 \end{itemize}
 
@@ -144,7 +145,7 @@ By choosing any of these as the interface, we restrict our peer-groups to make s
 Intuitively the activity module might seem like the right choice, after all the name is \emph{activity} modules.
 However, activity modules are not for general activities, but only for course activities.
 In fact an activity module is required to have a database relation containing the instances of the activity module, each of which must have a link to a course~\cite{moodleactivitymodule}.
-We abandon this idea because we do not want to have links between our project groups and courses -- a project group is an entity in its own right.,
+We abandon this idea because we do not want to have links between our project groups and courses -- a project group is an entity in its own right.
 
 We now consider whether to use \block{}s or develop a new interface.
 Developing a new interface would give us more flexibility because we may choose exactly how it is defined.
@@ -154,7 +155,7 @@ The advantages of \block{}s outweighs the additional flexibility that we may gai
 This leads us to choose to use \block{}s plugin type that every activity must be implemented as.
 For the virtual group room to communicate with activities it can use calls to members methods of \block{}s.
 E.g. to render a \block{} a call to \me{get\_content} is used~\cite{moodleblockapp}.
-\moodle{c}, however, provides functionality to render all blocks associated with a given page.
+\moodle{}, however, provides functionality to render all blocks associated with a given page.
 
 
 \subsection{Navigate to Project Groups}
@@ -183,8 +184,7 @@ To fulfill this requirement students conducting group work from remote sites sho
 We choose to design this feature to accommodate the requirement for project group members.
 A part of the project group room should show all the members of the project group belonging to the room.
 There should be a picture of the members to help identify them.
-There is to be a functionality to hide or remove the members since students working in a physical group room might not need this and therefore prefer to focus on the other activities available in the virtual group room.\todo{Kim nævnte vist at der var en studerende der havde klaget over dette}
-
+There is to be a functionality to hide or remove the members since students working in a physical group room might not need this and therefore prefer to focus on the other activities available in the virtual group room.
 
 \subsection{Combining the Aspects}
 The virtual meeting place consists of many things.
