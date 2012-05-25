@@ -1,0 +1,81 @@
+\chapter{Conclusion}
+\label{chap:conclusion}
+\myTop{In this chapter the project is concluded upon in two ways. Initially we will conclude upon the multi-project, and then we will conclude upon our sub-project.}
+\section{Multi-Project}
+\label{sec:multiconclusion}
+In the first part of this report the system definition for the multi-project, \system{}, is presented as the following: 
+
+%shared system statement
+\sharedInput{system_definition}
+%MyMoodle is a extension to Moodle that allows Moodle to
+%support the Aalborg PBL model. MyMoodle will not interfere
+%with other functionalities in Moodle.
+
+The support we wished to provide for the Aalborg PBL model was a virtual group room.
+We chose this because a group room is an essential part of working together on a project in the Aalborg PBL model. This system serves as a tool that supports group work for students with a persistent physical group room.
+Additionally, it serves as persistent meeting place for students who need to reserve a group room on a daily basis or do not have a physical group room at all.
+
+The services that the virtual group room provide are a virtual blackboard, a tool for communication between students and supervisors, and a time management tool.
+The virtual blackboard is a place where creative work and notes can be produced collaboratively by students in a project group and saved for later use.
+Communication between students and supervisors is done by writing on a message board and planning meetings.
+Each project group has an individual message board and each supervisor has a personal message board displaying messages from every project group that he supervises.
+The time management tool allows for arrangement of tasks, and shows these in a simple timeline display.
+This timeline also shows blackboard events and planned meetings.
+
+These tools allow students to work in a project group following the Aalborg PBL model through the existing platform \moodle{}.
+
+%These tools allow students to work in a project group following the Aalborg PBL model even when they have no physical group room available.
+%To allow a project group to manage the time they have available they can use the 
+%allows for creative work and 
+%something blackboard timeline supervisor somethingsomething
+
+The virtual group room is implemented as a ``local plugin''.
+The content of the virtual group room is \block{}s.
+These contain the tools described above or have links to the functionalities of the tools.
+Since every component of \system{} is implemented as a \moodle{} plugin we have not changed anything in the core code of \moodle{}.
+This ensures that we do not change other functionalities in \moodle{}.
+Thereby \system{} is an extension to \moodle{} that supports the Aalborg PBL model as defined in the system definition.
+
+\section{Sub-Project}
+\label{sec:subconclusion}
+
+In the second part we defined the sub-system we, as four people, developed during this project.
+The system was defined as:
+
+%our system statement
+\input{input/defineproblem/probdef}
+%A sub-system of MyMoodle that implements project groups in
+%Moodle and allow for administration and usage thereof. The
+%sub-system includes a virtual meeting place, which integrates
+%the other subsystems
+
+We implemented an administration tool in accordance with Moodle standards.
+By using this tool administrators are able to add, edit, and delete project groups.
+In order to accommodate for a large number of project groups we have created a page with a list of all project groups.
+Finding a specific project group or a specific set of project groups is possible by using filtering.
+
+Additionally, we created a project group room page based on requirements gathered from interviews and demo meetings conducted during the project.
+Each project group has one of such pages associated with it.
+This page shows all the group members with name and profile picture, and allows other \system{} blocks to be displayed.
+
+To allow integration between the \subsystem{}s of \system{} we provide a code library that is available in every \moodle{} page.
+This library has data retrieval functions to project groups.
+These include retrieval of project groups related to a specific user and retrieval of project group information (name, members, etc.) of a specific project group.
+For our administrative tool we have created a separate library.
+Our libraries are documented and tested to an acceptable extend for the kind of system we have developed.
+
+The structure of our system allows for further development in a modular fashion.
+It also allows for changes in the implementation while keeping the system robust.
+%Together this provides a system that can be extended further by the students next year. 
+%indefinitely
+
+
+
+
+
+
+
+
+
+
+
