@@ -4,36 +4,36 @@
 This chapter is divided into three sections where the three main parts of our system are described, namely \nameref{sec:pglib},  \nameref{sec:projGroupRoomImpl}, and \nameref{sec:manProjGrpImpl}.
 The implementation details presented here are paramount for \chapref{chap:test} and \chapref{chap:evalProduct}.
 }
-From section \secref{sec:architecture} we know there is three part which must be implemented by us. 
+From section \secref{sec:architecture} we know there is three part(described as layers) which must be implemented by us. 
 The administration tool to manage project group, the project group, and the project group \viewroom. 
 The administration tool is implemented as an admin tool, which, as described in \secref{par:admintool}, is a special Moodle plugin type. 
 
+Recall \secref{sub:interActivities} where we designed the concept of project groups.
 In the implementation of the project group concept we are faced with two choices. 
 It can be implemented as courses (see \secref{sub:courses}) by creating a new view for the course page. 
 Hereby solving the problem of both implementing project groups and the aforementioned project group \viewroom.
 This will make it possible to use activity modules, described in \secref{par:activitymodules}, in the project group. 
-Another approach is to make a local plugin, which, as described in \secref{par:localplugin}, gives us basic functionality, such as database installation and the possibilty to extend the inbuilt navigationblock. 
+Another approach is to make a local plugin, which, as described in \secref{par:localplugin}, gives us basic functionality, such as database installation and the possibility to extend the inbuilt navigationblock. 
 With a local plugin we cannot use activity modules since they are too strongly connected to courses. 
 Instead we can use \block{}s for the functionality. 
 The later approach is chosen. 
 
-The local plugin includes both the project group library and the project group  \viewroom. 
+The local plugin includes both the project group library and the project group \viewroom. 
 
 
 \section{Project Group Library}
 \label{sec:pglib}
 %The \viewroom[] is implemented in the file \moodlefile{/local/projectgroup/view.php} and  t
 The project group library is implemented in the file \moodlefile{/local/projectgroup/lib.php}. 
-The library includes several other files.% such as various helper files and one for each of the other three peer-groups. 
+The library includes several other files. % such as various helper files and one for each of the other three peer-groups. 
 One for each sub group, excluding ours, and several helper files. 
 Our contribution to the library is located in the library file itself. 
 %The project group library is build up by several files and consist of several functions and classes.
 %The library itself is created by our subgroup, but it includes a file from each of the other groups. 
 %This following sections only explains the functionality implemented by our subgroup. 
-The library consist of $~300$ lines of code, including comments and not including any included files. 
+The library consist of $\approx 300$ lines of code, including comments and not including any included files. 
 All the functionality in the library is helping functionality for the entire system. 
 %In the later sections we refer to several functions, which are all located in the library. 
-\todo{Kan man fortælle mere om ``The library'' eller er det fint?}
 
 The following sections explains how project groups are put into a moodle context and how we ensure that users has the correct permissions.
 
