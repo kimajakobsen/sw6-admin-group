@@ -7,30 +7,38 @@ In this section the \subsystem{} implemented by our group is evaluated.
 We decided to implement the concept of project groups in Moodle to satisfy the system definition of \system{}.
 We did not make a distinction between projects and groups but combined the two into one entity, which made the system more simple. 
 If the distinction should be made the concept of projects can be added to the system and a link between project groups and projects must be created.
+A project would encapsulate the over-arching theme of a semester, e.g.\ Application Development in our case.
+The project groups would be the instantiations, so to speak, of the project -- MyMoodle in our case.
 % based on the appropriate quantity relation. 
-A project is as described in section XXX\todo{ref -- to what?} an entity which is per semester based and can contain several groups. %what is the meaning of this?
+%A project is as described in section XXX\todo{ref -- to what?} an entity which is per semester based and can contain several groups. %what is the meaning of this?
 A project can have a page in the same way a project group has a page, which will allow for collaboration and communication between groups in a semester. 
 
 An alternative approach to consider is to make project groups nestable; that is to allow a project group to have a parent.
+This would give even further flexibility.
 This will allow for large groups of students to be split into several subgroups, which would make a student part of his subgroup and its parent group.
 It can be implemented using a recursive tree structure.
+Consider our case, we are four people work in a \subgroup{}, this \subgroup{} along with three other constitute the group developing \system{}.
+The \system{} group is part of a semester project with the theme Application Development, that has another group as well -- the Android group.
+In our system this can be accomplished by making a project group for both \subgroups{}, groups, and the semester.
+A student is then part of the appropriate project groups.
 The difference between a recursive tree structure and our implementation is illustrated in \figref{fig:recursivetree}.
 
+
 \begin{figure}%
-\missingfigure{Figure showing the difference between recursive tree structure and out imple}
-\caption{Recursive tree structure and our our flat structure}%
+\missingfigure{Figure showing the difference between recursive tree structure and our implementation}
+\morscaption{Recursive tree structure and our our flat structure}%
 \label{fig:recursivetree}%
 \end{figure}
 
 
 
-\subsection{Project Group Room}
+\subsection{Virtual Group Room}
 %% Team vs. Shared
-In \secref{sec:virtualMeetingPlace} we decide to implement the project group room to satify the need for a virtual meeting place.
+In \secref{sec:virtualMeetingPlace} we decide to implement the virtual group room to satisfy the need for a virtual meeting place.
 Each project group has its own room for collaboration. 
 %The shared room is infeasible, as argued in that section. 
 
-The project group room is implemented as a container for blocks, which made the inter-group integration less time consuming by having a common interface between the project group room and the blocks.
+The virtual group room is implemented as a container for blocks, which made the inter-group integration less time consuming by having a common interface between the virtual group room and the blocks.
 %specifying how the different groups could add their work to the project group room. 
 At the same time it gives a great flexibility since the individual group can organize the blocks themselves and add arbitrary blocks.
 
