@@ -18,14 +18,18 @@ The reader can see the code for the deletion view in \moodlefile{/admin/tool/pro
 
 \subsection{Add \& Edit}
 To add and edit project groups, the file \moodlefile{/local/projectgroup/edit.php} is loaded into the browser. 
-The looks and feels of this page is described in \secref{sec:adminPrensentation}.
+The look and feel of this page is described in \secref{sec:adminPrensentation}.
 The same file is used for both editing and creation of new projectgroups. 
-The only difference between editing a group and adding a group is that when editing a group a HTTP parameter, $id$, is set.
+The only difference between editing a group and adding a group is that when editing a group an HTTP parameter, $id$, is set.
 When $id$ is set the form fields are filled with the relevant information from the database.
 Once the submit button is pressed the function \fu{save\_or\_update\_projectgroup} is called with a project group object as input.
 That function checks if the $id$ of the group is set. 
 If it is we know that a project group is being edited, and we can update a row in the database.
 If not we know that a new project group is being created and we insert a row in the database.
+
+When \fu{save\_or\_update\_projectgroup} is used to update a project group the possible change in members is handled by removing every member from the project group and then adding the ones received as part of the arguments to the call.
+This means that a project group briefly contains no members whenever it is updated, even when there is no change to the members or their role.
+However, the communication with the database is handled in a transaction, which means that the database system, MySQL, should ensure that the data is constantly in a consistent state.
 
 \subsection{Lisiting}
 In the list of project groups, mentioned in \secref{sec:adminPrensentation}, we provide a filtering functionality, which makes it easy to find a specific set of project groups.
