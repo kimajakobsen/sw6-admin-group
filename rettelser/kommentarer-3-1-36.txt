@@ -1,0 +1,82 @@
+Kap 2
+  Dårlig overskrift
+    Måske bredere overskrift og en række fokuserede afsnit, hver med gode overskrifter
+  Kvaliteten af intro teksten er for dårlig (Anders And tekst)
+  Flakker alt for meget mellem forskellige emner, som slet ikke er dækket af overskriften:
+    System Definition
+    Development Practices
+  Overvej overgangen fra den fælles rapportdel til jeres egen
+    Behov for suppleringer eller præciseringer
+  Jeres udmøntning af Scrum er interesant
+    Som service til læseren kan I også genfortælle væsentlige aspekter af Scrum (i sideboks f.eks.)
+    Men skil disse dele ad
+  
+
+Kap 3: Analyse
+  Analyse handler traditionelt om forståele af det problem I vælger at løse.
+  Analysen af jeres problem - på baggrund af brugernes krav - ER HELT FRAVÆRENDE 
+    (eller også findes det før/efter dette sted ???).
+  Muligheder:
+    ** Traditionel analyse - før design
+    ** En formidling der følger den faktiske udviklingsproces
+  Mange dele af dette kapitel fremstår for mig som "noter til internt brug"
+    Skrevet på en indforstået måde. 
+    Delvis i "telegramstil".
+  Dette kapitel handler om Moodle, som godt kan indgå som en del af analysen. 
+  Overvej et kapitel om passende Moodle baggrund
+    En del af analysen, eller et separat kapitel!!!
+    Skal være tilgængelig for alle læsere, også dem uden Moodle erfaring
+      Starter altså bredere.
+    Skal også give indsigt i intern organisering af Moodle
+      I er på vej med dette.
+
+Kap 4: Design
+  Husk at alternative og argumenter for valg. Tilløb i den kursive indledning, 
+    men der er ikke ret meget af dette i teksten.
+  Nogle dele af teksten er egentlig analyse
+  Projektgruppe vs. set of members.
+    Tæt relaterede
+    Rationale for at have begge
+    Andre mulige egenskaber af - og strukturer omkring - projektgrupper
+      Eksempelvis flad eller hierarkisk, som vi talte om på et tidligt tidspunkt.
+  Designprocessen i form af den iterative tilgang i udviklingsprocessen:
+    Dette perspektiv er helt fraværende
+  Der er mange små meningsforstyrrende fejl, som samlet set hæmmer læsbarheden
+
+Kap 5: Implementation
+  Ganske lidt er skrevet
+  Overvej hvad I vil med dette kapitel
+    Hvad skal læseren få ud af det.
+    Overblik/Interessante hjørner/Diskussion af alternativer og argumenter for valg/...
+
+Evalueringskapitlet:
+  Der er *mange forskellige aspekter* der bør/skal evalueres:
+    Ikke mindste multiprojekt aspekterne.
+    Bør smitte af på disponeringen.
+
+"Dokumentationen af høj kvalitet":
+  API dokumentation - mere end det?
+
+
+HVAD MANGLER DER:
+  Krav fra brugerne.
+   Og hele problematikken med at skaffe og omgås brugerne i hele SW6 projektet.
+  På tværs: Alternativer og argumenter.
+  Noget om programmeringssproget og bentyttede værktøjer
+
+OVERVEJ:
+  Emnevalg - hvad skal med og ikke med
+  Abstraktionsniveau i formidling
+    Baggrund/kontekst
+      Svært hvis det skal gøres ordenligt og kvalificeret
+  Substans og niveau
+    I skal forstå at udnytte jers erfaring
+
+"Introduktion" er et dårligt navn for den første fælles rapportdel.
+  Overvej parts
+    Fælles del, Udviklingsdel, Evalueringsdel
+  
+  Undgå automatpilot i emnevalg, og undgå "rapportstruktur som vi plejer"
+
+
+  
