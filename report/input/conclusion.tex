@@ -1,6 +1,7 @@
 \chapter{Conclusion}
 \label{chap:conclusion}
-\myTop{In this chapter the project is concluded upon in two ways. Initially we will conclude upon the multi-project, and then we will conclude upon our sub-project.}
+\myTop{In this chapter the project is concluded upon in two ways.
+Initially we will conclude upon the multi-project, and then we will conclude upon our sub-project.}
 \section{Multi-Project}
 \label{sec:multiconclusion}
 In the first part of this report the system definition for the multi-project, \system{}, is presented as the following: 
@@ -11,9 +12,11 @@ In the first part of this report the system definition for the multi-project, \s
 %support the Aalborg PBL model. MyMoodle will not interfere
 %with other functionalities in Moodle.
 
-The support we wished to provide for the Aalborg PBL model was a virtual group room.
-We chose this because a group room is an essential part of working together on a project in the Aalborg PBL model. This system serves as a tool that supports group work for students with a persistent physical group room.
-Additionally, it serves as persistent meeting place for students who need to reserve a group room on a daily basis or do not have a physical group room at all.
+%The support we wished to provide for the Aalborg PBL model was a virtual group room.
+%We chose this because a group room is an essential part of working together on a project in the Aalborg PBL model. This system serves as a tool that supports group work for students with a persistent physical group room.
+%Additionally, it serves as persistent meeting place for students who need to reserve a group room on a daily basis or do not have a physical group room at all.
+
+Through our analysis we decided that to support the Aalborg PBL model we make virtual meeting place available for project groups in \moodle{}.
 
 The services that the virtual group room provide are a virtual blackboard, a tool for communication between students and supervisors, and a time management tool.
 The virtual blackboard is a place where creative work and notes can be produced collaboratively by students in a project group and saved for later use.
@@ -23,13 +26,14 @@ The time management tool allows for arrangement of tasks, and shows these in a s
 This timeline also shows blackboard events and planned meetings.
 
 These tools allow students to work in a project group following the Aalborg PBL model through the existing platform \moodle{}.
+\todo{ref til at vi har lavet begraenset test paa vores end users og at vi ikke kan sige med sikkerhed om det er lort eller pisse nice.}
 
 %These tools allow students to work in a project group following the Aalborg PBL model even when they have no physical group room available.
 %To allow a project group to manage the time they have available they can use the 
 %allows for creative work and 
 %something blackboard timeline supervisor somethingsomething
 
-The virtual group room is implemented as a ``local plugin''.
+The virtual group room is implemented as a ``local plugin'' to \moodle{}.
 The content of the virtual group room is \block{}s.
 These contain the tools described above or have links to the functionalities of the tools.
 Since every component of \system{} is implemented as a \moodle{} plugin we have not changed anything in the core code of \moodle{}.
