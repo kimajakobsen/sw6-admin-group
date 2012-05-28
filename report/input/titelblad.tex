@@ -1,0 +1,100 @@
+% Dette er LaTeX-versionen af titelbladet for tek-nat-basis-rapporter 2004 efterr
+% Filen krver:
+% Universitetets logo:  aau-logo.png (for LaTeX) eller aau-logo.ps (for LaTeX)
+% Synopsis: En fil ved navn synopsis.tex
+
+% Udarbejdet af: Hans Httel (hans@cs.auc.dk) 21. maj 2003
+% Rettet af Morten Christophersen (mortench@tnb.aau.dk) 30. nov 2004(ndret til nyt design 2004 efterr) 
+ 
+%\documentclass[11pt]{article}
+%\ifx\pdfoutput\undefined 
+%\usepackage[dvips]{graphicx}
+%\else
+%\usepackage[pdftex]{graphicx} 
+%\usepackage{type1cm} \fi
+%    \usepackage[ansinew]{inputenc}
+%    \usepackage{a4}
+
+%\begin{document} 
+\thispagestyle{empty}
+\begin{titlepage}
+\begin{nopagebreak}
+{\samepage
+\raisebox{11mm}{
+\begin{tabular}{r}
+\parbox{\textwidth}{
+\includegraphics[height=1.2cm]{input/aaulogo_en.png}
+\hfill \parbox{4.9cm}{\begin{tabular}{l}
+{\sf\small \textbf{The department of Computer Science}}\\
+{\sf\small \textbf{Student report}} \\
+{\sf\small Selma Lagerl\"{o}fs Vej 300} \\
+{\sf\small Telephone +45 9940 9940} \\
+{\sf\small Fax +45 9940 9798} \\
+{\sf\small http://www.cs.aau.dk/}
+\end{tabular}}}
+\\
+\end{tabular}}
+
+\begin{tabular}{cc}
+\parbox{7cm}{
+\begin{description}
+
+\item {\bf Title:} \\
+\sn[]
+\item {\bf Theme:} \\
+Application Development
+\end{description}
+
+\parbox{8cm}{
+
+\begin{description}
+\item {\bf Project period:}\\
+   SW6, spring semester 2012
+  \hspace{2cm}
+\item {\bf Project group:}\\
+  SW608F12
+	\hspace{2cm}
+\item {\bf Participants:}\\ \\
+\rule[-0.1cm]{6cm}{0.01cm} \\
+Alex Bondo Andersen \\ \\
+\rule[-0.1cm]{6cm}{0.01cm} \\
+Kim Ahlstr\o{}m Jakobsen \\ \\
+\rule[-0.1cm]{6cm}{0.01cm} \\
+\michael{} Midtgaard \\ \\
+\rule[-0.1cm]{6cm}{0.01cm} \\
+Rasmus Veiergang Prentow \\
+
+  %\hspace{2cm}
+\item {\bf Advisor:}\\
+Kurt N\o{}mark
+\end{description}
+}
+\begin{description}
+\item {\bf Page count:} \pageref{LastPage}
+\item {\bf Appendix count:} 3
+\item {\bf Finished:} 4/6 -- 2012
+\end{description}
+\vfill } &
+\parbox{7cm}{
+  \vspace{.15cm}
+  \hfill 
+  \begin{tabular}{l}
+  {\bf Synopsis:}\bigskip \\
+  \fbox{
+    \parbox{6.5cm}{\bigskip
+     {\vfill{\small \input{input/synopsis}
+     \bigskip}}
+     }}
+   \end{tabular}}
+\end{tabular}}
+\\ \\
+\noindent{\footnotesize\emph{The content of this report is open to everyone, but publishing (with citations) is only allowed after agreed upon by the writers.}}
+\end{nopagebreak}
+\end{titlepage}
+\pagebreak
+\thispagestyle{empty}
+\begin{titlepage}
+
+\end{titlepage}
+\pagebreak
+%\end{document}
