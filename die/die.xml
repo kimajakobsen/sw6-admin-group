@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_1.dtd'>
+<nta>
+	<declaration>// Place global declarations here.
+</declaration>
+	<template>
+		<name x="5" y="5">Die</name>
+		<declaration>// Place local declarations here.
+</declaration>
+		<location id="id0" x="-48" y="64">
+			<urgent/>
+		</location>
+		<location id="id1" x="-40" y="-24">
+			<urgent/>
+		</location>
+		<location id="id2" x="-48" y="-200">
+			<urgent/>
+		</location>
+		<location id="id3" x="-48" y="-296">
+			<urgent/>
+		</location>
+		<location id="id4" x="-264" y="-200">
+			<urgent/>
+		</location>
+		<location id="id5" x="-264" y="-72">
+			<urgent/>
+		</location>
+		<location id="id6" x="176" y="128">
+			<name x="160" y="96">_6</name>
+		</location>
+		<location id="id7" x="176" y="40">
+			<name x="166" y="10">_5</name>
+		</location>
+		<location id="id8" x="176" y="-56">
+			<name x="166" y="-86">_4</name>
+		</location>
+		<location id="id9" x="176" y="-144">
+			<name x="166" y="-174">_3</name>
+		</location>
+		<location id="id10" x="176" y="-240">
+			<name x="166" y="-270">_2</name>
+		</location>
+		<location id="id11" x="176" y="-336">
+			<name x="166" y="-366">_1</name>
+		</location>
+		<location id="id12" x="-416" y="-128">
+			<urgent/>
+		</location>
+		<branchpoint id="id13" x="48" y="64">
+		</branchpoint>
+		<branchpoint id="id14" x="48" y="-24">
+		</branchpoint>
+		<branchpoint id="id15" x="16" y="-200">
+		</branchpoint>
+		<branchpoint id="id16" x="16" y="-296">
+		</branchpoint>
+		<branchpoint id="id17" x="-224" y="-72">
+		</branchpoint>
+		<branchpoint id="id18" x="-224" y="-200">
+		</branchpoint>
+		<branchpoint id="id19" x="-376" y="-128">
+		</branchpoint>
+		<init ref="id12"/>
+		<transition>
+			<source ref="id13"/>
+			<target ref="id5"/>
+			<nail x="-32" y="136"/>
+			<nail x="-176" y="96"/>
+		</transition>
+		<transition>
+			<source ref="id13"/>
+			<target ref="id6"/>
+		</transition>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id13"/>
+		</transition>
+		<transition>
+			<source ref="id14"/>
+			<target ref="id7"/>
+		</transition>
+		<transition>
+			<source ref="id14"/>
+			<target ref="id8"/>
+		</transition>
+		<transition>
+			<source ref="id1"/>
+			<target ref="id14"/>
+		</transition>
+		<transition>
+			<source ref="id17"/>
+			<target ref="id0"/>
+		</transition>
+		<transition>
+			<source ref="id17"/>
+			<target ref="id1"/>
+		</transition>
+		<transition>
+			<source ref="id15"/>
+			<target ref="id9"/>
+		</transition>
+		<transition>
+			<source ref="id15"/>
+			<target ref="id10"/>
+		</transition>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id15"/>
+		</transition>
+		<transition>
+			<source ref="id16"/>
+			<target ref="id4"/>
+			<nail x="-48" y="-360"/>
+			<nail x="-208" y="-304"/>
+		</transition>
+		<transition>
+			<source ref="id16"/>
+			<target ref="id11"/>
+		</transition>
+		<transition>
+			<source ref="id3"/>
+			<target ref="id16"/>
+		</transition>
+		<transition>
+			<source ref="id18"/>
+			<target ref="id2"/>
+		</transition>
+		<transition>
+			<source ref="id18"/>
+			<target ref="id3"/>
+		</transition>
+		<transition>
+			<source ref="id5"/>
+			<target ref="id17"/>
+		</transition>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id18"/>
+		</transition>
+		<transition>
+			<source ref="id19"/>
+			<target ref="id4"/>
+			<label kind="probability" x="-344" y="-184">1</label>
+		</transition>
+		<transition>
+			<source ref="id19"/>
+			<target ref="id5"/>
+			<label kind="probability" x="-344" y="-96">1</label>
+		</transition>
+		<transition>
+			<source ref="id12"/>
+			<target ref="id19"/>
+		</transition>
+	</template>
+	<system>// Place template instantiations here.
+//Process = Die();
+
+// List one or more processes to be composed into a system.
+system Die;</system>
+</nta>
