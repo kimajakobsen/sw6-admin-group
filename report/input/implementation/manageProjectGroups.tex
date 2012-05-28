@@ -1,0 +1,48 @@
+\section{Managing Project Groups} %Jeg skriver kun om admin funktionalitet her -Mikael ~♥
+\label{sec:manProjGrpImpl}
+Before any project group can be useful it has to be created first.
+Administrators need to have the ability to add, edit, and delete project groups.
+%The administration tools we provide have to be easy and fast to use, since they potentially have to be used many times.
+This section describes how we implement the administration tools needed to manage project groups.
+
+The features we provide to manage project groups are known as admin tools in Moodle.
+
+The main functionality is placed in the file \moodlefile{/admin/tool/projectgroup/lib.php}, which is a code library consisting of $\approx 500$ lines of code. 
+The library is know henceforth as the admin tool library.
+The library includes the project group library discussed in \secref{sec:pglib}, and hereby allowing pages in the administrative part to use code in the project group library. 
+This include is the implementation of the dependency between the admin tool and the project group library seen on figure \figref{fig:architecture}. 
+
+In the following section creation, editing, and listing are presented. 
+Deletion of project groups are omitted since we consider the functionality used as trivial. 
+The reader can see the code for the deletion view in \moodlefile{/admin/tool/projectgroup/delete.php} and the function, \fu{delete\_projectgroup}, that does the actual deletion is located in the admin tool library.
+
+\subsection{Add \& Edit}
+To add and edit project groups, the file \moodlefile{/local/projectgroup/edit.php} is loaded into the browser. 
+The looks and feels of this page is described in \secref{sec:adminPrensentation}.
+The same file is used for both editing and creation of new projectgroups. 
+The only difference between editing a group and adding a group is that when editing a group a HTTP parameter, $id$, is set.
+When $id$ is set the form fields are filled with the relevant information from the database.
+Once the submit button is pressed the function \fu{save\_or\_update\_projectgroup} is called with a project group object as input.
+That function checks if the $id$ of the group is set. 
+If it is we know that a project group is being edited, and we can update a row in the database.
+If not we know that a new project group is being created and we insert a row in the database.
+
+\subsection{Lisiting}
+In the list of project groups, mentioned in \secref{sec:adminPrensentation}, we provide a filtering functionality, which makes it easy to find a specific set of project groups.
+The project group filtering is a rework of the user filtering, which already exists in Moodle.
+The filter itself is placed in \moodlefile{/admin/tool/projectgroup/projectgroup\_filtering.php} and is class named \cl{projectgroup\_filtering}.
+This functionality is requested by the administrative personnel (see \secref{sec:requirements}).
+The project group list is rendered in \moodlefile{/admin/tool/projectgroup/index.php} and the filter is created here aswell. 
+\coderef{moodlefiltering} shows the invocation of the filter. 
+The filter is created and by the use of the function \fu{get\_projectgroup\_selection\_data} we get the data which we use in the creation of the projectgroup form, which handles the HTML rendering of the filter. 
+\begin{lstlisting}[style=phpCode, caption=\myCaption{The invocation of the filtering mechanism}, label=moodlefiltering]
+//create the user filter form
+$filtering = new projectgroup_filtering();
+
+//get the data from the form
+$data = get_projectgroup_selection_data($filtering);
+$data['fields'] = $filtering->get_fields();
+$editform = new projectgroup_form(NULL,$data);
+\end{lstlisting}\begin{comment}$\end{comment}
+
+%\subsection{Deletion}
