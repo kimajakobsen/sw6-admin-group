@@ -117,13 +117,7 @@ The expectations are that there should be no transaction started, no deletion sh
 This test case only pass if these expectations are met.
 
 
-
-
-
-
-
-
-\todo{Jeg ved ikke om det her skal flyttes til eval, men nu er det i hvert fald skrevet. (Det kommer an på hvordan evaluation ser ud - Rasmus )}
+%\todo{Jeg ved ikke om det her skal flyttes til eval, men nu er det i hvert fald skrevet. (Det kommer an på hvordan evaluation ser ud - Rasmus )}
 The choice between mocking up the database API and using the actual database API has several factors.
 Firstly the time it takes to run the tests is an important factor.
 If every test case connects to the database and performs reads and/or writes on the data the test suite will run slower than if some or all are using a mocked up database API.
