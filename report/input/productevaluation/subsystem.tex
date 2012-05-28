@@ -91,39 +91,6 @@ With student management the authority of the system is removed and will only be 
 
 
 
-\subsection{Architecture}
-% Architecture
-%The chosen architecture used in the implementation of \system{} works as intended and the different \subgroup{}s managed to implement their component so they comply with the architecture. 
-%The architecture helps illustrate the relations between the different components of the system, which is helpful for the groups who are to continue the work. 
-
-
-
-The architecture was not the result of an up front analysis but rather the result of a few iterations of development.
-We discovered that there was a need for a specification of where to put new functionality.
-In particular we wanted a shared code library where functionality that was used be some or all parts of \system{} could be placed.
-This resulted in our three-layered architecture (not counting the database and \moodle{} core) described in \secref{sec:architecture}.
-It has allowed us to have a common understanding of how we wanted the final system to be.
-It has also given guidelines about where to put functionality and has encapsulated related functionalities.
-This should help the developers that will take over this project next year to add new features in as well as changing existing features.
-
-
-
-\subsection{Database}
-%Database
-The database schema used in this project is fairly simple.
-It only consists of two tables, namely  \rel{projectgroup} and \rel{projectgroup\_members}. 
-These two tables represent the entity project group and the relation that exists between project groups and users in \moodle{}. 
-
-The \field{longname} field in \rel{projectgroup} is by Lene W. Even considered useless, see \appref{sec:lenedemotwo}. 
-The field is optional, but it should be removed if members of the \admpers{} from other departments confirm that there is no need for it. 
-In the \rel{projectgroup\_members} there are two time field -- \field{created} and \field{updated}. 
-These fields are unused in the current implementation. 
-Since the members of a project group are all deleted whenever a project group is updated these fields are worthless.
-For these fields to have a purpose the implementation must be changed to update entries in \rel{projectgroup\_members} and set \field{updated} appropriately without modifying \field{created}.
-
-%The field \field{created} can be useful if at some point it is necessary to know when a user becomes a member of a group, while \field{updated} is not used since the application never updates a row, but removes and inserts it again if changes are applied.
-
-
 
 \subsection{Testing}
 % Testing
