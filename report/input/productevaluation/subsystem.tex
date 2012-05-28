@@ -76,50 +76,19 @@ These attributes could be the year the students started their education, their g
 \label{sec:evalAdministration}
 We decided that management of project groups should only be done by administrative personnel. 
 This is not a final decision and we reckon that allowing users to create their own project groups is not necessarily a bad idea. 
-With student management of project groups there are several constraints, which must be considered; they are discussed in \secref{sub:studentmangement}. 
-The resulting system and its usage thereof will be slightly different.
-When the administrative personnel manages project groups the system has a possibility to become authoritative.
+With student management of project groups there are several constraints, which must be considered; these are discussed in \secref{sub:studentmangement}. 
+The constraints that should be considered are mainly security and integrity related.
+Examples of constraints that must be considered include users cannot delete project groups prematurely.
+Many of the constraints that apply to student management also apply to \admpers{} management, but we believe that \admpers{} are less likely to perform any destructive action than students.
+First of all it is possible for \admpers{} to receive training in the usage of the system, such training is much more expensive to give to students because there is simply more students than \admpers{}\todo{Er det overhoved rigtigt?}.
+Secondly it is the job of the \admpers{} to administrate entities in the university, hence they have a responsibility that students do not.
+%The resulting system and its usage thereof will be slightly different.
+
+When the \admpers{} manages project groups the system has a possibility to become authoritative.
 That is, the system can be used as primary project group database. 
 To become an authoritative project group database the structure of the project groups and projects, which are discussed in \secref{sub:divProjGroup}, must be changed to be more general to support all structures at the university (see \appref{sec:mikael}) and the number of Moodle installations at AAU must be reduced to one. \todo{why not a hundred?}
 With student management the authority of the system is removed and will only be a tool for students and their supervisors.
 
-%In section \secref{sec:groupManagement} we decided to implement the project group management as an admin tool in Moodle and thereby only allowing people with administrative privileges to manage project groups. 
-\todo{skriv et afsnit der følger op på det der står i sec Choosing an Approach fra analdesign. Der skal følges op på hvilke ``constraints'' der er ved at lade brugerne styrer grupper. Det kan også godt være at dette hører til i future work.}
-
-
-
-
-\subsection{Architecture}
-% Architecture
-%The chosen architecture used in the implementation of \system{} works as intended and the different \subgroup{}s managed to implement their component so they comply with the architecture. 
-%The architecture helps illustrate the relations between the different components of the system, which is helpful for the groups who are to continue the work. 
-
-
-
-The architecture was not the result of an up front analysis but rather the result of a few iterations of development.
-We discovered that there was a need for a specification of where to put new functionality.
-In particular we wanted a shared code library where functionality that was used be some or all parts of \system{} could be placed.
-This resulted in our three-layered architecture (not counting the database and \moodle{} core) described in \secref{sec:architecture}.
-It has allowed us to have a common understanding of how we wanted the final system to be.
-It has also given guidelines about where to put functionality and has encapsulated related functionalities.
-This should help the developers that will take over this project next year to add new features in as well as changing existing features.
-
-
-
-\subsection{Database}
-%Database
-The database schema used in this project is fairly simple.
-It only consists of two tables, namely  \rel{projectgroup} and \rel{projectgroup\_members}. 
-These two tables represent the entity project group and the relation that exists between project groups and users in \moodle{}. 
-
-The \field{longname} field in \rel{projectgroup} is by Lene W. Even considered useless, see \appref{sec:lenedemotwo}. 
-The field is optional, but it should be removed if members of the \admpers{} from other departments confirm that there is no need for it. 
-In the \rel{projectgroup\_members} there are two time field -- \field{created} and \field{updated}. 
-These fields are unused in the current implementation. 
-Since the members of a project group are all deleted whenever a project group is updated these fields are worthless.
-For these fields to have a purpose the implementation must be changed to update entries in \rel{projectgroup\_members} and set \field{updated} appropriately without modifying \field{created}.
-
-%The field \field{created} can be useful if at some point it is necessary to know when a user becomes a member of a group, while \field{updated} is not used since the application never updates a row, but removes and inserts it again if changes are applied.
 
 
 
