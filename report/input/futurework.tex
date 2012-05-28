@@ -1,8 +1,8 @@
 \chapter{Future Work}
 \label{chap:futurework}
 \myTop{In this chapter we present the ideas that we believe to be the most valuable additions to \system{}.
-Whereas \chapref{chap:evalProduct} focuses on alterations and improvements to the system, this chapter focus on new features and alternative usage of the system. There are several features and extensions to the system, but only those we regard as highest prioritized are mentioned. 
-This chapter is important since the work should be continued later. }
+While \chapref{chap:evalProduct} focuses on alterations and improvements to the system, this chapter focus on new features and alternative usages of the system. There are several features and extensions to the system, but only those we regard as highest prioritized are mentioned. 
+This chapter is relevant because students should continue on our work later. }
 
 %%FYSISKE RUM -> forståelse -> booking
 
@@ -25,27 +25,32 @@ We believe such a system has a sufficient complexity and relevance that it could
 
 \section{Central Project Group Database}
 An issue which is discussed in \secref{sec:evalAdministration} is the lack of a single system for managing all project groups at Aalborg University. 
-This issue can be overcome by letting Moodle become the authoritative database for project groups. 
+This issue can be solved by letting Moodle become the authoritative database for project groups. 
 To become this several issues must be overcome. 
-The structure of the project groups must be very general to support all the possible project groups structures that exist at Aalborg University. 
-There should be only one single Moodle installation with one database. 
-The system must have a strong backup.
-The current system should also have backup, but as a primary database for crucial information it is even more important. 
-The system should have an accessible API from which project groups can be exported to other systems if needed. 
+
+\begin{itemize}
+	\item The structure of the project groups must be very general to support all the possible project groups structures there exist at Aalborg University. 
+	\item There should be only one Moodle installation with one database. 
+	\item The system must have a strong backup system.
+	%\item The current system should also have backup, but as a primary database for crucial information it is even more important. 
+	\item The system should have an accessible API from which project groups can be exported to other systems if needed. 
+\end{itemize}
 
 The implementation issues concerned with Moodle becoming a primary database is minor compared to the task of getting the administrative board at Aalborg University to decide to implement and use the system. 
-We do not recommend this as a feature valuable of implementation as long as there exists more than one Moodle installation at Aalborg University. 
+We do not recommend this as a feature valuable of implementation as long as there exist more than one Moodle installation at Aalborg University. 
 
 %\section{User Self Management}
 
 \section{Virtual Meeting Place Templates} 
 \todo{skriv om at bruge templates til at oprette project group og hvordan det kunne gøres. Dette emner er berørt i requirements.}
 %In \secref{sec:releaseBacklog} the featue called Virtual Meeting Place Template is discussed. 
-The feature will enable administrative personnel to create project groups predefined templates for their virtual meeting place. 
+The feature will enable administrative personnel to create virtual group rooms with predefined templates.
 In the current system we have one template for the virtual meeting place. 
-The template specify a set of activated blocks for the virtual meeting place. 
-These blocks have been chosen by us, but our choice for this might not be optimal for all departments and by having multiple templates each department can have their own template.
+This template specifies a set of activated blocks for the virtual meeting place. 
+These blocks have been chosen by us, but our choice for this may not be optimal for all departments and by having multiple templates each department can have their own template.
 
-To implement this feature the function \fu{blocks\_add\_default\_projectgroup\_blocks} must be changed so it instead of getting the list of default blocks from a configuration it should fetch the name of a list which is then fetched and parsed. 
+To implement this feature the function \fu{blocks\_add\_default\_projectgroup\_blocks} must be changed so it instead of getting the list of default blocks from a configuration it should get the name of a list.
+Based on this name the specific set of blocks should be added to the virtual group room.
+%it should fetch the name of a list which is then fetched and parsed. 
 
-To figure out which blocks are best suited as default the virtual meeting places in the various departments the students and supervisors at the departments must be interviewed or questionnaires can be used. 
+To figure out which blocks are best suited as default the virtual meeting places in the various departments the students and supervisors at the departments must be interviewed or must answer questionnaires. 
