@@ -2,101 +2,100 @@
 \label{sec:enduser}
 %In this sections the group of end users are discovered. 
 Since we are using \scrum{} as our primary development practice we prefer to have a product owner~\cite[p.~115]{Larman04} that can speak on behalf of the end users.
-An end user is a person that will be using the final system.
-As mentioned in \secref{subsec:choosingmethod} we do not have a product owner thus we facilitate the contact and communication with the end users our self.
-In this section the group of end users for our \subsystem{} are defined and  the people that we use as representatives for this group are  presented shortly -- we cannot speak with the entire group of potential end users, because it is simply too large.
+As mentioned in \secref{subsec:choosingmethod} we do not have a product owner, which is why we facilitate the contact and communication with the end users ourselves.
+In this section the end users for our \subsystem{} are defined and the people that we use as representatives are presented shortly -- we cannot speak with all potential end users because there are too many.
 
+\begin{landscape}
+\begin{figure}[p]%
+\includegraphics[width=\textwidth]{images/UserGroups2}%
+\morscaption{
 
-\begin{figure}%
-\includegraphics[width=\textwidth]{images/UserGroups}%
-\caption{}%
+An overview of our end users. 
+The gray boxes contain the two categories of end users. 
+The upper box contains the members of the project groups, the lower box is the managers of the project groups
+
+}%
 \label{fig:usergroup}%
 \end{figure}
+\end{landscape}
 
-\begin{comment}
-For the entire \mymoodle{} the group of end users (also referred to as target group) is very diverse.
-Roughly divided, it contains students, supervisors, and \admpers{} such as secretaries.
-If we continue the division of students there are many dimensions to consider. 
-For instance different students have different levels of experience with LMSs such as Moodle. Another dimension is that students have study at different faculties.
-%The granularity may be even finer by partitioning by time of Moodle experience, such years of Moodle usage.
-These different dimensions also apply to supervisors and \admpers{}.
-We regard our target group as divided into two categories, users that are members of project groups and users that  manage project groups.
-These categories may overlap.
-In \secref{sub:endusersmembers} and \secref{sub:enduserstool} we present the characteristics of our target group.
-%A table showing an overview of these two groups of end users is seen in \figref{fig:endusers}.
-\end{comment}
-
-For the full system the group of end users is very diverse.
-In the \subsystem{} which we are developing we are interested in two different categories of end users.
+The end users of the entire system are very diverse.
+In in our sub-system we are interested in two different categories of end users:
 \begin{itemize}
-	\item The first group is the members of the project group.
-	\item The second group is the managers of the virtual group room.
+	\item Users of the virtual group rooms.
+	\item Managers of the project groups.
 \end{itemize}
 %The group of end users that are members of the project group may very well be the same as the managers of the virtual group room. 
-The two groups of end users can overlap. 
-When choosing representatives for our user group there are several properties that we want to cover. 
-These properties are: Type, Faculty, Department, and Moodle experience.
-We divide the types in three: \admpers[c], supervisors, and students.
+The two categories of end users can overlap. 
+When choosing representatives for our end users there are several properties that we want to cover. 
+These properties are: Type, Faculty, Department, and LMS experience.
+The type of an end user can assume one of four values: \admpers[c], technical personnel, supervisors, or students.
 Moodle experience is a scale from low to high.
 Faculty and department are the end user's actual department and faculty. %% Too much?
-We want users of each type and within these types we consider Faculty and Moodle experience as important factors to diverse.
+We want users of each type and within these types we consider Faculty and LMS experience as important factors to be diverse.
 %In choosing different types of end users we focus on the following properties: 
 We would like to have representatives that cover these two properties as much as possible.
-That is, we want our group of end users to contain both well experienced and inexperienced users of Moodle and other LMSs, and  they should be from different faculties. 
 
 %An overview of the different end users can be seen on 
 
 The end users we are using come from Aalborg University.
-The reason for this is two-fold.
+The reason for this is three-fold.
 Firstly we are implementing the Aalborg PBL model into Moodle, which means that Aalborg University comes as a natural choice to look for end users.
-Secondly our project is being conducted at Aalborg University, consequently it is easy for us to find people to participate and the system is to be used at Aalborg University.
+Secondly our project is being conducted at Aalborg University. 
+Consequently it is easier for us to find people to participate from this university compared to other universities. 
+Thirdly the system is to be used at Aalborg University.
 
-In \secref{sub:endusersmembers} and \secref{sub:enduserstool} we explore the two different categories of user groups. 
+In \secref{sub:endusersmembers} and \secref{sub:enduserstool} we explore the two different categories of end users. 
 An overview of the chosen end users can be seen in \figref{fig:usergroup}.
+The coverage of properties is illustrated in \figref{fig:memPG} and \figref{fig:adminPG}.
 
 
-\subsection{Members of Project Groups}
+\subsection{Users of the Virtual Group Room}
 \label{sub:endusersmembers}
-As discussed in \chapref{chap:systemDef} our responsibility is to create the concept of a project group and creating a tool to manage these groups.
+As discussed in \chapref{chap:systemDef} our responsibility is to create the concept of a project group and virtual group room.
+Also we want to create a tool to manage project groups.
 %For the concept of project group a group of students will function as our target group.
-Since we are working together with three other peer-groups we will receive requests for functionality from them.
+Since we are working together with three other peer-groups we receive requests for functionality from them.
 Our peer-groups have their own end users, both students and supervisors, where they get their requests from.
-We can choose to regard students as a part of our end users and make our own field studies.
-Alternatively we can choose to rely on our peer-groups requests and effectively use our peer-groups as our target group.
-We choose a compromise and rely on our peer-groups requests and cooperate in the field studies related to the entire system or the concept of project groups.
-%We will not account for these interviews in this report.
 
-The end users of the project group functionality are students and supervisors.
+To optain an understanding of the members of the project groups we consider two different approaches:  
+\begin{itemize}
+\item Regarding students as a part of our end users and make our own field studies.
+\item Relying on the requests of our peer-groups and effectively use our peer-groups as end user representatives.
+\end{itemize}
+%Alternatively we can choose to rely on our peer-groups requests and effectively use our peer-groups as our target group.
+We choose a compromise and rely on the requests of our peer-groups and cooperate in the field studies related to the entire system and the concept of project groups.
+By doing so we receive feedback directly from end users, which helps us avoid misunderstandings.
+
+
+The end users of the virtual group room are students and supervisors.
 We want to have student representatives of different types, in particular students from different faculties.
 We have two students from The Faculty of Social Sciences and one from The Faculty of Engineering and Sciences.
 These are respectively Katrine Holmgaard Dinitzen, Mathilde Gammelgaard, and Lea Gustafsson.
 Regarding supervisors, we choose to have a single representative; Thomas Ryberg Vibjerg Hansen~\cite{thomas}, who is supervisor under The Faculty of Humanities.
-In \figref{fig:memPG} can the users of the project group be seen. 
-The figure also displays their properties.
+In \figref{fig:memPG} end user representatives of the virtual group room can be seen along with their LMS experience and faculty.
 
 \begin{figure}%
 \center
-\includegraphics[]{images/MembersofpROJECTgROUJP}%
-\caption{A graph showing how the end users representatives of project group members are spread between faculties and how much experienced they have in regards to LMSs.}%
+\includegraphics[scale=0.50]{images/MembersofpROJECTgROUJP}%
+\morscaption{A graph showing how the end users representatives of project group members are spread between faculties and how much experienced they have with regard to LMSs}%
 \label{fig:memPG}%
 \end{figure}
 
 %We focus on students since our peer-group \supervisorgroup{}
 
-\subsection{Users of Administrative Tool}
+\subsection{Managers of Project Groups}
 \label{sub:enduserstool}
-Regarding the administrative tool, we choose to use administrative personnel as our main target group.
-%To get a diverse group of end user we contact administrative personnel from our own faculty, the faculty of Engineering and Science,   at Aalborg University.
+We choose the \admpers{} as our end users because they have a good knowledge of project groups and the related management tasks.
 From our own faculty we have the representatives Lene Winther Even~\cite{lene}, Camilla G\ae{}raa Larsen~\cite{camilla}, and Mikael M\o{}ller Hansen~\cite{mikael}.
-Where the two former are a senior secretary and an office trainee respectively, and the latter an IT administrator
-From The Faculty of Social Sciences we have been in contact with  Jette Due Nielsen~\cite{jette} and Pia Knudsen~\cite{piak} as our representatives.
-We have also been in contact with Morten Mathiasen Andersen~\cite{morten} from MPBL in addition to the initial discussion discussed in \secref{sub:mpblInterview}.
-Morten is from the faculty of Enginerring and Sciences.
-\figref{fig:adminPG} shows the \admpers{} and in regards to their facility and experience.  
+Where Lene is a senior secretary, Camilla is an office trainee, and Mikael is an IT administrator.
+We have been in contact with  Jette Due Nielsen~\cite{jette} and Pia Knudsen~\cite{piak} as our representatives from The Faculty of Social Sciences.
+We have also been in contact with Morten Mathiasen Andersen~\cite{morten} from MPBL education and The Faculty of Engineering and Sciences.
+\figref{fig:adminPG} shows the \admpers{} along with their faculty and LMS experience.
 
 \begin{figure}%
 \center
-\includegraphics[]{images/administratorsOfPG}%
-\caption{A graph showing how the end users representatives of the administrative tool are spread between faculties and how much experienced they have in regards to LMSs.}%
+\includegraphics[scale=0.50]{images/administratorsOfPG}%
+\morscaption{A graph showing how the end users representatives of the administrative tool are spread between faculties and how much experienced they have in regards to LMSs}%
 \label{fig:adminPG}%
 \end{figure}
