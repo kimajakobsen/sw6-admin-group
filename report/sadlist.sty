@@ -1,0 +1,154 @@
+%%%%%% Created by Rasmus Prentow under the GNU public license.
+%%%%%% Defines the enviroment sadlist used for actor or similar. 
+%%%%%% Looks likes the one used in the book OOA&D
+
+%%%%%% Usage: \begin{sadlist}{title}{caption}{label} text \end{sadlist}
+%%%%%% Usage: \begin{sadlist}{title}{caption}{label} text \end{sadlist}
+
+%%% %%% Or: as a tabular enviroment.
+
+%%%% %% Define: myCaption if alternativ caption should be used.
+
+%%%%%% Renew: sadspace, sadwidth, sadruletickness, sadb (sadbullet)
+
+
+
+
+\ProvidesPackage{sadlist}
+\usepackage{xifthen}
+\ifdefined\myCaption
+  \newcommand{\sadCaption}[1]{\myCaption{#1}}
+\else
+  \newcommand{\sadCaption}[1]{#1}
+\fi
+\newcommand{\sadruletickness}{.5px}
+\newcommand{\sadb}[1]{\textbf{#1}}
+\newcommand{\sadspace}{\vspace{5px}}
+\newcommand{\sadwidth}{\textwidth}
+\newcommand{\sadrule}{\rule{\sadwidth}{\sadruletickness}}
+\newcommand{\saption}[1]{\caption{\sadCaption{#1}}}
+\newcommand{\sadcap}[1]{#1}
+\newcommand{\sadheadform}[1]{\textbf{\textit{#1}}}
+\newcommand{\shf}[1]{\sadheadform{#1}}
+\newcommand{\sace}{\hspace{15px}}
+\newcommand{\sadcol}{p{0.3\sadwidth} p{0.75\sadwidth}}
+\newcommand{\nsadcol}{\sadcol}
+\newcommand{\sablerule}{\vspace{-5px}\sadrule{}}
+\newcommand{\shfone}[1]{\vspace{2px}  \sadheadform{#1} \vspace{2px}}
+\newcommand{\shftwo}[1]{\vspace{-3px} \sadheadform{#1} \vspace{2px}}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%% SADLISTAR %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newenvironment{sadlistar}[1]%
+{%
+\begin{center}%
+\sadrule{} \\%
+\sadheadform{#1}%
+\vspace{-5px} \\%
+\sadrule{}
+\begin{minipage}{\sadwidth -30px}
+
+\sadspace%
+}%
+{%
+\sadspace%
+\end{minipage}
+
+\sadrule{}%
+
+\end{center}%
+}%
+%
+%
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%% SADLIST %%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newenvironment{sadlist}[4][htps]%
+{%
+\renewcommand{\sadcap}[1]{\saption{#3}\label{#4}}%
+\ifdefined\myCaption%
+  \renewcommand{\sadCaption}[1]{\myCaption{#3}}%
+\else%
+  \renewcommand{\sadCaption}[1]{#3}%
+\fi%
+%
+\begin{figure}[#1]%
+\begin{sadlistar}{#2}%
+}%
+%%%%%%
+{%
+\end{sadlistar}%
+\sadcap{}%
+\end{figure}%
+}%
+%
+%
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%% SABLE %%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newenvironment{sable}[5][htps]
+{%
+\renewcommand{\sadcap}[1]{\saption{#4}\label{#5}}%
+\ifdefined\myCaption%
+  \renewcommand{\sadCaption}[1]{\myCaption{#4}}%
+\else%
+  \renewcommand{\sadCaption}[1]{#4}%
+\fi%
+\begin{figure}[#1]%
+\label{#5}%
+\begin{minipage}{\sadwidth -5px}%
+\begin{center}%
+\begin{tabular}{p{#2\sadwidth} p{#3\sadwidth}}%
+\hline{}%
+\vspace{-5px}%
+}%
+{%
+%\end{minipage}
+\hline%
+%\sadcap{}%
+\end{tabular}%
+\end{center}%
+\end{minipage}%
+\sadcap{}%
+\end{figure}%
+}%
+%
+%
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%% SABLER %%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newenvironment{sabler}[4][htps]
+{%
+\renewcommand{\sadcap}[1]{\saption{#3}\label{#4}}%
+\ifdefined\myCaption%
+  \renewcommand{\sadCaption}[1]{\myCaption{#3}}%
+\else%
+  \renewcommand{\sadCaption}[1]{#3}%
+\fi%
+\begin{figure}[#1]%
+\label{#4}%
+\begin{minipage}{\sadwidth -5px}%
+\begin{center}%
+\begin{tabular}{#2}%
+\hline{} \\%
+%\vspace{-5px}%
+}%
+{%
+%\end{minipage}
+\hline%
+%\sadcap{}%
+\end{tabular}%
+\end{center}%
+\end{minipage}%
+\sadcap{}%
+\end{figure}%
+}%
