@@ -20,31 +20,35 @@ The following three paragraphs will describe how we derived some of our backlog 
 \begin{figure}%
 \begin{tabular}{|p{0.2\textwidth}|p{0.8\textwidth}|}
 	\hline
-	
+	Items in the release backlog \\ %multishit
+	\hline
 	\textbf{Name} & \textbf{Description} \\
 	\hline
-	Manage Project Groups & A subset of our target group should be able to manage the project groups, this includes creating, editing, and deleting project groups.  \\
+	Manage Project Groups & A subset of the end users should be able to manage the project groups, this includes creating, editing, and deleting project groups.  \\
 	\hline
-	Virtual Meeting Place & Create a virtual space that are compliant with the principals of the Aalborg PBL model and create a feeling of nearness.  \\
+	Virtual Meeting Place & Create a virtual space that is compliant with the principles of the Aalborg PBL model and create a feeling of nearness.  \\
 	\hline
-	Introduce Roles & Add the possibility to assign roles to the members of a project group, roles such as supervisor and student.   \\
+	Introduce Roles & Add the possibility to assign roles to the members of a project group. \\
 	\hline
-	Find Project Groups & Produce functionality to find a given project group. This involves creating a list of project groups and making features to allow search or filtering. \\
+	Find Project Groups & Produce functionality to find a given project group.\\
 	\hline
-	Navigate to Project Groups & The members of the project group should have a way to navigate to it. \\
+	Navigate to Virtual Group Room & The users of project groups must be able to navigate to the their virtual group room. \\
 	\hline
 	Project Group Members & It should be possible to see who the members of the group is, to create the feeling of nearness. \\
 	\hline
-	\hline 
 	\hline
-	Archiving Project Group & {ELSA } \\
-	\hline 
-	Recursive Project Groups & {Allow project groups to contain groups of persons. This also include the administrative tools to manage the groups and sub-groups.} \\
-	\textit{Manage Roles} & {Create Functionality to define and manages roles. An example of a new role  could be secondary supervisor.} \\
+	Items not in the release backlog \\
 	\hline
-	{Project Group Synchronization} & {Project groups should reflect the physical project groups at the university. Thus when a student joins an existing group, the student should automatically be added to the virtual group room.}  \\
+	\textbf{Name} & \textbf{Description} \\
+	\hline
+	Archiving Project Group & {ELSA has requested that data archiving should be possible.} \\
 	\hline 
-	Virtual Meeting Place Template & {To account for the user groups diversity and different needs, a set of templates, that defines the visual appearance of the virtual meeting place, could be applied when creating a new virtual meeting space.}  \\
+	Recursive Project Groups & {Allow project groups to contain other project groups. This also includes the administrative tools to manage the new structure of project groups.} \\
+	{Manage Roles} & {Create Functionality to define and manages roles. An example of a new role  could be secondary supervisor.} \\
+	\hline
+	{Project Group Synchronization} & {Project groups should be added automatically by synchronizing the system with a central database containing all the project groups of the university.}  \\
+	\hline 
+	Virtual Meeting Place Template & {To account for the end users diversity and different needs, a set of templates that defines the visual appearance of the virtual meeting place could be applied when creating a new virtual meeting space.}  \\
 	\hline
 \end{tabular}
 \morscaption{A list showing features from our product backlog. The italic items are not part of our release backlog}
@@ -52,75 +56,80 @@ The following three paragraphs will describe how we derived some of our backlog 
 \end{figure}
 
 \paragraph{Virtual Meeting Place}
-The concept of a virtual meeting place comes from the meeting with ELSA described in \secref{sub:elsaInterview}. 
+The concept of a virtual meeting place comes from the meeting with people from the MPBL education described in \secref{sub:mpblInterview}. 
+\begin{comment}
 From the interview with Lene in \appref{sec:lene} we know that she manually types a list of groups and their members into Moodle.
-Moodle is not able to interpret this.
+%Moodle is not able to interpret this.
 In the interview with Jette and Pia (\appref{sec:jettePia}) we learn that a member of the \admpers{} is responsible for the formed groups. 
 This implies that there exist records of the composition of the groups.   
-In contrast to the these two interviews Morten explains in an interview(\appref{sec:morten}) that on the MPBL education the \admpers{} do not manage the project groups.
+In contrast to the these two interviews Morten explains in an interview (\appref{sec:morten}) that on the MPBL education the \admpers{} do not manage the project groups.
+
 Based on this information we decide that we will make a virtual meeting place that reflects the project groups that exist on Aalborg university. 
 We decide this knowing that it will cause additional work for the \admpers{} on the MPBL education. 
 We will elaborate on the virtual meeting place in \chapref{chap:analdesign}.
+\end{comment}
+It is supposed to be virtual place in which members of a project group can meet and conduct project related work.
+Additionally it must create a feeling of nearness as mentioned in our discussion with MPBL.
+
 
 \paragraph{Find Project Groups}
+\begin{comment}
 We deem that it is necessary to create a list with all the project groups that exist.
 This should be available to the part of our target group that manage the project groups.
 In our third sprint we held a demo meeting where Lene mentioned that it was difficult to find a project group when there were many project groups in the system(see \appref{sec:lenedemoone}).
 We decide to make functionality that will allow users to search in the list of project groups.
 The implementation of this concrete problem will be addressed in \secref{sec:manProjGrpImpl}.
+\end{comment}
+For the managers of project groups there must be functionality available to find a specific project group or a set of specific project groups.
+This requirement is based on a demo meeting that we conducted with Lene (see \appref{sec:lenedemoone}).
+
 
 \paragraph{Manage Project Groups}
 It should be possible to manage the project groups. 
 We let us inspire by how courses are currently being created at Aalborg University.
-ELSA are responsible for creating new courses at the start of every semester. 
-This is done by the \admpers{} from every institute informs ELSA of which courses that should be created. 
-ELSA creates the courses based on a general templates.
-The \admpers{} and lectures then populates the courses with data. 
-Information about this process can be read from \appref{sec:lene}, \secref{sub:elsaInterview},  \appref{sec:jettePia}, and \appref{sec:thomas}.
+ELSA is responsible for creating new courses at the start of every semester. 
+This is done by the \admpers{}.
+Every department informs ELSA of which courses that should be created. 
+ELSA creates the courses based on a general template.
+The \admpers{} and lecturers then populate the courses with data. 
+Information about this process can be read in \appref{sec:lene}, \secref{sub:elsaInterview},  \appref{sec:jettePia}, and \appref{sec:thomas}.
 Similar to the creation of courses it should be possible to create and in other ways to manage project groups. 
-The design of project groups will be explained in \chapref{chap:analdesign}. \\
+The design of project groups are explained in \chapref{chap:analdesign}. \\
 
-We will not explain all the backlog items because we reckon that the derivation of them are of similar nature.
-We will now account for the choices for the release backlog.
+Not all backlog items are explained because we believe that the derivation of them are of similar nature.
+In the following section the choices of the release backlog are accounted for.
 
-\subsection{Release Backlog}
+\subsection{Requirements Selection}
 \label{sec:releaseBacklog}
 Recall the table seen in \figref{fig:productbacklog}. 
-The release backlog is based on our product backlog.
-To explain the selection of backlog items we will focus on the items that we do not choose.
-These items are marked with italic on the figure.
+To explain the selection of requirements we present a short description of and an argumentation for why other requirements are excluded.
 The four items are described below.
 
 \paragraph{Recursive Project Groups}
-In an interview with Lene (see \appref{sec:lenedemoone}), we discussed the possibility of having a recursive group structure.
-Lene could not imagine any concrete cases where such a structure would be beneficial. 
-An example of a place where there exist groups in groups is our current multi-project.
-The 6\ths~semester project of the Software Engineering education anno 2012 is a multi-project, which means that the student are divided into two groups each with its own subject. 
-The multi-groups are split into project groups of fitting size.
-Despite this we choose to prioritize other features that will bring more value to the project according to our target group and not implement recursive project groups.
-We will argue further for this in \secref{} \todo{hvis det er beskrevet i analdesign så indsæt ref. ellers så slet denne  sætning.}
+The idea of allowing recursive groups is that multi-projects such as ours are better structurally supported.
+In an interview with Lene (see \appref{sec:lenedemoone}), we discussed the possibility of having a recursive project group structure.
+Lene cannot imagine any concrete cases where such a structure would be beneficial in practice, which is why we felt that it is not a feature that will improve the system substantially. 
 
 \paragraph{Project Group Synchronization}
-In the computer science department of Aalborg university AdmDB is among other things used to manage project groups. 
-During the interview with Mikael(see \appref{sec:mikael}) we learned that he is currently developing a new API for the AdmDB system, and it would not be optimal to rely on the old API. \todo{brug fulde navn?}
-We also learned that there does not exist a university wide system that contains all project groups. 
+In the Department of Computer Science at Aalborg University AdmDB (Administration Database) is, among other things, used to manage project groups. 
+During the interview with Mikael (see \appref{sec:mikael}) we learned that he is currently developing a new Application Programming Interface (API) for the AdmDB system, and it would not be optimal to rely on the old API.
+We also learned that there does not exist a university-wide system that contains all project groups. 
 We believe that if this feature should be implemented it should be after the new API is finished.
-We will elaborate further on this subject in \secref{sub:automanagement}. 
+We elaborate further on this subject in \secref{sub:automanagement}. 
 
 \paragraph{Virtual Meeting Place Template}
 As previously mentioned ELSA is responsible for creating course pages in Moodle. 
 They do this using a template. 
-It is desirable to have the same functionality when creating the virtual meeting place, but this feature will not bring any immediate value to the product. 
+It is desirable to have the same functionality when creating the virtual meeting places, but this feature will not bring any immediate value to the product. 
 We postpone this feature until there arises a concrete need for such functionality.
-We further discuss this feature in \secref{}.\todo{insert ref when the paragraph is written in the analdesign. If it will not be written delete this line.}
 
 \paragraph{Archiving Project Groups}
 \label{sub:analysarchiving}
 % Archiving (ELSA, Lene & Jette) (Indbygget archive restore og courses)
-From the meeting with ELSA, see \secref{sub:elsaInterview}, we know they archive courses at the end of each semester. 
-Lene Winther Even explains that it is to preserve the content for future reference, see \appref{sec:lene}. 
-Morten Mathiasen Andersen, see \appref{sec:morten}, explains that teachers use the archived versions of a course to create a new course of the same subject. 
-ELSA proposed that project groups can be archived for the same purpose so supervisors and students can look back at their previous work.
+From the meeting with ELSA (see \secref{sub:elsaInterview}) we know they archive courses at the end of each semester. 
+Lene Winther Even explains that it is to preserve the content for future reference (see \appref{sec:lene}). 
+Morten Mathiasen Andersen (see \appref{sec:morten}) explains that teachers use the archived versions of a course to create a new course of the same subject. 
+We considered that project groups can be archived for the same purpose so supervisors and students can look back at their previous work.
 %In Moodle it is possible to backup and restore courses, which allows teachers to take a snapshot of their course materials. 
 %This feature is not used by ELSA to archive courses.
 %Instead they copy the courses and its contents.
@@ -130,9 +139,18 @@ We believe that the archiving of project groups is a very beneficial feature for
 However, since we have limited development time we suggest that future student projects could look into this feature.
 A further discussion on archiving can be found in \chapref{chap:futurework}.\\
 
-The items in the release backlog are the following: Manage Project Groups, Virtual Meeting Place, Introduce Roles, Find Project Groups, Navigate to Project Groups, and Project Group Members. 
-Based on our requirements we will now present our \nameref{sec:subSysDef}.
  %use these requirements to make our system statement.
+
+\subsection{Non-functional Requirements}
+To capture our non-functional requirements, also referred to as the ``-ilities''~\cite[p.288]{Larman04}, we rely on our end users' experiences with the system.
+Common non-functional requirements include availability, robustness, effectiveness, efficiency, extensibility, and usability~\cite{ooad bogen, som jeg ikke har lige pt}.
+We primarily focus on robustness, extensibility, and usability.
+The reason for the two first is that new developers will take over the project next year. 
+They may want to change something, which is why we must ensure that the software is robust. 
+They probably want to extend our system with new features which calls for an extendable system.
+We believe that usability is more important than effectiveness and efficiency, since we believe that extending a usable system into an effective and efficient system requires less effort than the other way around.
+Availability is not considered since our system is an extension to another system and our availability is directly connected to that of the main system, \moodle{}.
+
 
 \begin{comment}
 %skriv flere cases af hvordan b-items er opstået 
