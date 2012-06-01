@@ -15,7 +15,7 @@ PHP.
 \label{sub:constraints}
 Moodle is written in the programming language PHP~\cite{moodleabout} and uses an SQL database.
 This restricts us to write \system{} in PHP as the server side scripting language.
-Since \moodle{} uses an SQL database we choose to restrict ourselves to use that as well, to avoid adding unnecessary dependencies to third party systems.
+Since \moodle{} uses an SQL database system we choose to restrict ourselves to use that as well, to avoid adding unnecessary dependencies to third party systems.
 
 
 \section{Courses}
@@ -58,11 +58,11 @@ The four most common plugins are explained below:
 \paragraph{Blocks}
 \label{subsec:blocks}
 %http://docs.moodle.org/dev/Blocks
-Moodle use the term block to refer to a box that can contain a wide spectrum of information and functionality.
+Moodle uses the term block to refer to a box that can contain a wide spectrum of information and functionality.
 A block can as per default be placed in the left or right side of a page. 
 Pages can allow placement of blocks in the center of a page.
 The navigation block~\cite{navigationblock} is a very common block, which as per default is displayed on all pages. 
-It contain links such as My Profile and Courses. 
+It contain links such as My Profile and My Courses. 
 Blocks are not limited to navigational purposes, but can also display data from the database.
 
 Each block has settings regulating which pages it can be displayed on. %Blocks can be places in number of different regions if the theme allows it. 
@@ -86,8 +86,8 @@ It is common that a course page contains an activity block~\cite{activityblock},
 
 Activity modules often contain a new page where an activity is available. 
 An example of this is a forum. 
-On the course page there is a link, when it is pressed the forum page is displayed. 
-An activity is saved with the course; this means that several individual forums can exist on different courses.
+On the course page there is a link -- when it is pressed the forum page is displayed. 
+An activity is saved with the course, which means that several individual forums can exist on different courses.
 
 Activity modules are intended to be used when making a feature that interact with several users in the context of a course.  
 %show table; mdl_modules -> mdl_activities 
@@ -106,7 +106,9 @@ These are made available through the Site administration menu point in the Setti
 \paragraph{Local plugins}
 \label{par:localplugin}
 %http://docs.moodle.org/dev/Local_plugins
-Local plugins are the most general type of plugins. If the wanted feature does not fit the other types of plugins, it is recommended to use the local plugin. An example of this is communication with an external system or for extending the navigation block. 
+Local plugin is the most general type of plugins. 
+If the wanted feature does not fit the other types of plugins, it is recommended to use the local plugin. 
+An example of this is communication with an external system or for extending the navigation block. 
 
 %Local plugins are intended to be used when making new functionality in Moodle. 
 
@@ -119,10 +121,11 @@ Moodle includes various APIs~\cite{moodlecoreapis}, which aid the developer in t
 	\item Form API~\cite{moodleformapi} for rendering HTML form objects and handle the validation of the data sent through the form. 
 	\item Output API~\cite{moodleoutputapi} for general HTML rendering.
 	\item Page API~\cite{moodlepageapi} for setup of a standalone page including methods for adding JavaScript and configuring display options. 
-	\item Access API~\cite{moodleaccessapi} for controlling access levels of users throughout the Moodle. 
+	\item Access API~\cite{moodleaccessapi} for controlling access levels of users throughout the Moodle installation. 
 	\item Unit test API~\cite{moodleunittestapi} for testing components in Moodle.
 \end{itemize}
-Moodle APIs are used in different ways. The DML API, Page API, and Output API are used through global variables, whilst the others are used through class extensions. 
+Moodle APIs are used in different ways. 
+The DML API, Page API, and Output API are used through global variables, whilst the others are used through class extensions. 
 In~\coderef{moodleapiusage} usage of Page API and Form API is shown.
 \begin{lstlisting}[style=phpCode, caption=\myCaption{Example of the Page API and Form API in Moodle}, label=moodleapiusage]
 global $PAGE;
