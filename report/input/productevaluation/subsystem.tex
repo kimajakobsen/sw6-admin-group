@@ -1,7 +1,7 @@
 \section{\administrationgroup{}}
 \label{sec:productsubsystem}
 %\section{Sub-System}
-In this section the \subsystem{} implemented by our group is evaluated. 
+In this section the \subsystem{} implemented by our sub-group is evaluated. 
 This section is divided into the different aspects of this \subsystem{}.
 The focus is on both design and implementation choices.
 %The subsystem created can be split into two parts, the management part and the project group room and are implemented differently.
@@ -11,24 +11,27 @@ The focus is on both design and implementation choices.
 We decided to implement the concept of project groups in Moodle to satisfy the system definition of \system{}.
 We did not make a distinction between projects and groups but combined the two into one entity, which made the system more simple. 
 If the distinction should be made the concept of projects can be added to the system and a link between project groups and projects must be created.
-A project would encapsulate the over-arching theme of a semester, e.g.\ Application Development in our case.
+A project would encapsulate the theme of a semester, e.g.\ Application Development in our case.
 The project groups would be the instantiations, so to speak, of the project -- MyMoodle in our case.
 % based on the appropriate quantity relation. 
 %A project is as described in section XXX\todo{ref -- to what?} an entity which is per semester based and can contain several groups. %what is the meaning of this?
-A project can have a page in the same way a project group has a page, which will allow for collaboration and communication between groups in a semester. 
+A project can have a virtual meeting place in the same way a project group has a virtual group room, which will allow for collaboration and communication between groups in a semester. 
 
 An alternative approach to consider is to make project groups nestable; that is to allow a project group to have a parent.
 This would give even further flexibility.
-This will allow for large groups of students to be split into several subgroups, which would make a student part of his subgroup and its parent group.
+This will allow for large groups of students to be split into several sub-groups, which would make a student part of his \subgroup{} and its parent group.
 It can be implemented using a recursive tree structure.
-Consider our case, we are four people work in a \subgroup{}, this \subgroup{} along with three other constitute the group developing \system{}.
-The \system{} group is part of a semester project with the theme Application Development, that has another group as well -- the Android group.
+Consider our case: We are four people working in a \subgroup{}, this \subgroup{} along with three other constitute the group developing \system{}.
+The \system{} group is part of a semester project with the theme Application Development, that has another group as well.
 In our system this can be accomplished by making a project group for both \subgroup{}s, groups, and the semester.
 A student is then part of the appropriate project groups.
 The difference between a recursive tree structure and our implementation is illustrated in \figref{fig:groupstructure}.
 
+The consequences of making a nested group structure is a more complex group structure for the \admpers{} to manage. 
+Furthermore, it will not add any value for the members of the project groups but only create a group structure closer to how it is in reality. 
+It may, however, be considered at a later stage in the development of \system{}.
 
-\begin{figure}%
+\begin{figure}[htb]\centering%
         \begin{subfigure}[b]{0.45\textwidth}
                 \centering
                 \includegraphics[width=\textwidth]{images/FlatGroupStructure.pdf}
@@ -54,43 +57,56 @@ In \secref{sec:virtualMeetingPlace} we decide to implement the virtual group roo
 Each project group has its own room for collaboration. 
 %The shared room is infeasible, as argued in that section. 
 
-The virtual group room is implemented as a container for blocks, which made the inter-group integration less time consuming by having a common interface between the virtual group room and the \detdeandrelaver{}s.
+The virtual group room is implemented as a container for blocks, which made the inter group integration less time consuming by having a common interface between the virtual group room and the \detdeandrelaver{}s.
 %specifying how the different groups could add their work to the project group room. 
 At the same time it gives a great flexibility since the individual group can organize the blocks themselves and add arbitrary blocks.
 
 %%% Context
 In the implementation of the virtual group room we created our own context, which gives a better solution compared to linking project groups to courses. 
-Such a link would create an unnatural relation, which does not reflect the problem domain.  
+Such a link would create an unnatural relation, which does not reflect the Aalborg PBL model.
 
-\subsection{User Interface}
-In the last demo meeting with Lene W. Even (seen in \appref{sec:lenedemoone}) she expressed some dissatisfaction with how the filtering functionality of the project groups work.
+\subsection{Navigation}
+As shown in \secref{sub:navimpl} at most four project groups are shown in the navigation menu.
+This number is quite low in order to avoid flooding the navigation menu.
+However, the four project groups that are shown are simply the four project groups that the users has been added to first.
+This can potentially pose a problem if old discontinued projects are not deleted.
+Users that are members of these would have to go to the overview page for project groups whenever they want to access a newer projects that are still active, which is considered to be more likely than accessing an old discontinued project.
+
+A way to fix this is to reverse the order of the project groups and thereby always showing the newest project groups in the navigation menu.
+A more flexible solution would be to log whenever a user enters the virtual group room of a project group and then show the four most recently visited project groups in the navigation menu.
+This solution assumes that when a project group is visited at some point in time it is likely that it is visited again in a near future.
+
+Furthermore, the users should be able to choose the number of project groups to be shown in the navigation menu themselves.
+If a user is working on, say, six projects, it would perhaps not bother him to have all these shown in the navigation menu instead of having to go to the overview page of project groups for one third of his virtual group rooms.
+
+\subsection{Administration User Interface}
+In the last demo meeting with Lene W. Even (seen in \appref{sec:lenedemotwo}) she expressed some dissatisfaction with how the filtering functionality of the project groups work.
 It would be easier for some users to use the filtering of project groups as a search query instead.
-Specifically this means that filters should as default be discarded when adding a new filter.
+Specifically this means that old filters should be discarded per default when adding a new filter.
 It should still, however, be possible to have more than one filter.
 
 Additionally, it should be possible to filter the project groups on more attributes.
 It should be possible to filter project groups by attributes of the members of the project group.
-These attributes could be the year the students started their education, their group room (if they have one), their email, and the city in which they study.
+These attributes could be the year the students started their education, their physical group room (if they have one), their email, and the city in which they study.
 
-%Kun skrevet om 
 
-\subsection{Administration}
+\subsection{Management}
 \label{sec:evalAdministration}
 We decided that management of project groups should only be done by administrative personnel. 
 This is not a final decision and we reckon that allowing users to create their own project groups is not necessarily a bad idea. 
 With student management of project groups there are several constraints, which must be considered; these are discussed in \secref{sub:studentmangement}. 
 The constraints that should be considered are mainly security and integrity related.
 Examples of constraints that must be considered include users cannot delete project groups prematurely.
-Many of the constraints that apply to student management also apply to \admpers{} management, but we believe that \admpers{} are less likely to perform any destructive action than students.
+Many of the constraints that apply to student management also apply to \admpers{} management, but we believe that \admpers{} is less likely to perform any destructive action than students.
 First of all it is possible for \admpers{} to receive training in the usage of the system, such training is much more expensive to give to students because there is simply more students than \admpers{}.
-Secondly it is the job of the \admpers{} to administrate entities in the university, hence they have a responsibility that students do not.
+Secondly it is the job of the \admpers{} to administrate entities in the university, hence they already have a responsibility that students do not.
 %The resulting system and its usage thereof will be slightly different.
 
 When the \admpers{} manages project groups the system has a possibility to become authoritative.
 That is, the system can be used as primary project group database. 
-To become an authoritative project group database the structure of the project groups and projects, which are discussed in \secref{sub:divProjGroup}, must be changed to be more general to support all structures at the university (see \appref{sec:mikael}).
+To become an authoritative project group database the structure of the project groups and projects, which is discussed in \secref{sub:divProjGroup}, must be changed to be more general to support all structures at the university (see \appref{sec:mikael}).
 % and the number of Moodle installations at AAU must be reduced to one
-With student management the authority of the system is removed and will only be a tool for students and their supervisors.
+%With student management the authority of the system is removed and will only be a tool for students and their supervisors.
 
 
 
@@ -108,6 +124,6 @@ The result of the tests showed a good code coverage percentage and a large amoun
 The system does not have a high criticality and attempting to achieve a more thoroughly test suite is not necessary. 
 %A worst-case scenario is that a bug in \system{} causes data loss. 
 
-In the worst-case, e.g.\ the system is unavailable and all data is lost, the users does not lose money or lives, assuming that \system{} is not used as an authoritative system.
+In the worst case, e.g.\ the system is unavailable and all data is lost, the users does not lose money or lives, assuming that \system{} is not used as an authoritative system.
 Hopefully this will never occur, but cannot be ruled out since it is impossible to declare a program bug free using testing.
-To overcome this potential loss the database and user files must be backed up.
+To overcome this potential loss the database and user files must be backed up by a separate system on a separate server.
