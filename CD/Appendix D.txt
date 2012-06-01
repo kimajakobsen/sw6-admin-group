@@ -1,0 +1,13 @@
+Appendix D
+
+*Login Information
+To login and try our system go to this webpage: http://172.25.11.64/moodle and use one of the following users:
+
++-----------+-------------+---------------+
+| Username  |  Password   | Type          |
++-----------+-------------+---------------+
+| adminuser | Mymoodle-12 | Administrator |
+| reguser   | Mymoodle-12 | Regular user  |
++-----------+-------------+---------------+
+
+Note that the server is located at Aalborg University and can only be reached through the intranet.
