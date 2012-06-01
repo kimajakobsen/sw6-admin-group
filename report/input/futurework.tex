@@ -14,12 +14,12 @@ This concept is strictly virtual -- there is no understanding of actual physical
 
 If there were an implementation of physical group rooms in Moodle it would be possible to implement a room booking system.
 As mentioned in \secref{sec:virtualMeetingPlace} some groups have to book group rooms daily.
-This takes the time of administrators and students.
+This takes the time of \admpers{} and students.
 Such a system could also be expanded to handle the booking of lecture rooms.
 
 There are several constraints that have to be considered before implementing such a system.
-First of all there should be priorities based on the person wanting to reserve a room, e.g.\ a lecturer should take precedence over a student when trying reserve a lecture room.
-Additionally there should be a system in place that handles a situation where there are not a sufficient number of group rooms available; some groups should not be able to make a significantly greater number of reservations than some other groups.
+First of all there should be priorities based on the person wanting to reserve a room, e.g.\ a lecturer should take precedence over a student when trying to reserve a lecture room.
+Additionally there should be a system in place that handles a situation where there are not a sufficient number of physical group rooms available; no project groups should be able to make a significantly greater number of reservations than other project groups.
 
 We believe such a system has a sufficient complexity and relevance that it could serve as a project for one of next year's $6$\ths~semester software groups.
 
@@ -30,7 +30,7 @@ To become this several issues must be overcome.
 
 \begin{itemize}
 	\item The structure of the project groups must be very general to support all the possible project groups structures there exist at Aalborg University. 
-	\item There should be only one Moodle installation with one database. 
+	\item There should be only one Moodle installation with one database system. 
 	\item The system must have a strong backup system.
 	%\item The current system should also have backup, but as a primary database for crucial information it is even more important. 
 	\item The system should have an accessible API from which project groups can be exported to other systems if needed. 
@@ -43,9 +43,8 @@ We do not recommend this as a feature valuable of implementation as long as ther
 
 \section{Virtual Meeting Place Templates} 
 \label{sec:templates}
-\todo{skriv om at bruge templates til at oprette project group og hvordan det kunne gøres. Dette emner er berørt i requirements.}
 %In \secref{sec:releaseBacklog} the featue called Virtual Meeting Place Template is discussed. 
-The feature will enable administrative personnel to create virtual group rooms with predefined templates.
+Templates for virtual meeting places will enable administrative personnel to create virtual group rooms with predefined templates.
 In the current system we have one template for the virtual meeting place. 
 This template specifies a set of activated blocks for the virtual meeting place. 
 These blocks have been chosen by us, but our choice for this may not be optimal for all departments and by having multiple templates each department can have their own template.
@@ -56,8 +55,8 @@ Based on this name the specific set of blocks should be added to the virtual gro
 
 To figure out which blocks are best suited as default for the virtual meeting places in the various departments the students and supervisors at the departments must be interviewed or answer questionnaires.
 
-Alternatively, the students could grant privileges to create their own templates and share these with each other.
+Alternatively, the students could be granted privileges to create their own templates and share these with each other.
 This way we avoid the risk of having conflicting wishes about templates in a given department.
 
-Implementing this feature may or may not constitute for an entire semester project, but is never the less a feature that can be considered.
-Perhaps it can be implemented as part of a bigger feature.
+Implementing this feature may not constitute for an entire semester project, but is never the less a feature that can be considered.
+Perhaps it can be implemented as part of a semester project.
