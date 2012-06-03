@@ -82,7 +82,7 @@ The function \fu{createTestGroup} utilizes the function that is used to create p
 In line \ref{src:testcasedelall:delete} the function \fu{remove\_projectgroup\_members} is used to remove all six members of the project group.
 Finally in line \ref{src:testcasedelall:assert} we assert that the project group at hand is empty.
 If it is empty the test succeeds, if not it fails.
-This test case is an integration test between the function \fu{remove\_projectgroup\_members} in \admlib{} and \moodle{} DML (see section \secref{sec:moodleoplatformdbml}), since we use an actual database for data storage during the test.
+This test case is an integration test between the function \fu{remove\_projectgroup\_members} in \admlib{} and \moodle{} DML (see \secref{sec:moodleoplatformdbml}), since we use an actual database for data storage during the test.
 %This means that an error in \moodle{} data manipulation API could cause an error 
 
 
