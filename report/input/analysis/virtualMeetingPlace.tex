@@ -1,7 +1,7 @@
 \section{Virtual Meeting Place}
 \label{sec:virtualMeetingPlace}
 \label{sec:projectgroup}
-In this section we analyze the requirements related to the part of our \subsystem{} called Virtual Meeting Place.
+In this section we analyze the requirement Virtual Meeting Place.
 Related requirements are: Navigate to Project Groups and Project Group Members.
 These are analyzed in \secref{sub:designprojectgroupnavigation} and \secref{sub:projGrpMembers}.
 %The following is an analysis of the requirement Virtual Meeting Place.
@@ -10,8 +10,8 @@ A virtual meeting place can take many forms.
 As our requirement of a virtual meeting place states, we want it to comply with the Aalborg PBL model.
 We analyze our requirements based on the conducted interviews and demo meetings and our own experiences.
 
-We refer to the tools that our peer-groups develop as \detdeandrelaver{}.
-The aspects of the requirement Virtual Meeting Place that are presented here are: Structure of virtual meeting place, assignment of virtual meeting place, division of projects and groups, and interface of \detdeandrelaver[]s.
+We refer to the tools that our peer-groups develop as \detdeandrelaver{}s.
+The aspects of the requirement Virtual Meeting Place that are presented here are: Structure of virtual meeting place, assignment of virtual meeting place, division of projects and groups, and virtual project tools integration.
 These are presented below.
 
 
@@ -30,7 +30,7 @@ This corresponds to having every project group working in the same room in the r
 The corresponding situation in the real world is that every project group has their own group room where only they (and their supervisors) can do work on the project. \\
 
 The Shared Group idea requires less effort than the Team Group idea to implement since no permissions need to be considered.
-However, the Team Group is closer to the way that the Aalborg PBL model should works in practice.
+However, the Team Group is closer to the way that the Aalborg PBL model should work in practice.
 
 We choose the Team Group structure. 
 It is infeasible to have every project group share everything.
@@ -60,7 +60,7 @@ The period at which assignment of physical group rooms occur can differ.
 Some of the most common periods are presented here:
 \begin{itemize}
 	\item \textbf{Never} There are no physical group rooms available because the field of study does not follow the Aalborg PBL model or the students are studying from remote locations.
-	\item \textbf{Daily} The students have to reserve the physical group rooms on a daily basis (described in \appref{sec:jettePia}).
+	\item \textbf{Daily} The students have to reserve the physical group rooms on a daily basis (as stated in \appref{sec:jettePia}).
 	\item \textbf{Half-yearly} Physical group rooms are assigned to each project group at the start of each semester.
 \end{itemize} 
 
@@ -121,11 +121,11 @@ Students C and D are working on the other mini project.
 Finally no one is working on the abandoned project.
 
 Intuitively the option to divide groups and projects (seen in \figref{fig:divProjGroup:div}) might seem more appropriate since it introduces a level of indirection.
-However our interview with Lene W. Even (seen in \appref{sec:lene}) shows that the administrative personnel does not see any benefit from having any extra levels of indirection between students and projects.
+However, our interview with Lene (seen in \appref{sec:lene}) shows that the administrative personnel does not see any benefit from having any extra levels of indirection between students and projects.
 %To select which of these divisions to choose we have contacted Lene W. Even and conducted an interview (seen in \appref{sec:lene}).
 Since we are working agile we prefer to take the simplest viable approach and allow for extension of the system later.
 We choose to design groups and projects as one entity (seen in \figref{fig:divProjGroup:united}) in accordance with the needs of our end users and to simplify our system.
-The database design for keeping project groups and members of the project group is found in \secref{sec:dbdesign}.
+The database design for storing project groups and members of the project group is found in \secref{sec:dbdesign}.
 % -- note that we have not been in contacts with students for this decision.
 
 \subsection{Virtual Project Tools Integration}
@@ -138,11 +138,11 @@ Alternatively we could integrate every tool directly into the virtual group room
 This, however, is not extensible enough.
 Recall that we are four peer-groups of three to four students working together, which means that we would likely ``step on each others toes'' if we all were to work on the same component at the same time.
 Furthermore, there is a group of students next year that must take over this project.
-They might want to change the functionality or disable an tool.
+They might want to change the functionality or disable a tool.
 This should be much easier if each tool is encapsulated in a component with a common interface than if every tool were intertwined in a single component.
 
 Now that we have established that a there is a need for an interface between the \detdeandrelaver[]s and the virtual group room, we want to examine the possibilities that we have for doing so.
-The two broad categories that the final choice can fall in are: Use an existing interface or develop a new interface.
+The two broad categories that the final choice can fall in are: Using an existing interface or developing a new interface.
 These are not mutually exclusive.
 We may take an existing interface and modify it to fit our needs.
 Since we are making a plugin for an established LMS, we need to examine the possibilities in it to find an existing interface.
@@ -153,17 +153,17 @@ By choosing any of these as the interface we restrict our peer-groups to make so
 %Intuitively the activity module might seem like the right choice, after all the name is \emph{activity} modules.
 %However, activity modules are not for general \detdeandrelaver[]s, but only for course \detdeandrelaver[]s.
 An activity module is required to have a database relation containing the instances of the activity module, each of which must have a link to a course~\cite{moodleactivitymodule}.
-We abandon this idea because we do not want to have links between our project groups and courses -- a project group is an entity in its own right.
+We do not use this idea because we do not want to have links between our project groups and courses -- a project group is an entity in its own right.
 
 We now consider whether to use \block{}s or develop a new interface.
 Developing a new interface would give us more freedom because we may choose exactly how it is defined.
 On the other hand a \block{} ensures that \system{} will have a similar look and feel as the rest of \moodle{}.
 Additionally, the students that take over next year will have accessible documentation through the \moodle{} Documentation about how to modify \detdeandrelaver[]s or add new ones.
 The advantages of \block{}s outweigh the additional freedom that we may gain from defining our own interface.
-This leads us to choose to use \block{}s plugin type that every \detdeandrelaver{} must be implemented as.
-For the virtual group room to communicate with \detdeandrelaver[]s it can use calls to members methods of \block{}s.
-E.g.\ to render a \block{} a call to \me{get\_content} is used~\cite{moodleblockapp}.
-\moodle{}, however, provides functionality to render all blocks associated with a given page.
+This leads us to choose to use \block{} plugin type that every \detdeandrelaver{} must be implemented as.
+For the virtual group room to communicate with \detdeandrelaver[]s it can use calls to member methods of \block{}s.
+%E.g.\ to render a \block{} a call to \me{get\_content} is used~\cite{moodleblockapp}.
+%\moodle{}, however, provides functionality to render all blocks associated with a given page.
 
 
 \subsection{Navigation to Virtual Group Room}
@@ -185,10 +185,10 @@ If the user is a member of more project groups we show a link to a page that has
 
 \subsection{Presentation of Members}
 \label{sub:projGrpMembers}
-Recall that this requirement must ensure nearness for project group members.
+Recall that the Presentation of Members requirement must ensure nearness for project group members.
 If members of a project group tend to work in the same physical room, they have nearness.
 To fulfill this requirement students conducting group work from remote sites should be able to experience nearness through our system.
-The \supervisorgroup{} team has requested a feature for supervisors to see photography of the members of a project group to help them identify a particular group.
+The \supervisorgroup{} team has requested a feature for supervisors to see photographs of the members of a project group to help them identify a particular group.
 We choose to design this feature to accommodate the requirement for project group members.
 A part of the virtual group room should show all the members of the project group belonging to the room.
 There should be a photography of the members to help identify them.
@@ -204,11 +204,11 @@ An exception to this is the administrative personnel, who have privileges to acc
 Users are linked directly to project groups.
 This reduces the complexity of the system at the cost of freedom.
 
-Each \detdeandrelaver{} related to a virtual group room is implemented as \block{}.
+Each \detdeandrelaver{} related to a virtual group room is implemented as a \block{}.
 This allows for a well defined interface, which a virtual group room can use to communicate with the \detdeandrelaver[]s related to it.
 
-To ensure familiar navigation for a user to his virtual group rooms, we extend the existing navigation bar of \moodle{}.
-To avoid expanding the navigation bar out of proportions we limit the number of project groups that will be shown and provide an additional page where every project group belonging to a user can be found.
+To ensure familiar navigation for a user to his virtual group rooms, we extend the existing navigation menu of \moodle{}.
+To avoid expanding the navigation menu out of proportions we limit the number of project groups that will be shown and provide an additional page where every project group belonging to a user can be found.
 
 To provide a sense of nearness and to help supervisors recognize project groups, a simple tool is added to every virtual group room.
 It can be hidden by users, if they do not need it.
