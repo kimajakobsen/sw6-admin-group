@@ -4,16 +4,16 @@
 \newcommand{\varuserids}{\vari{users}}
 Implementing the testing is done by writing a number of test cases that use the functions in our \subsystem{} and check if they behave as they should.
 There is built-in functionality in \moodle{} to see how many of the SimpleTest test cases pass.
-This tool is used every time a function is implemented, to see if the functions behavior corresponds to our expectation of it.
+This tool is used every time a function is implemented to see if the functions behavior corresponds to our expectation of it.
 
-In \secref{sub:testCaseEg} we will show some examples of our test cases.
+In \secref{sub:testCaseEg} we show some examples of our test cases.
 The test cases are found in Appendix C in \moodlefile{/admin/tool/projectgroup/simpletest/} and \moodlefile{/local/projectgroup/simpletest/}.
 %The entire set of test cases can be found in our source code folder.
-We will draw our examples from the tests of the function \fu{remove\_projectgroup\_members}, which is responsible for removing a set of members from a project group.
-The documentation of \fu{remove\_projectgroup\_members} states that the inputs are a project group id, \vargroupid{}, and a non-empty set of user ids, \varuserids{}, belonging to users who are members of the group initially.
+The examples are from the tests of the function \fu{remove\_projectgroup\_members}, which is responsible for removing a set of members from a project group.
+The documentation of \fu{remove\_projectgroup\_members} states that the inputs are a project group id, \vargroupid{}, and a non-empty set of user ids, \varuserids{}, belonging to users who are initially members of the project group.
 We create partitions and perform boundary value analysis on both these inputs.
 
-The \vargroupid{} is partitioned into two partitions.
+The \vargroupid{} is divided into two partitions.
 The two partitions of \vargroupid{} are; ids that belong to an existing project group, and ids not belonging to an existing project group.
 %The boundary value analysis on the change from one partition is not an option since it is not a continuous range of ids that are belonging to project groups followed by a continuous range of ids not belonging to project group.
 %If project groups could not be removed it would be that case that an unbroken range of ids belonging to project groups would be followed by an unbroken range of ids not belonging to project groups since the ids of project groups are auto-incremented (see \secref{sec:dbdesign}).
@@ -27,17 +27,17 @@ The two partitions of \vargroupid{} are; ids that belong to an existing project 
 This yields two tests for \vargroupid{}.
 %As part of the boundary value analysis we decide that these must be at a boundary.
 The test case for an id belonging to an existing project group is tested with a value $n$ where the id $n+1$ is not belonging to a project group, i.e.\ the id $n$ is the newest project group.
-The test case for an id not belonging to an existing project group, we test it with value $m$ where both ids $m-1$ and $m+1$ belongs to project groups and id $m$ does not.
+The test case for an id not belonging to an existing project group is tested with a value $m$, where both ids $m-1$ and $m+1$ belong to project groups and id $m$ does not.
 As part of the boundary value analysis of this input we deem that we should try to use something that is not an integer as input, we choose to use a string.
-We deem that every invalid input value belongs to the same equivalence partition, therefore we do not test for input of objects, null values, arrays etc.
+We assume that every invalid input value belongs to the same equivalence partition, therefore we do not test for input of objects, null values, arrays etc.
 This yields three test cases for this function.
 In each of these \varuserids{} is a valid value.
 
 The partitioning of \varuserids{} is not as straight forward.
-Here we have cases where the ids to be removed can be either be all, partly, or not at all valid, depending on whether each of the the given ids belongs to a user that is a part of the project group being tested.
+Here we have cases where the ids to be removed can either be all, partly, or not at all valid, depending on whether each of the the given ids belongs to a user that is a part of the project group being tested.
 We choose to partition it coarsely; either all the ids of the set to be removed belongs to valid members or at least some id does not belong to a member.
-The reason being that if the function can handle a single invalid user id it is likely that it can handle that some or all  is invalid.
-The boundary values for these partitions we are considering are as follows: 
+The reason being that if the function can handle a single invalid user id it is likely that it can handle additional invalid inputs.
+The boundary values for the partitions we are considering are as follows: 
 \begin{itemize}
 	\item Removing a single member from a project group
 	\item Removing every member from a project group
@@ -46,7 +46,7 @@ The boundary values for these partitions we are considering are as follows:
 Additionally we test the case where the set of ids to be removed is empty and is an illegal type.
 For the illegal type we choose two cases; one where the input is an array but one of the elements is a string instead of an integer and a case where the input is an object instead of an array.
 The final test case regarding \varuserids{} is where the call to the database API indicating the actual deletion of data fails.
-This test case is inserted to test how the function handles unexpected situation regarding function calls to a trusted API or sudden database failure (though the database management system is responsible for recovery itself).
+This test case is inserted to test how the function handles unexpected situation regarding function calls to a trusted API or sudden database failure (though the database management system is responsible for recovery).
 
 \subsection{Test Case Examples}
 \label{sub:testCaseEg}
@@ -76,9 +76,9 @@ function testRemoveMembersFromGroupEveryone() {
 \end{lstlisting}
 
 In \coderef{src:testcasedelall} a test case for the function \fu{remove\_projectgroup\_members} is shown.
-The test case in question checks if the function can correctly remove all members of a group. 
+The test case in question checks if the function can correctly remove all members of a project group. 
 In line \ref{src:testcasedelall:create} a project group of six users is created.
-The function \fu{createTestGroup} utilizes the function that is used to create project groups in the admin tool library, but it also ensures removal of the project group after the tests are run, so the database does not get polluted with test project groups.
+The function \fu{createTestGroup} utilizes the function that is used to create project groups in the admin tool library, but it also ensures removal of the project group after the tests are run, so the database does not get polluted with test data.
 In line \ref{src:testcasedelall:delete} the function \fu{remove\_projectgroup\_members} is used to remove all six members of the project group.
 Finally in line \ref{src:testcasedelall:assert} we assert that the project group at hand is empty.
 If it is empty the test succeeds, if not it fails.
