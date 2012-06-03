@@ -5,7 +5,7 @@ In this section the creation of a custom context is described.
 To have different blocks for different virtual group rooms we need our own context.
 We will create our own context level and class.
 We call the context \cl{context\_projectgroup}. 
-The class is located in \moodlefile{/local/projectgroup/context.php} and is included by the project group library. 
+The class is located in \moodlefile{/local/projectgroup/context- .php} and is included by the project group library. 
 
 Moodle does not support extension of contexts through any of the 34 different plugins types available. 
 This fact poses a problem for us.
@@ -26,7 +26,7 @@ class context_projectgroup extends context {
 ...
 \end{lstlisting}
 
-When a context is loaded in a Moodle page it is instantiated by \fu{get\_context\_instance}, which takes a context level and an instance id. 
+When a context is loaded in a Moodle page it is instantiated by \fu{get\_context- \_instance}, which takes a context level and an instance id. 
 The instance id can be a course id or similar depending on the context level -- in our case this would be a project group id. 
 This function calls a static method in the \cl{context\_helper} class, which uses a private array to translate the context level into a class name.
 As stated in \chapref{chap:systemDef} we refrain from changing the core code of Moodle. 

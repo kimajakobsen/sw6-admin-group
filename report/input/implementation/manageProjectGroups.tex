@@ -7,7 +7,7 @@ The features we provide to manage project groups are known as admin tools in Moo
 This section describes how we implement the administration tools needed to manage project groups.
 
 
-The main functionality is placed in the file \moodlefile{/admin/tool/projectgroup/lib.php}, which is a code library consisting of approximately $500$ lines of code. 
+The main functionality is placed in the file \moodlefile{/admin/tool/projectgroup/lib- .php}, which is a code library consisting of approximately $500$ lines of code. 
 The library is know henceforth as the admin tool library.
 The library includes the project group library discussed in \secref{sec:pglib}, and hereby allowing pages in the administrative part to use code in the project group library. 
 This inclusion is the implementation of the dependency between the admin component and the project group library component seen on \figref{fig:architecture}. 
@@ -42,7 +42,7 @@ The filter itself is placed in \moodlefile{/admin/tool/projectgroup/projectgroup
 This functionality is requested by the administrative personnel (see \secref{sec:requirements}).
 The project group list is rendered in \moodlefile{/admin/tool/projectgroup/index.php} and the filter is created here as well. 
 \coderef{moodlefiltering} shows the invocation of the filter. 
-The filter is created and by the use of the function \fu{get\_projectgroup\_selection\_data} we get the data, which we use in the creation of the projectgroup form, which handles the HTML rendering of the filter. 
+The filter is created and by the use of the function \fu{get\_projectgroup\_sel- ection\_data} we get the data, which we use in the creation of the projectgroup form, which handles the HTML rendering of the filter. 
 \begin{lstlisting}[style=phpCode, caption=\myCaption{The invocation of the filtering mechanism}, label=moodlefiltering]
 //create the user filter form
 $filtering = new projectgroup_filtering();
