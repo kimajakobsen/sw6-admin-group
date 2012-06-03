@@ -11,7 +11,7 @@ Moodle does not support extension of contexts through any of the 34 different pl
 This fact poses a problem for us.
 There are two parts of the problem.
 The first is to create a new context and the second is to load it properly. 
-We create a new context by making a new class, which is very similar to \cl{context\_course}, a class that is part of \moodle{} core code, and by defining the context level of project groups as a constant. 
+We create a new context by making a new class, which is very similar to \cl{context\_course} (a class that is part of \moodle{} core code), and by defining the context level of project groups as a constant. 
 The class header and the constant definition can be seen in \coderef{src:codeprojectgroupcontext}. 
 The constant is set to 55, as seen in \lineref{src:codeprojectgroupcontext:level}.
 It is chosen because that this context level is unused.
@@ -28,8 +28,8 @@ class context_projectgroup extends context {
 
 When a context is loaded in a Moodle page it is instantiated by \fu{get\_context\_instance}, which takes a context level and an instance id. 
 The instance id can be a course id or similar depending on the context level -- in our case this would be a project group id. 
-This function calls a static method in the \cl{context\_helper} class which uses a private array to translate the context level into a class name.
-As stated in \chapref{chap:systemDef} we refrain ourselves from changing the core code of Moodle. 
+This function calls a static method in the \cl{context\_helper} class, which uses a private array to translate the context level into a class name.
+As stated in \chapref{chap:systemDef} we refrain from changing the core code of Moodle. 
 If this constraint were not enforced the array could simply be extended directly in the code.  
 Since the array used is private we can not extend the context system by overriding the \cl{context\_helper} class. 
 
