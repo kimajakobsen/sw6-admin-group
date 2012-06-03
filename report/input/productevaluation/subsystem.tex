@@ -22,7 +22,7 @@ This would give even further flexibility.
 This will allow for large groups of students to be split into several sub-groups, which would make a student part of his \subgroup{} and its parent group.
 It can be implemented using a recursive tree structure.
 Consider our case: We are four people working in a \subgroup{}, this \subgroup{} along with three other constitute the group developing \system{}.
-The \system{} group is part of a semester project with the theme Application Development, that has another group as well.
+The \system{} group is part of a semester project with the theme Application Development that has another group as well.
 In our system this can be accomplished by making a project group for both \subgroup{}s, groups, and the semester.
 A student is then part of the appropriate project groups.
 The difference between a recursive tree structure and our implementation is illustrated in \figref{fig:groupstructure}.
@@ -53,13 +53,13 @@ It may, however, be considered at a later stage in the development of \system{}.
 
 \subsection{Virtual Group Room}
 %% Team vs. Shared
-In \secref{sec:virtualMeetingPlace} we decide to implement the virtual group room to satisfy the need for a virtual meeting place.
-Each project group has its own room for collaboration. 
+In \secref{sec:virtualMeetingPlace} we decided to implement the virtual group room to satisfy the need for a virtual meeting place.
+Each project group has its own virtual group room for collaboration. 
 %The shared room is infeasible, as argued in that section. 
 
 The virtual group room is implemented as a container for blocks, which made the inter group integration less time consuming by having a common interface between the virtual group room and the \detdeandrelaver{}s.
 %specifying how the different groups could add their work to the project group room. 
-At the same time it gives a great flexibility since the individual group can organize the blocks themselves and add arbitrary blocks.
+At the same time it gives a great flexibility since the individual project groups can organize the blocks themselves and add arbitrary blocks.
 
 %%% Context
 In the implementation of the virtual group room we created our own context, which gives a better solution compared to linking project groups to courses. 
@@ -80,7 +80,7 @@ Furthermore, the users should be able to choose the number of project groups to 
 If a user is working on, say, six projects, it would perhaps not bother him to have all these shown in the navigation menu instead of having to go to the overview page of project groups for one third of his virtual group rooms.
 
 \subsection{Administration User Interface}
-In the last demo meeting with Lene W. Even (seen in \appref{sec:lenedemotwo}) she expressed some dissatisfaction with how the filtering functionality of the project groups work.
+In the last demo meeting with Lene (seen in \appref{sec:lenedemotwo}) she expressed some dissatisfaction with how the filtering functionality of the project groups work.
 It would be easier for some users to use the filtering of project groups as a search query instead.
 Specifically this means that old filters should be discarded per default when adding a new filter.
 It should still, however, be possible to have more than one filter.
