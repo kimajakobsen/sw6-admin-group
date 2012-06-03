@@ -1,0 +1,67 @@
+\section{\system{}}
+\label{sec:productsystem}
+\system{} is the system we as the four sub-groups collaboratively have developed.
+In this section we evaluate on the product, which we created.
+
+
+In this project we created an extension to \moodle{}, which supports education through the Aalborg PBL model. 
+The extension, consisting of several smaller extensions, gives the students and their supervisor a virtual representation of their project group. 
+The \detdeandrelaver{}s allow students to communicate internally through a message board and a black board, and communicate with their supervisor through the supervisor message board.
+%These boards makes it easy to save communication threads and thereby not loosing them in email conversations. 
+The students can make appointments with themselves and/or their supervisor through the timeline tool.
+The virtual group room is a place where all the \detdeandrelaver{}s are available.
+Each project group has a virtual group room associated to it.
+
+
+\subsection{Decomposition}
+We chose to split the entire multi-project into four parts based on the core principles of PBL. 
+In retrospect the split could have been done more harmonic than it is.
+Our sub-group got the task of implementing the project group administration and the virtual group room, which is two very separate tasks with a diverse set of end users. 
+The black board tool could be merged with the message board tool by integration an existing drawing application, such as google apps, which is already integrated in Moodle by a 3\rd{} party extension~\cite{moodlegoogleapp}. 
+A new decomposition will then be:
+\begin{itemize}
+	\item Management
+	\item Planning
+	\item Communication
+	\item Virtual Group Room
+\end{itemize}
+
+This division would have given a more distinct grouping of end users to all components.
+The distribution of end users would be:
+\admpers{} to Management, students to the other three sub-systems. 
+Communication should consider supervisors as well.
+
+
+
+\subsection{Architecture}
+% Architecture
+%The chosen architecture used in the implementation of \system{} works as intended and the different \subgroup{}s managed to implement their component so they comply with the architecture. 
+%The architecture helps illustrate the relations between the different components of the system, which is helpful for the groups who are to continue the work. 
+
+
+
+The architecture was not the result of an upfront analysis but rather the result of a few iterations of development.
+We discovered that there was a need for a specification of where to put new functionality.
+In particular we wanted a shared code library where functionality that was used by some or all sub-systems of \system{} could be placed.
+This resulted in our three-layered architecture (not counting the database and \moodle{} core) described in \secref{sec:architecture}.
+It has allowed us to have a common understanding of how we wanted the final system to be.
+It has also given guidelines regarding where to put functionality and has encapsulated related functionality.
+This should help the developers that will take over this project next year to add new features as well as changing existing features.
+
+
+
+\subsection{Database}
+%Database
+The database schema used in this project is fairly simple.
+It only consists of two tables, namely  \rel{projectgroup} and \rel{projectgroup\_members}. 
+These two tables represent the entity project group and the relation that exists between project groups and users in \moodle{}. 
+
+The \field{longname} field in \rel{projectgroup} is by Lene considered useless, as described in \appref{sec:lenedemotwo}. 
+The field is optional, but it should be removed if members of the \admpers{} from other departments confirm that there is no need for it. 
+In the \rel{projectgroup\_members} there are two time fields -- \field{created} and \field{updated}. 
+These fields are unused in the current implementation. 
+Since the members of a project group are all deleted whenever a project group is updated (described in \secref{sub:addedditprojectgroups}) these fields are worthless.
+For these fields to have a purpose the implementation must be changed to update entries in \rel{projectgroup\_members} and set \field{updated} appropriately without modifying \field{created} or deleting entries of members that are supposed to persist.
+
+%The field \field{created} can be useful if at some point it is necessary to know when a user becomes a member of a group, while \field{updated} is not used since the application never updates a row, but removes and inserts it again if changes are applied.
+
