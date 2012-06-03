@@ -144,7 +144,7 @@ $
 \subsection{Database Access Layer}
 \label{sec:moodleoplatformdbml}
 To access and manipulate data in Moodle the DML API is used.  
-The API is accessed through a global variable named \vari{\$DB}. 
+The API is accessed through a global variable named \vari{DB}. 
 It has several methods for updating, inserting, deleting, and selecting. 
 %The basic method for select, insert, and update, namely get\_record, update\_record, and insert\_record, take or retrieves an object of type stdClass.
 The basic methods for selecting and inserting are \fu{get\_record} and \fu{insert\_record}.
@@ -189,7 +189,8 @@ An example of how to set the context can be seen in \coderef{courseviewcontextsn
 
 \begin{lstlisting}[style=phpCode, caption=\myCaption{Code snippet from \moodlefile{/course/view.php} showing how the context of a course is set}, label=courseviewcontextsnippet]
 ...
-if (!$context = get_context_instance(CONTEXT_COURSE, $course->id)) {
+if (!$context = get_context_instance(CONTEXT_COURSE, $course->id))
+{
   print_error('nocontext');
 }
 ...
