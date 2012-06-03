@@ -1,0 +1,51 @@
+\subsection{Context of Project Groups}
+In \secref{sub:contextsystem}  the context system of Moodle is described.
+In this section the creation of a custom context is described. 
+
+To have different blocks for different virtual group rooms we need our own context.
+We will create our own context level and class.
+We call the context \cl{context\_projectgroup}. 
+The class is located in \moodlefile{/local/projectgroup/context.php} and is included by the project group library. 
+
+Moodle does not support extension of contexts through any of the 34 different plugins types available. 
+This fact poses a problem for us.
+There are two parts of the problem.
+The first is to create a new context and the second is to load it properly. 
+We create a new context by making a new class, which is very similar to \cl{context\_course} (a class that is part of \moodle{} core code), and by defining the context level of project groups as a constant. 
+The class header and the constant definition can be seen in \coderef{src:codeprojectgroupcontext}. 
+The constant is set to 55, as seen in \lineref{src:codeprojectgroupcontext:level}.
+It is chosen because that this context level is unused.
+% and it is close to the course context level. 
+%We regard the project group contexts to be at the same level as course contexts. 
+%Intuitively project group concepts and courses are ranked along side each other.
+%However, project groups does not have categories like courses does.
+
+\begin{lstlisting}[style=phpCode, caption=\myCaption{The context\_projectgroup class header and constant definition}, label=src:codeprojectgroupcontext]
+define ('CONTEXT_PROJECTGROUP',55); (*\label{src:codeprojectgroupcontext:level}*)
+class context_projectgroup extends context {
+...
+\end{lstlisting}
+
+When a context is loaded in a Moodle page it is instantiated by \fu{get\_context\_instance}, which takes a context level and an instance id. 
+The instance id can be a course id or similar depending on the context level -- in our case this would be a project group id. 
+This function calls a static method in the \cl{context\_helper} class, which uses a private array to translate the context level into a class name.
+As stated in \chapref{chap:systemDef} we refrain from changing the core code of Moodle. 
+If this constraint were not enforced the array could simply be extended directly in the code.  
+Since the array used is private we can not extend the context system by overriding the \cl{context\_helper} class. 
+
+The newly created context is only used in pages created in this project and we can therefore create our own version of \fu{get\_context\_instance}. 
+The new function can be seen in \coderef{src:codeprojectgroupcontextinstance}.
+\begin{lstlisting}[style=phpCode, caption=\myCaption{The function to get projectgroup context}, label=src:codeprojectgroupcontextinstance]
+function get_projectgroup_context_instance($instance = 0) 
+{ 
+    return context_projectgroup::instance($instance);
+}
+\end{lstlisting}
+
+The \vari{instance} argument denotes a project group id.
+%The \vari{strictness} variable indicate its compatibility mode.
+%There are three constants defined in \moodle{} DML that are supposed to be used as input for \vari{strictness}.
+%These are: \vari{IGNORE\_MISSING}, \vari{IGNORE\_MULTIPLE}, and \vari{MUST\_EXIST}.
+%The value of \vari{strictness} is passed on in the static method \me{instance} of \cl{context\_projectgroup} to the \moodle{} database API call to \fu{get\_record} which implements functionality to throw exceptions depending on \vari{strictness}.
+
+With the new context and the function to instantiate it we can now add blocks to specific virtual group rooms. 
