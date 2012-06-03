@@ -1,0 +1,123 @@
+\section{Inter Group Collaboration}
+\label{sec:intergroup}
+In this section the chosen development method and its utilization is discussed. 
+%\todo{Der mangler lidt intro} 
+%skriv mere
+%skriv noget om hvor mange we er. (14)
+
+%Initial planning
+\subsection{Initial Period}
+Prior to choosing a development method we conducted whole team assemblies. 
+This practice worked well in the initial part of the project, but they became ineffective later on. 
+A reason for this is that the topics discussed early in the development were important and interesting knowledge to everyone, but later some topics were uninteresting for some \subgroup{}s while important to others.
+That made the enthusiasm at the whole team assemblies fall drastically and we organized fewer of these meetings as a result.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{comment}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Choice of scrum of scrum
+\subsection{Choosing Scrum of Scrum}
+In one of the whole team assemblies we agreed upon that due to the high uncertainty of this project we would use a I Know It When I See It (IKIWISI) approach. 
+Furthermore, we used Barry Boehm and Richard Turn's five factors to determine if we should choose an agile or traditional development approach. 
+Personnel, Dynamism, Culture, and Criticality are determined on our collective opinion. 
+We will now evaluate on these.    
+20 \% of our whole project team are able to follow a development approach, 35 \% of our whole team are able to adapt or develop development practices. 
+The last 45 \% fall below these standards.
+We base this on the whole team followed the course Software Engineering~\cite[S. 4.4.2]{sw6studieordning} where we learned about development methods and the usage thereof. 
+This course did not make us experts but we gained a basic understanding of how to adapt a development method, based on this we derived the mentioned percentage distribution.  
+We expected that 30 \% of our initial goal would change.
+This is hard to evaluate due to the fact that there where no product owner to determine a initial set of goals.
+We conducted the development agile and expected a high rate of change, however it is impossible to predict if it would still be the case if we had chosen a traditional approach.  
+By voting we determined that 70 \% of us prefer a chaotic contra a structured working environment.
+We deemed that if the system we where to build crashed, it would only effect the comfort of the users, this still holds.
+
+Based on these five factors we choose to use the \scrum{} methods called \sos{}.  
+We chose this over XP and traditional based methods.
+It is difficult to validate that the choice is correct and that \sos{} is the best suited development method compared to the others.
+On the other hand nothing indicates that the other methods should be better suited for our project. 
+In the implementation of \sos{} we chose to have \sos{} meetings nearly twice a week.
+This worked well since they helped bring forth some issues and mitigated many potential risks of misunderstanding between \subgroup{}s.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{comment}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Choosing a Development Method}
+In the beginning of the project we decided to use \sos{} based on the 11 deciding factors described in \secref{subsec:choosingmethod}.
+%We have only used the one development method for this project, but we still believe we made the right choice based on the deciding factors.
+We have not tried any other development method for a multi-project, but we still believe we made the right choice based on the deciding factors.
+
+
+%sprints
+\subsection{Sprints}
+During our project we have had four sprints, the first one being a non-programming sprint.
+The sprints had a varying lengths, but they where always time boxed. 
+The varying lengths of the sprints was necessary due to the fact that our course schedule was unevenly distributed. 
+The number of sprints is limited to four because of the hand in deadline of this report.
+
+
+
+
+\subsection{Meetings}
+\label{sub:interdevmeet}
+%Sprint planning meetings and retrospektive meetings and demo
+Before the first sprint started we had a collaborate sprint planning meeting where all tasks for every \subgroup{} was presented and estimated in collaboration.
+In successive sprints we decided that every \subgroup{} was responsible for handling these meetings themselves, because there was only a limited gain from sitting in on the selection and estimation of sprint items of other \subgroup{}s  compared to the gain from \sos{} meetings that we conducted during the sprint.
+
+Ideally we would have conducted our demo meetings with end users immediately after a sprint ended, but in some cases we had to wait because the end user representatives were not available in the given time period.
+This resulted in some feature requests that came in during a sprint and therefore had to be delayed -- we prohibited ourselves from adding work to our sprint backlog during a sprint as \scrum{} suggests.
+
+We conducted \sos{} meetings approximately twice a week, however, we planned meetings on an as need basis, which worked well.
+\sos{} meetings were also used to evaluate our development method, which in some cases caused the meetings to last longer than is normally allowed in \sos{}.
+
+\scrum{} dictates that after every sprint a sprint retrospective meeting should be held to evaluate the development during the sprint in order to make the next sprint more pleasant and effective.
+We never conducted any formal sprint retrospective meetings in collaboration with our peer-groupss.
+We compensated for the missing meetings by evaluating the development method along the way or as part of the \sos{} meetings. 
+
+
+
+%Tools
+%%version control
+%%bug tracking
+%%code documentation
+%%Testing
+%We choose to use Hg as a mean to have version control on our code. 
+
+
+%collaboration in general
+%%Not shared group room
+\subsection{Group Room Location}
+Another issue is the lack of a shared room, which is preferred in \sos{}, but it helped that the group rooms are located close to each other. 
+We quickly discovered that leaving the door open during working hours helped on the inter \subgroup{} communication. 
+
+
+
+\subsection{Tools}
+In this section we evaluate on the used tools during development. 
+
+\paragraph{Version Control}
+We chose to use HG as our version control system. 
+This worked well with the structure we set up where each person and group had its own repository on the server, which allowed for constant integration. 
+There were some minor problems regarding permissions, but this was fixed by changing the server configuration. 
+
+
+\paragraph{Bug Tracking}
+Bugzilla was installed and configured, but it was never used. 
+The reason is that we did not spend time to document bugs, but fixed them immediately. 
+
+\paragraph{Documentation}
+We documented the code using code comments, which can be parsed by PHPDocumentor or PHPXref. 
+PHPXref was installed on the server and used frequently. 
+PHPDocumentor was installed, but we never compiled the code with it. 
+
+\paragraph{Testing}
+The use of the built-in testing framework in \moodle{} worked well and the test cases are now an integrated part of the code.
+
+
+\subsection{Summary}
+In general the development method worked well and it enabled us to adapt to changes. 
+An example of a large change during development is when we realized that it was impossible to use activity modules in virtual group rooms without linking them through a course.
+This was overcome by changing the already implemented activity modules to \block[]s. 
+The changed requirement was embraced, as agile methods recommend, and quickly implemented.
+To make this change quickly and effectively it helped a great deal that our physical group rooms were located close to each other, since we could communicate with our peer-groups as soon as we found the solution.
+The solution was found in collaboration with some of our peer-groups.
