@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="local/projectgroup/db" VERSION="20120523" COMMENT="XMLDB file for Moodle admin/tool/projectgroup"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+>
+  <TABLES>
+    <TABLE NAME="projectgroup" COMMENT="Default comment for projectgroup, please edit me" NEXT="projectgroup_members">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" NEXT="shortname"/>
+        <FIELD NAME="shortname" TYPE="char" LENGTH="30" NOTNULL="true" SEQUENCE="false" COMMENT="A short name for a project group" PREVIOUS="id" NEXT="fullname"/>
+        <FIELD NAME="fullname" TYPE="text" LENGTH="big" NOTNULL="true" SEQUENCE="false" COMMENT="The full name for the project group" PREVIOUS="shortname" NEXT="created"/>
+        <FIELD NAME="created" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" COMMENT="The time the project group was created" PREVIOUS="fullname"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id" NEXT="uni_shortname"/>
+        <KEY NAME="uni_shortname" TYPE="unique" FIELDS="shortname" PREVIOUS="primary"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="projectgroup_members" COMMENT="The table for the project group members" PREVIOUS="projectgroup" NEXT="activities">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" NEXT="projectgroup"/>
+        <FIELD NAME="projectgroup" TYPE="int" LENGTH="20" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" COMMENT="Reference to the project group the member is a member of." PREVIOUS="id" NEXT="user"/>
+        <FIELD NAME="user" TYPE="int" LENGTH="20" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" COMMENT="Reference to a user." PREVIOUS="projectgroup" NEXT="role"/>
+        <FIELD NAME="role" TYPE="int" LENGTH="20" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" COMMENT="A reference to a role." PREVIOUS="user" NEXT="added"/>
+        <FIELD NAME="added" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" COMMENT="The time the user is added to a group." PREVIOUS="role" NEXT="updated"/>
+        <FIELD NAME="updated" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" COMMENT="The latest time the membership status of a user is changed." PREVIOUS="added"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="id" TYPE="primary" FIELDS="id" NEXT="foreignuser"/>
+        <KEY NAME="foreignuser" TYPE="foreign" FIELDS="user" REFTABLE="user" REFFIELDS="id" COMMENT="The foreign key referencing the user." PREVIOUS="id" NEXT="foreignprojectgroup"/>
+        <KEY NAME="foreignprojectgroup" TYPE="foreign" FIELDS="projectgroup" REFTABLE="projectgroup" REFFIELDS="id" COMMENT="The foreign key referencing the project group." PREVIOUS="foreignuser" NEXT="uni_projectgroup_user"/>
+        <KEY NAME="uni_projectgroup_user" TYPE="unique" FIELDS="projectgroup, user" PREVIOUS="foreignprojectgroup"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="activities" COMMENT="activities table retrofitted from MySQL" PREVIOUS="projectgroup_members" NEXT="tml_task_types">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" NEXT="ref_id"/>
+        <FIELD NAME="ref_id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" PREVIOUS="id" NEXT="ref_type"/>
+        <FIELD NAME="ref_type" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" PREVIOUS="ref_id" NEXT="updated"/>
+        <FIELD NAME="updated" TYPE="int" LENGTH="11" NOTNULL="false" UNSIGNED="false" SEQUENCE="false" PREVIOUS="ref_type"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="tml_task_types" COMMENT="tml_task_types table retrofitted from MySQL" PREVIOUS="activities" NEXT="tml_task_users">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="20" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" NEXT="ref_type"/>
+        <FIELD NAME="ref_type" TYPE="int" LENGTH="11" NOTNULL="true" UNSIGNED="false" SEQUENCE="false" PREVIOUS="id" NEXT="ref_id"/>
+        <FIELD NAME="ref_id" TYPE="int" LENGTH="11" NOTNULL="true" UNSIGNED="false" SEQUENCE="false" PREVIOUS="ref_type" NEXT="name"/>
+        <FIELD NAME="name" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" PREVIOUS="ref_id" NEXT="color"/>
+        <FIELD NAME="color" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" PREVIOUS="name" NEXT="predefined"/>
+        <FIELD NAME="predefined" TYPE="int" LENGTH="4" NOTNULL="true" UNSIGNED="false" DEFAULT="0" SEQUENCE="false" PREVIOUS="color"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="tml_task_users" COMMENT="tml_task_users table retrofitted from MySQL" PREVIOUS="tml_task_types" NEXT="tml_tasks">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" NEXT="task_id"/>
+        <FIELD NAME="task_id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="false" SEQUENCE="false" PREVIOUS="id" NEXT="user_id"/>
+        <FIELD NAME="user_id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" PREVIOUS="task_id"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="mdl_tmltaskuser_tasuse_ix" UNIQUE="false" FIELDS="task_id, user_id" NEXT="mdl_tmltaskuser_use_ix"/>
+        <INDEX NAME="mdl_tmltaskuser_use_ix" UNIQUE="false" FIELDS="user_id" PREVIOUS="mdl_tmltaskuser_tasuse_ix"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="tml_tasks" COMMENT="tml_tasks table retrofitted from MySQL" PREVIOUS="tml_task_users">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="20" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" NEXT="activity_id"/>
+        <FIELD NAME="activity_id" TYPE="int" LENGTH="20" NOTNULL="true" UNSIGNED="false" SEQUENCE="false" PREVIOUS="id" NEXT="timestamp"/>
+        <FIELD NAME="timestamp" TYPE="text" LENGTH="small" NOTNULL="false" SEQUENCE="false" PREVIOUS="activity_id" NEXT="title"/>
+        <FIELD NAME="title" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" PREVIOUS="timestamp" NEXT="description"/>
+        <FIELD NAME="description" TYPE="text" LENGTH="small" NOTNULL="true" SEQUENCE="false" PREVIOUS="title" NEXT="type"/>
+        <FIELD NAME="type" TYPE="int" LENGTH="11" NOTNULL="true" UNSIGNED="false" SEQUENCE="false" PREVIOUS="description" NEXT="deadline"/>
+        <FIELD NAME="deadline" TYPE="text" LENGTH="small" NOTNULL="false" SEQUENCE="false" PREVIOUS="type" NEXT="status"/>
+        <FIELD NAME="status" TYPE="int" LENGTH="11" NOTNULL="true" UNSIGNED="false" SEQUENCE="false" PREVIOUS="deadline" NEXT="completion_timestamp"/>
+        <FIELD NAME="completion_timestamp" TYPE="text" LENGTH="small" NOTNULL="false" SEQUENCE="false" PREVIOUS="status" NEXT="notified"/>
+        <FIELD NAME="notified" TYPE="int" LENGTH="11" NOTNULL="true" UNSIGNED="false" DEFAULT="0" SEQUENCE="false" PREVIOUS="completion_timestamp" NEXT="created_by"/>
+        <FIELD NAME="created_by" TYPE="int" LENGTH="11" NOTNULL="true" UNSIGNED="false" SEQUENCE="false" PREVIOUS="notified"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+    </TABLE>
+  </TABLES>
+</XMLDB>
