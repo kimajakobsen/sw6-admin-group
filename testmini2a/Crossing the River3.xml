@@ -20,23 +20,16 @@ const personType MOM  = 3;
 const personType THIEF  = 4;
 const personType POLICE  = 5;
 
-const int NUMBER_OF_PERSONS = 10; //Must be an even number
-const personType empty[NUMBER_OF_PERSONS] ={NOT_A_PERSON,NOT_A_PERSON,NOT_A_PERSON,NOT_A_PERSON,NOT_A_PERSON,NOT_A_PERSON,NOT_A_PERSON,NOT_A_PERSON,NOT_A_PERSON,NOT_A_PERSON};
+const int NUMBER_OF_PERSONS = 13;
+const personType empty[NUMBER_OF_PERSONS] ={NOT_A_PERSON,NOT_A_PERSON,NOT_A_PERSON,NOT_A_PERSON,NOT_A_PERSON,NOT_A_PERSON,NOT_A_PERSON,NOT_A_PERSON,NOT_A_PERSON,NOT_A_PERSON,NOT_A_PERSON,NOT_A_PERSON,NOT_A_PERSON};
 
 int temp_sailtime = 0;
 
-
-personType left[NUMBER_OF_PERSONS] = {BOY,BOY,BOY,DAD,GIRL,GIRL,GIRL,MOM,THIEF,POLICE};
+const personType initState[NUMBER_OF_PERSONS] = {BOY,BOY,DAD,GIRL,GIRL,MOM,THIEF,THIEF,THIEF,THIEF,POLICE,POLICE,POLICE};
+personType left[NUMBER_OF_PERSONS] = initState;
 personType right[NUMBER_OF_PERSONS] = empty;
 personType boat[NUMBER_OF_PERSONS] = empty;
 
-
-
-
-int numberOfChildren()
-{	
-	return (NUMBER_OF_PERSONS-6)/2;
-}
 
 int size(personType people[NUMBER_OF_PERSONS])
 {
@@ -380,6 +373,7 @@ Dad = Person(adultOn,1,10);
 Mom = Person(adultOn,3,20);
 Police1 = Person(adultOn,5,5);
 Police2 = Person(adultOn,5,5);
+Police3 = Person(adultOn,5,5);
 
 Boy1 = Person(childOn,0,0);
 Boy2 = Person(childOn,0,0);
@@ -391,8 +385,10 @@ Girl3 = Person(childOn,2,0);
 Girl4 = Person(childOn,2,0);
 Thief1 = Person(childOn,4,0);
 Thief2 = Person(childOn,4,0);
+Thief3 = Person(childOn,4,0);
+Thief4 = Person(childOn,4,0);
 
 // List one or more processes to be composed into a system.
 
-system Boat,Dad,Mom,Police1,Boy1,Boy2,Boy3,Girl1,Girl2,Girl3,Thief1,Observer;</system>
+system Boat,Dad,Mom,Police1,Police2,Police3,Boy1,Boy2,Girl1,Girl2,Thief1,Thief2,Thief3,Thief4,Observer;</system>
 </nta>

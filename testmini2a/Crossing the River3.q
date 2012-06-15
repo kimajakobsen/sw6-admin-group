@@ -1,4 +1,4 @@
-//This file was generated from (Academic) UPPAAL 4.1.9 (rev. 5027), March 2012
+//This file was generated from (Academic) UPPAAL 4.1.11 (rev. 5085), June 2012
 
 /*
 
@@ -28,4 +28,9 @@ E<> Boy1.L == 1 && Boy2.L == 1 && Boy3.L == 1 && Girl1.L == 1 && Girl2.L == 1 &&
 /*
 
 */
-E<> Boy1.L == 1 && Boy2.L == 1 && Girl1.L == 1 && Girl2.L == 1 && Dad.L == 1 && Mom.L == 1 && Police1.L == 1 && Thief1.L == 1
+E<> left == empty && right == initState
+
+/*
+
+*/
+E<> Boy1.L == 1 && Boy2.L == 1 && Girl1.L == 1 && Girl2.L == 1 && Dad.L == 1 && Mom.L == 1 && Police1.L == 1 && Police2.L == 1 && Thief1.L == 1 && Thief2.L == 1
