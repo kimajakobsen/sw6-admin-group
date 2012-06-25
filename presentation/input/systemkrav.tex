@@ -48,11 +48,59 @@
 	\end{figure}
 \end{frame}
 
-\begin{frame}{\reqs}{\funcreqs}
+
+\newcommand{\chosenreqs}[1]{\begin{columns}[t]
+		\column{0.45\textwidth}
+			\begin{itemize}
+				\item \textcolor{#1}{Administrering af Projektgrupper}
+				\item \textcolor{#1}{Det Virtuelle Grupperum}
+				\item \textcolor{#1}{Rolle Begreb}
+			\end{itemize}
+			
+			
+		\column{0.45\textwidth}
+			\begin{itemize}
+				\item \textcolor{#1}{Find Projektgruppe}
+				\item \textcolor{#1}{Naviger til Virtuelt Grupperum}
+				\item \textcolor{#1}{Presenter Gruppemedlemmer}
+			\end{itemize}
+	\end{columns}}
 	
+\begin{frame}{\reqs}{\funcreqs}
+	%Chosen
+	\only<1>{
+		\chosenreqs{black}
+		}
+	\only<2>{
+		\chosenreqs{darkgreen}
+		}
+	%Not chosen
+	\begin{columns}[t]
+		\column{0.45\textwidth}
+			\begin{itemize}
+				\item Arkivering af projektgrupper
+				\item Rekursive Projektgrupper
+				\item Administrer Roller
+			\end{itemize}
+			
+			
+		\column{0.45\textwidth}
+			\begin{itemize}
+				\item Synkronisering af Projektgrupper
+				\item Skabeloner for Virtuelle Mødesteder
+			\end{itemize}
+		
+			
+	\end{columns}
 \end{frame}
 
-
+\begin{frame}{\reqs}{\nonfuncreqs}
+	\begin{itemize}
+		\item Udvidbarhed
+		\item Robusthed
+		\item Brugbarhed
+	\end{itemize}
+\end{frame}
 
 
 
