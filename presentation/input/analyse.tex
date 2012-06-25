@@ -1,0 +1,33 @@
+\newcommand{\modelreality}{Modelering af Virkeligheden}
+\newcommand{\topicone}{Aalborg PBL}
+\newcommand{\topictwo}{Representation}
+\section*{\modelreality}
+
+\begin{frame}{\modelreality}
+\begin{itemize}
+	\item \topicone
+	\item \topictwo
+\end{itemize}
+\end{frame}
+
+\def\freqlist{1,2,3,4,5}
+
+\foreach \freq in \freqlist 
+{
+\begin{frame}{\topicone} 
+\includegraphics[width=\columnwidth]{input/rasmus/Rasmus\freq.pdf}
+\end{frame}
+
+} 
+
+\def\freqlist{1,2,3,4,5,6,7,8,9,10,11}
+
+\foreach \freq in \freqlist 
+{
+\begin{frame}{\topictwo} 
+\begin{figure}
+\includegraphics[width=\columnwidth]{input/rasmus/two\freq.pdf}
+\end{figure}
+\end{frame}
+
+} 
