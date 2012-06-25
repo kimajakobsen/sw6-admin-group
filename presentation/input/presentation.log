@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2012.4.3)  25 JUN 2012 11:30
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2012.4.3)  25 JUN 2012 11:24
 entering extended mode
 **presentation.tex
-("C:\Users\Rasmus Prentow\Documents\Universitetet\6. semester\hg\presentation\presentation.tex"
+("C:\Users\Rasmus Prentow\Documents\Universitetet\6. semester\hg\presentation\input\presentation.tex"
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, arabic, armenian, assamese, basque, bengali
 , bokmal, bulgarian, catalan, coptic, croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, galic
@@ -847,7 +847,7 @@ File: listings.cfg 2007/02/22 1.4 listings configuration
 ))
 Package: listings 2007/02/22 1.4 (Carsten Heinz)
 
-("C:\Users\Rasmus Prentow\Documents\Universitetet\6. semester\hg\presentation\presentation.aux")
+("C:\Users\Rasmus Prentow\Documents\Universitetet\6. semester\hg\presentation\input\presentation.aux")
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 68.
 LaTeX Font Info:    ... okay on input line 68.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 68.
@@ -925,8 +925,8 @@ LaTeX Info: Redefining \ref on input line 68.
 LaTeX Info: Redefining \pageref on input line 68.
 LaTeX Info: Redefining \nameref on input line 68.
 
-("C:\Users\Rasmus Prentow\Documents\Universitetet\6. semester\hg\presentation\presentation.out")
-("C:\Users\Rasmus Prentow\Documents\Universitetet\6. semester\hg\presentation\presentation.out")
+("C:\Users\Rasmus Prentow\Documents\Universitetet\6. semester\hg\presentation\input\presentation.out")
+("C:\Users\Rasmus Prentow\Documents\Universitetet\6. semester\hg\presentation\input\presentation.out")
 \@outlinefile=\write5
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 68.
@@ -1001,206 +1001,28 @@ Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \c@lstlisting=\count192
 
-("C:\Users\Rasmus Prentow\Documents\Universitetet\6. semester\hg\presentation\presentation.nav")
-("C:\Users\Rasmus Prentow\Documents\Universitetet\6. semester\hg\presentation\input/frontpage.tex"
+No file presentation.nav.
 
-LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <4> not available
-(Font)              size <5> substituted on input line 16.
+! LaTeX Error: File `input/frontpage.tex' not found.
 
-[1{C:/Users/Rasmus Prentow/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: tex)
 
-])
-("C:\Users\Rasmus Prentow\Documents\Universitetet\6. semester\hg\presentation\input/intro.tex" [2
+Enter file name: 
+! Emergency stop.
+<read *> 
+         
+l.69 	\input{input/frontpage}
+                             
+*** (cannot \read from terminal in nonstop modes)
 
-] [3
-
-] [4
-
-])
-("C:\Users\Rasmus Prentow\Documents\Universitetet\6. semester\hg\presentation\input/systemkrav.tex" [5
-
-])
-("C:\Users\Rasmus Prentow\Documents\Universitetet\6. semester\hg\presentation\udviklingsmetode.tex"
-LaTeX Font Info:    Try loading font information for U+msa on input line 9.
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
-File: umsa.fd 2009/06/22 v3.00 AMS symbols A
-)
-LaTeX Font Info:    Try loading font information for U+msb on input line 9.
- ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
-File: umsb.fd 2009/06/22 v3.00 AMS symbols B
-)
-[6
-
-] [7
-
-] [8
-
-] [9
-
-]) ("C:\Users\Rasmus Prentow\Documents\Universitetet\6. semester\hg\presentation\input/analyse.tex"
-[10
-
-] <input/rasmus/Rasmus1.pdf, id=337, 845.0471pt x 597.51233pt>
-File: input/rasmus/Rasmus1.pdf Graphic file (type pdf)
- <use input/rasmus/Rasmus1.pdf>
-Package pdftex.def Info: input/rasmus/Rasmus1.pdf used on input line 21.
-(pdftex.def)             Requested size: 278.83713pt x 197.16144pt.
- [11
-
- <C:/Users/Rasmus Prentow/Documents/Universitetet/6. semester/hg/presentation/input/rasmus/Rasmus1.pdf>]
-<input/rasmus/Rasmus2.pdf, id=410, 845.0471pt x 597.51233pt>
-File: input/rasmus/Rasmus2.pdf Graphic file (type pdf)
- <use input/rasmus/Rasmus2.pdf>
-Package pdftex.def Info: input/rasmus/Rasmus2.pdf used on input line 21.
-(pdftex.def)             Requested size: 278.83713pt x 197.16144pt.
- [12
-
- <C:/Users/Rasmus Prentow/Documents/Universitetet/6. semester/hg/presentation/input/rasmus/Rasmus2.pdf>]
-<input/rasmus/Rasmus3.pdf, id=486, 845.0471pt x 597.51233pt>
-File: input/rasmus/Rasmus3.pdf Graphic file (type pdf)
- <use input/rasmus/Rasmus3.pdf>
-Package pdftex.def Info: input/rasmus/Rasmus3.pdf used on input line 21.
-(pdftex.def)             Requested size: 278.83713pt x 197.16144pt.
- [13
-
- <C:/Users/Rasmus Prentow/Documents/Universitetet/6. semester/hg/presentation/input/rasmus/Rasmus3.pdf>]
-<input/rasmus/Rasmus4.pdf, id=563, 845.0471pt x 597.51233pt>
-File: input/rasmus/Rasmus4.pdf Graphic file (type pdf)
- <use input/rasmus/Rasmus4.pdf>
-Package pdftex.def Info: input/rasmus/Rasmus4.pdf used on input line 21.
-(pdftex.def)             Requested size: 278.83713pt x 197.16144pt.
- [14
-
- <C:/Users/Rasmus Prentow/Documents/Universitetet/6. semester/hg/presentation/input/rasmus/Rasmus4.pdf>]
-<input/rasmus/Rasmus5.pdf, id=648, 845.0471pt x 597.51233pt>
-File: input/rasmus/Rasmus5.pdf Graphic file (type pdf)
- <use input/rasmus/Rasmus5.pdf>
-Package pdftex.def Info: input/rasmus/Rasmus5.pdf used on input line 21.
-(pdftex.def)             Requested size: 278.83713pt x 197.16144pt.
- [15
-
- <C:/Users/Rasmus Prentow/Documents/Universitetet/6. semester/hg/presentation/input/rasmus/Rasmus5.pdf>]
-<input/rasmus/two1.pdf, id=742, 323.70938pt x 124.21407pt>
-File: input/rasmus/two1.pdf Graphic file (type pdf)
- <use input/rasmus/two1.pdf>
-Package pdftex.def Info: input/rasmus/two1.pdf used on input line 33.
-(pdftex.def)             Requested size: 278.83713pt x 107.00204pt.
- [16
-
- <C:/Users/Rasmus Prentow/Documents/Universitetet/6. semester/hg/presentation/input/rasmus/two1.pdf>]
-<input/rasmus/two2.pdf, id=782, 323.70938pt x 124.21407pt>
-File: input/rasmus/two2.pdf Graphic file (type pdf)
- <use input/rasmus/two2.pdf>
-Package pdftex.def Info: input/rasmus/two2.pdf used on input line 33.
-(pdftex.def)             Requested size: 278.83713pt x 107.00204pt.
- [17
-
- <C:/Users/Rasmus Prentow/Documents/Universitetet/6. semester/hg/presentation/input/rasmus/two2.pdf>]
-<input/rasmus/two3.pdf, id=824, 508.14844pt x 124.21407pt>
-File: input/rasmus/two3.pdf Graphic file (type pdf)
- <use input/rasmus/two3.pdf>
-Package pdftex.def Info: input/rasmus/two3.pdf used on input line 33.
-(pdftex.def)             Requested size: 278.83713pt x 68.1625pt.
- [18
-
- <C:/Users/Rasmus Prentow/Documents/Universitetet/6. semester/hg/presentation/input/rasmus/two3.pdf>]
-<input/rasmus/two4.pdf, id=868, 687.31781pt x 384.6872pt>
-File: input/rasmus/two4.pdf Graphic file (type pdf)
- <use input/rasmus/two4.pdf>
-Package pdftex.def Info: input/rasmus/two4.pdf used on input line 33.
-(pdftex.def)             Requested size: 278.83713pt x 156.0616pt.
- [19
-
- <C:/Users/Rasmus Prentow/Documents/Universitetet/6. semester/hg/presentation/input/rasmus/two4.pdf>]
-<input/rasmus/two5.pdf, id=919, 687.31781pt x 507.39563pt>
-File: input/rasmus/two5.pdf Graphic file (type pdf)
- <use input/rasmus/two5.pdf>
-Package pdftex.def Info: input/rasmus/two5.pdf used on input line 33.
-(pdftex.def)             Requested size: 278.83713pt x 205.8425pt.
- [20
-
- <C:/Users/Rasmus Prentow/Documents/Universitetet/6. semester/hg/presentation/input/rasmus/two5.pdf>]
-<input/rasmus/two6.pdf, id=977, 728.7225pt x 489.32813pt>
-File: input/rasmus/two6.pdf Graphic file (type pdf)
- <use input/rasmus/two6.pdf>
-Package pdftex.def Info: input/rasmus/two6.pdf used on input line 33.
-(pdftex.def)             Requested size: 278.83713pt x 187.23085pt.
- [21
-
- <C:/Users/Rasmus Prentow/Documents/Universitetet/6. semester/hg/presentation/input/rasmus/two6.pdf>]
-<input/rasmus/two7.pdf, id=1027, 508.14844pt x 124.21407pt>
-File: input/rasmus/two7.pdf Graphic file (type pdf)
- <use input/rasmus/two7.pdf>
-Package pdftex.def Info: input/rasmus/two7.pdf used on input line 33.
-(pdftex.def)             Requested size: 278.83713pt x 68.1625pt.
- [22
-
- <C:/Users/Rasmus Prentow/Documents/Universitetet/6. semester/hg/presentation/input/rasmus/two7.pdf>]
-<input/rasmus/two8.pdf, id=1071, 508.14844pt x 124.21407pt>
-File: input/rasmus/two8.pdf Graphic file (type pdf)
- <use input/rasmus/two8.pdf>
-Package pdftex.def Info: input/rasmus/two8.pdf used on input line 33.
-(pdftex.def)             Requested size: 278.83713pt x 68.1625pt.
- [23
-
- <C:/Users/Rasmus Prentow/Documents/Universitetet/6. semester/hg/presentation/input/rasmus/two8.pdf>]
-<input/rasmus/two9.pdf, id=1113, 508.14844pt x 254.45062pt>
-File: input/rasmus/two9.pdf Graphic file (type pdf)
- <use input/rasmus/two9.pdf>
-Package pdftex.def Info: input/rasmus/two9.pdf used on input line 33.
-(pdftex.def)             Requested size: 278.83713pt x 139.6299pt.
- [24
-
- <C:/Users/Rasmus Prentow/Documents/Universitetet/6. semester/hg/presentation/input/rasmus/two9.pdf>]
-<input/rasmus/two10.pdf, id=1157, 508.14844pt x 254.45062pt>
-File: input/rasmus/two10.pdf Graphic file (type pdf)
- <use input/rasmus/two10.pdf>
-Package pdftex.def Info: input/rasmus/two10.pdf used on input line 33.
-(pdftex.def)             Requested size: 278.83713pt x 139.6299pt.
- [25
-
- <C:/Users/Rasmus Prentow/Documents/Universitetet/6. semester/hg/presentation/input/rasmus/two10.pdf>]
-<input/rasmus/two11.pdf, id=1202, 527.72156pt x 323.70938pt>
-File: input/rasmus/two11.pdf Graphic file (type pdf)
- <use input/rasmus/two11.pdf>
-Package pdftex.def Info: input/rasmus/two11.pdf used on input line 33.
-(pdftex.def)             Requested size: 278.83713pt x 171.04156pt.
- [26
-
- <C:/Users/Rasmus Prentow/Documents/Universitetet/6. semester/hg/presentation/input/rasmus/two11.pdf>])
-\tf@nav=\write6
-\tf@toc=\write7
-\tf@snm=\write8
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 78.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 78.
-
-("C:\Users\Rasmus Prentow\Documents\Universitetet\6. semester\hg\presentation\presentation.aux")
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 78.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 78.
-Package rerunfilecheck Info: File `presentation.out' has not changed.
-(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-
-
-LaTeX Font Warning: Size substitutions with differences
-(Font)              up to 1.0pt have occurred.
-
- ) 
+ 
 Here is how much of TeX's memory you used:
- 20901 strings out of 494045
- 395685 string characters out of 3148361
- 496250 words of memory out of 3000000
- 23640 multiletter control sequences out of 15000+200000
- 10569 words of font info for 39 fonts, out of 3000000 for 9000
+ 20409 strings out of 494045
+ 384822 string characters out of 3148361
+ 487250 words of memory out of 3000000
+ 23266 multiletter control sequences out of 15000+200000
+ 4852 words of font info for 18 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
- 49i,15n,59p,514b,656s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
-/amsfonts/cm/cmss12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss17.pfb><C:/Program Files/MiKTeX 
-2.9/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss9.pfb><C:/P
-rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on presentation.pdf (26 pages, 2189825 bytes).
-PDF statistics:
- 1282 PDF objects out of 1440 (max. 8388607)
- 58 named destinations out of 1000 (max. 500000)
- 119 words of extra memory for PDF output out of 10000 (max. 10000000)
-
+ 49i,4n,59p,514b,289s stack positions out of 5000i,500n,10000p,200000b,50000s
+!  ==> Fatal error occurred, no output PDF file produced!
