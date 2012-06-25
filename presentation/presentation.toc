@@ -1,0 +1,3 @@
+\beamer@endinputifotherversion {3.13pt}
+\select@language {english}
+\beamer@sectionintoc {2}{Systemkrav}{2}{0}{1}
