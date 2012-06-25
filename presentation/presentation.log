@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2012.3.13)  25 JUN 2012 11:46
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2012.4.3)  25 JUN 2012 11:13
 entering extended mode
 **presentation.tex
 (C:\Users\Mikael\Documents\AAU\SW6\Report\presentation\presentation.tex
@@ -1010,52 +1010,47 @@ LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <4> not available
 [1{C:/Users/Mikael/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
 
 ])
-(C:\Users\Mikael\Documents\AAU\SW6\Report\presentation\input/intro.tex [2
+("C:\Users\Rasmus Prentow\Documents\Universitetet\6. semester\hg\presentation\input/systemkrav.tex" [2
 
 ] [3
 
 ] [4
 
 ])
-(C:\Users\Mikael\Documents\AAU\SW6\Report\presentation\input/systemkrav.tex [5
+("C:\Users\Rasmus Prentow\Documents\Universitetet\6. semester\hg\presentation\input/analyse.tex"
 
 ])
-(C:\Users\Mikael\Documents\AAU\SW6\Report\presentation\udviklingsmetode.tex
-\R=\dimen226
 \L=\dimen227
 LaTeX Font Info:    Try loading font information for U+msa on input line 91.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 91.
+LaTeX Font Info:    Try loading font information for U+msb on input line 11.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
-Overfull \hbox (1.76346pt too wide) in paragraph at lines 91--91
+[3
  [] 
  []
 
-[6
+] <input/rasmus/Rasmus1.pdf, id=112, 845.0471pt x 597.51233pt>
 
-] [7
-
-] [8
 
 ] [9
 
 ]) (C:\Users\Mikael\Documents\AAU\SW6\Report\presentation\input/analyse.tex [10
 
 ]
-<input/rasmus/Rasmus1.pdf, id=339, 845.0471pt x 597.51233pt>
+<input/rasmus/Rasmus1.pdf, id=360, 845.0471pt x 597.51233pt>
 File: input/rasmus/Rasmus1.pdf Graphic file (type pdf)
  <use input/rasmus/Rasmus1.pdf>
-Package pdftex.def Info: input/rasmus/Rasmus1.pdf used on input line 21.
+Package pdftex.def Info: input/rasmus/Rasmus1.pdf used on input line 17.
 (pdftex.def)             Requested size: 278.83713pt x 197.16144pt.
  [11
 
- <C:/Users/Mikael/Documents/AAU/SW6/Report/presentation/input/rasmus/Rasmus1.pdf>] <input/rasmus/Rasmus2.pdf, id=413, 84
-5.0471pt x 597.51233pt>
+ <C:/Users/Mikael/Documents/AAU/SW6/Report/presentation/input/rasmus/Rasmus1.pdf>] <input/rasmus/Rasmus2.pdf, id=438, 84
+<input/rasmus/Rasmus2.pdf, id=185, 845.0471pt x 597.51233pt>
 File: input/rasmus/Rasmus2.pdf Graphic file (type pdf)
 
 <use input/rasmus/Rasmus2.pdf>
@@ -1064,132 +1059,131 @@ Package pdftex.def Info: input/rasmus/Rasmus2.pdf used on input line 21.
  [12
 
  <C:/Users/Mikael/Documents/AAU/SW6/Report/presentation/input/rasmus/Rasmus2.pdf>]
-<input/rasmus/Rasmus3.pdf, id=490, 845.0471pt x 597.51233pt>
+<input/rasmus/Rasmus3.pdf, id=260, 845.0471pt x 597.51233pt>
 File: input/rasmus/Rasmus3.pdf Graphic file (type pdf)
  <use input/rasmus/Rasmus3.pdf>
-Package pdftex.def Info: input/rasmus/Rasmus3.pdf used on input line 21.
+Package pdftex.def Info: input/rasmus/Rasmus3.pdf used on input line 25.
 (pdftex.def)             Requested size: 278.83713pt x 197.16144pt.
  [13
 
- <C:/Users/Mikael/Documents/AAU/SW6/Report/presentation/input/rasmus/Rasmus3.pdf>] <input/rasmus/Rasmus4.pdf, id=568, 84
-5.0471pt x 597.51233pt>
+ <C:/Users/Mikael/Documents/AAU/SW6/Report/presentation/input/rasmus/Rasmus3.pdf>] <input/rasmus/Rasmus4.pdf, id=597, 84
+<input/rasmus/Rasmus4.pdf, id=335, 845.0471pt x 597.51233pt>
 File: input/rasmus/Rasmus4.pdf Graphic file (type pdf)
 
 <use input/rasmus/Rasmus4.pdf>
-Package pdftex.def Info: input/rasmus/Rasmus4.pdf used on input line 21.
+Package pdftex.def Info: input/rasmus/Rasmus4.pdf used on input line 30.
 (pdftex.def)             Requested size: 278.83713pt x 197.16144pt.
  [14
 
  <C:/Users/Mikael/Documents/AAU/SW6/Report/presentation/input/rasmus/Rasmus4.pdf>]
-<input/rasmus/Rasmus5.pdf, id=655, 845.0471pt x 597.51233pt>
+<input/rasmus/Rasmus5.pdf, id=421, 845.0471pt x 597.51233pt>
 File: input/rasmus/Rasmus5.pdf Graphic file (type pdf)
  <use input/rasmus/Rasmus5.pdf>
-Package pdftex.def Info: input/rasmus/Rasmus5.pdf used on input line 21.
+Package pdftex.def Info: input/rasmus/Rasmus5.pdf used on input line 35.
 (pdftex.def)             Requested size: 278.83713pt x 197.16144pt.
  [15
 
- <C:/Users/Mikael/Documents/AAU/SW6/Report/presentation/input/rasmus/Rasmus5.pdf>] <input/rasmus/two1.pdf, id=751, 323.7
-0938pt x 124.21407pt>
-File: input/rasmus/two1.pdf Graphic file (type pdf)
+ <C:/Users/Mikael/Documents/AAU/SW6/Report/presentation/input/rasmus/Rasmus5.pdf>]
+<input/rasmus/two1.pdf, id=515, 323.70938pt x 124.21407pt>
+Package pdftex.def Info: input/rasmus/two1.pdf used on input line 34.
+ [9
 
-<use input/rasmus/two1.pdf>
-Package pdftex.def Info: input/rasmus/two1.pdf used on input line 33.
-(pdftex.def)             Requested size: 278.83713pt x 107.00204pt.
+LaTeX Warning: File `input/rasmus/Rasmus6.pdf' not found on input line 40.
+<input/rasmus/two2.pdf, id=554, 323.70938pt x 124.21407pt>
+Package pdftex.def Info: input/rasmus/two2.pdf used on input line 34.
+ [10
+
+<input/rasmus/two3.pdf, id=595, 508.14844pt x 124.21407pt>
+Package pdftex.def Info: input/rasmus/two3.pdf used on input line 34.
+ [11
+
+! Package pdftex.def Error: File `input/rasmus/Rasmus6.pdf' not found.
+<input/rasmus/two4.pdf, id=638, 687.31781pt x 384.6872pt>
+Package pdftex.def Info: input/rasmus/two4.pdf used on input line 34.
+ [12
+
+See the pdftex.def package documentation for explanation.
+<input/rasmus/two5.pdf, id=687, 687.31781pt x 507.39563pt>
+ ...                                              
+Package pdftex.def Info: input/rasmus/two5.pdf used on input line 34.
+ [13
+                                                  
+l.40 \end{frame}
+<input/rasmus/two6.pdf, id=745, 728.7225pt x 489.32813pt>
+Package pdftex.def Info: input/rasmus/two6.pdf used on input line 34.
+ [14
+                
+Using draft setting for this image.
+<input/rasmus/two7.pdf, id=794, 508.14844pt x 124.21407pt>
+If that doesn't work, type  X <return>  to quit.
+
+Package pdftex.def Info: input/rasmus/two7.pdf used on input line 34.
+Overfull \vbox (33.64055pt too high) detected at line 40
+ [15
+
+<input/rasmus/two8.pdf, id=837, 508.14844pt x 124.21407pt>
+Package pdftex.def Info: input/rasmus/two8.pdf used on input line 34.
  [16
 
- <C:/Users/Mikael/Documents/AAU/SW6/Report/presentation/input/rasmus/two1.pdf>]
-<input/rasmus/two2.pdf, id=792, 323.70938pt x 124.21407pt>
-File: input/rasmus/two2.pdf Graphic file (type pdf)
- <use input/rasmus/two2.pdf>
-Package pdftex.def Info: input/rasmus/two2.pdf used on input line 33.
-(pdftex.def)             Requested size: 278.83713pt x 107.00204pt.
+] [17
+<input/rasmus/two9.pdf, id=878, 508.14844pt x 254.45062pt>
+]
+
+Package pdftex.def Info: input/rasmus/two9.pdf used on input line 34.
+
  [17
+! Package pdftex.def Error: File `input/styring/4.png' not found.
 
- <C:/Users/Mikael/Documents/AAU/SW6/Report/presentation/input/rasmus/two2.pdf>] <input/rasmus/two3.pdf, id=835, 508.1484
-4pt x 124.21407pt>
-File: input/rasmus/two3.pdf Graphic file (type pdf)
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.53 \end{frame}
+                
+Using draft setting for this image.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
 
-<use input/rasmus/two3.pdf>
-Package pdftex.def Info: input/rasmus/two3.pdf used on input line 33.
-(pdftex.def)             Requested size: 278.83713pt x 68.1625pt.
+
+Overfull \vbox (33.64055pt too high) detected at line 53
+ []
+
+<input/rasmus/two10.pdf, id=921, 508.14844pt x 254.45062pt>
+Package pdftex.def Info: input/rasmus/two10.pdf used on input line 34.
  [18
 
- <C:/Users/Mikael/Documents/AAU/SW6/Report/presentation/input/rasmus/two3.pdf>]
-<input/rasmus/two4.pdf, id=880, 687.31781pt x 384.6872pt>
-File: input/rasmus/two4.pdf Graphic file (type pdf)
- <use input/rasmus/two4.pdf>
-Package pdftex.def Info: input/rasmus/two4.pdf used on input line 33.
-(pdftex.def)             Requested size: 278.83713pt x 156.0616pt.
+]
+<input/rasmus/two11.pdf, id=963, 527.72156pt x 323.70938pt>
+LaTeX Warning: File `input/styring/6.png' not found on input line 57.
+
+Package pdftex.def Info: input/rasmus/two11.pdf used on input line 34.
+! Package pdftex.def Error: File `input/styring/6.png' not found.
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.57 \end{frame}
+                
+Using draft setting for this image.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Overfull \vbox (33.64055pt too high) detected at line 57
+ []
+
  [19
 
- <C:/Users/Mikael/Documents/AAU/SW6/Report/presentation/input/rasmus/two4.pdf>] <input/rasmus/two5.pdf, id=932, 687.3178
-1pt x 507.39563pt>
-File: input/rasmus/two5.pdf Graphic file (type pdf)
-
-<use input/rasmus/two5.pdf>
-Package pdftex.def Info: input/rasmus/two5.pdf used on input line 33.
-(pdftex.def)             Requested size: 278.83713pt x 205.8425pt.
- [20
-
- <C:/Users/Mikael/Documents/AAU/SW6/Report/presentation/input/rasmus/two5.pdf>]
-<input/rasmus/two6.pdf, id=991, 728.7225pt x 489.32813pt>
-File: input/rasmus/two6.pdf Graphic file (type pdf)
- <use input/rasmus/two6.pdf>
-Package pdftex.def Info: input/rasmus/two6.pdf used on input line 33.
-(pdftex.def)             Requested size: 278.83713pt x 187.23085pt.
- [21
-
- <C:/Users/Mikael/Documents/AAU/SW6/Report/presentation/input/rasmus/two6.pdf>] <input/rasmus/two7.pdf, id=1042, 508.148
-44pt x 124.21407pt>
-File: input/rasmus/two7.pdf Graphic file (type pdf)
-
-<use input/rasmus/two7.pdf>
-Package pdftex.def Info: input/rasmus/two7.pdf used on input line 33.
-(pdftex.def)             Requested size: 278.83713pt x 68.1625pt.
- [22
-
- <C:/Users/Mikael/Documents/AAU/SW6/Report/presentation/input/rasmus/two7.pdf>]
-<input/rasmus/two8.pdf, id=1087, 508.14844pt x 124.21407pt>
-File: input/rasmus/two8.pdf Graphic file (type pdf)
- <use input/rasmus/two8.pdf>
-Package pdftex.def Info: input/rasmus/two8.pdf used on input line 33.
-(pdftex.def)             Requested size: 278.83713pt x 68.1625pt.
- [23
-
- <C:/Users/Mikael/Documents/AAU/SW6/Report/presentation/input/rasmus/two8.pdf>] <input/rasmus/two9.pdf, id=1130, 508.148
-44pt x 254.45062pt>
-File: input/rasmus/two9.pdf Graphic file (type pdf)
-
-<use input/rasmus/two9.pdf>
-Package pdftex.def Info: input/rasmus/two9.pdf used on input line 33.
-(pdftex.def)             Requested size: 278.83713pt x 139.6299pt.
- [24
-
- <C:/Users/Mikael/Documents/AAU/SW6/Report/presentation/input/rasmus/two9.pdf>]
-<input/rasmus/two10.pdf, id=1175, 508.14844pt x 254.45062pt>
-File: input/rasmus/two10.pdf Graphic file (type pdf)
- <use input/rasmus/two10.pdf>
-Package pdftex.def Info: input/rasmus/two10.pdf used on input line 33.
-(pdftex.def)             Requested size: 278.83713pt x 139.6299pt.
- [25
-
- <C:/Users/Mikael/Documents/AAU/SW6/Report/presentation/input/rasmus/two10.pdf>] <input/rasmus/two11.pdf, id=1220, 527.7
-2156pt x 323.70938pt>
-File: input/rasmus/two11.pdf Graphic file (type pdf)
-
-<use input/rasmus/two11.pdf>
-Package pdftex.def Info: input/rasmus/two11.pdf used on input line 33.
-(pdftex.def)             Requested size: 278.83713pt x 171.04156pt.
- [26
-
- <C:/Users/Mikael/Documents/AAU/SW6/Report/presentation/input/rasmus/two11.pdf>])
+])
 \tf@nav=\write6
 \tf@toc=\write7
 \tf@snm=\write8
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 76.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 76.
 
 
-Package movie15 Warning: @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-(movie15)                @@ Package `movie15' is obsolete and @@
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 76.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 76.
 (movie15)                @@ superseded by `media9'.           @@
 (movie15)                @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@.
 
@@ -1207,20 +1201,20 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 21239 strings out of 494045
- 398013 string characters out of 3148384
- 519875 words of memory out of 3000000
- 23976 multiletter control sequences out of 15000+200000
- 12173 words of font info for 45 fonts, out of 3000000 for 9000
+ 20885 strings out of 494045
+ 395446 string characters out of 3148361
+ 520109 words of memory out of 3000000
+ 23647 multiletter control sequences out of 15000+200000
+ 9650 words of font info for 36 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
- 49i,15n,59p,514b,732s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 49i,15n,64p,514b,656s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
 /amsfonts/cm/cmss12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss17.pfb><C:/Program Files/MiKTeX 
 2.9/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss9.pfb><C:/P
-rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on presentation.pdf (26 pages, 2195892 bytes).
+Output written on presentation.pdf (19 pages, 2117816 bytes).
+Output written on presentation.pdf (19 pages, 1228760 bytes).
 PDF statistics:
- 1300 PDF objects out of 1440 (max. 8388607)
- 58 named destinations out of 1000 (max. 500000)
- 129 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1034 PDF objects out of 1200 (max. 8388607)
+ 43 named destinations out of 1000 (max. 500000)
+ 74 words of extra memory for PDF output out of 10000 (max. 10000000)
 
