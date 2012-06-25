@@ -1,0 +1,92 @@
+
+%%%%%%% Created and devoleped by Rasmus Prentow
+%%%%%%%% V 1.392
+
+\ProvidesPackage{casecontrol}%
+\usepackage{ifthen}%
+% c = first letter capital
+% cap = all capital
+% i = italic
+% b = bold
+% ci = first letter cap and all italic.
+
+%%% EXAMPLE 
+%\newcommand{\ainterface}[1][]{\caseControl{A}{dmin Interface}{#1}{}}%
+%\ainterface
+\newcommand{\theWord}{some}
+\newcommand{\caseControl}[4]{%
+\ifthenelse{\equal{#3}{c}}% First letter capital
+{\renewcommand{\theWord}{\MakeUppercase{#1}#2}}% if #1 true
+{}% if #1 false
+\ifthenelse{\equal{#3}{ci}}% first letter cap and italic
+{\renewcommand{\theWord}{\textit{\MakeUppercase{#1}#2}}}% if #1 true
+{}% if #1 false
+\ifthenelse{\equal{#3}{ic}}%% first letter cap and italic
+{\renewcommand{\theWord}{\textit{\MakeUppercase{#1}#2}}}% if #1 true
+{}% if #1 false
+\ifthenelse{\equal{#3}{cb}}%% first letter cap and italic
+{\renewcommand{\theWord}{\textbf{\MakeUppercase{#1}#2}}}% if #1 true
+{}% if #1 false
+\ifthenelse{\equal{#3}{bc}}%% first letter cap and italic
+{\renewcommand{\theWord}{\textbf{\MakeUppercase{#1}#2}}}% if #1 true
+{}% if #1 false
+\ifthenelse{\equal{#3}{cbi}}%% first letter cap and italic
+{\renewcommand{\theWord}{\textbf{\MakeUppercase{#1}#2}}}% if #1 true
+{}% if #1 false
+\ifthenelse{\equal{#3}{bci}}%% first letter cap and italic
+{\renewcommand{\theWord}{\textbf{\MakeUppercase{#1}#2}}}% if #1 true
+{}% if #1 false
+\ifthenelse{\equal{#3}{icb}}%% first letter cap and italic
+{\renewcommand{\theWord}{\textbf{\MakeUppercase{#1}#2}}}% if #1 true
+{}% if #1 false
+\ifthenelse{\equal{#3}{ibc}}%% first letter cap and italic
+{\renewcommand{\theWord}{\textbf{\MakeUppercase{#1}#2}}}% if #1 true
+{}% if #1 false
+\ifthenelse{\equal{#3}{cib}}%% first letter cap and italic
+{\renewcommand{\theWord}{\textbf{\MakeUppercase{#1}#2}}}% if #1 true
+{}% if #1 false
+\ifthenelse{\equal{#3}{bic}}%% first letter cap and italic
+{\renewcommand{\theWord}{\textbf{\MakeUppercase{#1}#2}}}% if #1 true
+{}% if #1 false
+\ifthenelse{\equal{#3}{u}}%% first letter cap and italic
+{\renewcommand{\theWord}{\textbf{\MakeUppercase{#1}#2}}}% if #1 true
+{}% if #1 false
+\ifthenelse{\equal{#3}{ub}}%% first letter cap and italic
+{\renewcommand{\theWord}{\textbf{\MakeUppercase{#1}#2}}}% if #1 true
+{}% if #1 false
+\ifthenelse{\equal{#3}{bu}}%% first letter cap and italic
+{\renewcommand{\theWord}{\textbf{\MakeUppercase{#1}#2}}}% if #1 true
+{}% if #1 false
+\ifthenelse{\equal{#3}{biu}}%% first letter cap and italic
+{\renewcommand{\theWord}{\textbf{\MakeUppercase{#1}#2}}}% if #1 true
+{}% if #1 false
+\ifthenelse{\equal{#3}{i}}%% italic
+{\renewcommand{\theWord}{\textit{#1#2}}}% if #1 true
+{}% if #1 false
+\ifthenelse{\equal{#3}{b}}%% bold
+{\renewcommand{\theWord}{\textbf{#1#2}}}% if #1 true
+{}% if #1 false
+\ifthenelse{\equal{#3}{cap}}% all cap
+{\renewcommand{\theWord}{\MakeUppercase{#1#2}}}% if #1 true
+{}% if #1 false
+\ifthenelse{\isempty{#3}}% %if nothing is stated 
+{\renewcommand{\theWord}{#1#2}}% if #1 true
+{}% if #1 false 
+\ifthenelse{\equal{\theWord}{some}}% % Double check actually
+{\renewcommand{\theWord}{#1#2}}% if #1 true
+{}% if #1 false  
+%%%%%% Standard definitions of words %%%%%%
+\ifthenelse{\equal{#4}{i}}% 
+{\textit{\theWord}}% if #1 true  % Print it italic
+{}% if #1 false 
+\ifthenelse{\equal{#4}{b}}% Print it in bold
+{\textbf{\theWord}}% if #1 true
+{}% if #1 false 
+\ifthenelse{\equal{#4}{u}}% print it underlinde (not working yet)
+{{\theWord}}% if #1 true
+{}% if #1 false 
+\ifthenelse{\isempty{#4}}%  If there is nothing stated here just print the shit. 
+{\theWord}% if #1 true
+{}% if #1 false
+\renewcommand{\theWord}{some}%
+}%
