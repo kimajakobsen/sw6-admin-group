@@ -17,8 +17,8 @@ Class=LaTeXView
 Document=presentation.tex
 
 [Frame0_View0,0]
-TopLine=52
-Cursor=1860
+TopLine=53
+Cursor=1742
 
 [Frame1]
 Flags=0
@@ -35,7 +35,7 @@ Class=LaTeXView
 Document=input\analyse.tex
 
 [Frame1_View0,0]
-TopLine=9
+TopLine=7
 Cursor=343
 
 [Frame2]
