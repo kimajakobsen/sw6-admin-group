@@ -9,49 +9,29 @@
 	\item \topictwo
 \end{itemize}
 \end{frame}
-
-\subsection*{\topicone}
-
 \begin{frame}{\topicone} 
 \includegraphics[width=\columnwidth]{input/rasmus/Rasmus1.pdf}
 \end{frame}
-
 \begin{frame}{\topicone} 
 \includegraphics[width=\columnwidth]{input/rasmus/Rasmus2.pdf}
 \end{frame}
-
 \begin{frame}{\topicone} 
 \includegraphics[width=\columnwidth]{input/rasmus/Rasmus3.pdf}
 \end{frame}
-
-
 \begin{frame}{\topicone} 
 \includegraphics[width=\columnwidth]{input/rasmus/Rasmus4.pdf}
 \end{frame}
-
-
 \begin{frame}{\topicone} 
 \includegraphics[width=\columnwidth]{input/rasmus/Rasmus5.pdf}
 \end{frame}
+\def\freqlist{1,2,3,4,5,6,6a,7,8,9,10,11}
 
-
-\begin{frame}{\topicone} 
-\includegraphics[width=\columnwidth]{input/rasmus/Rasmus6.pdf}
+\foreach \freq in \freqlist 
+{
+\begin{frame}{\topictwo} 
+\begin{figure}
+\includegraphics[width=\columnwidth]{input/rasmus/two\freq.pdf}
+\end{figure}
 \end{frame}
 
-
-
-
-\subsection*{Rutebestemmelse}
-
-\begin{frame}{Rutebestemmelse} %sætte hjulene i rette position
-
-\end{frame}
-
-\begin{frame}{Rutebestemmelse} 
-\includegraphics[width=\columnwidth]{input/styring/4.png}
-\end{frame}
-
-\begin{frame}{Rutebestemmelse} %billede s 17
-\includegraphics[width=\columnwidth]{input/styring/6.png}
-\end{frame}
+} 
