@@ -1,4 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?><!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_1.dtd'><nta><declaration>// Place global declarations here.
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_1.dtd'>
+<nta>
+	<declaration>// Place global declarations here.
 
 chan adultOn;
 chan childOn;
@@ -141,7 +144,10 @@ bool verify()
 
 
 
-</declaration><template><name x="5" y="5">Boat</name><declaration>// Place local declarations here.
+</declaration>
+	<template>
+		<name x="5" y="5">Boat</name>
+		<declaration>// Place local declarations here.
 const int MAX_SAIL_TIME = 20;
 
 clock x;
@@ -157,10 +163,120 @@ void set_sailtime (int adult_sailtime)
 
 }
 
-</declaration><location id="id0" x="-336" y="112"><name x="-360" y="128">Arrived</name><urgent/></location><location id="id1" x="-336" y="-96"><name x="-376" y="-112">Still</name></location><location id="id2" x="128" y="112"><name x="112" y="128">Sailing</name><label kind="invariant" x="96" y="144">x &lt;= sail_time</label></location><location id="id3" x="312" y="8"><name x="336" y="-8">TwoPersons</name><urgent/></location><location id="id4" x="128" y="-96"><name x="96" y="-128">OnePerson</name><urgent/></location><init ref="id1"/><transition><source ref="id0"/><target ref="id1"/><label kind="guard" x="-328" y="-8">verify()</label><label kind="assignment" x="-328" y="-24">sail_time := MAX_SAIL_TIME</label></transition><transition><source ref="id1"/><target ref="id4"/><label kind="synchronisation" x="-112" y="-88">adultOn?</label><label kind="assignment" x="-112" y="-72">set_sailtime(temp_sailtime), 
-temp_sailtime := 0</label></transition><transition><source ref="id2"/><target ref="id0"/><label kind="guard" x="-136" y="56">x == sail_time</label><label kind="synchronisation" x="-136" y="40">allDisembark!</label><label kind="assignment" x="-136" y="72">boatL := 1-boatL,
-x = 0</label></transition><transition><source ref="id3"/><target ref="id2"/><label kind="guard" x="240" y="48">verify()</label><label kind="assignment" x="240" y="64">x = 0</label></transition><transition><source ref="id4"/><target ref="id2"/><label kind="guard" x="80" y="-32">verify()</label><label kind="assignment" x="80" y="-16">x = 0</label></transition><transition><source ref="id4"/><target ref="id3"/><label kind="synchronisation" x="336" y="-112">adultOn?</label><label kind="assignment" x="336" y="-96">set_sailtime(temp_sailtime), 
-temp_sailtime := 0</label><nail x="312" y="-96"/></transition><transition><source ref="id4"/><target ref="id3"/><label kind="synchronisation" x="208" y="-72">childOn?</label></transition></template><template><name>Person</name><parameter>chan &amp;on, const personType type, const int sail_time</parameter><declaration>int[0,1] L;</declaration><location id="id5" x="-536" y="32"><name x="-560" y="48">ToLand</name><committed/></location><location id="id6" x="-536" y="-176"><name x="-560" y="-208">ToBoat</name><committed/></location><location id="id7" x="-424" y="-72"><name x="-408" y="-80">OnBoat</name></location><location id="id8" x="-640" y="-72"><name x="-704" y="-80">OnLand</name></location><init ref="id8"/><transition><source ref="id5"/><target ref="id8"/><label kind="synchronisation" x="-672" y="-8">offBoat[type]!</label><label kind="assignment" x="-672" y="-24">L:= 1- L</label></transition><transition><source ref="id8"/><target ref="id6"/><label kind="guard" x="-752" y="-168">L == boatL</label><label kind="synchronisation" x="-752" y="-184">on!</label><label kind="assignment" x="-752" y="-152">temp_sailtime := sail_time</label></transition><transition><source ref="id6"/><target ref="id7"/><label kind="synchronisation" x="-480" y="-152">onBoat[type]!</label></transition><transition><source ref="id7"/><target ref="id5"/><label kind="synchronisation" x="-472" y="-32">allDisembark?</label></transition></template><template><name>Observer</name><declaration>void sort(personType &amp;people[NUMBER_OF_PERSONS])
+</declaration>
+		<location id="id0" x="-336" y="112">
+			<name x="-360" y="128">Arrived</name>
+			<urgent/>
+		</location>
+		<location id="id1" x="-336" y="-96">
+			<name x="-376" y="-112">Still</name>
+		</location>
+		<location id="id2" x="128" y="112">
+			<name x="112" y="128">Sailing</name>
+			<label kind="invariant" x="96" y="144">x &lt;= sail_time</label>
+		</location>
+		<location id="id3" x="312" y="8">
+			<name x="336" y="-8">TwoPersons</name>
+			<urgent/>
+		</location>
+		<location id="id4" x="128" y="-96">
+			<name x="96" y="-128">OnePerson</name>
+			<urgent/>
+		</location>
+		<init ref="id1"/>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id1"/>
+			<label kind="guard" x="-328" y="-8">verify()</label>
+			<label kind="assignment" x="-328" y="-24">sail_time := MAX_SAIL_TIME</label>
+		</transition>
+		<transition>
+			<source ref="id1"/>
+			<target ref="id4"/>
+			<label kind="synchronisation" x="-112" y="-88">adultOn?</label>
+			<label kind="assignment" x="-112" y="-72">set_sailtime(temp_sailtime), 
+temp_sailtime := 0</label>
+		</transition>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id0"/>
+			<label kind="guard" x="-136" y="56">x == sail_time</label>
+			<label kind="synchronisation" x="-136" y="40">allDisembark!</label>
+			<label kind="assignment" x="-136" y="72">boatL := 1-boatL,
+x = 0</label>
+		</transition>
+		<transition>
+			<source ref="id3"/>
+			<target ref="id2"/>
+			<label kind="guard" x="240" y="48">verify()</label>
+			<label kind="assignment" x="240" y="64">x = 0</label>
+		</transition>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id2"/>
+			<label kind="guard" x="80" y="-32">verify()</label>
+			<label kind="assignment" x="80" y="-16">x = 0</label>
+		</transition>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id3"/>
+			<label kind="synchronisation" x="336" y="-112">adultOn?</label>
+			<label kind="assignment" x="336" y="-96">set_sailtime(temp_sailtime), 
+temp_sailtime := 0</label>
+			<nail x="312" y="-96"/>
+		</transition>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id3"/>
+			<label kind="synchronisation" x="208" y="-72">childOn?</label>
+		</transition>
+	</template>
+	<template>
+		<name>Person</name>
+		<parameter>chan &amp;on, const personType type, const int sail_time</parameter>
+		<declaration>int[0,1] L;</declaration>
+		<location id="id5" x="-536" y="32">
+			<name x="-560" y="48">ToLand</name>
+			<committed/>
+		</location>
+		<location id="id6" x="-536" y="-176">
+			<name x="-560" y="-208">ToBoat</name>
+			<committed/>
+		</location>
+		<location id="id7" x="-424" y="-72">
+			<name x="-408" y="-80">OnBoat</name>
+		</location>
+		<location id="id8" x="-640" y="-72">
+			<name x="-704" y="-80">OnLand</name>
+		</location>
+		<init ref="id8"/>
+		<transition>
+			<source ref="id5"/>
+			<target ref="id8"/>
+			<label kind="synchronisation" x="-672" y="-8">offBoat[type]!</label>
+			<label kind="assignment" x="-672" y="-24">L:= 1- L</label>
+		</transition>
+		<transition>
+			<source ref="id8"/>
+			<target ref="id6"/>
+			<label kind="guard" x="-752" y="-168">L == boatL</label>
+			<label kind="synchronisation" x="-752" y="-184">on!</label>
+			<label kind="assignment" x="-752" y="-152">temp_sailtime := sail_time</label>
+		</transition>
+		<transition>
+			<source ref="id6"/>
+			<target ref="id7"/>
+			<label kind="synchronisation" x="-480" y="-152">onBoat[type]!</label>
+		</transition>
+		<transition>
+			<source ref="id7"/>
+			<target ref="id5"/>
+			<label kind="synchronisation" x="-472" y="-32">allDisembark?</label>
+		</transition>
+	</template>
+	<template>
+		<name>Observer</name>
+		<declaration>void sort(personType &amp;people[NUMBER_OF_PERSONS])
 {
 	int i;
 	for(i = 0; i &lt; NUMBER_OF_PERSONS; i++)
@@ -235,7 +351,31 @@ void updateOff(personType person)
 		remove(boat,person);
 		add(right,person);
 	}
-}</declaration><location id="id9" x="-288" y="0"><name x="-312" y="-40">Ready</name></location><init ref="id9"/><transition><source ref="id9"/><target ref="id9"/><label kind="select" x="-232" y="64">e : personType</label><label kind="synchronisation" x="-176" y="-8">offBoat[e]?</label><label kind="assignment" x="-248" y="-88">updateOff(e)</label><nail x="-184" y="48"/><nail x="-184" y="-64"/></transition><transition><source ref="id9"/><target ref="id9"/><label kind="select" x="-448" y="-88">e : personType</label><label kind="synchronisation" x="-464" y="-16">onBoat[e]?</label><label kind="assignment" x="-424" y="56">updateOn(e)</label><nail x="-392" y="-64"/><nail x="-392" y="48"/></transition></template><system>// Place template instantiations here.
+}</declaration>
+		<location id="id9" x="-288" y="0">
+			<name x="-312" y="-40">Ready</name>
+		</location>
+		<init ref="id9"/>
+		<transition>
+			<source ref="id9"/>
+			<target ref="id9"/>
+			<label kind="select" x="-232" y="64">e : personType</label>
+			<label kind="synchronisation" x="-176" y="-8">offBoat[e]?</label>
+			<label kind="assignment" x="-248" y="-88">updateOff(e)</label>
+			<nail x="-184" y="48"/>
+			<nail x="-184" y="-64"/>
+		</transition>
+		<transition>
+			<source ref="id9"/>
+			<target ref="id9"/>
+			<label kind="select" x="-448" y="-88">e : personType</label>
+			<label kind="synchronisation" x="-464" y="-16">onBoat[e]?</label>
+			<label kind="assignment" x="-424" y="56">updateOn(e)</label>
+			<nail x="-392" y="-64"/>
+			<nail x="-392" y="48"/>
+		</transition>
+	</template>
+	<system>// Place template instantiations here.
 int i;
 
 Dad = Person(adultOn,1,10);
@@ -256,4 +396,5 @@ Thief2 = Person(childOn,4,0);
 
 // List one or more processes to be composed into a system.
 
-system Boat,Dad,Mom,Police1,Police2,Boy1,Boy2,Boy3,Boy4,Girl1,Girl2,Girl3,Girl4,Thief1,Thief2,Observer;</system></nta>
+system Boat,Dad,Mom,Police1,Police2,Boy1,Boy2,Boy3,Boy4,Girl1,Girl2,Girl3,Girl4,Thief1,Thief2,Observer;</system>
+</nta>
