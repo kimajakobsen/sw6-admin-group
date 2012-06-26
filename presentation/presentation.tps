@@ -17,8 +17,8 @@ Class=LaTeXView
 Document=input\implementation.tex
 
 [Frame0_View0,0]
-TopLine=29
-Cursor=725
+TopLine=11
+Cursor=621
 
 [Frame1]
 Flags=0
@@ -35,8 +35,8 @@ Class=LaTeXView
 Document=input\analyse.tex
 
 [Frame1_View0,0]
-TopLine=0
-Cursor=307
+TopLine=59
+Cursor=1664
 
 [Frame2]
 Flags=0
@@ -54,7 +54,7 @@ Document=input\architecture.tex
 
 [Frame2_View0,0]
 TopLine=0
-Cursor=276
+Cursor=0
 
 [Frame3]
 Flags=0
