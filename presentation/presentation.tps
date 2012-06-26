@@ -11,14 +11,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=839
-NormalPos.bottom=401
+NormalPos.right=1562
+NormalPos.bottom=615
 Class=LaTeXView
-Document=input\implementation.tex
+Document=input\frontpage.tex
 
 [Frame0_View0,0]
-TopLine=11
-Cursor=621
+TopLine=29
+Cursor=725
 
 [Frame1]
 Flags=0
@@ -29,14 +29,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=839
-NormalPos.bottom=401
+NormalPos.right=1562
+NormalPos.bottom=615
 Class=LaTeXView
-Document=input\analyse.tex
+Document=input\intro.tex
 
 [Frame1_View0,0]
 TopLine=59
-Cursor=1664
+Cursor=307
 
 [Frame2]
 Flags=0
@@ -47,14 +47,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=839
-NormalPos.bottom=401
+NormalPos.right=1562
+NormalPos.bottom=615
 Class=LaTeXView
 Document=input\architecture.tex
 
 [Frame2_View0,0]
 TopLine=0
-Cursor=0
+Cursor=276
 
 [Frame3]
 Flags=0
@@ -65,14 +65,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=839
-NormalPos.bottom=401
+NormalPos.right=1562
+NormalPos.bottom=615
 Class=LaTeXView
-Document=input\frontpage.tex
+Document=presentation.tex
 
 [Frame3_View0,0]
 TopLine=0
-Cursor=0
+Cursor=438
 
 [SessionInfo]
 FrameCount=4
