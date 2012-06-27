@@ -1,0 +1,18 @@
+\subsection{Ensuring Permissions}
+\label{sec:projectgrouproommanagerights}
+Permissions can generally be divided in two types; read and write. 
+Read permissions gives you the ability to view the content of the virtual group room while write lets you change the content. 
+If a user has write permission he must also have read permissions, otherwise he cannot see the page he attempts to edit. 
+To ensure the user attempting to enter a virtual group room has permission to enter the function \fu{has\_projectgroup\_read\_permission} is used. 
+%It checks if the user is a member of the group. 
+It checks if the user is an administrator or is a member of the project group. 
+The administrator check is necessary since an administrator should be able to see any project group even if he is not a member of the project group. 
+
+The function \fu{has\_projectgroup\_write\_permission} checks that the user has write permissions and uses the read permission function to check that the user has read permission.
+If he does not have read permission he should not be able to edit the virtual group room. 
+In the current implementation the write permissions function does not make extra checks to permissions since the permission levels for read and write are equivalent.
+
+Because the functions are separate it is possible to change them individually later.
+%Making both function gives the ability to later change this.
+An example is that an end users requires that supervisors should only have read permissions. Then the change will only be in one place. 
+Both functions can be found in the project group library.
