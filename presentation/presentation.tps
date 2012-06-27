@@ -11,14 +11,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1562
-NormalPos.bottom=615
+NormalPos.right=1339
+NormalPos.bottom=477
 Class=LaTeXView
-Document=input\frontpage.tex
+Document=fremtidigtarbejde.tex
 
 [Frame0_View0,0]
-TopLine=29
-Cursor=725
+TopLine=0
+Cursor=371
 
 [Frame1]
 Flags=0
@@ -29,14 +29,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1562
-NormalPos.bottom=615
+NormalPos.right=1339
+NormalPos.bottom=477
 Class=LaTeXView
-Document=input\intro.tex
+Document=udviklingsmetode.tex
 
 [Frame1_View0,0]
-TopLine=59
-Cursor=307
+TopLine=0
+Cursor=0
 
 [Frame2]
 Flags=0
@@ -47,14 +47,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1562
-NormalPos.bottom=615
+NormalPos.right=1339
+NormalPos.bottom=477
 Class=LaTeXView
-Document=input\architecture.tex
+Document=presentation.tex
 
 [Frame2_View0,0]
 TopLine=0
-Cursor=276
+Cursor=0
 
 [Frame3]
 Flags=0
@@ -65,16 +65,19 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1562
-NormalPos.bottom=615
+NormalPos.right=1339
+NormalPos.bottom=477
 Class=LaTeXView
-Document=presentation.tex
+Document=input\frontpage.tex
 
 [Frame3_View0,0]
 TopLine=0
-Cursor=438
+Cursor=165
 
 [SessionInfo]
 FrameCount=4
 ActiveFrame=0
+
+[Bookmarks]
+udviklingsmetode.tex=89 
 
