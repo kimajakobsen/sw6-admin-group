@@ -27,7 +27,8 @@
 \definecolor{gray45}{gray}{.45}
 \definecolor{darkgreen}{rgb}{0.0,0.7,0.0}
 
-\lstdefinestyle{sourceCode}
+
+\lstdefinestyle{phpCode}
 { 
 	numbers=left,
 	numbersep=5pt, 
@@ -43,10 +44,10 @@
 	tabsize=4,
 	numberbychapter=true,
 	basicstyle=\ttfamily\footnotesize,
-	language=C,
+	language=PHP,
 	breaklines=true,
 	showstringspaces=false,
-	emph=[1]{endregion,region,get,set,enum},%%%%%%%%%%% Add new keywords here
+	emph=[1]{class,extends,new,return,function},%%%%%%%%%%% Add new keywords here
 	%emph=[2]{Tag,Problem,Person,List,NotSupportedException,TestMethod,ProblemSearch,Assert,
 	%EntityCollection,Department,IEnumerable,TimeSpan,DateTime},%%Classes
 	emphstyle=[1]{\color[rgb]{0,0,1}},
@@ -76,10 +77,13 @@
 	
 	\input{udviklingsmetode}
 
-  \input{input/analyse}
 	
 	
 	\input{input/architecture}	%\input{input/implementation}
+	\input{input/analyse}
+	\input{input/realimple}
+  
+	
 	\input{input/vurdering}
 	\input{fremtidigtarbejde}
 \end{document}
